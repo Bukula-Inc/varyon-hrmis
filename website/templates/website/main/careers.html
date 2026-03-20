@@ -1,0 +1,18 @@
+{% extends "./layout.html" %}
+{% block title %}
+    Careers
+{% endblock title %}
+{% block content %}
+<div class="w-full min-h-[100vh] bg-gray-100 pb-20">
+    
+    <div id="opportunities-wrapper" class="w-[80%] mx-auto pt-[80px] min-h-[80vh] mb-10">
+        {% include "./components/careers/job_opening.html" %}
+    </div>
+    <div id="opportunity-info" class="hidden w-[80%] mx-auto pt-[80px] min-h-[80vh] mb-10">
+        {% include "./components/careers/job_info.html" %}
+    </div>
+    <div id="application-form" class="w-[80%] mx-auto pt-[80px] min-h-[80vh] hidden mb-10">
+        {% include "./components/careers/job_application.html" %}
+    </div>
+</div>
+{% endblock content %}

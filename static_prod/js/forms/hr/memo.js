@@ -1,0 +1,161 @@
+export default {
+    setup: {
+        new_form_id: 'new-memo',
+        info_form_id: 'memo-info',
+        title: "Memo",
+        layout_columns: 3,
+        model: "Memo"
+    },
+    fields: [
+        {
+            id: "name",
+            fieldlabel: "Memo Name",
+            fieldname: "name",
+            fieldtype: "text",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: true,
+        },
+        {
+            id: "to",
+            fieldlabel: "To",
+            fieldname: "to",
+            fieldtype: "select",
+            options: ["All", "Individual", "Department", "Designation", "Role"],
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+            default: "All"
+        },
+
+
+        {
+            id: "dept",
+            fieldlabel: "Department / Unit",
+            fieldname: "dept",
+            fieldtype: "link",
+            model: "Department",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+            displayon: ["to", "Department"]
+        },
+        {
+            id: "desig",
+            fieldlabel: "Job Title",
+            fieldname: "desig",
+            fieldtype: "link",
+            model: "Designation",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+            displayon: ["to", "Designation"]
+        },
+        {
+            id: "role",
+            fieldlabel: "Select Role",
+            fieldname: "role",
+            fieldtype: "link",
+            model: "Role",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+            displayon: ["to", "Role"]
+        },
+        {
+            id: "ind",
+            fieldlabel: "Select Individual",
+            fieldname: "ind",
+            fieldtype: "link",
+            model: "Employee",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+            displayon: ["to", "Individual"]
+        },
+               
+        {
+            id: "from",
+            fieldlabel: "From",
+            fieldname: "sender",
+            fieldtype: "link",
+            model: "Lite_User",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: true,
+            default: lite?.user?.name,
+        },
+        {
+            id: "date",
+            fieldlabel: "Date",
+            fieldname: "date",
+            fieldtype: "date",
+            columns: 1,
+            required: false,
+            hidden: false,
+            default: lite.utils.today()
+        },
+    
+       
+        {
+            id: "subject",
+            fieldlabel: "Subject",
+            fieldname: "subject",
+            fieldtype: "text",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+        },
+        {
+            id: "attachment",
+            fieldlabel: "Attachment",
+            fieldname: "attachment",
+            fieldtype: "file",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+        },
+        {
+            id: "memo-id",
+            fieldlabel: "",
+            fieldname: "si",
+            fieldtype: "section-break",
+            addborder: true,
+            columns: 1,
+            required: false,
+            hidden: false,
+        },
+
+        {
+            id: "body",
+            fieldlabel: "Body",
+            fieldname: "body",
+            fieldtype: "rich",
+            height: 300,
+            columns: 3,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+        },
+    
+        {
+            id: "salary-info",
+            fieldlabel: "",
+            fieldname: "si",
+            fieldtype: "section-break",
+            addborder: false,
+            columns: 1,
+            required: false,
+            hidden: false,
+        },
+    ],
+}

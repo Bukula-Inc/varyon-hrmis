@@ -1,0 +1,9 @@
+priority = {
+    "model":"Priority",
+    "data":[
+        {"name":"Urgent"},
+        {"name":"High"},
+        {"name":"Medium"},
+        {"name":"Low"},
+    ]
+}

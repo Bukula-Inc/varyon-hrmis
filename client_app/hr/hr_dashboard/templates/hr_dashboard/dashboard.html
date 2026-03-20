@@ -1,0 +1,46 @@
+{% extends "../client_app/layout.html" %}
+{% block title %} Dashboard {% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[75%] gap-7">
+        <!-- tab list view for the  -->
+        <div class="w-full col-span-3">
+            <!-- BEGIN: top action -->
+            {% include "./components/controller.html" %}
+            <!-- END: top action -->
+
+            <!-- main content -->
+            <div class="main-content-wrapper w-full">
+                <div class="content-groups dashboard-view-content w-full">
+                    <!-- top content -->
+                    <div class="top-stats w-full h-[220px] grid grid-cols-3 gap-3">
+                        {% include "./components/employee_demographics.html" %}
+                        {% include "./components/employee_by_gender.html" %}
+                    </div>
+                    <!-- top content -->
+                    <div class="w-full h-[340px] grid grid-cols-2 gap-4 mt-12">
+                        <div class="w-full h-full grid grid-rows-3 gap-y-5">
+                            {% include "./components/monthly_attendancy.html" %}
+                            {% include "./components/employee_summary.html" %}
+                        </div>
+                        <div class="w-full grid grid-cols-2 gap-x-3">
+                            {% include "./components/leave_summary.html" %}
+                            {% include "./components/disciplinary.html" %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- main content -->
+        </div>
+        <!-- side stats -->
+        <div class="w-full h-full grid gap-y-5 grid-rows-2">
+            {% include "./components/employee_by_department.html" %}
+            {% include "./components/shortcuts.html" %}
+        </div>
+        <!-- side stats -->
+    </div>
+
+
+</div>
+{% endblock content %}

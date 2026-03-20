@@ -1,0 +1,66 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Dashboard
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[99%] gap-7">
+        <!-- tab list view for the  -->
+        <div class="w-full max-h-[80vh] mobile-col-4 col-span-4">
+           {% include "./components/controller.html" %}
+            <!-- main content -->
+            <div class="main-content-wrapper h-[68%] w-full">
+                <div class="h-full w-full">
+                    <div class="h-[60%] w-full grid grid-cols-12 gap-4">
+                        <div class="col-span-6">
+                            {% include './components/top_performing.html' %}
+                        </div>
+                        <div class="col-span-6">
+                            <div class="h-full w-full grid grid-cols-2 gap-4">
+                            <div class="h-full">
+                                {% include './components/overview.html' %}
+                            </div>
+                            <div class="h-full">
+                                {% include './components/work_plan_task_summary.html' %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="h-[55%] w-full mt-7">
+                        <div class="h-full w-full grid grid-cols-12 gap-4">
+                            <div class="col-span-6 h-full">
+                                <div class="h-full w-full grid grid-cols-2 gap-4">
+                                    <div class="h-full">
+                                        {% include './components/employee_status.html' %}
+                                    </div>
+                                    <div class="h-full">
+                                        {% include './components/appraisal_summary.html' %}
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="col-span-6 h-full">
+                                <div class="h-full w-full">
+                                    <div class="-2 w-full h-full intro-y">
+                                        <div class="box w-full h-full p-2 relative">
+                                            <div class="flex items-center justify-between w-full h-[10%] border-b">
+                                                <span class="font-bold w-full mb-3">Overall Performance</span>
+                                            </div>
+                                            <div class="h-[90%] w-full">
+                                                {% include './components/table.html' %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

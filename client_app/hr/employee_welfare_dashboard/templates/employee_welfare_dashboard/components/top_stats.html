@@ -1,0 +1,129 @@
+<div class="top-stats w-full h-full grid grid-cols-3 mobile-grid-2 gap-5 flex justify-between">
+    <div class=" box w-full h-full intro-y col-span-2 row-span-2">
+   <div class="w-full h-full flex flex-col p-6 relative dashboard-content bg-gray-50">
+    <!-- Header Section -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4 border borde-default border-dotted">
+        <div class="flex items-center space-x-4">
+            <div class="p-3 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-2 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-2xl font-bold text-gray-900">Employee Welfare</h1>
+                <p class="text-sm text-gray-500">Training & Wellbeing Insights Dashboard</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <div class="px-3 py-1.5 rounded-full bg-default/10 text-default text-sm font-medium flex items-center">
+                <span class="w-2 h-2 rounded-full bg-default/10 mr-2"></span>
+                This Year
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+        <!-- Total Programs Card -->
+        <div class="bg-white p-5 rounded-xl border border-default">
+            <div class="flex justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500 mb-1">Total Programs</p>
+                    <p class="text-2xl font-bold text-gray-900" id="total_welfares">0</p>
+                </div>
+                <div class="p-2 rounded-lg bg-indigo-50 text-indigo-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Approved Card -->
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-default hover:shadow-md transition-all">
+            <div class="flex justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500 mb-1">Approved</p>
+                    <p class="text-2xl font-bold text-gray-900" id="approved_welfares">0</p>
+                </div>
+                <div class="p-2 rounded-lg bg-green-50 text-green-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="mt-2 pt-2 border-t border-default">
+                <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                    <div class="h-full bg-green-500 rounded-full" style="width: 78%"></div>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">0% approval rate</p>
+            </div>
+        </div>
+
+        <!-- Rejected Card -->
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-default hover:shadow-md transition-all">
+            <div class="flex justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500 mb-1">Rejected</p>
+                    <p class="text-2xl font-bold text-gray-900" id="rejected_welfares">0</p>
+                </div>
+                <div class="p-2 rounded-lg bg-red-50 text-red-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="mt-2 pt-2 border-t border-default">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-medium px-2 py-1 rounded-full bg-red-50 text-red-700">
+                        0% rejection rate
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Participation Card -->
+        <div class="bg-white p-5 rounded-xl shadow-sm border border-default hover:shadow-md transition-all">
+            <div class="flex justify-between">
+                <div>
+                    <p class="text-sm font-medium text-gray-500 mb-1">Participation</p>
+                    <p class="text-2xl font-bold text-gray-900" id="participation_rate">0%</p>
+                </div>
+                <div class="p-2 rounded-lg bg-blue-50 text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="mt-2 pt-2 border-t border-default">
+                <div class="flex items-center">
+                    <div class="w-full mr-3">
+                        <div class="flex justify-between text-xs text-gray-500 mb-1">
+                            <span>Current</span>
+                            <span>Target: 0%</span>
+                        </div>
+                        <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+    <div class=" box w-full h-full intro-y row-span-2">
+        <div class="w-full h-full flex items-center justify-center flex-col p-3 relative dashboard-content">
+            <h3 class="font-semibold">On Going Training Programs</h3>
+
+            <div class="" id="training_program_participation">
+
+            </div>
+           
+        </div>
+    </div>
+   
+</div>

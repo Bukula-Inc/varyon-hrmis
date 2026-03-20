@@ -1,0 +1,125 @@
+import { wipe_all_transactions } from "../../listviews/core/functions.js"
+export default {
+    setup: {
+        model: 'Amendments Report',
+        title: "Amendments Report",
+        report_type: "script",
+        include_opening: true,
+        include_closing: true,
+        allow_print: true,
+        allow_download_csv: true,
+        allow_download_excel: true,
+        allow_download_pdf: true,
+        // has_dynamic_columns: true,
+    },
+    filters: [
+        {
+            id: "employee",
+            column_title: "Employee",
+            fieldname: "employee",
+            fieldtype: "link",
+            model: "Employee",
+            placeholder: "Select Employee",
+        },  
+        {
+            id: "department",
+            column_title: "Department",
+            fieldname: "department",
+            fieldtype: "link",
+            model: "Department",
+            placeholder: "Select Department",
+        },  
+        {
+            id: "designation",
+            column_title: "Designation",
+            fieldname: "designation",
+            fieldtype: "link",
+            model: "Designation",
+            placeholder: "Select Designation",
+        },  
+        {
+            id: "leave_days",
+            column_title: "Leave Type",
+            fieldname: "leave_days",
+            fieldtype: "select",
+            options: ["Annual Leave", "Local Leave"],
+            placeholder: "Select Leave Type",
+        },  
+    ],
+    actions: [
+      {
+            fun: wipe_all_transactions,
+            title: 'Get JSON',
+            icon: 'code',
+            icon_color: 'orange',
+        },
+    ],
+
+    columns: [
+        {
+            column_title: "Employee No",
+            column_name: "employee_no",
+            column_type: "link",
+            model: "Employee",
+            width: 350,
+        },
+        {
+            column_title: "Full Name",
+            column_name: "full_name",
+            column_type: "text",
+            width: 300,
+        },
+        {
+            column_title: "Department",
+            column_name: "department",
+            column_type: "link",
+            model: "Department",
+            width: 300,
+        },
+        {
+            column_title: "Job Title",
+            column_name: "designation",
+            column_type: "link",
+            model: "Designation",
+            width: 300,
+        },
+        {
+            column_title: "Reference",
+            column_name: "reference",
+            column_type: "link",
+            width: 350,
+        },
+        {
+            column_title: "From Date",
+            column_name: "effective_date",
+            column_type: "date",
+            width: 150,
+        },
+        {
+            column_title: "To Date",
+            column_name: "last_payment_date",
+            column_type: "date",
+            width: 150,
+        },
+        {
+            column_title: "Period (Months)",
+            column_name: "length_or_period",
+            column_type: "text",
+            width: 150,
+        },
+        {
+            column_title: "Total Amount",
+            column_name: "amount",
+            column_type: "text",
+            width: 200,
+            is_figure: true,
+        },
+        {
+            column_title: "Monthly Payment Amount",
+            column_name: "monthly_payment",
+            column_type: "text",
+            width: 200,
+            is_figure: true,
+        },
+    ]
+}

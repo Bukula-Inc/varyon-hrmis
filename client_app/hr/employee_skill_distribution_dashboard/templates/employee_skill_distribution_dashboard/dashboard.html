@@ -1,0 +1,154 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Skills Distribution Dashboard
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[85vh] overflow-hidden">
+    <div class="w-full grid grid-cols-4 h-[98%] overflow-hidden">
+        <div class="w-full h-full col-span-4 overflow-hidden">
+            <div class="w-full h-full flex gap-4">
+                <div class="w-[75%] h-full">
+                    <div class="h-[10%] w-full">
+                        {% include "./components/controller.html" %}
+                    </div>
+                    <div class="h-[90%] w-full ">
+                        <div class="h-full w-full gap-4 flex">
+                            <div class="h-full w-[40%]">
+                                <div class="h-full w-full grid grid-rows-2 gap-4">
+                                    <div class="row-span-1 w-full">
+                                        <div class="h-full w-full rounded-lg px-4 bg-white">
+                                            <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                                Skill Categories Breakdown
+                                            </div>
+                                            <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                                <div id="skills_category" class="h-full w-full flex justify-center items-center"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-span-1 w-full">
+                                        <div class="h-full w-full rounded-lg px-4 bg-white">
+                                            <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                                skills by Department
+                                            </div>
+                                            <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                                <div id="skills_by_department" class="h-full w-full flex justify-center items-center"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h-full w-[60%]">
+                                <div class="h-full w-full grid grid-rows-2 gap-4">
+                                    <div class="row-span-1 w-full">
+                                        <div class="h-full w-full grid grid-cols-3 gap-4">
+                                            <div class="col-span-2 h-full bg-white rounded-lg">
+                                                <div class="h-full w-full rounded-lg px-4 bg-white">
+                                                    <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                                        Employee Turnover and Skills
+                                                    </div>
+                                                    <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                                        <div id="emp_turnover" class="h-full w-full flex justify-center items-center"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-span-1 h-full bg-white rounded-lg">
+                                                <div class="h-full w-full rounded-lg px-4 bg-white">
+                                                    <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                                        Skill Proficiency Levels
+                                                    </div>
+                                                    <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-span-1 w-full">
+                                        <div class="h-full w-full rounded-lg px-4 bg-white">
+                                            <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                                Skills vs. Performance
+                                            </div>
+                                            <div class="h-[calc(100%-45px)] w-full">
+                                                <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                                    <div id="skills_vs_performance" class="h-full w-full flex justify-center items-center"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[25%] h-full">
+                    <div class="h-full w-full grid grid-rows-5 gap-4">
+                        <div class="w-full row-span-3">
+                            <div class="h-full w-full rounded-lg px-4 bg-white">
+                                <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                    Training Program-Total Attendees
+                                </div>
+                                <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                    <div class="h-full w-full">
+                                        {% include "./components/training_programs.html" %}
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full row-span-2">
+                            <div class="h-full w-full grid grid-rows-2 gap-4">
+                                <div class="w-full row-span-1 rounded-lg bg-blue-800 text-white p-4 flex items-center relative overflow-hidden">
+                                    <div class="w-full h-full spacy-y-4">
+                                        <div class="font-semibold mb-1 text-lg">Skilled Employee</div>
+                                        <div class="font-semibold text-5xl mt-3 tracking-tight">
+                                        <span class="material-symbols-outlined text-[45px]">
+                                            badge
+                                        </span>
+                                        <span id="top_employees"></span>
+                                        </div>
+                                    </div>
+                                    <div class="diagonal-line"></div>
+                                </div>
+                                <div class="w-full row-span-1 rounded-lg bg-primary text-white p-4 flex items-center relative overflow-hidden">
+                                    <div class="w-full h-full spacy-y-4">
+                                        <div class="font-semibold mb-1 text-lg">Total Departments</div>
+                                        <div class="font-semibold text-5xl mt-3 tracking-tight">
+                                        <span class="material-symbols-outlined text-[45px]">
+                                            badge
+                                        </span>
+                                        <span id="total_departments">0</span>
+                                        </div>
+                                    </div>
+                                    <div class="diagonal-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .diagonal-line {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 200%;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.189);
+        backdrop-filter: blur(1);
+        transform: rotate(45deg);
+        animation: moveDiagonalLine 6s linear infinite;
+    }
+    @keyframes moveDiagonalLine {
+        0% {
+            left: -100%;
+        }
+        100% {
+            left: 100%;
+        }
+    }
+</style>
+{% endblock content %}

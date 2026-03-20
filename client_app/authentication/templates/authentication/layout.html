@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="light">
+<!-- BEGIN: Head -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<head>
+    <meta charset="utf-8">
+    <link href="/static/images/logo/logo.svg" rel="shortcut icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Varyon is built to simplify your business complexity">
+    <meta name="keywords" content="zambia erp accounting hr payroll">
+    <meta name="author" content="Startap Limited">
+    <title>{% block title %} {% endblock %} || ECZ HRIMS</title>
+    <!-- BEGIN: CSS Assets-->
+    <link rel="stylesheet" href="{% static '/css/app.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static '/css/media.css' %}">
+    <!-- END: CSS Assets-->
+    <script src="{% static '/js/tailwindcss.js' %}"></script>
+</head>
+<!-- END: Head -->
+
+<body class="login">
+    {% block content %}
+    {% endblock %}
+    {% include "client_app/scripts.html" %}
+</body>
+</html>

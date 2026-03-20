@@ -1,0 +1,102 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Core Dashboard
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-full gap-7">
+        <div class="w-full mobile-col-4 col-span-4">
+            <div class="h-full w-full gap-4 grid grid-cols-12">
+                <div class="col-span-3">
+                    <div class="-2 w-full h-full">
+                        <div class="box relative dashboard-content w-full h-full p-3">
+                            <div class="w-full flex items-center justify-between border-b border-b-[2px] pb-2 mb-2">
+                                <h3 class="font-bold text-gray-700">Naming Series</h3>
+                                <a href="/app/core/series/?app=series&page=list&content_type=Series" class="flex items-center justify-between">
+                                    <span>Explore</span>
+                                    <span class="material-symbols-outlined ml-2"> arrow_right_alt </span>
+                                </a>
+                            </div>
+                            <div class="w-full naming-series-list grid gap-3 text-12"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-5">
+                    <div class="h-full w-full grid grid-rows-5 gap-4">
+                        <div class="row-span-2 -2">
+                            <div class="w-full mobile-col-2 h-full">
+                                <div class="box relative dashboard-content w-full h-full p-2 rounded-md">
+                                    <div class="w-full flex items-center justify-between border-b border-b-[2px] pb-2">
+                                        <h3 class="font-bold text-gray-700">User Roles</h3>
+                                        <a href="/app/core/role/?app=core&page=list&content_type=Role" class="flex items-center justify-between">
+                                            <span>Explore</span>
+                                            <span class="material-symbols-outlined ml-2"> arrow_right_alt </span>
+                                        </a>
+                                    </div>
+                                    <div class="w-full user-role-list grid grid-cols-3 gap-3 p-2 text-12"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-span-3">
+                            <div class="h-full w-full grid grid-cols-2 gap-x-4">
+                                <div class="col-span-1">
+                                    <div class="-2 w-full h-full">
+                                        <div class="box relative dashboard-content w-full h-full p-3">
+                                            <div class="w-full flex items-center justify-between border-b border-b-[2px] pb-2 mb-2">
+                                                <h3 class="font-bold text-gray-700">Recent Data Imports</h3>
+                                                <a href="/app/core/data_importation/?app=data_importation&page=list&content_type=data%20importation" class="flex items-center justify-between">
+                                                    <span>Explore</span>
+                                                    <span class="material-symbols-outlined ml-2"> arrow_right_alt </span>
+                                                </a>
+                                            </div>
+                                            <div class="w-full data-imports-list grid gap-3 text-12"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-1">
+                                    <div class="-2 w-full h-full intro-y mobile-col-2">
+                                        <div class="box w-full h-full flex items-center justify-center flex-col p-3 relative dashboard-content">
+                                            <div class="w-[20px] h-[10px] rounded-full absolute top-2 right-2 border border-[1px] border-purple-500"></div>
+                                            <h1 class="font-bold border border-[20px] rounded-full flex items-center justify-center text-[50px] w-[250px] h-[250px] border-purple-500 total-users">
+                                                0
+                                            </h1>
+                                            <div class="flex items-center justify-start w-full flex items-center justify-between border-t pt-3 mt-3">
+                                                <div class="flex items-center justify-start">
+                                                    <span class="material-symbols-outlined mr-2 text-purple-700"> account_circle </span>
+                                                    <span class="text-13">Total Users</span>
+                                                </div>
+
+                                                <a href="/app/core/user/?app=core&page=list&content_type=User" class="flex mobile-hidden items-center justify-between">
+                                                    <span>View</span>
+                                                    <span class="material-symbols-outlined"> arrow_right_alt </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-4">
+                    <div class="-2 w-full h-full intro-y mobile-col-2 col-span-2">
+                        <div class="box relative dashboard-content w-full h-full p-2">
+                            <div class="w-full flex items-center justify-between border-b border-b-[2px] pb-2">
+                                <h3 class="font-bold text-gray-700">Workflows</h3>
+                                <a href="/app/core/workflow/?app=core&page=list&content_type=Workflow" class="flex items-center justify-between">
+                                    <span>Explore</span>
+                                    <span class="material-symbols-outlined ml-2"> arrow_right_alt </span>
+                                </a>
+                            </div>
+                            <div class="w-full workflow-list grid grid-cols-2 gap-3 p-2 text-12"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock content %}

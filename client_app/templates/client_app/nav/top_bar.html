@@ -1,0 +1,67 @@
+{% load static %}
+<!-- BEGIN: Top Bar -->
+<div class="top-bar h-[70px] ">
+    <!-- BEGIN: Breadcrumb -->
+    <nav aria-label="breadcrumb text-20" class="intro-x hidden xl:flex mr-3 flex items-center justify-center overflow-hidden">
+        <a href="/app/staff/staff_dashboard?app=staff_dashboard&module=staff&page=dashboard&content_type=Dashboard" class="logo w-[80px] h-full mr-2 overflow-hidden">
+            <img src="" alt="" class="nav-logo w-[100px] h-full max-h-[100%] object-contain" alt="">
+        </a>
+        <div class="h-full flex items-center justify-center">
+            <button id="nav-btn" class="nav-btn w-[40px] h-[30px] flex flex-col items-center justify-between mr-3">
+                <div class="w-[80%] h-[5px] rounded-full bg-default"></div> 
+                <div class="w-[100%] h-[5px] rounded-full bg-default"></div>
+                <div class="w-[80%] h-[5px] rounded-full bg-default"></div>  
+            </button>
+        </div>
+        <ol class="breadcrumb text-20"></ol>
+    </nav>
+    <!-- BEGIN: Mobile Menu -->
+    <div class="-intro-x xl:hidden mr-3 sm:mr-6 flex items-center flex-start">
+        <a href="/app/staff/staff_dashboard?app=staff_dashboard&module=staff&page=dashboard&content_type=Dashboard" class="logo w-[60px] h-full mr-2 mobile-hidden">
+            <img src="" alt="" class="nav-logo w-[60px] h-full object-contain" alt="">
+        </a>
+        <div class="nav-btn mobile-menu-toggler border-none cursor-pointer w-[40px] flex flex-col items-center justify-between mr-3">
+            <div class="w-[80%] h-[4px] mb-2 rounded-full bg-default/80"></div> 
+            <div class="w-[100%] h-[4px] mb-2 rounded-full bg-default/80"></div>
+            <div class="w-[80%] h-[4px] mb-2 rounded-full bg-default/80"></div>  
+        </div>
+    </div>
+    <!-- END: Mobile Menu -->
+    {% include "./searcher.html" %}
+    {% include "./notifications.html" %}
+    
+    <!-- BEGIN: Account Menu -->
+    <div class="intro-x dropdown h-10">
+        <div class="h-full dropdown-toggle flex items-center" role="button" aria-expanded="false"
+            data-tw-toggle="dropdown">
+            <div class="w-10 h-10 image-fit">
+                <img class="nav-dp rounded-full border-2 border-slate-100 border-opacity-10 shadow-lg object-cover" src="/media/defaults/avatas/dp.jpeg">
+            </div>
+            <div class="hidden md:block ml-3">
+                <div class="nav-full-names max-w-[7rem] truncate font-medium"></div>
+                <div class="nav-designation text-xs text-slate-400"></div>
+            </div>
+        </div>
+        <div class="dropdown-menu w-56">
+            <ul class="dropdown-content nav-dropdown-actions-wrapper">
+                <li>
+                    <a href="" action="change_password" class="dropdown-item"> <i data-lucide="lock" class="w-4 h-4 mr-2 text-default"></i> Change Password</a>
+                </li>
+                <li>
+                    <a href="" action="switch_company" class="dropdown-item"> <span class="material-symbols-outlined text-18 mr-2 text-default"> business_center </span> Switch Company</a>
+                </li>
+                <li>
+                    <a href="" action="help" class="dropdown-item"> <i data-lucide="help-circle" class="w-4 h-4 mr-2 text-default"></i> Help </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a href="" action="logout" class="dropdown-item logout"> <i data-lucide="toggle-right" class="w-4 h-4 mr-2 text-default"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- END: Account Menu -->
+</div>

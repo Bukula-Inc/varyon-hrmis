@@ -1,0 +1,98 @@
+:root {
+    --default-color: #151030;
+    --background-color: #fff;
+    --border-color: #ccc;
+    --text-color: #555;
+    --selected-text-color: #d3420d;
+    --hover-background-color: #6e6790;
+    --transparent-default-color: #6e6790;
+}
+
+.yearpicker-container {
+    position: absolute;
+    color: var(--text-color);
+    width: 250px;
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 10px;
+    background-color: #FFF;
+    box-shadow: rgba(17, 12, 46, 0.35) 0px 48px 100px 0px;
+    color: var(--default-color);
+    font-family: system-ui, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.125em;
+    border: 1px #dddada dotted;
+    z-index: 10;
+    margin-top: 0.2rem;
+}
+
+.yearpicker-header {
+    display: flex;
+    width: 87%;
+    height: 30px;
+    border-bottom: 1px #dddada dotted;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin: 0 auto;
+}
+
+.yearpicker-prev,
+.yearpicker-next {
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.yearpicker-prev:hover,
+.yearpicker-next:hover {
+    border-radius: 10px;
+    color: var(--selected-text-color);
+    font-weight: bolder;
+}
+
+.yearpicker-year {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.yearpicker-items {
+    list-style: none;
+    padding: 10px;
+    flex: 0 0 33.3%;
+    width: 100%;
+    font-size: 11px;
+}
+
+.yearpicker-items:hover {
+    border-radius: 10px;
+    background-color: #ead9c8;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.yearpicker-items.selected {
+    border-radius: 10px;
+    color: var(--selected-text-color);
+    font-weight: bolder;
+    background-color: var(--default-color);
+    color: white;
+    font-weight: bolder;
+}
+
+.hide {
+    display: none;
+}
+
+.yearpicker-items.disabled {
+    pointer-events: none;
+    color: #bbb;
+}
+
+.yearpicker-current{
+    font-weight: bolder;
+    color: #d3420d;
+}

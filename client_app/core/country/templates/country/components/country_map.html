@@ -1,0 +1,24 @@
+{% load static %}
+<div class="-2 intro-y mt-5">
+    <div class="box p-3 min-h-[400px] relative">
+        <h3 class="font-semibold">Transactions by country</h3>
+        <div class="w-full h-full">
+            <img src='{% static "images/country/world.svg" %}'
+                class="w-full h-full object-cover rounded-md mr-2" alt="IMG">
+        </div>
+    </div>
+    <div class="absolute bottom-0 left-0 text-12 pl-2">
+        <div class="w-full flex items-center justify-start mb-2">
+            <div class="h-[13px] w-[13px] mr-2 rounded-full bg-default"></div>
+            Top Sales
+        </div>
+        <div class="w-full flex items-center justify-start mb-2">
+            <div class="h-[13px] w-[13px] mr-2 rounded-full bg-orange-700"></div>
+            Top Purchases
+        </div>
+        <div class="w-full flex items-center justify-start mb-2">
+            <div class="h-[13px] w-[13px] mr-2 rounded-full bg-emerald-600"></div>
+            Top Trading Currencies
+        </div>
+    </div>
+</div>

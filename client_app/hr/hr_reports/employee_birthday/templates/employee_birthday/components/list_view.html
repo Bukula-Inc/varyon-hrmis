@@ -1,0 +1,88 @@
+<div class="w-full mt-6">
+    <!-- accounts-actions -->
+    {% include "./filters.html" %}
+    <div class=" w-full -2 mt-1 intro-y">
+        <div class="box min-h-[520px] w-full h-full p-3 overflow-x-auto">
+            <div class="w-full flex items-center justify-between">
+                <div class="flex items-center justify-center">
+                    <span class="font-semibold text-gray-700 flex items-center justify-start border-r border-r-2 pr-5">
+                        <span class="material-symbols-outlined mr-1">
+                            list
+                        </span>
+                        Employee Birthdays
+                    </span>
+                    <button class="expand-shrink-table flex items-center justify-center ml-5 hover:text-default text-black">
+                        <span class="material-symbols-outlined mr-2">
+                            pan_zoom
+                        </span>
+                        <span class="text">Expand Table</span>
+                    </button>
+                </div>
+                <div class="x-scrollers flex items-center justify-center">
+                    <button class="w-[60px] h-[27px] btn flex items-center justify-center mr-2">
+                        <span class="material-symbols-outlined text-15">
+                            arrow_back_ios
+                        </span>
+                    </button>
+                    <small class="text-gray-600 mx-2 font-bold h-18">Horizontal Scrollers</small>
+                    <button class="w-[60px] h-[27px] btn flex items-center justify-center">
+                        <span class="material-symbols-outlined text-15 p-0 m-0">
+                            arrow_forward_ios
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="table-container mt-4">
+                <div class="table-row header-row bg-default text-theme_text_color">
+                    <div data-value="S/N" class="table-cell header-cell items-center">
+                        S/N
+                    </div>
+                   
+                    <div data-value="Employee" class="table-cell header-cell min-w-[200px]">
+                        Employee
+                    </div>
+                    <div data-value="Employee Name" class="table-cell header-cell min-w-[200px]">
+                        Employee Name
+                    </div>
+                    <div data-value="Date Of Birth" class="table-cell header-cell min-w-[200px]">
+                        Date Of Birth
+                    </div>
+                   
+                    <div data-value="Department" class="table-cell header-cell min-w-[200px]">
+                        Department
+                    </div>
+                    <div data-value="Designation" class="table-cell header-cell min-w-[200px]">
+                        Designation
+                    </div>
+                    <div data-value="Status" class="table-cell header-cell min-w-[200px]">
+                        Gender
+                    </div>
+                    <div data-value="Branch" class="table-cell header-cell min-w-[200px]">
+                        Branch
+                    </div>
+                   
+                  
+                </div>
+
+                <!-- Example rows -->
+                <div class="table-body">
+                     
+                     {% include "./table_row.html" %}
+                    {% include "./table_row.html" %}
+                    {% include "./table_row.html" %}
+                    {% include "./table_row.html" %}
+                    {% include "./table_row.html" %}
+                     {% include "./table_row.html" %}
+                      {% include "./table_row.html" %}
+                    {% include "./table_row.html" %}
+                     {% include "./table_row.html" %}
+                      
+            
+                   
+                </div>
+
+                <!-- Add more rows as needed -->
+            </div>
+        </div>
+    </div>
+</div>

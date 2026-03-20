@@ -1,0 +1,61 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Dashboard
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-full gap-7">
+        <!-- tab list view for the  -->
+        <div class="w-full mobile-col-4 col-span-2">
+            <!-- BEGIN: top action -->
+            {% include "./components/controller.html" %}
+            <!-- END: top action -->
+
+            <!-- main content -->
+            <div class="main-content-wrapper w-full">
+                <div class="content-groups dashboard-view-content w-full">
+                    <!-- top content -->
+                    <div class="top-stats w-full h-full grid grid-cols-2 gap-5">
+                        {% include "./components/employee_info.html" %}
+                        {% include "./components/payroll_cost_summary.html" %}
+                        {% include "./components/recent_payments.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="w-full mobile-col-4 h-full flex items-center justify-start flex-col">
+            <div class=" page-actions-wrapper flex items-center justify-center mb-8 w-full mobile-hidden">
+                <!-- actions for the list view -->
+                <div class="text-slate-500 w-full flex items-center justify-end">
+                    
+                    <a href="/app/payroll/payroll_processor/?app=payroll_processor&page=new-form&content_type=Payroll%20Processor" class="bg-default btn flex items-center justify-center w-[160px] h-[40px] rounded-md text-white text-12">
+                        <span class="material-symbols-outlined text-16 mr-2">memory</span>
+                        Run Payroll
+                    </a>
+                </div>
+
+            </div>
+            <div class="w-full h-full grid grid-rows-7 gap-y-6">
+                <div class="row-span-4 w-full h-full">
+                    {% include "./components/next_payroll_date.html" %}
+                </div>
+                {% include "./components/salary_advance_summary.html" %}
+            </div>
+        </div>
+
+        <!--  -->
+
+        <!-- side stats -->
+        <div class="side-grid mobile-col-4 w-full h-full grid gap-y-5 grid-rows-2">
+            {% include "./components/cost_by_designation.html" %}
+            {% include "./components/statutory.html" %}
+        </div>
+        <!-- side stats -->
+    </div>
+
+
+</div>
+{% endblock content %}

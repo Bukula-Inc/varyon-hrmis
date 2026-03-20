@@ -1,0 +1,68 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Acting Appointment
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[75%] gap-7">
+        <!-- tab list view for the  -->
+        <div class="w-full col-span-4">
+            <!-- BEGIN: top action -->
+            <div class="col-span-12">
+                <div class="intro-y flex items-center justify-between items-end h-[max-content]">
+                    {% include 'client_app/components/navigators.html' %}
+                    <!-- TITLE CONTENT -->
+                    <!-- RIGHT ACTIONS -->
+                    {% include "./components/controller.html" %}
+                    <!-- RIGHT ACTIONS -->
+                </div>
+            </div>
+            <!-- END: top action -->
+    
+            <!-- main content -->
+            <div class="main-content-wrapper w-full">
+                <div class="content-group list-view-content w-full">
+                    <div for="Acting Appointment" class="multi-content-group w-full">
+                        {% include "./components/acting_appointment/list_view.html" %}
+                    </div>
+                    <div for="Acting Appointment Memo" class="multi-content-group w-full hidden">
+                        {% include "./components/acting_appointment_memo/list_view.html" %}
+                    </div>
+                    <div for="Acting Appointment Settings" class="multi-content-group w-full hidden">
+                        {% include "./components/acting_appointment_settings/list_view.html" %}
+                    </div>
+                    
+                </div>
+                <div class="content-group info-view-content w-full hidden">
+                    <div for="Acting Appointment" class="multi-content-group w-full">
+                        {% include "./components/acting_appointment/info_view.html" %}
+                    </div>
+                    <div for="Acting Appointment Memo" class="multi-content-group w-full hidden">
+                        {% include "./components/acting_appointment_memo/info_view.html" %}
+                    </div>
+                    <div for="Acting Appointment Settings" class="multi-content-group w-full hidden">
+                        {% include "./components/acting_appointment_settings/info_view.html" %}
+                    </div>
+                </div>
+                <div class="content-group new-form-view-content w-full hidden">
+                    <div for="Acting Appointment" class="multi-content-group w-full">
+                        {% include "./components/acting_appointment/form.html" %}
+                    </div>
+                    <div for="Acting Appointment Memo" class="multi-content-group w-full">
+                        {% include "./components/acting_appointment_memo/form.html" %}
+                    </div>
+                    <div for="Acting Appointment Settings" class="multi-content-group w-full">
+                        {% include "./components/acting_appointment_settings/form.html" %}
+                    </div>
+                </div>
+            </div>
+            <!-- main content -->
+        </div>
+
+    
+    </div>
+
+
+</div>
+{% endblock content %}

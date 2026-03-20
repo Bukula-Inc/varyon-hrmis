@@ -1,0 +1,35 @@
+export default {
+    setup: {
+        new_form_id: 'new-bonus',
+        info_form_id: 'bonus-info',
+        title: "Section",
+        layout_columns: 3,
+        model: "Section",
+        allow_submit: false,
+        allow_councel: false,
+        allow_print: false,
+        allow_delete: true,
+    },
+    fields: [
+        {
+            id: "name",
+            fieldlabel: "Section",
+            fieldname: "name",
+            fieldtype: "text",
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+        }, 
+        {
+            id: "description",
+            fieldlabel: "Description",
+            fieldname: "description",
+            fieldtype: "rich",
+            columns: 3,
+            required: false,
+            hidden: false,
+            height: 300,
+        },
+    ],
+}

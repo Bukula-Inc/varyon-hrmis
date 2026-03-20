@@ -1,0 +1,30 @@
+<div class="-2 w-full h-full intro-y">
+    <div id="next-date-wrapper" class="box w-full h-full flex items-center justify-start flex-col p-3 relative dashboard-content">
+        <div class="flex items-center justify-between w-full mb-2">
+            <span class="font-bold w-full">Next Payroll Summary</span>
+            <button class="flex items-center justify-center w-[150px] text-12">
+                More
+                <span class="material-symbols-outlined text-18 ml-3">
+                    arrow_right_alt
+                </span>
+            </button>
+        </div>
+        <div class="flex items-center justify-center relative w-[130px] h-[130px]">
+            <div class="absolute  w-[130px] h-[130px] rounded-full bg-gray-100 border-[2px] border-l-indigo-800"></div>
+            <div class="absolute w-[130px] h-[130px] rounded-full bg-gray-100 border border-[2px] border-r-indigo-800"></div>
+            <div class="w-[130px] h-[130px] flex items-center justify-center flex-col absolute">
+                <span class="material-symbols-outlined text-[60px] text-indigo-900">
+                    credit_score
+                </span>
+                <small class="font-semibold mt-2">Auto Slips On</small>
+            </div>
+        </div>
+        <span class="text-gray-400 text-14 mt-2">Payroll Date</span>
+        <h3 class="text-gray-700 font-bold text-20 my-4 next-payroll-date"></h3>
+        <span class="text-gray-400 text-red-700 text-11">Payroll Runs <span class="next-payroll-date"></span></span>
+        <a href="/app/payroll/payroll_processor/?app=payroll_processor&page=list&content_type=Payroll%20Processor" class=" btn mobile-hidden flex items-center justify-center w-[180px] h-[40px] rounded-md text-whites text-13 mt-5 shadow-none bg-gray-100">
+            <span class="material-symbols-outlined text-16 mr-2"> info </span>
+            View Payroll Details
+        </a>
+    </div>
+</div>

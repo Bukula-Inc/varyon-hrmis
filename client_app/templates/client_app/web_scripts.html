@@ -1,0 +1,14 @@
+{% load static %}
+{% block scripts %}
+    <script src="{% static '/js/tailwindcss.js' %}"></script>
+    <script defer src="{% static '/js/app.js' %}"></script>
+    <script defer src="{% static '/js/jquery.js' %}"></script>
+    <script defer src="{% static '/js/connection/axios.js' %}"></script>
+    <script defer src="/static/js/lite.js"></script>
+    <script src="/static/js/components/code_editor/loader.js"></script>
+    <script defer src="{% static '/js/summernote.js' %}"></script>
+    <script defer type="module" src="/static/build/bundle.min.js?v=6.1.5.0.0"></script>
+    <script defer src="{% static '/js/tailwindconfig.js' %}"></script>
+    <script src="{% static '/js/highlight.js' %}"></script>
+    <script src="{% static '/js/swiper.js' %}"></script>
+{% endblock %}

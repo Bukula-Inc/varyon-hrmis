@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="light">
+{% include "client_app/header.html" %}
+<body class="main">
+    <div class="xl:pl-5 xl:py-5 flex h-screen relative dashboard-contents">
+        <div class="wrapper h-full hidden">
+            <div class="content h-full">
+                <div class="w-full h-full relative mt-3" style="z-index:2000;">
+                    <div class="w-full h-[50px] border-b border-dotted border-gray-400">
+                        <h1 class="font-bold text-20 flex items-center justify-start ml-5 mt-5">
+                            <img src="/static/images/logo/logo.svg" class="w-[80px] h-[50px] company-logo object-contain mr-5 intro-x" alt="">
+                            Onboarding
+                        </h1>
+                    </div>
+                    {% include "./components/stages.html" %}
+                    <div class="w-full h-[70vh] bg-gray-100 p-5 relative">
+                        <div class="w-[70%] h-full relative z-5 mx-auto">
+                            {% include "./components/welcome.html" %}
+                            {% include "./components/new_password.html" %}
+                            {% include "./components/your_role.html" %}
+                            {% include "./components/completion.html" %}
+                        </div>
+                        {% include "./components/decos.html" %}
+                    </div>
+                    {% include "./components/actions.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/confetti.js"></script>
+    {% include "client_app/scripts.html" %}
+</body>
+
+</html>

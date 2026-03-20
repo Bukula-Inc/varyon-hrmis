@@ -1,0 +1,3 @@
+ssh administrator@192.9.200.7
+
+Hrm15@2025

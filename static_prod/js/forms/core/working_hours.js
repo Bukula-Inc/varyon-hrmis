@@ -1,0 +1,45 @@
+export default {
+    setup: {
+        new_form_id: 'new-working-hours',
+        info_form_id: 'working-hours-info',
+        title: "Working Hours",
+        layout_columns: 3,
+        model: "Main_Working_Hours"
+    },
+    fields: [
+        {
+            id: "name",
+            fieldlabel: "Day Of The Week",
+            fieldname: "name",
+            fieldtype: "select",
+            options: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Public Holidays"],
+            columns: 1,
+            placeholder: "Enter Day",
+            required: false,
+            hidden: false,
+            description: "Day",
+        },
+        {
+            id: "opening_time",
+            fieldlabel: "Opening Time",
+            fieldname: "opening_time",
+            fieldtype: "time",
+            columns: 1,
+            placeholder: "Opening Time",
+            required: false,
+            hidden: false,
+            description: "Opening Time",
+        },
+        {
+            id: "closing_time",
+            fieldlabel: "Closing Time",
+            fieldname: "closing_time",
+            fieldtype: "time",
+            columns: 1,
+            placeholder: "Closing Time",
+            required: false,
+            hidden: false,
+            description: "Closing Time",
+        },
+    ],
+}

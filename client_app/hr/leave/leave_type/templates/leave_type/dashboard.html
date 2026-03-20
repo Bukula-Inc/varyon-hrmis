@@ -1,0 +1,43 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Chart Of Accounts
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[75%] gap-3">
+        <!-- tab list view for the  -->
+        <div class="w-full col-span-3">
+            {% comment %} {% include "./components/controller.html" %} {% endcomment %}
+            <!-- main content -->
+            <div class="main-content-wrapper w-full">
+                <div class="content-group list-view-content w-full">
+                    {% include "./components/list_view.html" %}
+                </div>
+                <div class="content-group info-view-content w-full hidden">
+                    {% include "./components/info_view.html" %}
+                </div>
+                <div class="content-group new-form-view-content w-full hidden">
+                    {% include "./components/form.html" %}
+                </div>
+            </div>
+            <!-- main content -->
+        </div>
+        <!-- coa content -->
+        <!-- summary info on the accounts -->
+        <div class="w-full h-full">
+            <div class="content-group list-view-content w-full h-full">
+                {% include "./components/side_list_view.html" %}
+            </div>
+            <div class="content-group info-view-content w-full hidden">
+                {% include "./components/side_info_view.html" %}
+            </div>
+            <div class="content-group new-form-view-content w-full hidden">
+                {% include "./components/side_new_form_view.html" %}
+            </div> 
+        </div>
+
+    </div>
+
+</div>
+{% endblock content %}

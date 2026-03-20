@@ -1,0 +1,95 @@
+<div stage="2" class="w-full grid lg:xl:grid-cols-3 gap-5 min-h-[600px] mt-10 stage-content hidden">
+    <div class="intro-y w-full h-full bg-white border-teal-400 border border-dotted p-3 rounded-md lg:xl:col-span-2">
+        <h3 class="text-22 font-bold my-5">Selected Modules</h3>
+        <div class="w-full border-t border-dotted mt-2"></div>
+        <div class="selected-module-list mt-5 w-full"></div>
+    </div>
+
+
+    <div class="w-full h-full grid lg:xl:grid-rows-3 gap-y-5 ">
+        <div class="intro-y w-full h-full bg-white border-secondary_color/50 border border-dotted p-3 rounded-md row-span-1">
+            <h3 class="text-18 font-bold my-2">Additional</h3>
+            <div class="w-full border-t border-dotted mt-2"></div>
+            <div class="w-full my-3 text-[12px] lg:xl:text-[14px]">
+                <div class="w-full flex items-center justify-between">
+                    <h4>Additional Users</h4>
+                    <h4><span class="cost-per-user">0</span>/User (<span class="free-users">0</span> Free)</h4>
+                </div>
+                <div class="w-full grid grid-cols-5 gap-x-7 my-3 pb-3 border-b border-dotted">
+                    <button action="sub" class="add-remove-user-btn bg-orange-700 btn text-white flex items-center justify-center rounded-md w-full h-full"><span class="material-symbols-outlined text-15"> remove </span></button>
+                    <input type="text" value="0" class="add-remove-user-input form-group font-bold text-center rounded-md outline-none col-span-3 text-12" placeholder="Add Extra Users"> 
+                    <button action="add" class="add-remove-user-btn bg-default btn text-white flex items-center justify-center rounded-md w-full h-full"><span class="material-symbols-outlined text-15"> add </span></button>
+                </div>
+            </div>
+            <div class="w-full my-3 text-[12px] lg:xl:text-[14px]">
+                <div class="w-full flex items-center justify-between">
+                    <h4>Additional Storage</h4>
+                    <h4><span class="cost-per-storage">0</span>/GB (<span class="free-storage">0</span>GB Free)</h4>
+                </div>
+                <div class="w-full grid grid-cols-5 gap-x-7 my-3 pb-3 border-b border-dotted">
+                    <button action="sub" class="add-remove-storage-btn bg-orange-700 btn text-white flex items-center justify-center rounded-md w-full h-full"><span class="material-symbols-outlined text-15"> remove </span></button>
+                    <input type="text" value="0" class="add-remove-storage-input form-group font-bold text-center rounded-md outline-none col-span-3 text-12" placeholder="Add Extra Storage"> 
+                    <button action="add" class="add-remove-storage-btn bg-default btn text-white flex items-center justify-center rounded-md w-full h-full"><span class="material-symbols-outlined text-15"> add </span></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="intro-y w-full h-full bg-white border-indigo-400 border border-dotted p-3 rounded-md row-span-2">
+            <div class="w-full flex items-center justify-between">
+                <h3 class="text-18 font-bold my-2">Totals</h3>
+                <div class="flex items-center justify-center w-[180px] intro-y">
+                    <div class="lg:xl:text-13 text-10 col-span-3 font-semibold intro-x">Monthly</div>
+                    <div class="w-[50px] col-span-2 lg:xl:h-[30px] h-[20px] mx-5 intro-x rounded-full bg-gray-300 border border-secondary_color relative px-1">
+                        <div freq="1" class="rounded-full mt-[2px] ml-0 transition duration-1000 w-[20px] lg:xl:h-[24px] h-[14px] bg-default cursor-pointer freq-toggler"></div>
+                    </div>
+                    <div class="lg:xl:text-13 text-10 col-span-3 font-semibold intro-x">Annual</div>
+                </div>
+            </div>
+            <div class="w-full border-t border-dotted mt-2"></div>
+            <div class="w-full flex items-center justify-between my-3 text-[12px] lg:xl:text-[14px]">
+                <h5>Frequency</h5>
+                <h5 class="total-freq text-11 font-bold"></h5>
+            </div>
+            <div class="w-full flex items-center justify-between my-3 text-[12px] lg:xl:text-[14px]">
+                <h5>Additional Users</h5>
+                <h5 class="total-additional-users text-11 font-bold">0</h5>
+            </div>
+            <div class="w-full flex items-center justify-between my-3 text-[12px] lg:xl:text-[14px]">
+                <h5>Additional Storage</h5>
+                <h5 class="total-additional-storage text-11 font-bold">0</h5>
+            </div>
+            <div class="w-full flex items-center justify-between my-3 text-[12px] lg:xl:text-[14px]">
+                <h5>Modules Total</h5>
+                <h5 class="modules-exclusive-amount text-11 font-bold">0</h5>
+            </div>
+            <div class="w-full flex items-center justify-between my-3 text-[12px] lg:xl:text-[14px]">
+                <h5>Exclusive Amount</h5>
+                <h5 class="exclusive-amount text-11 font-bold">0.00</h5>
+            </div>
+            <div class="w-full flex items-center justify-between my-3 text-[12px] lg:xl:text-[14px]">
+                <h5>Discount Amount</h5>
+                <h5 class="discount-amount text-11 font-bold">0.00</h5>
+            </div>
+            <div class="w-full flex items-center justify-between my-3 text-[12px] lg:xl:text-[14px]">
+                <h5>Tax Amount</h5>
+                <h5 class="tax-amount text-11 font-bold">0.00</h5>
+            </div>
+            <div class="w-full flex items-center justify-between my-3 mt-7">
+                <h5 class="lg:xl:text-20 text-[16px] font-bold">Total Inclusive</h5>
+                <h5 class="freq gl:xl:text-25 text-[16px] font-bold inclusive-amount bg-default/30 rounded-md px-2 py-2">0.00</h5>
+            </div>
+            <div class="flex items-center justify-center border-t mt-10 pt-5 pb-2">
+                <button action="prev" class="prev-next-action-btn btn w-[150px] h-[35px] flex items-center justify-center overflow-hidden rounded-md font-semibold bg-gray-200">
+                    <span class="material-symbols-outlined mr-2 text-17 .material-symbols-outlined-hidden"> keyboard_backspace </span>
+                    Back
+                </button>
+                <button action="next" class="prev-next-action-btn btn w-[150px] h-[35px] flex items-center justify-center overflow-hidden rounded-md ml-3 font-semibold bg-default text-theme_text_color">
+                    Next
+                    <span class="material-symbols-outlined ml-2 text-17 .material-symbols-outlined-hidden"> arrow_right_alt </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

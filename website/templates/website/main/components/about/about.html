@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'css/about111-web.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+<body>
+    <section class="about-header">
+        <img src="/static/images/web/about6.jpg" alt="About images">
+        <div class="overlay">
+            <h1>About Us</h1>
+        </div>
+    </section>
+    <h1 class="font-bold my-10 w-[80%] mx-auto leading-[1.2]">About ECZ HRMIS</h1>
+    <div class="cards-container">
+        <!-- "Who We Are" and "What We Do" in their own cards -->
+        <div class="section-container">
+            <div class="card rounded-md">
+                <h2 class="flex items-center justify-start"><span class="material-symbols-outlined icon" style="font-size: 48px;">group</span> Who We Are</h2>
+                <p>
+                    At ECZ HRMIS, we are a team of passionate innovators dedicated to empowering businesses through advanced ERP (Enterprise Resource Planning) systems.
+                     With a focus on delivering intuitive and scalable software solutions, we help organizations streamline operations, enhance productivity, and drive growth. 
+                     <p>Our aim is to build partnerships with our clients, offering cutting-edge technology that adapts to their evolving needs.</p>
+            </div>
+
+            <div class="card rounded-md">
+                <h2 class="flex items-center justify-start"><span class="material-symbols-outlined icon" style="font-size: 48px; color: rgb(234, 136, 153);">check_circle</span> What We Do</h2>
+                <p>We provide cutting-edge ERP solutions designed to unify core business processes, from finance and human 
+                    resources to inventory management, supply chain, and customer relations. Our systems enable organizations to:</p>                   
+                <ul id="custom-bullet-list">
+                    <li> Centralize operations by connecting various departments under one unified system.</li>
+                    <li>Automate workflows to minimize manual tasks and reduce errors.</li>
+                    <li>Enhance decision-making with real-time data analytics and reporting tools.</li>
+                    <li>Optimize resources through smart planning and forecasting tools.</li>
+                </ul>
+
+                <!-- <p>Whether you're a small enterprise looking for scalability or a large corporation aiming for efficiency, our ERP solutions can be customized to match your specific needs.</p> -->
+
+            </div>
+        </div>
+
+        <!-- "Our Vision" and "Our Mission" in their own cards -->
+        <div class="content-container">
+            <div class="card rounded-md">
+                <h2 class="flex items-center justify-start"><span class="material-symbols-outlined icon" style="font-size: 48px; color: orange;">light_mode</span> Our Vision</h2>
+                <p>Our vision is to be the leading global ERP provider, helping businesses unlock their full potential by delivering innovative, scalable, and easy-to-use ERP systems. 
+                    We aim to foster a future where companies of all sizes can leverage technology to streamline operations, make data-driven decisions, and enhance productivity.</p>
+            </div>
+
+            <div class="card rounded-md">
+                <h2 class="flex items-center justify-start"><span class="material-symbols-outlined icon" style="font-size: 48px; color: rgb(28, 151, 28);">input_circle</span> Our Mission</h2>
+                <p>Our mission is to empower businesses by providing top-tier ERP solutions that drive operational efficiency, enhance transparency, and promote sustainable growth. We are dedicated 
+                    to delivering reliable, secure, and adaptable ERP systems, supported by exceptional customer service and a commitment to continuous improvement. We strive to be a trusted partner 
+                    in our clients' success by simplifying complex business processes through the power of technology.
+                </p>
+            </div>
+        </div>
+     
+
+    <!-- Get in Touch Card with Sub-cards -->
+    <div class="contact-card-container">
+        <!-- Text Card -->
+        <div class="contact-card">
+            <h3>Get in Touch</h3>
+            <h4>Fill in the form or contact our customer support and our team will get back to you!</h4>
+            <h5 class="flex items-start justify-start"><span class="material-symbols-outlined" style="color:#28085e; font-size: 22px; padding-right: 20px;">call</span>+260 979 885 086</h5>
+            <h5 class="flex items-start justify-start"><span class="material-symbols-outlined" style="color:#28085e; font-size: 22px; padding-right: 20px;">mail</span>info@startappsolutions.com</h5>
+            <h5 class="flex items-start justify-start"><span class="material-symbols-outlined" style="color:#28085e; font-size: 22px; padding-right: 20px;">pin_drop</span>Plot 2374, Arcades Commercial Area, Kelvin Siwale Road, Lusaka. </h5>
+        </div>
+        
+        <!-- Form Card -->
+        <div class="contact-card">
+            <form id="enquiry-form" class=" pb-10 rounded-md">
+                <label for="">Name</label>
+                <input value="" id="name" type="text" name="name" placeholder="Organization/Individual Name" required>
+                <label for="">Email</label>
+                <input  value="" id="email" type="email" name="email" placeholder="Email Address" required>
+                <label for="">Content</label>
+                <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit" class="flex items-center justify-center hover:bg-default/50">
+                    Send Message
+                    <span class="material-symbols-outlined ml-5"> send </span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>  
+</body>
+</html>

@@ -1,0 +1,141 @@
+@media screen and (max-width:750px) {
+    
+    /* auth resizing */
+    .unauthorized-wrapper{
+        width: 80% !important;
+    }
+    .un-auth-btn{
+        font-size: 11px !important;
+    }
+    .un-auth-logo{
+        width: 50px !important;
+    }
+    .un-auth-copy{
+        font-size: 12.5px !important;
+    }
+
+    /* DEFAULTS */
+    .main-grid-wrapper{
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+
+    /* controller */
+    .back-forth-btns{
+        width: 120px !important;
+    }
+    .navigate-prev-btn,
+    .navigate-next-btn{
+        width: 50px !important;
+    }
+
+
+    /* login page */
+    .container.login-wrapper{
+        background-color: white !important;
+    }
+    .container.login-wrapper .box::before{
+        display: none !important;
+    }
+
+
+    /* Staff Dashboard */
+}
+
+
+
+
+
+/* mobile */
+@media screen and (max-width:600px){
+    /* NAV CONTROLLERS */
+   .nav-content-wrapper{
+        /* background-color: red; */
+        /* display: none !important; */ 
+   }
+    #nav-menu-dropdown{
+        /* display: none !important; */
+    }
+    /* DEFAULTS */
+    .main-grid-wrapper{
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    .mobile-hidden{
+        display: none !important;
+    }
+    .mobile-show{
+        display: block !important;
+    }
+
+    .mobile-grid-2{
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .mobile-grid-4{
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    .mobile-grid-8{
+        grid-template-columns: repeat(8, 1fr) !important;
+    }
+
+    .mobile-col-1{
+        grid-column: span 1 !important;
+    }
+    .mobile-col-2{
+        grid-column: span 2 !important;
+    }
+    .mobile-col-3{
+        grid-column: span 3 !important;
+    }
+    .mobile-col-4{
+        grid-column: span 4 !important;
+    }
+
+
+    /* controller */
+    .back-forth-btns{
+        width: 120px !important;
+    }
+    .navigate-prev-btn,
+    .navigate-next-btn{
+        width: 50px !important;
+    }
+
+    .app-name-title,
+    .content-type-title{
+        display: none !important;
+    }
+
+    /* STAFF Dashboard */
+
+    .staff-dp-wrapper{
+        width: 100px !important;
+        height: 100px !important;
+        margin-bottom: 30px !important;
+        border: 3px gray solid;
+        padding: 4px;
+    }
+    .staff-dp-wrapper .user-dp{
+        width: 100%;
+        height: 100%;
+    }
+    .btn.apply-for-leave{
+        width: 100px !important;
+    }
+    .staff-expense-summary,
+    .staff-advance-summary{
+        margin-bottom: 50px !important;
+        height: 200px !important;
+    }
+
+
+    /* ACCOUNTING DASHBOARD */
+    .account-dashboard-stats{
+        margin-bottom: 3px;
+    }
+    .account-dashboard-stats .stats-figure{
+        font-size: 25px !important;
+    }
+
+
+    
+}

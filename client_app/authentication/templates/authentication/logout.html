@@ -1,0 +1,24 @@
+{% extends "./layout.html" %}
+
+{% block title %}
+Logging Out
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+    <div class="w-full min-h-screen p-3 md:p-20 flex items-center justify-center">
+        <div class="w-96 intro-y">
+            <div
+                class="box px-5 py-8 mt-10 max-w-[450px] relative before:content-[''] before:z-[-1] before:w-[95%] before:h-full before:bg-slate-200 before:border before:border-slate-200 before:-mt-5 before:absolute before:rounded-lg before:mx-auto before:inset-x-0 before:dark:bg-darkmode-600/70 before:dark:border-darkmode-500/60">
+                <img class="mx-auto w-24" alt="Varyon ERP" src="{% static 'images/logo/logo.svg' %}">
+                <div id="logout-page" class="text-slate-500 flex justify-center text-xs sm:text-sm mt-6">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

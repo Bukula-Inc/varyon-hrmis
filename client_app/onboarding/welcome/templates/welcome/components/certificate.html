@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Certificate</title>
+    <link rel="stylesheet" href="/static/css/print_layout.css">
+    <script src="/static/js/tailwindcss.js"></script>
+    <link rel="icon" href="https://startapperp.com/img/logo/ico.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        </style>
+    <style>
+        .lobster-regular {
+            font-family: "Lobster", sans-serif;
+            font-weight: 900;
+            font-style: normal;
+            font-size: 50px;
+            margin-top: 40px;
+            color: #1f1946;
+        }
+    </style>
+</head>
+<body>
+    <div class="w-full min-h-screen bg-white">
+        <div class="absolute" style="width:100vw; height:100vh; opacity: .5;">
+            <svg id='patternId' width="210mm" height="297mm" xmlns='http://www.w3.org/2000/svg'>
+                <defs>
+                    <pattern id='a' patternUnits='userSpaceOnUse' width='32' height='32' patternTransform='scale(1) rotate(0)'>
+                        <rect x='0' y='0' width='100%' height='100%' fill='hsla(0,0%,100%,1)' />
+                        <path d='M40 16h-6m-4 0h-6m8 8v-6m0-4V8M8 16H2m-4 0h-6m8 8v-6m0-4V8' stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='hsla(259, 57%, 84%, 1)' fill='none'/>
+                        <path d='M16-8v6m0 4v6m8-8h-6m-4 0H8m8 24v6m0 4v6m8-8h-6m-4 0H8' stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='hsla(33, 39%, 82%, 1)' fill='none'/>
+                    </pattern>
+                </defs>
+                <rect width='8000%' height='8000%' transform='translate(0,0)' fill='url(#a)'/>
+            </svg>
+        </div>
+        <div class="table-wrapper min-h-screen fixed">
+            <div class="table mx-auto w-94 v-align-middle h-align-center">
+                <div class="tcell v-align-middle h-align-center">
+                    <div class="mx-auto"  style="width:150px; padding-top: 70px !important;">
+                        <img src="https://hrmis.exams-council.org.zm/static/images/logo/emblem_dark.svg" class="logo" style="width:150px; background-color: rgb(122, 140, 169);border-radius: 40px;padding:5px" alt="">
+                    </div>
+                    <h1 class="lobster-regular">ECZ HRIMS Certification</h1>
+                </div>
+            </div>
+            <div class="tbody h-align-center" style="background-color: transparent !important; font-size: 20px; padding-top: 80px;">
+                <div class="table w-98" style="line-height: 2.5em;">
+                    This is to certify that 
+                    <strong>{{linked_fields.user.first_name or ""}} {{linked_fields.user.last_name or ""}} </strong> 
+                    has successfully completed the necessary training and has demonstrated 
+                    sufficient proficiency to effectively utilize the Varyon Solution ERP system.
+Date: June 21, 2024
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

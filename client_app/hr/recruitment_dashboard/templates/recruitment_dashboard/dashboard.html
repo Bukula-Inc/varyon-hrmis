@@ -1,0 +1,39 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Dashboard
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[99%] gap-7">
+        <!-- tab list view for the  -->
+        <div class="w-full max-h-[80vh] mobile-col-4 col-span-4">
+           {% include "./components/controller.html" %}
+            <!-- main content -->
+            <div class="main-content-wrapper h-[90%] w-full overflow-hidden">
+                <div class="h-full w-full">
+                    <div class="h-[25%] w-full grid grid-cols-12 gap-4">
+                        <div class="col-span-5">
+                            {% include './components/actions.html' %}
+                        </div>
+                        <div class="col-span-7">
+                            {% include './components/overview.html' %}
+                        </div>
+                    </div>
+
+                    <div class="h-[65%] w-full mt-7">
+                        <div class="h-full w-full grid grid-cols-12 gap-4">
+                            <div class="col-span-7 h-full">
+                                {% include './components/overview_stats.html' %}
+                            </div>
+                            <div class="col-span-5 h-full">
+                                {% include './components/hiring.html' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

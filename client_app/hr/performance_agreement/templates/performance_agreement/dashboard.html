@@ -1,0 +1,45 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Performance
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="conetnt-wrapper mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="grid-content w-full grid grid-cols-3 h-[75%] gap-6">        <div class="w-full col-span-3">
+            <div class="col-span-3">
+                {% include "./components/controller.html" %}
+                <!-- main content -->
+                <div class="main-content-wrapper w-full">
+                    <div class="content-group list-view-content w-full">
+                        <div for="Performance Key Area" class="multi-content-group w-full">
+                            {% include "./components/key_areas/list_view.html" %}
+                        </div>
+                        <div for="Performance Behavioural Imperatives" class="multi-content-group w-full hidden">
+                            {% include "./components/behavioual_imperatives/list_view.html" %}
+                        </div>
+                    </div>
+                    <div class="content-group info-view-content info-view w-full hidden">
+                        <div for="Performance Key Area" class="multi-content-group w-full">
+                            {% include "./components/key_areas/info_view.html" %}
+                        </div>
+                        <div for="Performance Behavioural Imperatives" class="multi-content-group w-full hidden">
+                            {% include "./components/behavioual_imperatives/info_view.html" %}
+                        </div>
+                    </div>
+                    <div class="content-group new-form-view-content w-full hidden">
+                        <div for="Performance Key Area" class="multi-content-group w-full">
+                            {% include "./components/key_areas/form.html" %}
+                        </div>
+                        <div for="Performance Behavioural Imperatives" class="multi-content-group w-full hidden">
+                            {% include "./components/behavioual_imperatives/form.html" %}
+                        </div>
+                    </div>
+                </div>
+                <!-- main content -->
+            </div>
+            <!-- END: General Report -->
+        </div>
+
+    </div>
+    {% endblock content %}
+    

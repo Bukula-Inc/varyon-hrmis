@@ -1,0 +1,182 @@
+{% extends "../client_app/layout.html" %}
+{% block title %} Dashboard {% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[85vh]">
+    <div class="w-full h-[98%] overflow-hidden">
+        <div class="h-full w-full flex gap-4">
+            <!-- tab list view for the  -->
+        <div class="h-full w-[75%]">
+            <div class="h-full w-full">
+                <div class="h-[10%] w-full">
+                    <div class="h-full w-full">
+                        <!-- BEGIN: top action -->
+                        {% include "./components/controller.html" %}
+                        <!-- END: top action -->
+                    </div>
+                </div>
+                <div class="h-[90%] w-full">
+                    <div class="h-full w-full flex gap-4">
+                        <div class="w-[60%] h-full flex gap-4 flex-col">
+                            <div class="h-full w-full grid grid-rows-2 gap-4">
+                                <div class="row-span-1 w-full bg-white rounded-lg px-4">
+                                    <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                        Performance Rate After Discipline
+                                    </div>
+                                    <div class="h-[calc(100%-45px)] w-full">
+                                        <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                            <div id="performance_rate_after_discipline" class="h-full w-full flex justify-center items-center"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-span-1 w-full bg-white rounded-lg px-4">
+                                    <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                        Grievance By Department
+                                    </div>
+                                    <div class="h-[calc(100%-45px)] w-full">
+                                        <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                            <div id="discipline_by_department" class="h-full w-full flex justify-center items-center"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-full w-[40%]">
+                            <div class="h-full w-full grid grid-rows-2 gap-4">
+                                <div class="w-full row-span-1">
+                                    <div class="h-full w-full grid grid-rows-4 gap-4">
+                                        <div class="row-span-3 w-full">
+                                            <div class="h-full px-4 w-full rounded-lg bg-white">
+                                                <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                                    Grievances by Type
+                                                </div>
+                                                <div class="h-[calc(100%-45px)] w-full">
+                                                    <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                                        <div id="grievance_by_type" class="h-full w-full flex justify-center items-center"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row-span-1 w-full">
+                                            <div class="h-full w-full grid grid-cols-3 overflow-hidden bg-white rounded-lg">
+                                                <div class="col-span-1">
+                                                    <div class="h-full w-full">
+                                                        <div class="bg-white overflow-hidden shadow">
+                                                            <div class="px-2 py-4">
+                                                                <dl>
+                                                                    <dt class="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">Total Grievances</dt>
+                                                                    <dd class="mt-1 text-3xl leading-9 font-semibold text-indigo-600 dark:text-indigo-400" id="total_grievances_rate">0<span class="text-[9px]">This Month</span>
+                                                                    </dd>
+                                                                </dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-span-1 border-r border-l border-slate-500/30">
+                                                    <div class="h-full w-full">
+                                                        <div class="bg-white overflow-hidden shadow">
+                                                            <div class="px-2 py-4">
+                                                                <dl>
+                                                                    <dt class="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">Total Resolved</dt>
+                                                                    <dd class="mt-1 text-3xl leading-9 font-semibold text-indigo-600 dark:text-indigo-400" id="resolved_percentage">0<span class="text-[9px]">This Month</span>
+                                                                    </dd>
+                                                                </dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-span-1">
+                                                    <div class="h-full w-full">
+                                                        <div class="bg-white overflow-hidden shadow">
+                                                            <div class="px-2 py-4">
+                                                                <dl>
+                                                                    <dt class="text-sm leading-5 font-medium text-gray-500 truncate dark:text-gray-400">Resolution Rate</dt>
+                                                                    <dd class="mt-1 text-3xl leading-9 font-semibold text-indigo-600 dark:text-indigo-400" id="resolution_rate"><span class="text-[9px]">This Month</span>
+                                                                    </dd>
+                                                                </dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-full row-span-1">
+                                    <div class="h-full w-full gap-4 grid grid-cols-2">
+                                        <div class="col-span-1 h-full">
+                                            <div class="h-full w-full px-4 rounded-lg bg-white">
+                                                <div class="h-full w-full">
+                                                    <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                                        Recent Submissions
+                                                    </div>
+                                                    <div class="h-[calc(100%-45px)] w-full">
+                                                        <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                                            <div id="recent_submissions" class="relative h-full w-full flex justify-start items-start flex-wrap pt-2">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-1 h-full">
+                                            <div class="h-full w-full px-4 rounded-lg bg-white">
+                                                <div class="h-full w-full">
+                                                    <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                                                        Recent Actions
+                                                    </div>
+                                                    <div class="h-[calc(100%-45px)] w-full">
+                                                        <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                                            <div id="recent_actions" class="relative h-full w-full flex flex-wrap justify-start items-start pt-2">
+                                                              
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- side stats -->
+        <div class="h-full w-[25%]">
+            <div class="w-full h-full grid gap-4 grid-rows-2">
+                <div class="h-full w-full bg-white px-4 rounded-lg">
+                    <div class="h-full w-full">
+                        <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                            Grievance By Status
+                        </div>
+                        <div class="h-[calc(100%-45px)] w-full">
+                            <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                <div id="employee_attendance_punctuality" class="relative h-full w-full flex justify-center items-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-full w-full bg-white px-4 rounded-lg">
+                    <div class="h-full w-full">
+                        <div class="h-[45px] border-b border-slate-300/40 w-full flex items-center font-bold capitalize">
+                            Employee Turnover & Retention
+                        </div>
+                        <div class="h-[calc(100%-45px)] w-full">
+                            <div class="h-[calc(100%-45px)] w-full overflow-hidden">
+                                <div id="employee_turn_over_and_retention" class="h-full w-full flex justify-center items-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- side stats -->
+        </div>
+    </div>
+
+
+</div>
+{% endblock content %}

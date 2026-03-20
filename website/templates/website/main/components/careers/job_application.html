@@ -1,0 +1,30 @@
+<div class="w-full mx-auto intro-y mt-[60px]">
+    <div class="col-span-12">
+        <div class="intro-y flex items-center justify-between items-end h-[max-content]">
+            {% include 'client_app/components/navigators.html' %}
+            <!-- TITLE CONTENT -->
+            <!-- RIGHT ACTIONS -->
+            <div class=" page-actions-wrapper flex items-center justify-center ">
+                <!-- actions for the list view -->
+                <div class="content-group list-view-content flex items-center justify-center">
+                    <button class="new-action-btn h-[47px] text-16 w-max btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i>New Job Application
+                    </button>
+                </div>
+                <div class="content-group info-view-content new-form-view-content form-content-view info-actions flex items-center justify-center hidden">
+                </div>
+            </div>
+            <!-- RIGHT ACTIONS -->
+        </div>
+    </div>
+    <div class="main-content-wrapper w-full">
+        <div class="content-group info-view-content w-full hidden">
+            {% include "./job_application_info.html" %}
+        </div>
+        <div class="content-group new-form-view-content w-full">
+            {% include "./form.html" %}
+        </div>
+    </div>    
+    {% comment %} {% include "./job_application_info.html" %} {% endcomment %}
+</div>
+

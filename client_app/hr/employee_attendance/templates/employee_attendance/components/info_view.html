@@ -1,0 +1,75 @@
+{% load static %}
+<div class="w-full mt-5 intro-y">
+    <div class="box p-3 h-[85vh] overflow-y-auto">
+        <div class="w-full h-full">
+            <div class="h-[70px] mb-6 w-full">
+                <div class="h-full w-full flex justify-end items-center">
+                    <div class="bg-slate-100 rounded-3xl w-[30%] overflow-hidden h-[90%] p-1">
+                        <div class="h-full w-full flex justify-between items-center">
+                            <div class="h-full w-[50px] font-extrabold flex justify-center items-center">
+                                <span class="text-[30px] text-indigo-500 material-symbols-outlined">
+                                    tune
+                                </span>
+                            </div>
+                            <div class="h-full w-[calc(100%-50px)]">
+                                <div class="h-full w-full flex justify-center items-center px-2">
+                                    <input
+                                        lite-field="Search-attendance"
+                                        class="border-none rounded-r-lg focus:ring-transparent placeholder:text-slate-800 w-full h-full"
+                                        placeholder="Search Employee by Name/No...." type="text"
+                                    />
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="h-max w-full border-t pt-4 grid grid-cols-12 gap-5 employee-attendant-info-card" id="employee-attendant-info">
+                {% comment %} <div class="min-h-[350px] max-h-[350px] gap-3 col-span-2 box rounded-md">
+                    <div class="h-full w-full p-2">
+                        <div class="h-[70%] w-full">
+                            <div class="h-full w-full overflow-hidden">
+                                <img src="/media/defaults/avatas/dp.jpeg" alt="Bright Kunda Mulomba JR" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="h-[30%] w-full">
+                            <div class="h-full w-full flex-col flex items-center gap-2 flex-wrap">
+                                <p class="text-xl font-semibold flex justify-center items-center flex-wrap capitalize">Bright Kunda Mulomba JR</p>
+                                <p class="text-md font-semibold text-indigo-700">EM-BSK-90000</p>
+                                <p class=" capitalize">Development</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+
+                {% comment %} <div class="w-[8rem] h-[12rem] bg-indigo-100/50 rounded-lg grid grid-rows-9 mx-2 my-2">
+                    <div class="row-span-1 grid grid-rows-3 place-content-end px-4">
+                        <div class="">.</div>
+                        <div class="">.</div>
+                        <div class="">.</div>
+                    </div>
+                    <div class="row-span-4 flex justify-center h-[5rem]">
+                        <div class="bg-red-100 w-[4rem] h-[4rem] rounded-full content-center flex justify-center">
+                            <img class="object-fill w-full h-full rounded-full" src="../../../../../../static/images/avata/avata7.avif" alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="row-span-1 flex justify-center">
+                        <h3>Full Name</h3>
+                    </div>
+                    <div class="row-span-1 flex justify-center grid place-content-center">
+                        <p class="bg-default/75 text-theme_text_color px-1 rounded-lg">Job Discription</p>
+                    </div>
+                    <div class="row-span-1 grid grid-cols-2 w-[60%] h-full content-center gap-2">
+                        <div class="bg-green-900 h-full"></div>
+                        <div class="bg-green-900 h-full"></div>
+                    </div>
+                    <div class="row-span-1 flex justify-center grid content-end">
+                        <small>status</small>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>

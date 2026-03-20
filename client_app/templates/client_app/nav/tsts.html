@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Animate Swap with CSS Grid</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    /* Some basic styling for demonstration purposes */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+    }
+    .element {
+      padding: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: transform 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-container">
+    <div id="element1" class="element">Element 1</div>
+    <div id="element2" class="element">Element 2</div>
+  </div>
+
+  <script>
+    // jQuery code to animate and swap elements
+    $(document).ready(function() {
+      // Click event to trigger the swap with animation
+      $(".element").click(function() {
+        // Get references to the elements
+        var element1 = $("#element1");
+        var element2 = $("#element2");
+
+        // Swap the elements in the DOM without reinitializing
+        if (element1.is(this)) {
+          element1.css("transform", "translateX(100%)");
+          element2.css("transform", "translateX(-100%)");
+
+          // Swap the elements in the DOM after the animation is complete
+          setTimeout(function() {
+            element1.after(element2);
+            element1.css("transform", "translateX(0)");
+            element2.css("transform", "translateX(0)");
+          }, 500); // Adjust the timeout based on your transition duration
+        } else if (element2.is(this)) {
+          element1.css("transform", "translateX(-100%)");
+          element2.css("transform", "translateX(100%)");
+
+          // Swap the elements in the DOM after the animation is complete
+          setTimeout(function() {
+            element2.after(element1);
+            element1.css("transform", "translateX(0)");
+            element2.css("transform", "translateX(0)");
+          }, 500); // Adjust the timeout based on your transition duration
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

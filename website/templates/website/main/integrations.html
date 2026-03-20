@@ -1,0 +1,21 @@
+{% extends "./layout.html" %}
+{% block title %}
+    Integrations
+{% endblock title %}
+{% block content %}
+<div class="w-full min-h-[100vh] bg-gray-100 pb-20">
+    <div class="w-[95%] mx-auto pt-[130px] min-h-[80vh] mb-10">
+        {% comment %} {% include "./components/integrations/intro.html" %}
+        {% include "./components/integrations/menus.html" %} {% endcomment %}
+        {% comment %} {% include "./components/integrations/request_body.html" %} {% endcomment %}
+        <div class="w-full h-[70vh] flex items-center justify-center flex-col font-semibold">
+            <span class="material-symbols-outlined text-[60px] text-orange-700">
+                sentiment_dissatisfied
+                </span>
+            <h1 class="font-bold text-[50px] text-default my-10 text-center leading-[1.2]">Page Unavailable</h1>
+            <h5 class="mb-5">This page is unavailable at the moment!</h5>
+            <span class="text-orange-500">COMING SOON</span>
+        </div>
+    </div>
+</div>
+{% endblock content %}

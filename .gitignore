@@ -1,0 +1,51 @@
+
+# GIT IGNORE
+
+### Django ###
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media/
+.idea/
+env/
+/env
+
+
+### Python ###
+*.py[cod]
+*~
+.DS_Store
+
+### Other ###
+.git
+.git/objects/pack/
+.env
+asset_category_AvEiKgM.txt 
+asset_category.txt 
+enviroment_variable_name.txt
+migrations/
+/media
+Insight_framework_env/
+venv/
+services/__pycache__/__init__.cpython-310.pyc
+multitenancy/__pycache__/urls.cpython-310.pyc
+contollers/dbms/__pycache__/__init__.cpython-310.pyc
+Insight_erp_framework_env/
+Insight_framework_venv/
+.env
+node_modules/
+/node_modules
+/logs
+/run
+/.vscode
+/static/build/
+static/build/
+/*/build/
+**/build/
+/build/
+
+*.csv
+node_modules
+node_modules
+node_modules

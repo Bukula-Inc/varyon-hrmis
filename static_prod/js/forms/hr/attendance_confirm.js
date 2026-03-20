@@ -1,0 +1,46 @@
+export default {
+    setup: {
+        new_form_id: 'new-attendance',
+        info_form_id: 'employee-attendant-info',
+        title: "Employee Attendance",
+        layout_columns: 3,
+        allow_submit: false,
+        allow_cancel: false,
+        allow_delete: false,
+        allow_print: false,
+        allow_sending_mail: false,
+        model: "Employee_Attendance"
+    },
+    fields: [
+        {
+            id: "confirm_employee_id",
+            fieldlabel: "Confirm Employee No",
+            fieldname: "confirm_employee_id",
+            fieldtype: "text",
+            columns: 3,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+        },
+        {
+            id: "employee",
+            fieldlabel: "Employee No",
+            fieldname: "employee",
+            fieldtype: "read-only",
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: true,
+        },
+        {
+            id: "employee_name",
+            fieldlabel: "Employee Name",
+            fieldname: "employee_name",
+            fieldtype: "read-only",
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: true,
+        },
+    ],
+}

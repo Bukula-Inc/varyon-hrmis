@@ -1,0 +1,230 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+    Stock Management
+{% endblock title %}
+{% block content %}
+{% load static %}
+
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[75%] gap-7">
+        <!-- tab list view for the  -->
+        <div class="w-full col-span-3">
+            <!-- BEGIN: top action -->
+            <div class="col-span-12">
+                <div class="intro-y flex items-end justify-between sm:flex items-end h-[max-content] mb-5">
+                    {% include 'client_app/components/navigators.html' %}
+                    <!-- TITLE CONTENT -->
+                    <!-- RIGHT ACTIONS -->
+                    <div class=" page-actions-wrapper flex items-center justify-center ">
+                        <!-- actions for the list view -->
+                        <div class="sm:ml-auto mt-3 sm:mt-0 relative text-slate-500 col-span-2">
+                            <i data-lucide="calendar" class="w-5 h-4 z-10 absolute my-auto inset-y-0 ml-3 left-0"></i>
+                            <input type="text"
+                                class="filter-field shadow-none datepicker form-control sm:w-56 box pl-10">
+                        </div>
+
+                    </div>
+                    <!-- RIGHT ACTIONS -->
+                </div>
+            </div>
+            <!-- END: top action -->
+
+            <!-- main content -->
+            <div class="main-content-wrapper w-full">
+                <div class="content-groups dashboard-view-content w-full">
+                    <!-- top content -->
+                    <div class="top-stats w-full h-[200px] grid grid-cols-3 gap-3">
+                        <div class="w-full h-full col-span-2 grid grid-cols-2 gap-3">
+                            <div class="h-full -2">
+                                <div class="box h-full">
+                                    <span class="font-bold w-full p-3 flex items-center justify-start">Material Transactions</span>
+                                    <div id="dashboard-material-transactions"></div>
+                                </div>
+                            </div>
+                            <div class="h-full -2">
+                                <div class="box h-full">
+                                    <span class="font-bold w-full p-3 flex items-center justify-start">Stock Performance</span>
+                                    <div id="dashboard-stock-performance"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="-2 w-full h-full intro-y">
+                            <div class="box w-full h-full flex items-center justify-start flex-col p-3">
+                                <span class="font-bold w-full">Stock By Warehouse</span>
+                                <div id="dashboard-stock-by-warehouse"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- top content -->
+                    <div class="w-full h-[340px] grid grid-cols-2 gap-4 mt-9">
+                        <div class="-2 w-full h-full intro-y">
+                            <div class="box w-full h-full p-3">
+                                <div class="w-full flex items-center justify-between">
+                                    <span class="font-bold">Transactions By Warehouse</span>
+                                    <select data-placeholder="Select your favorite actors"
+                                        class="filter-field tom-select w-[200px] mr-2 text-[11px] h-[25] text-gray-700 shadow-defaults border-none"
+                                        aria-placeholder="Select Warehouse">
+                                        <option value="0">Sanfya VAT-7787</option>
+                                        <option value="1">Makini VAT-0009</option>
+                                        <option value="2">Kafue VAT-648</option>
+                                    </select>
+                                </div>
+                                <div id="transaction-by-warehouse"></div>
+                            </div>
+                        </div>
+                        <div class="w-full h-full gap-y-3">
+                            <div class="-2 w-full h-full intro-y mt-2">
+                                <div class="box w-full h-full p-2">
+                                    <div class="p-2">
+                                        <span class="font-bold">Stock Summary</span>
+                                    </div>
+                                    
+                                    <div id="stock-summary"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- main content -->
+        </div>
+
+        <!-- side stats -->
+        <div class="w-full h-full grid gap-y-5 grid-rows-2">
+            <div class="w-full h-full">
+                <div class="w-full h-full">
+                    <div class=" box h-[50px] flex justify-center items-center mb-2 -intro-x">
+                        <h4 class="font-semibold capitalize">Trending Items</h4>
+                    </div>
+                    <div class=" [50px] intro-x mt-2">
+                        <div class="w-full flex items-center justify-between p-3 mb-2 bg-white border rounded-md transition duration-150 ease-in-out hover:translate-x-[-1%] cursor-pointer hover:bg-gray-100">
+                            <div class="w-full flex items-center justify-start">
+                                <div class="w-[50px] h-[50px] rounded-full overflow-hidden">
+                                    <img src='{% static "images/items/mac.jpeg" %}' class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <div class="ml-2">
+                                    <h3 class="font-semibold">MacAir</h3>
+                                    <small class="text-indigo-600">Warehouse: Makeni</small>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center">
+                                <a href="" class="font-semibold flex">$1,955,766.09</a>
+                                <small class="text-red-800">Sales this year</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" [50px] intro-x mt-2">
+                        <div class="w-full flex items-center justify-between p-3 mb-2 bg-white border rounded-md transition duration-150 ease-in-out hover:translate-x-[-1%] cursor-pointer hover:bg-gray-100">
+                            <div class="w-full flex items-center justify-start">
+                                <div class="w-[50px] h-[50px] rounded-full overflow-hidden">
+                                    <img src='{% static "images/items/mac.jpeg" %}' class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <div class="ml-2">
+                                    <h3 class="font-semibold">MacAir</h3>
+                                    <small class="text-indigo-600">Warehouse: Makeni</small>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center">
+                                <a href="" class="font-semibold flex">$1,955,766.09</a>
+                                <small class="text-red-800">Sales this year</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" [50px] intro-x mt-2">
+                        <div class="w-full flex items-center justify-between p-3 mb-2 bg-white border rounded-md transition duration-150 ease-in-out hover:translate-x-[-1%] cursor-pointer hover:bg-gray-100">
+                            <div class="w-full flex items-center justify-start">
+                                <div class="w-[50px] h-[50px] rounded-full overflow-hidden">
+                                    <img src='{% static "images/items/mac.jpeg" %}' class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <div class="ml-2">
+                                    <h3 class="font-semibold">MacAir</h3>
+                                    <small class="text-indigo-600">Warehouse: Makeni</small>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center">
+                                <a href="" class="font-semibold flex">$1,955,766.09</a>
+                                <small class="text-red-800">Sales this year</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" [50px] intro-x mt-2">
+                        <div class="w-full flex items-center justify-between p-3 mb-2 bg-white border rounded-md transition duration-150 ease-in-out hover:translate-x-[-1%] cursor-pointer hover:bg-gray-100">
+                            <div class="w-full flex items-center justify-start">
+                                <div class="w-[50px] h-[50px] rounded-full overflow-hidden">
+                                    <img src='{% static "images/items/mac.jpeg" %}' class="w-full h-full rounded-full object-cover">
+                                </div>
+                                <div class="ml-2">
+                                    <h3 class="font-semibold">MacAir</h3>
+                                    <small class="text-indigo-600">Warehouse: Makeni</small>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center">
+                                <a href="" class="font-semibold flex">$1,955,766.09</a>
+                                <small class="text-red-800">Sales this year</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="-2 w-full intro-x">
+                <div class="box w-full h-full p-3">
+                    <h3 class="font-semibold text-12 text-gray-700 w-full border-b pb-2">Quick Links</h3>
+                    <a href="/coa"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-yellow-800">
+                            account_tree
+                        </span>
+                        Item Groups
+                    </a>
+                    <a href="/income_statement"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-green-700">
+                            partner_exchange
+                        </span>
+                        Material request
+                    </a>
+                    <a href="/general_ledger"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-warning">
+                            chart_data
+                        </span>
+                        Stock Ledger
+                    </a>
+                    <a href="/receivables"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-success">
+                            stacked_line_chart
+                        </span>
+                        Stock Balance
+                    </a>
+                    <a href="/payables"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-danger">
+                            query_stats
+                        </span>
+                        Stock Summary
+                    </a>
+                    <a href="/accounting/trading?module=accounting&app=trading&page=list&content_type=customer"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-indigo-600">
+                            sell
+                        </span>
+                        Item
+                    </a>
+                    <a href="/accounting/trading?module=accounting&app=trading&page=list&content_type=supplier"
+                        class="w-full flex items-center justify-start my-5 hover:text-blue-700 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-orange-600">
+                            forklift
+                        </span>
+                        Warehouses
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- side stats -->
+    </div>
+
+
+</div>
+{% endblock content %}

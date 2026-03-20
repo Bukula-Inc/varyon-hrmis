@@ -1,0 +1,112 @@
+export default {
+    setup: {
+        new_form_id: 'new-announcement',
+        info_form_id: 'announcement-info',
+        title: "Announcement",
+        layout_columns: 3,
+        model: "Announcement"
+    },
+    fields: [
+        {
+            id: "name_doc",
+            fieldlabel: "Announcement Name",
+            fieldname: "name_doc",
+            fieldtype: "text",
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+        },
+        {
+            id: "to",
+            fieldlabel: "To",
+            fieldname: "to",
+            fieldtype: "select",
+            options: ["All", "Department", "Designation", "Role"],
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+            default: "All"
+        },
+        {
+            id: "dept",
+            fieldlabel: "Department / Unit",
+            fieldname: "dept",
+            fieldtype: "link",
+            model: "Department",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+            displayon: ["to", "Department"]
+        },
+        {
+            id: "desig",
+            fieldlabel: "Job Title",
+            fieldname: "desig",
+            fieldtype: "link",
+            model: "Designation",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+            displayon: ["to", "Designation"]
+        },
+        {
+            id: "role",
+            fieldlabel: "Select Role",
+            fieldname: "role",
+            fieldtype: "link",
+            model: "Role",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+            displayon: ["to", "Role"]
+        },
+        {
+            id: "posting-date",
+            fieldlabel: "Posting Date",
+            fieldname: "posting_date",
+            fieldtype: "date",
+            columns: 1,
+            required: false,
+            hidden: false,
+            value: lite.utils.today()
+        },
+        {
+            id: "attachment",
+            fieldlabel: "Attachment",
+            fieldname: "attachment",
+            fieldtype: "file",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+        },
+    
+       {
+            id: "announcement-id",
+            fieldlabel: "",
+            fieldname: "si",
+            fieldtype: "section-break",
+            addborder: true,
+            columns: 1,
+            required: false,
+            hidden: false,
+        },
+
+        {
+            id: "announcement_context",
+            fieldlabel: "Announcement Context",
+            fieldname: "announcement_context",
+            fieldtype: "longtext",
+            classnames: "h-[300px]",
+            columns: 3,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+        }, 
+    ],
+}

@@ -1,0 +1,39 @@
+<div stage="5" id="completion" class="stage-content hidden lg:xl:w-[40vw] w-[90%] min-h-[50vh] bg-white intro-y border rounded-md mx-auto p-3 mt-10">
+    <div class="w-full h-full">
+        <div class="w-full flex items-center justify-betwen border-b pb-2">
+            <h3 class="w-full font-bold">Finishing Up ...</h3>
+        </div>
+        <div id="submission-content" class="h-[40vh] overflow-y-auto flex items-center justify-center flex-col">
+            <div class="submission-wrapper flex items-center justify-center flex-col">
+                <div class="submission-loader-wrapper mb-5 intro-y"></div>
+                <span class="bg-gray-200 rounded-md px-2 py-1 rounded-md mb-3 intro-y">Please wait</span>
+                <h2 class="font-bold text-20 intro-y">While We Submit Your Info</h2>
+                <span class="mt-7 intro-y text-gray-500">Almost there</span>
+            </div>
+
+            <div class="success-wrapper flex items-center justify-center flex-col hidden">
+                <span class="material-symbols-outlined text-[80px] mb-5 intro-y text-default"> task_alt </span>
+                <h2 class="font-bold text-17 intro-y">Registration Complete</h2>
+                <p class="text-center my-2 w-[70%] intro-y">
+                    Your registration with Varyon was successful, we will send you an email shortly when your system is fully ready.
+                    <br>
+                    Thank you for registering with Us.
+                </p>
+                <a href="/" class="flex items-center justify-center rounded-md btn bg-default text-theme_text_color w-[200px] mt-3 intro-y">
+                    Done
+                    <span class="material-symbols-outlined ml-5"> arrow_forward_ios </span>
+                </a>
+            </div>
+
+            <div class="failed-wrapper flex items-center justify-center flex-col hidden">
+                <span class="material-symbols-outlined text-[80px] mb-5 intro-y text-red-700"> cancel </span>
+                <h2 class="font-bold text-17 intro-y">Registration Failed</h2>
+                <p class="text-center my-2 w-[70%] intro-y">Your registration was rejected. Please try resubmitting your info one more time.</p>
+                <a href="/web/onboarding" class="flex items-center justify-center rounded-md btn bg-orange-600 text-white w-[200px] mt-3 intro-y">
+                    Resubmit Info
+                    <span class="material-symbols-outlined ml-5"> arrow_forward_ios </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

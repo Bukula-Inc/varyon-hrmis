@@ -1,0 +1,33 @@
+{% load static %}
+<div class="w-full mt-5 intro-y">
+    <div class="box p-3 h-[65vh] overflow-y-auto">
+        <form id="payroll-processor-info" class="w-full">
+            <div class="form-header w-full flex justify-between items-center gap-2">
+                <div class="flex items-center justify-start"></div>
+                <h1 class="payroll-title font-bold text-[15px] flex items-center justify-center mb-5 text-gray-500">
+                    <span class="material-symbols-outlined text-20 mr-1 text-orange-400">memory</span>
+                    PAYROLL PROCESSOR
+                </h1>
+            </div>
+            <div class="form-fields grid gap-3 gap-x-5">
+                <div class="flex items-center justify-center flex-col dynamic-loader">
+                    <svg width="25" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" fill="${color}" class="w-10 h-10 mr-2">
+                        <circle cx="15" cy="15" r="15">
+                            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+                            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+                        </circle>
+                        <circle cx="60" cy="15" r="9" fill-opacity="0.3">
+                            <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+                            <animate attributeName="fill-opacity" from="0.5" to="0.5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+                        </circle>
+                        <circle cx="105" cy="15" r="15">
+                            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+                            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+                        </circle>
+                    </svg>
+                </div>
+            </div>
+          
+        </form>
+    </div>
+</div>

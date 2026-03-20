@@ -1,0 +1,6 @@
+from django.apps import AppConfig
+
+
+class FinalStatementConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'client_app.hr.clearance_form'

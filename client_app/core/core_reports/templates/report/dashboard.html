@@ -1,0 +1,30 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Trial Balance
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="report-wrapper mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[75%] gap-3">
+        <div class="w-full col-span-4">
+            <div class="w-full flex items-center justify-between">
+                <div class="intro-y flex items-center justify-between sm:flex items-center h-8">
+                    {% include 'client_app/components/navigators.html' %}
+                </div>
+                <div class=" report-actions-wrapper flex items-center justify-center"></div>
+            </div>
+            <div class="main-content-wrapper w-full">
+                <div class="w-full mt-6">
+                    <div class=" report-filters-wrapper w-full my-2 mt-5 bg-white rounded-md border intro-y p-3 grid grid-cols-6 gap-2"></div>
+                    <div class=" w-full -2 mt-1 intro-y">
+                        <div class="box min-h-[520px] w-full h-full p-3 overflow-x-auto">
+                            <div class="table-controllers w-full flex items-center justify-between"></div>
+                            <div class="table-container mt-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

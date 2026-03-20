@@ -1,0 +1,21 @@
+<div class="w-full min-h-[60px] border-b flex items-center justify-between">
+    <div class="flex items-center items-start">
+        <span
+            class="opacity-[0.7] material-symbols-outlined text-16 {% if t.type == 'Debit' %} text-default {% else %} text-danger {% endif %} mr-2">
+            {% if t.type == 'Debit' %} trending_up {% else %} trending_down {% endif %}
+        </span>
+        <div class="ml-1">
+            <h4 class="m-0">{{t.amount}}</h4>
+            <small class="text-gray-500">
+                {{t.date}} |
+                <span class="{% if t.type == 'Debit' %} text-default {% else %} text-danger {% endif %}">
+                    {{t.type}}ed
+                </span>
+            </small>
+        </div>
+    </div>
+    <div class="flex items-end justify-center flex-col">
+        <h6 class="text-12 font-bold">{{t.account}}</h6>
+        <small class="text-10 text-gray-500">{{t.bank}}({{t.account_name}})</small>
+    </div>
+</div>

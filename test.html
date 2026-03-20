@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="utf-8">  
+    <title>ZingSoft Demo</title>  
+    <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>  
+    <style>    
+      .chart--container {      
+        height: 100%;      
+        width: 100%;      
+        min-height: 530px;    
+      }    
+      .zc-ref {      
+        display: none;    
+      }  
+    </style>
+    </head>
+    <body>  
+      <div id="myChart" class="chart--container">
+        <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
+      </div>  
+      <script>    
+      ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];    
+      let chartConfig = {type: 'waterfall',      borderColor: '#B9BABC',      borderRadius: '3px',      borderWidth: '1px',      title: {        text: 'Company Profits',        adjustLayout: true,      },      subtitle: {        text: 'Fiscal Year 2017-18',        fontSize: '14px',      },      options: {        final: {          backgroundColor: '#1c3652',        },        intermediate: {          backgroundColor: '#5381B3',        },        line: {          lineColor: '#666666',          lineGapSize: '3px',          lineSegmentSize: '4px',          lineWidth: '1px',        },        negative: {          backgroundColor: '#c54344',        },        positive: {          backgroundColor: '#3e358d',        },      },      plot: {        tooltip: {          text: '%kl \n $%v',          padding: '5px 10px 7px 10px',          backgroundColor: '#000000',          borderRadius: '6px',          callout: true,          fontWeight: 'bold',          offsetY: '-5px',          placement: 'node:top',          short: true,        },        animation: {          delay: 100,          effect: 'ANIMATION_UNFOLD_VERTICAL',          method: 'ELASTIC_EASE_OUT',          sequence: 'ANIMATION_BY_NODE',          speed: 100,        },        barWidth: '30px',        showZero: true,      },      plotarea: {        adjustLayout: true,      },      scaleX: {        fontColor: 'rgb(0,0,0)',        labels: [          'Jun',          'Jul',          'Aug',          'Sep',          'Oct',          'Nov',          'Dec',          'Jan',          'Feb',          'Mar',          'Apr',          'May',          'Total',        ],        lineColor: 'rgb(200,200,200)',        tick: {          lineColor: 'rgb(200,200,200)',        },      },      scaleY: {        values: '-2000000000:6000000000:1000000000',        format: '$%v',        guide: {          items: [{              backgroundColor: '#FFFFFF',            },            {              backgroundColor: '#EEEEEE',            },          ],          lineColor: '#DDDDDD',        },        label: {          text: 'USD ( in billions )',        },        lineColor: 'rgb(200,200,200)',        negation: 'currency',        short: true,        shortUnit: 'B',        tick: {          lineColor: 'rgb(200,200,200)',        },      },      series: [{        values: [          1000000000,          -1680000000,          -470000000,          4820000000,          100000000,          -3500000000,          2000000000,          -2340000000,          3560000000,          -2000000000,          2500000000,          1600000000,          'SUM',        ],      }, ],    };    zingchart.render({      id: 'myChart',      data: chartConfig,      height: '100%',      width: '100%',    });  </script></body></html>

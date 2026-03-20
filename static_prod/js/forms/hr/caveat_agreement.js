@@ -1,0 +1,216 @@
+
+export default {
+    setup: {
+        new_form_id: 'new-caveat-agreement',
+        info_form_id: 'caveat-agreement-info',
+        title: "Agreement For Caveat",
+        layout_columns: 6,
+        model: "Caveat_Agreement"
+    },
+    fields:[
+        {
+            id: "agreement-date",
+            fieldlabel: "Date of Agreement",
+            fieldname: "agreement_date",
+            fieldtype: "date",
+            columns: 2,
+            required: true,
+            hidden: true,
+            placeholder: " ",
+            // default: lite.user.company.name,
+        },
+        {
+            id: "first-part",
+            fieldlabel: "Name of First Part",
+            fieldname: "first_party",
+            fieldtype: "text",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+            default:""
+        },
+        {
+            id: "subdivision-2",
+            fieldlabel: "Subdivision 2",
+            fieldname: "Subdivision_2",
+            fieldtype: "text",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+            default:""
+        },
+        {
+            id: "subdivision-a",
+            fieldlabel: "Subdivision A",
+            fieldname: "Subdivision_a",
+            fieldtype: "text",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+            default:""
+        },
+        {
+            id: "council-enter-agreement-date",
+            fieldlabel: "Date Council Entered Agreement",
+            fieldname: "council_enter_agreement_date",
+            fieldtype: "text",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+            default:""
+        },
+        {
+            id: "in-house-amount",
+            fieldlabel: "Loan Amount",
+            fieldname: "in_house_loan",
+            fieldtype: "float",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+            default:""
+        },
+        {
+            id: "constraction-site-address",
+            fieldlabel: "Address of Construction Site",
+            fieldname: "constraction_site_address",
+            fieldtype: "text",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+        },
+
+        {
+            id: "section-break-001",
+            fieldlabel: "NOW IT IS AGREED THAT:",
+            fieldname: "",
+            fieldtype: "section-break",
+        },
+        {
+            id: "authoriser-",
+            fieldlabel: "Authoriser",
+            fieldname: "authoriser",
+            fieldtype: "text",
+            columns: 2,
+            required: true,
+            hidden: false,
+            placeholder: " ",
+            default:""
+        },
+        {
+            id: "pay-sum",
+            fieldlabel: "Sum to be Paid",
+            fieldname: "pay_sum",
+            fieldtype: "float",
+            columns: 2,
+            required: true,
+            hidden: false,
+            placeholder: " ",
+            // default: lite?.user?.company?.reporting_currency
+        },
+        {
+            id: "paying-party",
+            fieldlabel: "Paying Party",
+            fieldname: "paying_party",
+            fieldtype: "text",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+            default:""
+        },
+        {
+            id: "council-representative-id",
+            fieldlabel: "Council Representative's ID",
+            fieldname: "council_representative",
+            fieldtype: "link",
+            model: "Employee",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+            default:""
+        },
+        {
+            id: "council-representative-name",
+            fieldlabel: "Council Representative's Name",
+            fieldname: "council_representative_name",
+            fieldtype: "read-only",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+            default:"",
+            fetchfrom: "council-representative-id",
+            fetchfield: "full_name",
+        },
+        {
+            id: "witness-list",
+            fieldlabel: "Witness List",
+            fieldname: "witness_list",
+            fieldtype: "table",
+            model: "Caveat_Agreement_Witness",
+            columns: 6,
+            required: false,
+            hidden: false,
+            fields:[
+                {
+                    id: "witness-id",
+                    fieldlabel: "Witness Id",
+                    fieldname: "witness_id",
+                    fieldtype: "link",
+                    model: "Employee",
+                    columns: 5,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    // default: lite?.user?.company?.reporting_currency
+                },  
+                {
+                    id: "witness-name",
+                    fieldlabel: "Witness Name",
+                    fieldname: "witness_name",
+                    fieldtype: "ready-only",
+                    columns: 5,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    fetchfrom: "witness-id",
+                    fetchfield: "full_name",
+                    // default: lite?.user?.company?.reporting_currency
+                },      
+                {
+                    id: "address",
+                    fieldlabel: "Address",
+                    fieldname: "address",
+                    fieldtype: "text",
+                    columns: 5,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    // default: lite?.user?.company?.reporting_currency
+                },      
+                {
+                    id: "occupation",
+                    fieldlabel: "Occupation",
+                    fieldname: "occupation",
+                    fieldtype: "link",
+                    model: "Designation",
+                    columns: 5,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    fetchfrom: "witness-id",
+                    fetchfield: "designation",
+                    // default: lite?.user?.company?.reporting_currency
+                },
+            ]
+            // default: lite?.user?.company?.reporting_currency
+        },
+    ]
+}

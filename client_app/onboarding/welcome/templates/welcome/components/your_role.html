@@ -1,0 +1,31 @@
+<div class="w-full hidden onboarding-stage" stage="3">
+    <div class="w-full bg-gray-200 rounded-md my-5 h-[50px] flex items-center justify-start mb-2">
+        <button for="role-description" class="btn role-btn ml-2 shadow-none bg-default text-theme_text_color intro-x transition duration-100">
+            <span class="material-symbols-outlined mr-1"> description </span>
+            Role Description
+        </button>
+        <button for="allowed-features" class="btn role-btn ml-5 shadow-none intro-x transition duration-100">
+            <span class="material-symbols-outlined mr-1"> lock_open </span>
+            Allowed Features
+        </button>
+    </div>
+    
+    <div class="w-full m-auto h-[60vh] overflow-hidden overflow-y-auto">
+        <div class="intro-y">
+            <h1 class="text-26 font-bold mt-5">About Your Role!</h1>
+        </div>
+        <div id="role-description" class="w-full role-description intro-y ">
+            <div class="intro-y">
+                <h3 class="font-bold my-3">Below is a brief description about your role in the system.</h3>
+            </div>
+            <div id="description" class="w-full intro-y"></div>
+            
+        </div>
+        <div id="allowed-features" class="w-full role-description intro-y hidden">
+            <h3 class="font-bold my-3">Some of the features you will have access to in the system.</h3>
+            <div class="w-full allowed-features-list grid grid-cols-4 gap-4">
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+export default {
+    setup: {
+        new_form_id: 'form',
+        info_form_id: 'info',
+        title: "Disabled Document",
+        layout_columns: 2,
+        model: "Disabled_Document"
+    },
+    fields: [
+        {
+            id: "name",
+            fieldlabel: "Name",
+            fieldname: "name",
+            fieldtype: "read-only",
+            columns: 1,
+            placeholder: "Enter Disabled Document Name",
+            required: true,
+            hidden: false,
+            description: "Disabled Document",
+        },
+        {
+            id: "document_type",
+            fieldlabel: "Document Type",
+            fieldname: "document_type",
+            fieldtype: "read-only",
+            columns: 1,
+            placeholder: "Enter Document Type",
+            required: true,
+            hidden: false,
+        },
+        {
+            id: "doc-id",
+            fieldlabel: "Document ID",
+            fieldname: "doc_id",
+            fieldtype: "read-only",
+            columns: 1,
+            placeholder: "Document ID",
+            required: true,
+            hidden: false,
+        },
+        {
+            id: "initial-status",
+            fieldlabel: "Initial Status",
+            fieldname: "initial_status",
+            fieldtype: "read-only",
+            columns: 1,
+            placeholder: "Enter Initial Status",
+            required: true,
+            hidden: false,
+            description: "Initial Status",
+        },
+    ],
+}

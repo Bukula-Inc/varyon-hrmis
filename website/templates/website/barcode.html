@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #scanner-container {
+            margin: 20px auto;
+            max-width: 300px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #barcode-video {
+            width: 100%;
+            height: auto;
+        }
+
+        #barcode-result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Barcode Scanner</h1>
+    <div id="scanner-container">
+        <video id="barcode-video" autoplay></video>
+        <audio id="beep" preload="auto">
+            <source src="/static/audio/scanner_2.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <div id="barcode-result"></div>
+
+    <script>
+        // Access video stream
+        console.log(navigator.mediaDevices)
+    </script>
+</body>
+</html>

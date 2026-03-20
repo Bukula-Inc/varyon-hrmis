@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{name}}</title>
+    <link rel="stylesheet" href="/static/css/print_layout.css">
+    <script src="/static/js/tailwindcss.js"></script>
+    <link rel="icon" href="https://startapperp.com/img/logo/ico.png">
+</head>
+<body>
+    <div class="w-full min-h-screen bg-white">
+        <div class="table-wrapper bg-white">
+            <div class="table bg-white mx-auto w-94">
+                <div class="trow dochead">
+                    <div class="tcell v-align-middle">
+                        <img src="https://{{full_url}}{{linked_fields.get('company').get('company_logo')}}" class="logo" alt="">
+                    </div>
+                    <div class="tcell v-align-middle h-align-end">
+                        <div class="titles-wrapper h-align-end">
+                            <h1 class="font-bold  h-align-end title"> {{ doctype|replace('_', ' ')|title }} </h1>
+                            <div class="doc-name font-semibold mt-7">INVOICE NO: {{name}} </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tbody h-align-center">
+                <div class="table w-98">
+                    <div class="trow">
+                        <div class="tcell flex flex-col" colspan="2" >
+                            <div class="mb-5 font-bold sub-title"> Supplier </div>
+                            <div class="font-bold mb-1"> {{company}} </div>
+                            <div class="flex justify-between my-3">
+                                <div class="flex-1"> {{company_physical_address}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold">Supplier TPIN</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{company_tax_identification_no}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Issue Date</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{issue_date}} </div>
+                            </div>
+                        </div>
+                        <div class="tcell seperator" colspan="3"></div>
+                        <div class="tcell" colspan="2">
+                            <div class="mb-5 font-bold sub-title"> Customer </div>
+                            <div class="font-bold mb-1"> {{customer}} </div>
+                            <div class="flex my-3">
+                                <div class="w-100"> {{customer_physical_address}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold">Customer TPIN</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{customer_tax_identification_no}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Due Date</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{due_date}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">PO NO</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{po_no or " - "}} </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- items -->
+            <div class="thead items-body">
+                <div class="table w-94">
+                    <div class="trow v-align-middle rounded-md">
+                        <div class="tcell bg-default font-bold h-align-center v-align-middle rounded-tl-md rounded-bl-md">S/N</div>
+                        <div class="tcell bg-default font-bold h-align-start v-align-middle" colspan="4">Item Description</div>
+                        <div class="tcell bg-default font-bold h-align-end v-align-middle" colspan="1">Qty</div>
+                        <div class="tcell bg-default font-bold h-align-end v-align-middle" colspan="2">Unit Price</div>
+                        <div class="tcell bg-default font-bold h-align-end v-align-middle" colspan="1">Disc%</div>
+                        <div class="tcell bg-default font-bold h-align-end v-align-middle" colspan="2">Tax Amount</div>
+                        <div class="tcell bg-default font-bold h-align-end v-align-middle rounded-tr-md rounded-br-md" colspan="2">Inclusive</div>
+                    </div>
+                    {%if items %}
+                        {% for item in items %}
+
+                            <div class="trow child-row v-align-middle border-bottom">
+                                <div class="tcell h-align-center v-align-middle sn"> {{ loop.index }} </div>
+                                <div class="tcell h-align-start v-align-middle" colspan="4">
+                                    <div class="font-bold"> {{item.get("item_name")}} </div>
+                                    <p class="w-full"> {{ item.get("description") }} </p>
+                                </div>
+                                <div class="tcell h-align-end v-align-top" colspan="1"> {{ utils.thousand_separator(item.get("qty")) }} </div>
+                                <div class="tcell h-align-end v-align-top" colspan="2"> {{ utils.thousand_separator(item.get("unit_price")) }} </div>
+                                <div class="tcell h-align-end v-align-top" colspan="1"> {{ utils.thousand_separator(item.get("discount_percentage")) }} </div>
+                                <div class="tcell h-align-end v-align-top" colspan="2"> {{ utils.thousand_separator(item.get("tax_amount")) }} </div>
+                                <div class="tcell h-align-end v-align-top" colspan="2"> {{ utils.thousand_separator(item.get("inclusive")) }} </div>
+                            </div>
+
+                        {% endfor %}
+
+                    {% endif %}
+                    
+                </div>
+            </div>
+
+            <!-- bank and totals details -->
+            <div class="thead bank-and-totals">
+                <div class="table w-94">
+                    <div class="trow v-align-middle">
+                        <!-- BANKS -->
+                        <div class="tcell font-bold ">
+                            {% if bank_accounts %}
+                                {% for bank in bank_accounts %}
+
+                                    <div class="w-100 bank-details-wrapper">
+                                        <div class="w-100 flex justify-between mb-3">
+                                            <div class="font-bold w-50 h-align-start">Bank Name</div>
+                                            <div class="w-1 mx-3">:</div>
+                                            <div class="font-bold w-50 h-align-end v-align-middle">
+                                                {{ bank.get("bank")|title }} 
+                                            </div>
+                                        </div>
+                                        <div class="w-100 flex justify-between mb-3">
+                                            <div class="font-bold w-50 h-align-start">Branch Code</div>
+                                            <div class="w-1 mx-3">:</div>
+                                            <div class="font-bold w-50 h-align-end v-align-middle">
+                                                {{ bank.get("branch_code")|title }} 
+                                            </div>
+                                        </div>
+                                        <div class="w-100 flex justify-between mb-3">
+                                            <div class="font-bold w-50 h-align-start">Swift Code</div>
+                                            <div class="w-1 mx-3">:</div>
+                                            <div class="font-bold w-50 h-align-end v-align-middle">
+                                                {{ bank.get("swift")|title }} 
+                                            </div>
+                                        </div>
+                                        <div class="w-100 flex justify-between mb-3">
+                                            <div class="font-bold w-50 h-align-start">Account Name</div>
+                                            <div class="w-1 mx-3">:</div>
+                                            <div class="font-bold w-50 h-align-end v-align-middle">
+                                                {{ bank.get("bank_account")|title }} 
+                                            </div>
+                                        </div>
+                                        <div class="w-100 flex justify-between mb-3">
+                                            <div class="font-bold w-50 h-align-start">Account No</div>
+                                            <div class="w-1 mx-3">:</div>
+                                            <div class="font-bold w-50 h-align-end v-align-middle">
+                                                {{ bank.get("account_no")|title }} 
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="tcell seperator" colspan="2"></div>
+                        <!-- TOTALS -->
+                        <div class="tcell font-bold h-align-start v-align-middle">
+                            <div class="w-100 flex justify-between mb-3">
+                                <div class="font-bold w-50">Total QTY</div>
+                                <div class="w-1 mx-3">:</div>
+                                <div class="font-bold w-50 h-align-end v-align-middle">
+                                    {{ utils.thousand_separator(total_qty) }} 
+                                </div>
+                            </div>
+                            <div class="w-100 flex justify-between mb-3">
+                                <div class="font-bold w-50">Sub Total</div>
+                                <div class="w-1 mx-3">:</div>
+                                <div class="font-bold w-50 h-align-end v-align-middle">
+                                    {{currency}} {{ utils.thousand_separator(sub_total_amount) }} 
+                                </div>
+                            </div>
+                            <div class="w-100 flex justify-between mb-3">
+                                <div class="font-bold w-50">Total Discount</div>
+                                <div class="w-1 mx-3">:</div>
+                                <div class="font-bold w-50 h-align-end v-align-middle">
+                                    {{currency}} {{ utils.thousand_separator(total_discount_amount) }} 
+                                </div>
+                            </div>
+                            <div class="w-100 flex justify-between mb-3">
+                                <div class="font-bold w-50">Total Exclusive</div>
+                                <div class="w-1 mx-3">:</div>
+                                <div class="font-bold w-50 h-align-end v-align-middle">
+                                    {{currency}} {{ utils.thousand_separator(tax_exclusive_total_amount) }} 
+                                </div>
+                            </div>
+                            {% if taxes %}
+                                {% for tax in taxes %}
+
+                                    <div class="w-100 flex justify-between mb-3">
+                                        <div class="font-bold w-50">
+                                            {{utils.tax_name_from_tax_account(tax.get("tax_account"))}}@{{tax.get("tax_rate")}}%
+                                        </div>
+                                        <div class="w-1 mx-3">:</div>
+                                        <div class="font-bold w-50 h-align-end v-align-middle">
+                                            
+                                            {{currency}} {{ utils.thousand_separator(tax.get("tax_total_amount")) }} 
+                                        </div>
+                                    </div>
+
+                                {% endfor %}
+                            {% endif %}
+                            <div class="w-100 flex justify-between mb-3">
+                                <div class="font-bold w-50">Total Inclusive</div>
+                                <div class="w-1 mx-3">:</div>
+                                <div class="font-bold w-50 h-align-end v-align-middle">
+                                    {{currency}} {{ utils.thousand_separator(inclusive_total_amount) }} 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="w-full print-footer flex items-center justify-between">
+            
+        </div>
+        <!-- footer -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+from django.urls import path
+from . import request_handler
+urlpatterns = [
+    path("authenticate/",request_handler.authenticate),
+    path("request-password-reset/",request_handler.request_password_reset),
+    path("request-password-reset-validation/",request_handler.request_password_reset_validation),
+    path("get-data/",request_handler.get_data),
+    path("post-data/",request_handler.post_data),
+    path("upload/",request_handler.upload_data),
+    path("extract-doc-data/",request_handler.extract_doc_data),
+    path("patch-data/",request_handler.patch_data),
+    path("submit-doc/",request_handler.submit_doc),
+    path("cancel-doc/",request_handler.cancel_doc),
+    path("delete-doc/",request_handler.delete_data),
+    path("truncate/",request_handler.truncate),
+    path("reports/",request_handler.get_reports),
+    path("x-fetch/",request_handler.x_fetch),
+    path("dashboard/",request_handler.dashboard),
+    path("x-post/",request_handler.x_post),
+    path("core/",request_handler.core),
+    path("workflow-action/",request_handler.workflow_action),
+    path("export-data/", request_handler.export_data),
+    path("download-report/", request_handler.download_report),
+    path("get-form-fields/", request_handler.get_form_fields),
+]

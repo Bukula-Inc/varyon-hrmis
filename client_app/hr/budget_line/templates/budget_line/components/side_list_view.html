@@ -1,0 +1,56 @@
+<div class="w-full h-full grid grid-rows-2 gap-y-7">
+    <div class="-2 intro-y">
+        <div class="box p-5 h-full">
+            <div class="w-full flex items-center justify-between">
+                <h4 class="font-semibold text-slate-600">Help Desk Ticket Summary</h4>
+            </div>
+            <div class="my-5 bg-gray-300 w-full h-[3px] rounded-full"></div>
+            <div class="w-full my-8 flex items-center justify-between">
+                <div class="flex flex-col">
+                    <span class="flex items-center justify-start">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-red-400"> add_card </span>
+                        Total Tickets
+                    </span>
+                </div>
+                <div class="rounded-full bg-gray-200 w-[30px] h-[30px] flex items-center justify-center text-[12px] total-unbillded total_tickets">
+                    0
+                </div>
+            </div>
+            <div class="w-full my-8 flex items-center justify-between">
+                <div class="flex flex-col">
+                    <span class="flex items-center justify-start">
+                        <span class="material-symbols-outlined text-[15px] mr-1 text-default">
+                            flag
+                        </span>
+                        Open Tickets 
+                    </span>
+                </div>
+                <div class="rounded-full bg-gray-200 w-[30px] h-[30px] flex items-center justify-center text-[12px] total-billed open_tickets">
+                    0
+                </div>
+            </div>
+            <div class="w-full my-8 flex items-center justify-between">
+                <div class="flex flex-col">
+                    <span class="flex items-center justify-start">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-yellow-700">
+                            done
+                        </span>
+                        Total Closed Tickets
+                    </span>
+                </div>
+                <div class="rounded-full bg-gray-200 w-[30px] h-[30px] flex items-center justify-center text-[12px] total-expired closed_tickets">
+                    0
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="-2 intro-y">
+        <div class="box p-5 h-full">
+            <div class="w-full flex items-center justify-between">
+                <h4 class="font-semibold text-slate-600">Ticket Stats</h4>
+            </div>
+            <div class="my-5 w-full h-[3px] rounded-full" id="tickets_stats"></div>
+        </div>
+    </div>
+</div>

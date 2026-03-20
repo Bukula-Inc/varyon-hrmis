@@ -1,0 +1,16 @@
+{% load static %}
+<div class=" h-full intro-y">
+    <div class="box p-3 bg-white h-full flex items-center justify-start flex-col">
+        <h4 class="font-semibold text-slate-600 flex items-center justify-start  w-full mb-4">
+            <span class="material-symbols-outlined text-20 text-orange-600 mr-2"> face_4 </span>
+            User Profile
+        </h4>
+        <div class="w-[155px] h-[155px] rounded-full border border-[4px] border-default flex items-center justify-center relative shadow-md">
+            <img src="/static/images/avata/default-avata.png" alt="" class="user-dp w-full h-full rounded-full object-cover object-top" >
+            <input type="file"  id="dp-update" class="dp lite-field lite-file-picker hidden">
+            <label for="dp-update" class="absolute bottom-[-30px] btn flex items-center justify-center bg-default text-theme_text_color p-1 rounded-md shadow-md">
+                <span class="material-symbols-outlined text-24"> upload </span>
+            </label>
+        </div>
+    </div>
+</div>

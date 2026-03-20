@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Custom Hover Effect</title>
+	<style>
+		.custom-hover {
+			position: relative;
+		}
+		
+		.custom-hover::before {
+			content: attr(data-tooltip);
+			position: absolute;
+			background-color: #333;
+			color: #fff;
+			padding: 0.5rem 1rem;
+			border-radius: 0.25rem;
+			visibility: hidden;
+		}
+		
+		.custom-hover:hover::before {
+			visibility: visible;
+		}
+	</style>
+</head>
+<body>
+		<div class="custom-hover" data-tooltip="Tooltip text 64367438748347934839483948 7893849328 82382983 83849248">
+			<span class="text-lg">Hover me</span>
+		</div>
+</body>
+</html>

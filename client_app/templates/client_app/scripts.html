@@ -1,0 +1,18 @@
+{% load static %}
+{% block scripts %}
+    <script src="{% static '/js/tailwindcss.js' %}"></script>
+    <script defer src="{% static '/js/app.js' %}"></script>
+    <script defer src="{% static '/js/jquery.js' %}"></script>
+    <script defer src="{% static '/js/jquery_ui.js' %}"></script>
+    <script defer src="{% static '/js/connection/axios.js' %}"></script>
+    <script defer src="{% static '/js/apex.js' %}"></script>
+    <script defer src="{% static '/js/summernote.js' %}"></script>
+    <script defer src="{% static '/js/moment.js' %}"></script>
+    <script defer src="{% static '/js/datepicker.js' %}"></script>
+    <script defer src="{% static '/js/timepicker.js' %}"></script>
+    <script defer src="{% static '/js/yearpicker.js' %}"></script>
+    <script src="/static/js/components/code_editor/loader.js"></script>
+    <script defer src="/static/js/lite.js"></script>
+    <script defer type="module" src="/static/build/bundle.min.js?v=1234567.8765432.0987543"></script>
+    <script defer src="{% static '/js/tailwindconfig.js' %}"></script>
+{% endblock %}

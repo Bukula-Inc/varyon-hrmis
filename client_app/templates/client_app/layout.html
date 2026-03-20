@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="light">
+{% include "client_app/header.html" %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&" />
+<title> {% block title %} {% endblock %} ||> Varyon HRIMS </title>
+<body class="main">
+    <div id="alert-area"></div>
+    <div id="debug-area"></div>
+    
+    {% include './overlay.html' %}
+
+    <div class="bg-purple-950/25 bg-gradient-to-r from-violet-600 to-indigo-600 h-screen w-screen p-2 overflow-hidden">
+
+        <div class="h-full w-full flex gap-2 bg-white/60 p-2 rounded-xl">
+
+            <!-- SIDEBAR -->
+            <aside id="sidebar" data-sidebar class="h-full w-[17%] bg-white rounded-xl shadow-2xl flex flex-col transition-all duration-300 overflow-hidden">
+
+                <!-- Header -->
+                <div class="flex items-center justify-between font-extrabold px-5 py-4 border-b border-gray-200 dark:border-white/10">
+                    <div class="flex items-center gap-2 font-extrabold uppercase text-defaubg-default">
+                        <span class="h-4 w-4 bg-default rounded-full"></span>
+                        Varyon HRMIS
+                    </div>
+                    <button class="material-icons-outlined bg-default/30 rounded-full h-[27px] w-[27px] text-defaubg-default ease-in-out transition-all flex justify-center items-center">blur_on</button>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+
+                    <a module-dashboard class="nav-link">
+                        <span class="material-icons-outlined pointer-events-none">dashboard</span>
+                        <span class="label pointer-events-none">Dashboard</span>
+                    </a>
+
+                    <a class="nav-link" data-search-btn>
+                        <span class="material-icons-outlined">search</span>
+                        <span class="label">Search</span>
+                    </a>
+
+                    <div class="h-[86.8%] mt-4 w-full p-1">
+                        <div id="menu-cards-links" class="h-full w-full overflow-y-auto">
+                            <!-- <div class="nav-group w-full transition-all">
+                                <button
+                                    class="nav-toggle w-full flex items-center justify-between p-2 transition-all"
+                                    data-accordion-toggle
+                                >
+                                    <div class="flex items-center gap-3 w-[90%]">
+                                        <span class="material-icons-outlined">bar_chart</span>
+                                        <span class="label">Reporting</span>
+                                    </div>
+
+                                    <span class="material-icons-outlined chevron transition-transform duration-300">
+                                        expand_more
+                                    </span>
+                                </button>
+
+                                <div class="nav-sub hidden pl-4 mt-1">
+                                    <a href="/app/hr/check-ins"
+                                    class="sub-link block text-13 transition duration-100 hover:translate-x-[-5px]">
+                                        Check-ins
+                                    </a>
+                                    <a href="/app/hr/objectives"
+                                    class="sub-link block text-13 transition duration-100 hover:translate-x-[-5px]">
+                                        Objectives
+                                    </a>
+                                    <a href="/app/hr/career-hub"
+                                    class="sub-link block text-13 transition duration-100 hover:translate-x-[-5px]">
+                                        Career Hub
+                                    </a>
+                                </div>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                </nav>
+                <div class="flex items-center justify-between w-full p-1 font-semibold border-b border-gray-200 dark:border-white/10">
+                    <div class="flex items-center gap-2 rounded-full p-2 bg-default/15 w-full font-semibold uppercase text-defaubg-default">
+                        <div class="h-[55px] w-[55px] bg-default p-1 rounded-full dropdown">
+                            <div class="h-full w-full dropdown-toggle" role="button" aria-expanded="false" data-tw-toggle="dropdown">
+                                <img src="/static/images/avata/avata1.jpeg" alt="User" class="h-full w-full object-cover rounded-full bg-white">
+                            </div>
+                            <div class="dropdown-menu w-56">
+                                <ul class="dropdown-content nav-dropdown-actions-wrapper bg-default">
+                                    <li>
+                                        <a href="" action="change_password" class="dropdown-item"> <i data-lucide="lock" class="w-4 h-4 mr-2 text-default"></i> Change Password</a>
+                                    </li>
+                                    <li>
+                                        <a href="" action="switch_company" class="dropdown-item"> <span class="material-symbols-outlined text-18 mr-2 text-default"> business_center </span> Switch Company</a>
+                                    </li>
+                                    <li>
+                                        <a href="" action="help" class="dropdown-item"> <i data-lucide="help-circle" class="w-4 h-4 mr-2 text-default"></i> Help </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a href="" action="logout" class="dropdown-item logout"> <i data-lucide="toggle-right" class="w-4 h-4 mr-2 text-default"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-start justify-center max-w-[70%]">
+                            <div class="nav-full-names max-w-[7rem] truncate text-[12px] w-full truncate text-ellipsis"></div>
+                            <span class="text-[9px] nav-designation  truncate text-ellipsis"></span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MAIN -->
+            <main class="flex-1 relative rounded-xl bg-white/50 py-2 px-1">
+                <div class="h-full w-full flex flex-col gap-4">
+                    <div class="h-[60px] rounded-lg w-full overflow-hidden">
+                        <div class="h-full w-full pr-2 flex justify-between items-center">
+                            <div class="w-[8%] h-full flex justify-between px-2 items-center">
+                                <button class="bg-white text-default navigate-prev-btn flex w-[40px] h-[40px] border rounded-full items-center justify-center mr-1">
+                                    <span class="material-symbols-outlined">
+                                        navigate_before
+                                    </span>
+                                </button>
+                                <button
+                                    class="bg-white text-default navigate-next-btn flex w-[40px] h-[40px] border rounded-full items-center justify-center mr-1">
+                                    <span class="material-symbols-outlined">
+                                        navigate_next
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="bg-white/40 rounded-[2rem] w-[92%] h-full">
+                                <div class="h-full w-full px-2 mx-auto">
+                                    <div class="h-full w-full flex py-1 items-center justify-between sm:flex items-end h-[max-content]">
+                                        {% include 'client_app/components/navigators.html' %}
+
+                                        <div class="h-full page-actions-wrapper flex items-center justify-center ">
+                                            <div class="content-group list-view-content flex items-center justify-center">
+                                                <div class="group bg-white h-max w-max rounded-[4rem] p-1 transition-all ease-in-out flex justify-center shadow-md items-center cursor-pointer overflow-hidden hover:bg-default">
+                                                    <button class="new-action-btn h-[47px] rounded-[4rem] px-5 text-14 w-max btn bg-default transition-all ease-in-out text-theme_text_color shadow-md group-hover:bg-white">
+                                                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2 group-hover:text-default"></i>
+                                                        <span id="document_new-btn" class="group-hover:text-default">
+                                                            Create New
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="content-group info-view-content new-form-view-content form-content-view info-actions flex items-center justify-center hidden"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-[calc(100%-60px)] rounded-lg w-full">
+                        <div class="h-full w-full  bg-white/30 overflow-hidden rounded-[1rem] p-4">
+                            <div class="h-full w-full">
+                                <div class="h-full w-full">
+                                    {% block content %} {% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute bottom-8 right-6 bg-default h-[60px] w-[60px] content-group list-view-content rounded-full p-1 hover:opacity-70 flex justify-centert shadow-md founded-full items-center cursor-pointer overflow-hidden">
+                    <button class="new-action-btn z-[19999] h-full w-full flex justify-center items-center bg-white rounded-full text-default">
+                        <i data-lucide="plus-circle" class="font-extrabold text-[50px]"></i>
+                    </button>
+                    
+                </div>
+
+                <!-- MODULES PANEL -->
+                <div class="absolute bottom-4 left-4 flex flex-col gap-3 z-50 rounded-2xl">
+                    <div id="modules-display" data-modules class="hidden h-[350px] relative w-[340px] rounded-md bg-default/50 backdrop-blur-md overflow-y-auto p-2">
+                        <h2 class="h-[13%] pl-2 font-extrabold text-white flex items-center">Modules</h2>
+                        <div class="min-h-[85%] max-h-max w-full bg-white/50 rounded-xl p-2">
+                            <div id="mdl-lst" class="h-max w-full flex gap-2 gap-y-2 flex-wrap justify-evenly"></div>
+                        </div>
+                    </div>
+
+                    <button data-modules-toggle
+                        class="h-12 w-12 rounded-full bg-default/60 backdrop-blur-md hover:bg-default text-white flex items-center justify-center shadow-lg">
+                        <span class="material-icons-outlined">grid_view</span>
+                    </button>
+                    <div class=" h-max uppercase w-max font-semibold bg-default/60  backdrop:blur-md text-white backdrop-blur-md flex justify-center items-center p-1 px-3 rounded-full">
+                        <span class="material-icons-outlined text-[16px]">copyright</span>
+                        <span class="text-[11px]">&nbsp; <script>document.write (new Date().getFullYear ())</script> &nbsp;varyon hrmis</span>
+                    </div>
+                </div>
+
+                <!-- SEARCH PANEL -->
+                <div data-search class="hidden search-panel absolute top-0 left-0 z-50 right-0 bottom-0 rounded-2xl">
+                    <div class="h-full w-full bg-default/20 backdrop-blur-sm rounded-2xl flex justify-center pt-[10%]">
+                        <div data-search-wrapper class="h-max w-[90%] bg-white rounded-lg pb-4 p-3 flex flex-col gap-3">
+                            <div class="h-max w-full space-y-4">
+                                <div class="bg-white/70 w-full flex-col gap-4 p-2 flex mb-4 rounded-lg">
+                                    <div class="h-[80px] rounded-md w-full p-3">
+                                        <div class="h-max w-full flex gap-4 justify-between items-center">
+                                            <div class="w-[60%] h-full">
+                                                <div class="w-full h-full flex gap-4 items-center">
+                                                    <div class="h-16 w-16 overflow-hidden">
+                                                        <img src="/static//images/varyon.png" alt="Varyon Logo" class="h-full w-full object-contain">
+                                                    </div>
+                                                    <div class="h-[45px] overflow-hidden p-1 rounded-md w-full bg-default/30 flex items-center">
+                                                        <div class="relative w-full">
+                                                            <span
+                                                                class="text-2xl material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"> search </span>
+                                                            <input
+                                                                type="text"
+                                                                placeholder="Search Varyon HRMIS…"
+                                                                class="w-full rounded-lg bg-surface
+                                                                    pl-10 pr-4 py-2
+                                                                    text-sm text-slate-700
+                                                                    placeholder:text-slate-400
+                                                                    border border-slate-200
+                                                                    focus:border-primary focus:ring-2 focus:ring-primary/30
+                                                                    focus:outline-none
+                                                                    transition"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex gap-2 items-center justify-end">
+                                                <div class="w-max h-max flex justify-start gap-2 items-center">
+                                                    <div class="h-full w-max px-4 bg-default/20 rounded-md p-[2px] flex items-center justify-center flex-col">
+                                                        <span class="material-icons-outlined text-default text-[14px]">history</span>
+                                                        <span class="text-[8px] text-default">Previous Pages</span>
+                                                    </div>
+                                                    <div class="h-full w-max px-4 bg-default/20 rounded-md p-[2px] flex items-center justify-center flex-col">
+                                                        <span class="material-icons-outlined text-default text-[14px]">apps</span>
+                                                        <span class="text-[8px] text-default">All App</span>
+                                                    </div>
+                                                    <div class="h-full w-max px-4 bg-default/20 rounded-md p-[2px] flex items-center justify-center flex-col">
+                                                        <span class="material-symbols-outlined text-default text-[14px]">tactic</span>
+                                                        <span class="text-[8px] text-default">Current Module</span>
+                                                    </div>
+                                                </div>
+                                                <p class="text-[9px] font-semibold bg-blue-500/20 px-4 py-1 text-blue-400 rounded-full">Spotlight Navigation.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="h-max w-full">
+                                        <div class="h-full w-full bg-slate-50 rounded-lg p-4 flex gap-4">
+                                            <div spotlight class="w-full min-h-[200px] max-h-[57vh] overflow-hidden overflow-y-auto grid grid-cols-3 flex-wrap gap-4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="p-1.5 text-white font-semibold text-[9px] mb-4 rounded-full px-4 bg-default">
+                                    © <script>document.write (new Date ().getFullYear ())</script> varyon HRMIS
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    {% include "client_app/scripts.html" %}
+    
+</div>
+
+</html>

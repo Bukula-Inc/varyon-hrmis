@@ -1,0 +1,21 @@
+{% extends "../client_app/layout.html" %}
+
+{% block content %}
+    <div class="main-content-wrapper w-full">
+        <!-- show customer list here -->
+        <div class="content-group list-view-content w-full">
+            {% include "./leave_type_list.html" %}
+        </div>
+        <!-- show customer list here -->
+        <!-- show customer info -->
+        <div class="content-group info-view-content info-view w-full hidden">
+            
+        </div>
+        <!-- show customer info -->
+        <!-- show customer info -->
+        <div class="content-group new-form-view-content w-full hidden">
+            {% include "./leave_type_create.html" %}
+        </div>
+        <!-- show customer info -->
+    </div>
+{% endblock %}

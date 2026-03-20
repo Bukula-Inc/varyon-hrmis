@@ -1,0 +1,51 @@
+export default {
+    setup: {
+        new_form_id: 'new-staff-express-mail',
+        info_form_id: 'staff-express-mail-info',
+        title: "Express Mail",
+        layout_columns: 2,
+        model: "Express_Mail",
+        allow_submit: true,
+        allow_councel: false,
+        allow_print: false,
+        allow_delete: false,
+    },
+    fields: [
+        {
+            id: "officer-id",
+            fieldlabel: "Officer ID",
+            fieldname: "officer_id",
+            fieldtype: "link",
+            model: "Employee",
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+            default: lite?.employee_info?.name
+        },
+        {
+            id: "officer-name",
+            fieldlabel: "Officer Name",
+            fieldname: "officer_name",
+            fieldtype: "read-only",
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+            default: lite?.employee_info?.full_name,
+            fetchfrom: "officer-id",
+            fetchfield: "full_name",
+        },
+        {
+            id: "justification-of-mail",
+            fieldlabel: "Justification of Mail",
+            fieldname: "justification_of_mail",
+            fieldtype: "rich",
+            height: "300px",
+            columns: 2,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+        },
+    ]
+}

@@ -1,0 +1,33 @@
+<div class=" flex items-end justify-between sm:flex items-end h-[max-content] mb-5">
+    {% include 'client_app/components/navigators.html' %}
+    <div class=" page-actions-wrapper flex items-center justify-center ">
+        <!-- actions for the list view -->
+        <div class="content-group list-view-content flex items-center justify-center">
+            <select type="select" action-type="multi-content-toggler" class="lite-selector border rounded-md px-3 w-[220px] mr-3" placeholder="Toggle Content">
+                <option selected value="Open Ended Question">Open Ended Question</option>
+                <option selected value="Closed Ended Question">Closed Ended Question</option>
+                <option value="Closed Ended Question Option" selected>Closed Ended Question Option</option>
+            </select>
+            <div class=" content-group list-view-content">
+                <div for="Open Ended Question" class="multi-content-group w-full">
+                    <button class="new-action-btn h-[47px] text-16 w-max btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i> New Open Ended Question
+                    </button>
+                </div>
+                <div for="Closed Ended Question" class="multi-content-group w-full hidden">
+                    <button class="new-action-btn h-[47px] text-16 w-[195px] btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i> New Closed Question
+                    </button>
+                </div>
+                <div for="Closed Ended Question Option" class="multi-content-group w-full hidden">
+                    <button class="new-action-btn h-[47px] text-16 w-max btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i> New Question Option
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- actions for the form --> 
+        <div class="content-group info-view-content new-form-view-content form-content-view info-actions flex items-center justify-center hidden"></div>
+    </div>
+</div>

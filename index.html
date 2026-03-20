@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <style>
+        .container {
+            width: 800px;
+            height: 600px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .draggable {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #d3d3d3;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            cursor: move;
+            float: left;
+            margin: 10px;
+        }
+        .droppable {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #d3d3d3;
+            border-radius: 10px;
+            background-color: #cff;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="draggable-1" class="draggable">Drag 1</div>
+        <div id="draggable-2" class="draggable">Drag 2</div>
+        <div id="draggable-3" class="draggable">Drag 3</div>
+        <div id="droppable-1" class="droppable">Drop 1</div>
+        <div id="droppable-2" class="droppable">Drop 2</div>
+    </div>
+
+    <script>
+        $(function() {
+            console.log($.fn.draggable)
+            // Make elements draggable
+            $(".draggable").draggable({
+                revert: false
+            });
+
+            // Make elements droppable
+            $(".droppable").droppable({
+                drop: function(event, ui) {
+                    var draggableId = ui.draggable.attr('id');
+                    var droppableId = $(this).attr('id');
+                    console.log(`Dropped ${draggableId} onto ${droppableId}`);
+                    $(ui.draggable).css({top: "", left: "", position: ""}).appendTo(this);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora officiis eius culpa, laudantium dicta consequatur vitae repudiandae, optio magni hic accusantium voluptatum, numquam necessitatibus sapiente tempore? Adipisci laboriosam quas eligendi.

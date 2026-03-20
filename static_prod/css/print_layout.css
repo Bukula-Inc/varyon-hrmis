@@ -1,0 +1,296 @@
+:root{
+    --default-color:#151030;
+}
+
+body{
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: sans-serif !important;
+    line-height: .9em;
+    width: 100%;
+}
+
+.print-wrapper .border-top{
+    border-top: 1px #cdcccc solid;
+}
+
+@media print {
+    .print-wrapper .h-align-start{
+      direction: ltr !important;
+      text-align: left !important;
+    }
+    .print-wrapper .h-align-end{
+      direction: rtl !important;
+      text-align: right !important;
+    }
+}
+
+@page {
+    margin:0 !important;
+    padding: 0 !important;
+    size: A4; 
+    margin: 2cm;
+    orientation: portrait;
+}
+.print-wrapper .mx-auto{
+    margin: 0 auto !important;
+}
+.print-wrapper .bg-default{
+    background-color: #151030 !important;
+    color: white;
+}
+.print-wrapper .w-1{
+    width: 1%;
+}
+.print-wrapper .w-20{
+    width: 40%;
+}
+
+.print-wrapper .w-40{
+    width: 40% !important;
+}
+.print-wrapper .w-50{
+    width: 50% !important;
+}
+.print-wrapper .w-80{
+    width: 80%;
+}
+.print-wrapper .w-90{
+    width: 90% !important;
+}
+.print-wrapper .w-91{
+    width: 91% !important;
+}
+.print-wrapper .w-92{
+    width: 92% !important;
+}
+.print-wrapper .w-93{
+    width: 93% !important;
+}
+.print-wrapper .w-94{
+    width: 94% !important;
+}
+.print-wrapper .w-95{
+    width: 95% !important;
+}
+.print-wrapper .w-96{
+    width: 96% !important;
+}
+.print-wrapper .w-97{
+    width: 97% !important;
+}
+.print-wrapper .w-98{
+    width: 98% !important;
+}
+.print-wrapper .w-99{
+    width: 99% !important;
+}
+.print-wrapper .w-100{
+    width: 100% !important;
+}
+.print-wrapper .p-0{
+    padding: 0 !important;
+}
+.print-wrapper .m-0{
+    margin: 0 !important;
+}
+.print-wrapper .rounded-md{
+    border-radius: 8px !important;
+}
+.print-wrapper .wrapper{
+    width: 100%;
+}
+.print-wrapper .sub-title{
+    color: rgb(154, 152, 152);
+    font-weight: bold;
+    font-size: 16px;
+}
+.print-wrapper .font-bold{
+    font-weight: 700;
+}
+.print-wrapper .flex{
+    display:flex;
+}
+.print-wrapper .flex-col{
+    flex-direction: column;
+}
+.print-wrapper .items-start{
+    align-items: flex-start;
+}
+.print-wrapper .items-center{
+    align-items: center;
+}
+.print-wrapper .items-end{
+    align-items: flex-end;
+}
+.print-wrapper .items-between{
+    align-items: space-between;
+}
+.print-wrapper .justify-start{
+    justify-content: flex-start;
+}
+.print-wrapper .justify-center{
+    justify-content: center;
+}
+.print-wrapper .justify-end{
+    justify-content: flex-end;
+}
+.print-wrapper .justify-between{
+    justify-content: space-between;
+}
+.print-wrapper .flex-1{
+    flex: 1;
+}
+.print-wrapper .flex-2{
+    flex: 2;
+}
+.print-wrapper .flex-3{
+    flex: 3;
+}
+.print-wrapper .table-wrapper{
+    width: 100%;
+    min-height: 90vh !important;
+}
+.print-wrapper .table {
+    display: table;
+    table-layout: fixed; 
+    margin: 0 auto !important;
+    margin-top: 6px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.print-wrapper .tbody{
+    width: 96%;
+    background: #fff;
+    margin: 0 auto !important;
+    margin-top: 20px !important;
+    font-size: 12px;
+}
+
+.print-wrapper .trow {
+    display: table-row;
+}
+.print-wrapper .dochead{
+    height: 150px !important;
+}
+.print-wrapper .dochead .tcell{
+    border-bottom: 1px #e6e5e5 solid;
+}
+
+
+  
+.print-wrapper .tcell {
+    display: table-cell;
+    padding: 7px;
+    text-align: center;
+}
+.print-wrapper .tcell.seperator{
+    width: 15%;
+}
+.print-wrapper .v-align-middle{
+    vertical-align: middle;
+}
+.print-wrapper .v-align-top{
+    vertical-align: top;
+}
+.print-wrapper .v-align-center{
+    vertical-align: center;
+}
+.print-wrapper .h-align-end{
+    text-align: end !important;
+    direction: ltr !important;
+}
+.print-wrapper .h-align-center{
+    text-align: center !important;
+}
+.print-wrapper .h-align-start{
+    text-align: left !important;
+    direction: ltr !important;
+}
+
+.print-wrapper .logo{
+    width: 140px;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+}
+.print-wrapper .titles-wrapper{
+    width: 100%;
+}
+.print-wrapper .title{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.print-wrapper .doc-name{
+    font-size: 13px;
+    width: 100%;
+    font-weight: normal;
+}
+
+.print-wrapper .tbody .tcell{
+    text-align: left;
+}
+.print-wrapper .tbody .tcell.seperator{
+    background-color: transparent;
+}
+.print-wrapper .content-title{
+    width: 44%;
+    font-weight: 550;
+    color: #262626;
+    font-size: 10px;
+}
+.print-wrapper .content{
+    width: 100%;
+    font-size: 11px;
+}
+.print-wrapper .content-sep{
+    width: 1.5%;
+    margin: 0 5px;
+    margin-right: 15px;
+}
+.print-wrapper .sn{
+    font-weight: bold;
+}
+.print-wrapper .thead{
+    margin-top: 20px !important;
+    font-size: 11px;
+}
+.print-wrapper .thead .tcell{
+    height: 30px;
+    padding-left: 10px !important;
+}
+
+.print-wrapper .trow.child-row .tcell{
+    /* width: 100% !important; */
+    margin-top: 0px !important;
+    padding-top: 4px !important;
+    align-items: start !important;
+    border-bottom: 1px #e3e2e2 solid;
+    /* width: inherit !important; */
+}
+
+/* invoicing layout */
+.print-wrapper .thead.items-body{
+    margin-top: 30px !important;
+    vertical-align: bottom !important;
+    min-height: 330px !important;
+}
+
+.print-wrapper .thead.bank-and-totals{
+    font-size: 10px;
+}
+.print-wrapper .bank-details-wrapper{
+    font-size: 11px;
+    font-weight: normal !important;
+}
+
+.print-wrapper .thead.bank-and-totals .tcell{
+    padding-top: 10px;
+    border-top: 1px #e3e2e2 solid;
+}
+.print-wrapper .in-words{
+    text-align: end !important;
+    line-height: 1.6em !important;
+}

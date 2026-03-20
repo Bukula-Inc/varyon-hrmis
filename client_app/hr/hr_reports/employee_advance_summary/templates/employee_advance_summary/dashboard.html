@@ -1,0 +1,72 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Employee Advnace
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[75%] gap-3">
+        <!-- tab list view for the  -->
+        <div class="w-full col-span-4">
+            <div class="w-full flex items-center justify-between">
+                <div class="intro-y flex items-center justify-between sm:flex items-center h-8">
+                    {% comment %} TITLE CONTENT {% endcomment %}
+                    {% include 'client_app/components/navigators.html' %}
+                    {% comment %} TITLE CONTENT {% endcomment %}
+                </div>
+                <div class=" flex items-center justify-center">
+                    <div class="flex items-center justify-center">
+                        <button class="save-action-btn btn mr-2 w-[170px] bg-default text-theme_text_color shadow-none text-12">
+                            <i data-lucide="printer" class="w-[17px] h-[17px] mr-2"></i>
+                            Print
+                        </button>
+                    </div>
+                    <div class="dropdown w-1/2 sm:w-auto" style="position: relative;">
+                        <button class="dropdown-toggle w-full btn sm:w-auto bg-white" aria-expanded="false"
+                            data-tw-toggle="dropdown">
+                            <i data-lucide="more-vertical" class="w-[17px] h-[17px]"></i>
+                            <!-- Actions -->
+                        </button>
+                        <div class="dropdown-menu w-[200px]" id="_hjlc5luf1" data-popper-placement="bottom-end"
+                            style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(-0.5px, 38px, 0px);">
+                            <ul class="dropdown-content">
+                                <li>
+                                    <a for="csv" class="report-download-action dropdown-item">
+                                        <span class="material-symbols-outlined text-[14px] mr-2">
+                                            csv
+                                        </span>
+                                        Download CSV
+                                    </a>
+                                </li>
+                                <li>
+                                    <a for="excel" class="report-download-action dropdown-item">
+                                        <span class="material-symbols-outlined text-[14px] mr-2">
+                                            receipt_long
+                                        </span>
+                                        Download Excel
+                                    </a>
+                                </li>
+                                <li>
+                                    <a for="pdf" class="report-download-action dropdown-item">
+                                        <i data-lucide="file-text" class="w-[17px] h-[17px] mr-2"></i>
+                                        Download PDF
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- main content -->
+            <div class="main-content-wrapper w-full">
+                <div class="w-full">
+                    {% include "./components/list_view.html" %}
+                </div>
+            </div>
+            <!-- main content -->
+        </div>
+        <!-- coa content -->
+    </div>
+
+</div>
+{% endblock content %}

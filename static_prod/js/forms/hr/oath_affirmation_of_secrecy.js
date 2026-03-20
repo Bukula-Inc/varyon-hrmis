@@ -1,0 +1,88 @@
+
+export default {
+    setup: {
+        new_form_id: 'new-oath-affirmation-of-secrecy',
+        info_form_id: 'oath-affirmation-of-secrecy-info',
+        title: "Oath / Affirmation of Secrecy",
+        layout_columns: 6,
+        model: "Oath_Affirmation"
+    },
+    fields:[
+        {
+            id: "employee-id",
+            fieldlabel: "Employee No",
+            fieldname: "empolyee_id",
+            fieldtype: "link",
+            model: "Employee",
+            columns: 2,
+            required: true,
+            hidden: false,
+            placeholder: " ",
+            // default: lite.user.company.name,
+        },
+        {
+            id: "employee-name",
+            fieldlabel: "Employee Name",
+            fieldname: "employee_name",
+            fieldtype: "read-only",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+            default:"",
+            fetchfrom: "employee-id",
+            fetchfield: "full_name",
+        },
+        {
+            id: "new-position",
+            fieldlabel: "Position",
+            fieldname: "new_position",
+            fieldtype: "link",
+            model: "Designation",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+            fetchfrom: "employee-id",
+            fetchfield: "designation",
+        },
+        {
+            id: "sworn-delcared-by-section",
+            fieldlabel: "Sworn Before / Declared By",
+            fieldname: "",
+            fieldtype: "section-break",
+        },
+        {
+            id: "sworn-declared-by",
+            fieldlabel: "Sworn Before",
+            fieldname: "sworn_before",
+            fieldtype: "text",
+            columns: 2,
+            required: true,
+            hidden: false,
+            placeholder: " ",
+            default:""
+        },
+        {
+            id: "date-of-swearing",
+            fieldlabel: "Date of swearing",
+            fieldname: "sworn_in_date",
+            fieldtype: "date",
+            columns: 2,
+            required: true,
+            hidden: false,
+            placeholder: " ",
+            default:""
+        },
+        {
+            id: "attachment",
+            fieldlabel: "Attach original Oath of Secrecy",
+            fieldname: "attachment",
+            fieldtype: "file",
+            columns: 2,
+            required: false,
+            hidden: false,
+            placeholder: " ",
+        },
+    ]
+}

@@ -1,0 +1,11 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+System Access Control
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh] gap-y-15">
+    {% include "./components/side.html" %}
+    {% include "./components/content.html" %}
+</div>
+{% endblock content %}

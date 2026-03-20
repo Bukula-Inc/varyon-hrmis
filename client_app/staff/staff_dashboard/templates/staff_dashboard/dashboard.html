@@ -1,0 +1,50 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Staff Dashboard
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full h-full gap-7">
+        <!-- tab list view for the  -->
+        <div class="w-full mobile-col-4 h-full">
+            <!-- {% include "./components/controller.html" %} -->
+            <!-- main content -->
+            <div class="main-content-wrapper w-full h-full mt-7 grid grid-cols-4 grid-rows-3 gap-2">
+                <div class="w-full row-span-2 border border-secondary_color border-dotted rounded-md bg-white intro-y">
+                    {% include "./components/profile_summary.html" %}
+                </div>
+                <div class="w-full col-span-2 border border-orange-300 border-dotted rounded-md bg-white overflow-hidden intro-y">
+                    {% include "./components/leave_summary.html" %}
+                </div>
+                <div class="w-full border border-pink-300 border-dotted rounded-md bg-white intro-y">
+                    {% include "./components/employee_files.html" %}
+                </div>
+                <div class="w-full col-span-2 h-full grid grid-cols-5  intro-y">
+                    <div class="w-full border border-red-300 border-dotted rounded-md bg-white col-span-3 rounded-r-none border-r-transparent intro-y">
+                        {% include "./components/earnings_and_deductions.html" %}
+                    </div>
+                    <div class="w-full border border-yellow-300 border-dotted rounded-md bg-white col-span-2 rounded-l-none intro-y">
+                        {% include "./components/task_summary.html" %}
+                    </div>
+                </div>
+                <div class="w-full row-span-2 border border-secondary_color border-dotted rounded-md bg-white intro-y">
+                    {% include "./components/todo.html" %}
+                </div>
+                <div class="w-full col-span-3 grid grid-cols-2 gap-x-2 intro-y">
+                    <div class="w-full h-full border border-pink-400 border-dotted rounded-md bg-white intro-y">
+                        {% include "./components/payslips.html" %}
+                    </div>
+                    <div class="w-full h-full border border-secondary_color border-dotted rounded-md bg-white ovevrflow-hidden grid grid-cols-2 intro-y">
+                        {% include "./components/advance_summary.html" %}
+                        {% include "./components/expense_summary.html" %}
+                    </div>
+                </div>
+            </div>
+            <!-- main content -->
+        </div>
+    </div>
+
+
+</div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+<div class=" flex items-end justify-between sm:flex items-end h-[max-content] mb-5">
+    {% comment %} {% include 'client_app/components/navigators.html' %} {% endcomment %}
+    <!-- TITLE CONTENT -->
+    <!-- RIGHT ACTIONS -->
+    <div class=" page-actions-wrapper flex items-center justify-center ">
+        <!-- actions for the list view -->
+        <div class="content-group list-view-content flex items-center justify-center">
+            <select type="select" action-type="multi-content-toggler" class="lite-selector border rounded-md px-3 w-[200px]" placeholder="Select Receivable Type">
+                <option value="certificate of service" select>certificate of service</option>
+                <option value="certificate of service temporal employee">certificate of service temporal employee</option>
+            </select>
+        </div>
+        <!-- actions for the form -->
+        <div class="content-group info-view-content new-form-view-content form-content-view info-actions flex items-center justify-center hidden"></div>
+    </div>
+</div>

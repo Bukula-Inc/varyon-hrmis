@@ -1,0 +1,22 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+    Location
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="w-full mx-auto h-full">
+    <div class="w-full h-full">
+        <div class="main-content-wrapper w-full">
+            <div class="content-group list-view-content w-full">
+                {% include "./components/list_view.html" %}
+            </div>
+            <div class="content-group info-view-content w-full hidden">
+                {% include "./components/info_view.html" %}
+            </div>
+            <div class="content-group new-form-view-content w-full hidden">
+                {% include "./components/form.html" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

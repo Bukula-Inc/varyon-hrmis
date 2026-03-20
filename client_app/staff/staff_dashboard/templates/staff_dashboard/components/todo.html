@@ -1,0 +1,120 @@
+<div class="w-full h-full p-3 flex items-center justify-center flex-col">
+    <div class="w-full flex items-center justify-between">
+        <span class="font-semibold text-12">About Your Today</span>
+        <button class="download-tasks-report flex items-center justify-center text-12 bg-default/20 hover:bg-default/40 transition duration-1000 px-2 rounded-md">
+            <span class="material-symbols-outlined mr-1 text-12">download</span>
+            Download Report
+        </button>
+    </div>
+    <div class="w-full flex items-center justify-center flex-col h-[97%] gap-y-2">
+        <div class="flex items-center justify-center mt-2 max-h-[25%]">
+            <h1 class="font-bold text-[45px] flex items-end justify-center">
+                <span class="total-tasks-completed text-default font-black" id="completed_tasks">0</span>
+                <span class="text-slate-600 text-20 translate-y-[20%]">/</span>
+                <span class="total-tasks text-orange-600 text-20 translate-y-[20%]" id="total_tasks">0</span>
+            </h1>
+        </div>
+        <span class="mt-1 text-12">Total Tasks Completed</span>
+        <div class="w-full border-t border-t-default border-dotted my-1"></div>
+        <div class="w-full flex flex-col gap-2" id="todays-pending-tasks">
+            {% comment %} <div class="w-full pending-tasks-today">
+                <div class="w-full grid grid-cols-13 gap-x-1 h-[50px] rounded-md overflow-hidden">
+                    <div class="w-full h-full bg-default col-span-2 flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-24">timelapse</span>
+                    </div>
+                    <div class="w-full h-full bg-default/10 text-default px-2 items-start justify-center col-span-11 border border-default/50 border-dotted overflow-hidden rounded-r-md flex flex-col">
+                        <span class="text-default overflow-ellipsis truncate text-11 font-semibold">Driving School Attendance</span>
+                        <div class="w-full flex items-center justify-between">
+                            <small class="text-orange-600 text-10">Due: 10:35</small>
+                            <small class="text-orange-600 text-10 bg-default text-white rounded-full px-3">Active</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full pending-tasks-today">
+                <div class="w-full grid grid-cols-13 gap-x-1 h-[50px] rounded-md overflow-hidden">
+                    <div class="w-full h-full bg-default col-span-2 flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-24">timelapse</span>
+                    </div>
+                    <div class="w-full h-full bg-default/10 text-default px-2 items-start justify-center col-span-11 border border-default/50 border-dotted overflow-hidden rounded-r-md flex flex-col">
+                        <span class="text-default overflow-ellipsis truncate text-11 font-semibold">Finishing Up ABC Data importation</span>
+                        <div class="w-full flex items-center justify-between">
+                            <small class="text-orange-600 text-10">Due: 10:35</small>
+                            <small class="text-orange-600 text-10 bg-default text-white rounded-full px-3">Active</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full pending-tasks-today">
+                <div class="w-full grid grid-cols-13 gap-x-1 h-[50px] rounded-md overflow-hidden">
+                    <div class="w-full h-full bg-orange-600 col-span-2 flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-24">clock_arrow_up</span>
+                    </div>
+                    <div class="w-full h-full bg-orange-200 text-default px-2 items-start justify-center col-span-11 border border-default/50 border-dotted overflow-hidden rounded-r-md flex flex-col">
+                        <span class="text-default overflow-ellipsis truncate text-11 font-semibold">Going for dancing classes</span>
+                        <div class="w-full flex items-center justify-between">
+                            <small class="text-orange-600 text-10">Due: 10th Jan, 2025</small>
+                            <small class="text-orange-600 text-10 bg-orange-700 text-white rounded-full px-3">Overdue</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full pending-tasks-today">
+                <div class="w-full grid grid-cols-13 gap-x-1 h-[50px] rounded-md overflow-hidden">
+                    <div class="w-full h-full bg-default col-span-2 flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-24">timelapse</span>
+                    </div>
+                    <div class="w-full h-full bg-default/10 text-default px-2 items-start justify-center col-span-11 border border-default/50 border-dotted overflow-hidden rounded-r-md flex flex-col">
+                        <span class="text-default overflow-ellipsis truncate text-11 font-semibold">Driving School Attendance</span>
+                        <div class="w-full flex items-center justify-between">
+                            <small class="text-orange-600 text-10">Due: 10:35</small>
+                            <small class="text-orange-600 text-10 bg-default text-white rounded-full px-3">Active</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full pending-tasks-today">
+                <div class="w-full grid grid-cols-13 gap-x-1 h-[50px] rounded-md overflow-hidden">
+                    <div class="w-full h-full bg-orange-600 col-span-2 flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-24">clock_arrow_up</span>
+                    </div>
+                    <div class="w-full h-full bg-orange-200 text-default px-2 items-start justify-center col-span-11 border border-default/50 border-dotted overflow-hidden rounded-r-md flex flex-col">
+                        <span class="text-default overflow-ellipsis truncate text-11 font-semibold">Orienting Interns about the system</span>
+                        <div class="w-full flex items-center justify-between">
+                            <small class="text-orange-600 text-10">Due: 20th Jan, 2025</small>
+                            <small class="text-orange-600 text-10 bg-orange-700 text-white rounded-full px-3">Overdue</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full pending-tasks-today">
+                <div class="w-full grid grid-cols-13 gap-x-1 h-[50px] rounded-md overflow-hidden">
+                    <div class="w-full h-full bg-orange-600 col-span-2 flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-24">clock_arrow_up</span>
+                    </div>
+                    <div class="w-full h-full bg-orange-200 text-default px-2 items-start justify-center col-span-11 border border-default/50 border-dotted overflow-hidden rounded-r-md flex flex-col">
+                        <span class="text-default overflow-ellipsis truncate text-11 font-semibold">Orienting Interns about the system</span>
+                        <div class="w-full flex items-center justify-between">
+                            <small class="text-orange-600 text-10">Due: 20th Jan, 2025</small>
+                            <small class="text-orange-600 text-10 bg-orange-700 text-white rounded-full px-3">Overdue</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full pending-tasks-today">
+                <div class="w-full grid grid-cols-13 gap-x-1 h-[50px] rounded-md overflow-hidden">
+                    <div class="w-full h-full bg-orange-600 col-span-2 flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-24">clock_arrow_up</span>
+                    </div>
+                    <div class="w-full h-full bg-orange-200 text-default px-2 items-start justify-center col-span-11 border border-default/50 border-dotted overflow-hidden rounded-r-md flex flex-col">
+                        <span class="text-default overflow-ellipsis truncate text-11 font-semibold">Orienting Interns about the system</span>
+                        <div class="w-full flex items-center justify-between">
+                            <small class="text-orange-600 text-10">Due: 20th Jan, 2025</small>
+                            <small class="text-orange-600 text-10 bg-orange-700 text-white rounded-full px-3">Overdue</small>
+                        </div>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+</div>

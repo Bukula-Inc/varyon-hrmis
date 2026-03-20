@@ -1,0 +1,14 @@
+Salary Component from the code side
+
+1. Salary Advance
+2. House Loan
+3. Interest On House Loan
+4. Personal Loan
+5. Interest On Personal Loan
+6. Tuition Advance
+7. 50% Medical Recovery
+8. Professional Membership Subscription
+9. Imprest Recovery
+10. Settling In Allowance
+11. Acting Allowance
+12. Performance Reward

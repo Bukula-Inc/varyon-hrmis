@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECZ Payslip</title>
+    <script  src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script></head>
+<body class="h-screen w-screen flex justify-center items-center p-4">
+    <div class="payslip border text-[10px] border-slate-600 p-2 max-w-3xl mx-auto text-sm">
+        <div class="p-3 h-[80px] flex items-center justify-between  gap-3">
+            <div class="h-[60px] w-[60px] overflow-hidden">
+                <img src="./eczlogo.png" class="w-full h-full object-cover" alt="ECZ LOGO">
+            </div>
+            <div class="w-[calc(100%-60px)] text-[12px]">
+                <div class="flex w-full justify-center items-center">
+                    <div class="w-full flex justify-between text-center font-bold">
+                        <div class="w-[70%] flex justify-center">EXAMINATIONS COUNCIL OF ZAMBIA</div>
+                        <div class="flex justify-end text-[10px]">CURRENCY: ZMW</div>
+                    </div>
+                </div>
+                <div class="flex w-full justify-center border-t border-slate-600 pt-1 items-center">
+                    <div class="flex w-full font-bold justify-between">
+                        <div class="w-[70%] flex justify-center">Pay Statement For November 2024</div>
+                        <div class="w-[30%] flex justify-end text-[10px]">EXCH. RATE: 1.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h-max p-1 w-full border border-slate-700/60">
+            <div class="grid grid-cols-12 gap-2 border border-slate-600">
+                <div class="col-span-4 border-r p-2"><b class="text-[9px]">Emp Name: <br> </b> Bright Kunda Mulomba</div>
+                <div class="col-span-2 border-r p-2"><b class="text-[9px]">Emp No: <br> </b> EMP-9900004</div>
+                <div class="col-span-2 border-r p-2"><b class="text-[9px]">NRC No: <br> </b>239489/10/1</div>
+                <div class="col-span-2 border-r p-2"><b class="text-[8px]">Eng. Date: <br> </b>2022-12-01</div>
+                <div class="col-span-2 border-r p-2"><b class="text-[8px]">Basic: <br> </b>25, 000.89</div>
+            </div>
+            
+            <div class="grid grid-cols-6 border border-slate-600">
+                <div class="border-r pl-1"><b class="text-[9px]">Taxable: <br> </b>60,948.99</div>
+                <div class="border-r pl-1"><b class="text-[9px]">Pay YTD: <br> </b>36,005.57</div>
+                <div class="border-r pl-1"><b class="text-[9px]">Tax Paid YTD: <br></b> 5,993,348.95</div>
+                <div class="border-r pl-1"><b class="text-[9px]">NAPSA YTD: <br> </b> 349,500.90</div>
+                <div class="border-r pl-1"><b class="text-[9px]">Soc. Sec. No: <br> </b>2333</div>
+                <div class="border-r pl-1"><b class="text-[9px]">Leave Days: <br> </b>5,894.99</div>
+            </div>
+            
+            <div class="grid grid-cols-12 border border-slate-600">
+                <div class="col-span-2 border-r p-2 text-[8px]"><b class="text-[8px]">Taxable This Month: </b></div>
+                <div class="col-span-3 border-r p-2"><b class="text-[8px]">Pension (PLA) YTD: <br> </b>2,399.90</div>
+                <div class="col-span-3 border-r p-2"><b class="text-[8px]">Gross Pay YTD: <br> </b>5,589,599.55</div>
+                <div class="col-span-2 border-r p-2"><b class="text-[8px]">Print Date: <br></b>2025-23-09</div>
+                <div class="col-span-2 border-r p-2"><b class="text-[8px]">Incremental Month: <br></b>12,099.00</div>
+            </div>
+            
+            <div class="salary-components mb-2 bg-slate-100">
+                <div class="bg-slate-300 grid grid-cols-2 gap-1 mt-1">
+                    <div class="bg-transparent">
+                        <div class="grid grid-cols-12 gap-1 font-bold py-1 px-2">
+                            <div class="col-span-4">DEDUCTIONS</div>
+                            <div class="col-span-3 text-center">Outstanding <br>Months</div>
+                            <div class="col-span-3 text-center">Balance</div>
+                            <div class="col-span-2 text-center text-[8px] font-bold">This Month</div>
+                        </div>
+                    </div>
+                    <div class="bg-transparent">
+                        <div class="grid grid-cols-12 gap-1 font-bold py-1 px-2">
+                            <div class="col-span-5">INCOMES</div>
+                            <div class="col-span-4 text-center">Units</div>
+                            <div class="col-span-3 text-center text-[8px] font-bold">This Month</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1 mt-1 p-1">
+                    <div class="bg-white">
+                        <div class="grid grid-cols-12 gap-1 text-[8px] py-1 px-2">
+                            <div class="col-span-4">PAYE</div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-2 text-center text-[8px] font-bold"></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-1 text-[8px] py-1 px-2">
+                            <div class="col-span-4">NAPSA</div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-2 text-center text-[8px] font-bold"></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-1 text-[8px] py-1 px-2">
+                            <div class="col-span-4">PENSION (PLA)</div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-2 text-center text-[8px] font-bold"></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-1 text-[8px] py-1 px-2">
+                            <div class="col-span-4">NATIONAL HEALTH INS. (NHIS)</div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-2 text-center text-[8px] font-bold"></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-1 text-[8px] py-1 px-2">
+                            <div class="col-span-4">SALARY ADVANCE</div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-2 text-center text-[8px] font-bold"></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-1 text-[8px] py-1 px-2">
+                            <div class="col-span-4">PERSONAL LOAN</div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-2 text-center text-[8px] font-bold"></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-1 text-[8px] py-1 px-2">
+                            <div class="col-span-4">INT. ON PERSONAL LOAN</div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-3 text-center"></div>
+                            <div class="col-span-2 text-center text-[8px] font-bold"></div>
+                        </div>
+                    </div>
+                    <div class="bg-white">
+                        <div class="grid grid-cols-12 gap-1 text-[8px] py-1 px-2">
+                            <div class="col-span-5">BASIC PAY</div>
+                            <div class="col-span-4 text-center"></div>
+                            <div class="col-span-3 text-center text-[8px] font-bold"></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-1 text-[8px] py-1 px-2">
+                            <div class="col-span-5">HOUSING ALLOW</div>
+                            <div class="col-span-4 text-center"></div>
+                            <div class="col-span-3 text-center text-[8px] font-bold"></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-1 text-[8px] py-1 px-2">
+                            <div class="col-span-5">TRANSPORT ALLOWANCE</div>
+                            <div class="col-span-4 text-center"></div>
+                            <div class="col-span-3 text-center text-[8px] font-bold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 border border-slate-600 ">
+                <div class="col-span-1">
+                    <div class="w-full grid grid-cols-8">
+                        <div class="col-span-2 border-r p-2 text-[8px]"><b class="text-[9px]">Grade: <br> </b>ECZ1</div>
+                        <div class="col-span-2 border-r p-2 text-[8px]"><b class="text-[9px]">Pay Point: <br> </b>0000000001</div>
+                        <div class="col-span-4 border-r p-2 text-[8px]"><b class="text-[9px]">Total Deductions: <br> </b> 40,990.89</div>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="w-full grid grid-cols-8">
+                        <div class="col-span-2 border-r p-2 text-[8px]"></div>
+                        <div class="col-span-2 border-r p-2 text-[8px]"></div>
+                        <div class="col-span-4 border-r p-2 text-[8px]"><b class="text-[9px]">Total Incomes: <br> </b> 40,990.89</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 border border-slate-600">
+                <div class="col-span-1 border-r p-2 text-[10px]"><b class="text-[9px]">Dept: <br></b> Development</div>
+                <div class="col-span-1 border-r p-2 text-[10px]"><b class="text-[9px]">Job: <br></b> Developer</div>
+                <div class="col-span-1 border-r p-2 text-[10px]"><b class="text-[9px]">Net Pay (Bank): <br></b>Zanaco</div>
+            </div>
+            
+            <div class="grid grid-cols-8 border border-slate-600">
+                <div class="border-r col-span-2 p-2"><b class="text-[10px]">Bank Name: <br></b>Zanaco Plc</div>
+                <div class="border-r col-span-2 p-2"><b class="text-[10px]">Acc No: <br></b>0000000000928</div>
+                <div class="border-r col-span-4 p-2"><b class="text-[10px]">ECZ HQs: <br></b>Lusaka</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

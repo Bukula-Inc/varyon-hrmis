@@ -1,0 +1,129 @@
+<div class="w-full h-full grid grid-rows-2 gap-y-5">
+    <div class="col-span-1 w-full h-full grid grid-rows-1">
+        <div class="-2 intro-y h-full">
+            <div class="box p-3 h-full">
+                <div class="w-full flex items-center justify-between">
+                    <h4 class="font-semibold text-slate-600">Payslip Stats</h4>
+                </div>
+                <div id="payslip_stats" class="w-full h-full">
+                    <!-- <div class="my-5 bg-gray-300 w-full h-[3px] rounded-full"></div>
+                    <div class="w-full my-8 flex items-center justify-between">
+                        <div class="flex items-start justify-start">
+                            <span class="material-symbols-outlined text-orange-500 text-17">
+                                drafts
+                            </span>
+                            <div class="grid ml-2">
+                                <span class="font-semibold">In Draft</span>
+                                <small class="text-slate-500">
+                                    Total payslips in draft
+                                </small>
+                            </div>
+                        </div>
+                        <div class="rounded-full bg-gray-200 w-[30px] h-[30px] flex items-center justify-center text-[12px]">
+                            108
+                        </div>
+                    </div>
+                    <div class="w-full my-8 flex items-center justify-between">
+                        <div class="flex items-start justify-start">
+                            <span class="material-symbols-outlined text-indigo-500 text-15">
+                                check_circle
+                            </span>
+                            <div class="grid ml-2">
+                                <span class="font-semibold">Submitted</span>
+                                <small class="text-slate-500">
+                                    Total payslips not submitted
+                                </small>
+                            </div>
+                        </div>
+                        <div class="rounded-full bg-gray-200 w-[30px] h-[30px] flex items-center justify-center text-[12px]">
+                            30
+                        </div>
+                    </div>
+                    <div class="w-full my-8 flex items-center justify-between">
+                        <div class="flex items-start justify-start">
+                            <span class="material-symbols-outlined text-orange-700 text-15">block</span>
+                            <div class="grid ml-2">
+                                <span class="font-semibold">Total Cancelled</span>
+                                <small class="text-slate-500">
+                                    Total payslips cancelled
+                                </small>
+                            </div>
+                        </div>
+                        <div class="rounded-full bg-gray-200 w-[30px] h-[30px] flex items-center justify-center text-[12px]">
+                            44
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-span-1 w-full h-full grid grid-rows-1">
+        <div class="-2 intro-y h-full">
+            <div class="box p-3 h-full">
+                <div class="w-full flex items-center justify-between">
+                    <h4 class="font-semibold text-slate-600">Recent Payslips</h4>
+                </div>
+                <div class="my-2 bg-gray-300 w-full h-[3px] rounded-full"></div>
+                <div id="payslip" class="w-full h-full overflow-hidden overflow-y-auto">
+                    <!-- <div class="w-full flex items-center justify-between h-[40px]">
+                        <div class="flex items-center justify-start">
+                            <span class="material-symbols-outlined text-default text-17 mr-2"> credit_score </span>
+                            <span class="text-12">SLIP-EMP-Bruce Chikola - 0006-0076</span>
+                        </div>
+                        <a href=""><span class="material-symbols-outlined text-20">expand_circle_right</span>
+                        </a>
+                    </div>
+                    <div class="w-full flex items-center justify-between h-[40px]">
+                        <div class="flex items-center justify-start">
+                            <span class="material-symbols-outlined text-default text-17 mr-2"> credit_score </span>
+                            <span class="text-12">SLIP-EMP-Bruce Chikola - 0006-0076</span>
+                        </div>
+                        <a href=""><span class="material-symbols-outlined text-20">expand_circle_right</span>
+                        </a>
+                    </div>
+                    <div class="w-full flex items-center justify-between h-[40px]">
+                        <div class="flex items-center justify-start">
+                            <span class="material-symbols-outlined text-default text-17 mr-2"> credit_score </span>
+                            <span class="text-12">SLIP-EMP-Bruce Chikola - 0006-0076</span>
+                        </div>
+                        <a href=""><span class="material-symbols-outlined text-20">expand_circle_right</span>
+                        </a>
+                    </div>
+                    <div class="w-full flex items-center justify-between h-[40px]">
+                        <div class="flex items-center justify-start">
+                            <span class="material-symbols-outlined text-default text-17 mr-2"> credit_score </span>
+                            <span class="text-12">SLIP-EMP-Bruce Chikola - 0006-0076</span>
+                        </div>
+                        <a href=""><span class="material-symbols-outlined text-20">expand_circle_right</span>
+                        </a>
+                    </div>
+                    <div class="w-full flex items-center justify-between h-[40px]">
+                        <div class="flex items-center justify-start">
+                            <span class="material-symbols-outlined text-default text-17 mr-2"> credit_score </span>
+                            <span class="text-12">SLIP-EMP-Bruce Chikola - 0006-0076</span>
+                        </div>
+                        <a href=""><span class="material-symbols-outlined text-20">expand_circle_right</span>
+                        </a>
+                    </div>
+                    {% comment %} <div class="w-full flex items-center justify-between h-[40px]">
+                        <div class="flex items-center justify-start">
+                            <span class="material-symbols-outlined text-default text-17 mr-2"> credit_score </span>
+                            <span class="text-12">SLIP-EMP-Bruce Chikola - 0006-0076</span>
+                        </div>
+                        <a href=""><span class="material-symbols-outlined text-20">expand_circle_right</span>
+                        </a>
+                    </div>
+                    <div class="w-full flex items-center justify-between h-[40px]">
+                        <div class="flex items-center justify-start">
+                            <span class="material-symbols-outlined text-default text-17 mr-2"> credit_score </span>
+                            <span class="text-12">SLIP-EMP-Bruce Chikola - 0006-0076</span>
+                        </div>
+                        <a href=""><span class="material-symbols-outlined text-20">expand_circle_right</span>
+                        </a>
+                    </div> {% endcomment %} -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="w-full col-span-1 border-r h-full bg-gray-200 rounded-md p-3 border">
+    <div class="font-semibold w-full mb-2 mt-2 border-b border-b-gray-400 pb-2 flex items-center justify-between">
+        <span>Total Summary</span>
+        <div class="w-max-content grid grid-cols-2 h-[30px] bg-gray-300 rounded-md text-13 overflow-hidden border border-gray-300">
+            <button months="12" class="frequency-toggler h-full font-bold w-full flex items-center justify-center bg-gray-400 px-3 border-r rounded">
+                <span class="material-symbols-outlined ml-2 text-13 "> navigate_before </span>
+                Annual
+            </button>
+            <button months="1" class="frequency-toggler h-full font-bold w-full flex items-center justify-center bg-gray-200 px-3">
+                Monthly
+                <span class="material-symbols-outlined ml-2 text-13 "> navigate_next </span>
+            </button>
+        </div>
+    </div>
+    <div class="h-[50px] mb-5 w-[60%] text-white relative mt-3 bg-default translate-x-[-16px] rounded-t-md font-bold text-20 flex items-center justify-start pl-4 rounded-br-md relative">
+        <span class="trial-days mr-2">0</span> Days Free Trial
+        <div class="absolute bottom-[-3px] left-0 bg-black w-[4px] h-[5px] rounded-bl-md"></div>
+    </div>
+    <div class="w-full intro-y my-2 border-b border-b-gray-300 pb-3 text-13 border-t border-t-gray-300 pt-3">
+        <div class="flex items-center justify-between">
+            <span>Add Users (<span class="free-users">0</span> Free)</span>
+            <div class="flex items-center justify-center">
+                <button action="-" class="btn bg-gray-400 additional-user-action border flex items-center justify-center rounded-md">
+                    <span class="material-symbols-outlined"> remove </span>
+                </button>
+                <input type="number" id="additional-user-field" class="mx-2 form-control w-[60px] text-11 text-center" placeholder="Add more users" value="0">
+                <button action="+" class="btn bg-gray-400 additional-user-action border flex items-center justify-center rounded-md">
+                    <span class="material-symbols-outlined"> add </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="flex intro-y items-center justify-between my-2 border-b border-b-gray-300 pb-3 text-13">
+        <span>Add Storage ( <span class="free-storage"> 0GB</span> Free)</span>
+        <div class="flex items-center justify-center">
+            <button action="-" class="btn bg-gray-400 additional-storage-action border flex items-center justify-center rounded-md">
+                <span class="material-symbols-outlined"> remove </span>
+            </button>
+            <input type="number" id="additional-storage-field" class="mx-2 form-control w-[60px] text-11 text-center" placeholder="Add more storage" value="0">
+            <button action="+" class="btn bg-gray-400 additional-storage-action border flex items-center justify-center rounded-md">
+                <span class="material-symbols-outlined"> add </span>
+            </button>
+        </div>
+    </div>
+
+    <div class="flex intro-y items-center justify-between my-2 border-b border-b-gray-300 pb-3 text-13">
+        <span>Total Selected Packages</span>
+        <span class="font-bold packages-value">0.00</span>
+    </div>
+    <div class="flex intro-y items-center justify-between my-2 border-b border-b-gray-300 pb-3 text-13">
+        <span>Total Additional Users</span>
+        <span class="font-bold text-12"><span class="total-additional-users-qty mr-1">0</span> x ( <span class="total-additional-users-value">0 Per User</span>)</span>
+    </div>
+    <div class="flex intro-y items-center justify-between my-2 border-b border-b-gray-300 pb-3 text-13">
+        <span>Total Additional Storage</span>
+        <span class="font-bold text-12"><span class="total-additional-storage-qty mr-1">0GB</span> x ( <span class="total-additional-storage-value">0 Per GB</span>)</span>
+    </div>
+    <div class="flex intro-y items-center justify-between my-2 border-b border-b-gray-300 pb-3 text-13">
+        <span>Total Exclusive</span>
+        <span class="font-bold total-exclusive">0.00</span>
+    </div>
+    <div class="flex intro-y items-center justify-between my-2 border-b border-b-gray-300 pb-3 text-13">
+        <span>Total Discount</span>
+        <span class="font-bold total-discount">0.00</span>
+    </div>
+    <div class="flex intro-y items-center justify-between my-2 border-b border-b-gray-300 pb-3 text-13">
+        <span>Total Taxes</span>
+        <span class="font-bold total-taxes">0.00</span>
+    </div>
+    <div class="flex intro-y items-center justify-between mt-3 text-18 font-bold">
+        <span>Total Inclusive</span>
+        <span class="font-bold total-inclusive">0.00</span>
+    </div>
+</div>

@@ -1,0 +1,160 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Leave Dashboard
+{% endblock title %}
+{% block content %}
+{% load static %}
+
+<div class="mt-10 w-full px-2 h-[83vh] overflow-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-7 h-full">
+
+        <!-- Main Content -->
+        <div class="md:col-span-3 flex flex-col gap-4 h-full">
+
+            <!-- Top Section -->
+            <div class="grid grid-cols-1 md:grid-cols-9 gap-4 h-[35%]">
+                <!-- Utilization Stats -->
+                <div class="md:col-span-6 bg-white rounded-lg p-1 h-full overflow-auto">
+                    <div class="h-[45px] flex items-center pl-3 font-semibold">Leave Utilization Stats</div>
+                    <div class="h-[calc(100%-45px)] bg-white">
+                        <div id="leave_utilization" class="h-full w-full relative"></div>
+                    </div>
+                </div>
+
+                <!-- Value Cards -->
+                <div class="md:col-span-3 flex flex-col gap-4 h-full">
+                    <!-- Top Card -->
+                    <div class="flex-1 border-2 border-b border-dotted rounded-lg bg-emerald-500 p-2 overflow-auto">
+                        <div class="grid grid-rows-5 h-full">
+                            <div class="row-span-2 flex gap-2 items-center border-b border-white border-dashed pb-2">
+                                <div class="h-full w-full flex items-center justify-between">
+                                    <div class="left flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-3xl text-white">price_check</span>
+                                        <div class="text-white font-semibold">Used Leave In Value</div>
+                                    </div>
+                                    <div class="right flex justify-right items-center gap-2 text-2xl text-white font-extrabold">
+                                        <span id="used_days"></span> Days
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-span-3 flex items-center text-4xl font-extrabold gap-2 text-white">
+                                <span id="currency"></span>
+                                <span  id="used_days_value"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Card -->
+                    <div class="flex-1 border-2 border-t border-double rounded-lg bg-rose-800 p-2 overflow-auto">
+                        <div class="grid grid-rows-5 h-full">
+                            <div class="row-span-2 flex gap-2 items-center border-b border-white border-dashed pb-2">
+                                <div class="h-full w-full flex items-center justify-between">
+                                    <div class="left flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-3xl text-white">currency_exchange</span>
+                                        <div class="text-white font-semibold">Unused Leave In Value</div>
+                                    </div>
+                                    <div class="right flex justify-right items-center gap-2 text-2xl text-white font-extrabold">
+                                        <span  id="unused_days"></span> Days
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-span-3 flex items-center text-4xl font-extrabold Gap-2 text-white">
+                                <span id="currency"></span>
+                                <span id="Unused_days_value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Chart & Calendar -->
+            <div class="flex flex-col md:flex-row gap-4 h-[65%] overflow-x-auto">
+                <!-- Chart -->
+                <div class="w-full md:w-[35%] min-w-[250px] h-[250px] md:h-full">
+                    <div class="rounded-lg bg-blue-100 h-full">
+                        <div class="h-1/2 border-b-2 border-dashed border-white">
+                            <div class="h-[45px] w-full flex items-center pl-4 border-b font-semibold text-slate-800">
+                                Annual Leave Used Vs Unused
+                            </div>
+                            <div class="h-[80%] text-white overflow-auto">
+                                <div id="leave_designation" class="h-full w-full"></div>
+                            </div>
+                        </div>
+                        <div class="h-1/2 border-b-2 border-dotted border-white">
+                            <div class="h-[45px] w-full flex items-center pl-4 border-b font-semibold text-slate-800">
+                                Annual Leave By Department
+                            </div>
+                            <div class="h-[80%] text-white overflow-auto">
+                                <div id="leave_department" class="h-full w-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar -->
+                <div class="w-full md:w-[65%] min-w-[250px] h-[300px] md:h-full">
+                    <div class="h-full w-full rounded-lg bg-white overflow-hidden flex flex-col">
+                        <div class="h-[45px] font-semibold w-full flex justify-between items-center px-4">
+                            <span>Leave Calendar</span>
+                            <span id="c_mo" class="text-white bg-default capitalize px-3 py-1 rounded-lg overflow-y-auto"></span>
+                        </div>
+                        <!-- Scrollable calendar container -->
+                        <div class="flex-1 w-full overflow-y-auto max-h-[calc(100%-45px)]">
+                            <div id="calendar" class="grid grid-cols-7 gap-2 text-center text-sm font-medium text-gray-700 p-2">
+                                {% comment %} Calendar content injected dynamically {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="userModal" class="model fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50 ">
+            <div class="bg-white rounded-lg shadow-lg w-max p-6 text-center relative overflow-y-auto"></div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-span-1 h-full">
+            <div class="h-full w-full rounded-lg bg-default overflow-hidden flex flex-col">
+                <div class="h-[45px] w-full flex items-center pl-4 border-b font-semibold text-white">
+                    Recent Application
+                </div>
+                <div class="flex-1 p-4 text-white overflow-auto">
+                    <div id="recent_applications" class="h-full w-full relative">
+                        <div class="w-full grid grid-cols-6 h-[50px] rounded-t-md bg-default/50 text-12 font-semibold">
+                            <div class="w-full flex items-center justify-start h-full col-span-2 pl-2">
+                                <span class="material-symbols-outlined mr-1 text-orange-600">
+                                    person
+                                </span>
+                                Applicant
+                            </div>
+                            <div class="w-full flex items-center justify-start col-span-2 h-full">
+                                <span class="material-symbols-outlined mr-2">
+                                    event_available
+                                </span>
+                                from - to
+                            </div>
+
+                            <div class="w-full flex items-center justify-start h-full">
+                                <span class="material-symbols-outlined mr-1">
+                                    functions
+                                </span>
+                                days
+                            </div>
+
+                            {% comment %} <div class="w-full flex items-center justify-start h-full">
+                                <span class="material-symbols-outlined mr-2">
+                                    trending_up
+                                </span>
+                                leave Rate
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

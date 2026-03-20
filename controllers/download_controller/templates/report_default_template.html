@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/print_layout.css">
+    <style> 
+        @page { size: A4 landscape; } 
+        body{
+            margin:0;
+        }
+        .report-wrapper{
+            width:100%;
+            height:max-content;
+            min-height:100vh;
+            padding:30px !important;
+        }
+        .title-wrapper{
+            min-height: 100px;
+            margin-bottom:30px;
+            border-bottom:1px #eae5e5 solid;
+        }
+        .logo{
+            width:180px;
+            object-fit:contain;
+        }
+        .report-table-wrapper{
+            border:1px #eae5e5 solid;
+            border-radius:10px;
+            overflow: hidden;
+        }
+        .report-table-head{
+            background-color: {{default_theme_color}};
+            color: {{default_text_color}}; 
+            height: 30px;
+            padding:0 5px;
+            font-size: 12px;
+            border-top-right-radius:5px;
+            border-top-left-radius:5px;
+        }
+       
+        .report-col{
+            height: 30px;
+            font-weight: bolder;
+        }
+        .report-row{
+            border-bottom:1px #eae5e5 solid;
+            font-size:12px;
+            min-height:40px;
+            padding:0 5px;
+        }
+        .report-row:last-child {
+            border-bottom: none !important;
+        }
+        .is-header-or-footer{
+            font-weight:bolder;
+        }
+        .header-cell:not(:last-child) {
+            border-right: 1px solid #eae5e5;
+        }
+        .row-cell:not(:last-child) {
+            border-right: 1px solid #eae5e5;
+        }
+        .serial-no{
+            width:50px !important;
+        }
+        .title{
+            font-size:25px;
+            font-weight:bolder;
+            margin-bottom:20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="report-wrapper">
+        <div class="title-wrapper flex flex-row justify-between">
+            <div> <img class="logo" src="http://{{host}}:8000{{default_user_company.company_logo}}"/> </div>
+            <div>
+                <h2 class="title">{{title}}</h2>
+                <div class="flex items-center justify-end">
+                    <h5 class="mr-1 ">Date: </h5>
+                    <h5>{{todays_date}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="report-table-wrapper">
+            <div class="report-table-head flex flex-row justify-around">
+                <div class="serial-no mr-2 report-col header-cell flex items-center justify-center">S/N</div>
+                {%if fields %}
+                    {% for field in fields %}
+                        <strong class="report-col header-cell flex-1 flex items-center justify-start px-1">{{field}}</strong>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            {% if data %}
+                {% for row in data %}
+                    {% if row.is_opening_or_closing == True %} 
+                        <div class="report-row flex flex-row justify-between is-header-or-footer">
+                    {% else%}
+                        <div class="report-row flex flex-row justify-between">
+                    {% endif %}
+                        <div class="serial-no mr-2 row-cell report-col flex items-center justify-center ">{{ loop.index }}</div>
+                        {% for label, val in row.items %}
+                            {% if label in fields %}
+                                <div class="row-cell flex-1 flex items-center justify-start px-1">
+                                    {{val}}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+

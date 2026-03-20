@@ -1,0 +1,121 @@
+export default {
+    setup: {
+        new_form_id: 'new-skill-levy',
+        info_form_id: 'skill-levy-info',
+        title: "Skill Levy",
+        layout_columns: 2,
+        allow_submit: true,
+        allow_update: true,
+        allow_delete:  true,
+        allow_cancel: true,
+        model: "Skill_Levy"
+    },
+    fields: [
+        {
+            id: "levy_percetage",
+            fieldlabel: "Levy Percentage",
+            fieldname: "levy_percentage",
+            fieldtype: "float",
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+        },
+        {
+            id: "expense_account",
+            fieldlabel: "Expense Account",
+            fieldname: "expense_account",
+            fieldtype: "link",
+            model: "Account",
+            columns: 1,
+            placeholder: " ",
+            default: "",
+            required: false,
+            hidden: false,
+            filters:{
+                type: "Expense",
+                is_groud: 0
+            }
+        },
+        {
+            id: "company",
+            fieldlabel: "Council",
+            fieldname: "company",
+            fieldtype: "link",
+            model: "Company",
+            columns: 1,
+            placeholder: " ",
+            default: "Company",
+            required: false,
+            hidden: true,
+            default: lite.user.company.name,
+        },
+        {
+            id: "enabled",
+            fieldlabel: "Enabled",
+            fieldname: "enabled",
+            fieldtype: "check",
+            columns: 1,
+            required: false,
+            hidden: false,
+        },
+        {
+            id: "skill-levy-ntitled",
+            fieldlabel: "Skill Levy Entitled",
+            fieldname: "skill_levy_entitled",
+            fieldtype: "table",
+            model:"Skill_Levy_Entitled",
+            required: false,
+            hidden: false,
+            fields:[
+                {
+                    id: "employee",
+                    fieldlabel:  "Employee No",
+                    fieldname: "employee",
+                    fieldtype: "link",
+                    model:"Employee",
+                    columns: 5,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    default:0
+                },
+                {
+                    id: "employee-names",
+                    fieldlabel: "Full Names",
+                    fieldname: "full_name",
+                    fieldtype: "read-only",
+                    columns: 6,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    default:0
+                },
+                {
+                    id: "designation",
+                    fieldlabel: "Job Title",
+                    fieldname: "designation",
+                    fieldtype: "read-only",
+                    columns: 4,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                },
+                {
+                    id: "basic-pay",
+                    fieldlabel: "Basic Pay",
+                    fieldname: "basic_pay",
+                    fieldtype: "read-only",
+                    columns: 4,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    alwaysfetch:false,
+                    default:"0.00",
+                    is_figure:false
+                },
+                
+            ]
+        },
+    ],
+}

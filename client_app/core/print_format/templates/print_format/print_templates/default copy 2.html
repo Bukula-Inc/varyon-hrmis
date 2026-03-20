@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container mx-auto mt-8">
+        <div id="output" class="a mb-4"></div>
+    </div>
+<script>
+    $(document).ready(function () {
+        const cols = 3
+        const data = {
+            "First Name": "Gresham",
+            "Last Name": "Sichonda",
+            "Designation": "Software Developer",
+            "email": "gresham@startapperp.com",
+            "age": "26 Years Old",
+            "Company": "Probase Group",
+            "Department": "Development",
+            "Reports To": "Himself",
+            "Location": "Matero",
+          }
+          let count = 0
+          let html = ""
+          $.each(Object.keys(data),(_,k)=>{
+            console.log(count)
+            if(count == cols -1){
+                count = 0
+                html += `<span class="mr-10">${k}::       ${data[k]}</span> </div>`
+                console.log("ended")
+            }
+            if(count  == 0){
+                count  += 1
+                console.log("reseting")
+                html += `<div class="grid gap-x-7 grid-cols-${cols}">`
+                html += `<span class="mr-10">${k}::       ${data[k]}</span>`
+            }
+            else{
+                html += `<span class="mr-10">${k}::       ${data[k]}</span>`
+                console.log("continuation")
+                count ++
+            }
+          })
+
+          $('.a').append(html)
+    });
+</script>
+
+</body>
+</html>

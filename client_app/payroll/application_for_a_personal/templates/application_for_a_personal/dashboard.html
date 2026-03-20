@@ -1,0 +1,50 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Personal Loan
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="conetnt-wrapper mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="grid-content w-full grid grid-cols-4 h-[75%] gap-6">
+        <!-- tab list view for the application for personal loan/supplier -->
+        <div class="w-full col-span-4">
+            <div class="col-span-3">
+                {% include "./components/controller.html" %}
+                <!-- main content -->
+                <div class="main-content-wrapper w-full">
+                    <!-- show application for personal loan list here -->
+                    <div class="content-group list-view-content w-full">
+                        <div for="Personal Loan Application" class="multi-content-group w-full">
+                            {% include "./components/application_form/list_view.html" %}
+                        </div>
+                        <div for="Personal Loan Agreement" class="multi-content-group w-full hidden">
+                            {% include "./components/agreement_form/list_view.html" %}
+                        </div>
+                    </div>
+                    <!-- show application for personal loan list here -->
+                    <!-- show application for personal loan info -->
+                    <div class="content-group info-view-content info-view w-full hidden">
+                        <div for="Personal Loan Application" class="multi-content-group w-full">
+                            {% include "./components/application_form/info_view.html" %}
+                        </div>
+                        <div for="Personal Loan Agreement" class="multi-content-group w-full hidden">
+                            {% include "./components/agreement_form/info_view.html" %}
+                        </div>
+                    </div>
+                    <!-- show application for personal loan info -->
+                    <div class="content-group new-form-view-content w-full hidden">
+                        <div for="Personal Loan Application" class="multi-content-group w-full">
+                            {% include "./components/application_form/form.html" %}
+                        </div>
+                        <div for="Personal Loan Agreement" class="multi-content-group w-full hidden">
+                            {% include "./components/agreement_form/form.html" %}
+                        </div>
+                    </div>
+                    <!-- show application for personal loan info -->
+                </div>
+                <!-- main content -->
+            </div>
+            <!-- END: General Report -->
+        </div>
+    </div>
+    {% endblock content %}

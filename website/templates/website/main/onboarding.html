@@ -1,0 +1,20 @@
+{% extends "./layout.html" %}
+{% block title %}
+    Onboarding
+{% endblock title %}
+{% block content %}
+<div class="w-full min-h-[100vh] bg-gray-100 pb-20">
+    <div class="lg:xl:w-[80%] w-[90%] mx-auto lg:xl:pt-[80px] pt-[30px] min-h-[80vh] mb-10">
+        {% include "./components/onboarding/onboarding_titles.html" %}
+        {% include "./components/onboarding/steps.html" %}
+        {% include "./components/onboarding/new_package_list.html" %}
+        {% include "./components/onboarding/totals.html" %}
+        {% include "./components/onboarding/kyc.html" %}
+        {% include "./components/onboarding/license.html" %}
+        {% include "./components/onboarding/completion.html" %}
+
+
+    </div>
+    
+</div>
+{% endblock content %}

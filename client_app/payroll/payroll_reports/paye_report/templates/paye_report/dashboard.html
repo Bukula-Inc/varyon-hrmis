@@ -1,0 +1,22 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+    Paye Report
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="report-wrapper mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[75%] gap-3">
+        <div class="w-full col-span-4">
+            {% include "./components/controller.html" %}
+            <!-- main content -->
+            <div class="main-content-wrapper w-full">
+                {% include "./components/index.html" %}
+            </div>
+            <!-- main content -->
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+

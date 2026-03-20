@@ -1,0 +1,25 @@
+<div id="nav-menu-dropdown" class="w-[97%] overflow-hidden bg-white border p-3 absolute top-[50px] left-[1.5%] rounded-md shadow-lighter">
+    <div class="w-full relative">
+        <div class="w-full flex items-center justify-between mb-5 pb-3 border-b module-menu">
+            <div class="flex items-center justify-center font-bold text-30">
+                <i data-lucide="layers" class="w-[17px] h-[17px] mr-2"></i>
+                Navigation
+            </div>
+            <button id="nav-menu-dropdown-close-btn" class="font-semibold text-red-800 text-30">x</button>
+        </div>
+        <div class="w-full grid grid-cols-4 gap-x-3 module-content-menu">
+            <div class="w-full h-[max-content]  overflow-y-auto min-h-[75vh] col-span-1 bg-default/20 rounded-md mb-5 text-swhite p-2 pb-10">
+                <div class="w-full flex items-center justify-between my-2 border-b pb-3">
+                    <div class="flex items-center justify-start mobile-hidden">
+                        <span class="material-symbols-outlined"> more_down </span>
+                        <h3 class="font-bold text-25">Module Shortcuts</h3>
+                    </div>
+                </div>
+                <div class="module-menu-content w-full h-[70vh] pb-[100px] overflow-y-auto mb-[50px]"></div>
+            </div>
+            <div class="w-full h-[75vh] col-span-3 overflow-y-auto">
+                <div id="nav-menu-content" class="w-full bg-white grid grid-cols-3 gap-3"></div> 
+            </div>
+        </div>
+    </div>
+</div>

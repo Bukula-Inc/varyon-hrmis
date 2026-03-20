@@ -1,0 +1,48 @@
+export default {
+    setup: {
+        new_form_id: 'new-pbi',
+        info_form_id: 'pbi-info',
+        title: "Performance Behavioural Imperative",
+        layout_columns: 3,
+        allow_submit: false,
+        allow_cancel: true,
+        allow_delete: false,
+        allow_print: false,
+        allow_sending_mail: true,
+        model: "Performance_Behavioral_Imperative"
+    },
+    form_actions: [],
+    fields: [
+        {
+            id: "name",
+            fieldlabel: "Desired ECZ Value/behaviour",
+            fieldname: "name",
+            fieldtype: "text",
+            columns: 2,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+        },
+        {
+            id: "is_current",
+            fieldlabel: "Activate/Deactivate",
+            fieldname: "is_current",
+            fieldtype: "check",
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+        },
+        {
+            id: "expected_behavior",
+            fieldlabel: "Expected Behavior",
+            fieldname: "expected_behavior",
+            fieldtype: "rich",
+            columns: 3,
+            height: '250px',
+            placeholder: " ",
+            required: false,
+            hidden: false,
+        },
+    ],
+}

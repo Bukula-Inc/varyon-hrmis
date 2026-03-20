@@ -1,0 +1,26 @@
+from django.urls import path, include
+
+urlpatterns = [
+    path ("monthly_attendance/", include ("client_app.hr.hr_reports.monthly_attendance_sheet.urls"),name='monthly_attendance'),
+    path ("employee_information/", include ("client_app.hr.hr_reports.employee_information.urls"), name='employee_information'),
+    path ("employee_birthday/", include ("client_app.hr.hr_reports.employee_birthday.urls"),name='employee_birthday'),
+    path ("employee_leave_balance/", include ("client_app.hr.hr_reports.employee_leave_balance.urls"),name='employee_leave_balance'),
+    path ("employee_on_leave/", include ("client_app.hr.hr_reports.employee_on_leave.urls"), name='employee_on_leave'),
+    path ("recruitment_analytics/", include ("client_app.hr.hr_reports.recruitment_analytics.urls"), name='recruitment_analytics'),
+    path ("employee_exit/", include ("client_app.hr.hr_reports.employee_exit.urls"),name='employee_exit'),
+    path ("employee_contacts/", include ("client_app.hr.hr_reports.employee_contacts.urls"),name='employee_contacts'),
+    path ("employee_advance_summary/", include ("client_app.hr.hr_reports.employee_advance_summary.urls"),name='employee_advance_summary'),
+    path ("leave_balance/", include ("client_app.hr.hr_reports.leave_balance.urls"),name='leave_balance'),
+    path ("leave_summary/", include ("client_app.hr.hr_reports.leave_summary.urls"), name='leave_summary'),
+    path ("training_feedback_report/", include ("client_app.hr.hr_reports.training_feedback_report.urls"), name="training_feedback_report"),
+    path("self_appraisal_report",include("client_app.hr.hr_reports.self_appraisal_report.urls"), name="self_appraisal_report"),
+    path("appraisal_report",include("client_app.hr.hr_reports.appraisal_report.urls"), name="appraisal_report"),
+    path("employee_seperation_report/",include("client_app.hr.hr_reports.employee_seperation_report.urls"), name="employee_seperation_report"),
+    path("employee_welfare_report/",include("client_app.hr.hr_reports.employee_welfare_report.urls"), name="employee_welfare_report"),
+    path("employee_grievance_report/",include("client_app.hr.hr_reports.employee_grievance_report.urls"), name="employee_grievance_report"),
+    path("training_program_report/",include("client_app.hr.hr_reports.training_program_report.urls"), name="training_program_report"),
+    path("training_effectiveness/",include("client_app.hr.hr_reports.training_effectiveness.urls"), name="training_effectiveness"),
+    path("short_listed_applicants_report/",include("client_app.hr.hr_reports.short_listed_applicants_report.urls"), name="short_listed_applicants_report"),
+    path("industrial_relations_summary",include("client_app.hr.hr_reports.industrial_relations_summary.urls"), name="industrial_relations_summary"),
+    path("interview_score_sheet",include("client_app.hr.hr_reports.interview_score_sheet.urls"), name="interview_score_sheet"),
+]

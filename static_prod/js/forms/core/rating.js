@@ -1,0 +1,68 @@
+export default {
+    setup: {
+        new_form_id: 'new-rating',
+        info_form_id: 'rating-info',
+        title: "Rating",
+        layout_columns: 3,
+        model: "Rating"
+    },
+    fields: [
+        {
+            id: "name",
+            fieldlabel: "Rating Name",
+            fieldname: "name",
+            fieldtype: "text",
+            columns: 1,
+            placeholder: "Enter Rating Name",
+            required: true,
+            hidden: false,
+            description: "Rating Name",
+        },
+        {
+            id: "subject",
+            fieldlabel: "Subject",
+            fieldname: "subject",
+            fieldtype: "text",
+            columns: 1,
+            placeholder: "Enter Subject",
+            required: true,
+            hidden: false,
+            description: "Subject",
+        },
+        {
+            id: "rating",
+            fieldlabel: "Rating",
+            fieldname: "rating",
+            fieldtype: "int",
+            columns: 1,
+            placeholder: "Enter Rating",
+            required: true,
+            hidden: false,
+            description: "Rating",
+        },
+        {
+            id: "feedback_by",
+            fieldlabel: "Feedback By",
+            fieldname: "feedback_by",
+            fieldtype: "text",
+            columns: 1,
+            placeholder: "Enter Feedback By",
+            required: true,
+            hidden: false,
+            description: "Feedback By",
+        },
+        {
+            id: "feedback_message",
+            fieldlabel: "Message",
+            fieldname: "feedback_message",
+            fieldtype: "longtext",
+            columns: 3,
+            placeholder: "Enter Message",
+            required: true,
+            hidden: false,
+            description: "Message",
+            classnames: "h-[200px] p-2"
+        },
+        
+    ],
+}

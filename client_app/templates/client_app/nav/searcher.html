@@ -1,0 +1,43 @@
+<!-- BEGIN: Search -->
+<div class="intro-x relative ml-auto sm:mx-auto">
+    <div class="search hidden sm:block">
+        <input type="text" class="search__input form-control" placeholder="Quick Search... (Ctrl+k)">
+        <i data-lucide="search" class="search__icon text-default"></i>
+    </div>
+    <a class="notification sm:hidden" href=""> 
+        <i data-lucide="search" class="notification__icon dark:text-slate-500 mr-5 text-default"></i>
+    </a>
+</div>
+<div id="search-result-modal" class="modal flex items-center justify-center" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl overflow-hidden">
+        <div class="modal-content">
+            <div class="modal-body p-0  h-[70vh]">
+                <div class="relative border-b border-default/20">
+                    <i data-lucide="search" class="w-5 h-5 absolute inset-y-0 my-auto ml-4 text-slate-500"></i>
+                    <input id="quick-search-input" type="text" class="form-control border-0 shadow-none focus:ring-0 py-5 px-12" placeholder="Type the content you are searching for">
+                    <div
+                        class="h-6 text-xs bg-default/20 text-slate-500 px-2 flex items-center rounded-md absolute inset-y-0 right-0 my-auto mr-4">
+                        ESC
+                    </div>
+                </div>
+                <div class="w-full px-3 text-11 py-2 filter-by-mudule h-[30px] overflow-hidden">
+                    <div class="text-gray-500 font-bold w-full flex items-center justify-between overflow-hidden">
+                        <span>Filter By Module</span>
+                        <button class="border-none flex items-center justify-center">
+                            <span class="material-symbols-outlined"> keyboard_arrow_down </span>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2 w-full search-module-filters py-2 border-b">
+                        <div class="flex items-start justify-start">
+                            Accounting
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 h-[50vh] overflow-hidden overflow-y-auto">
+                    <div class="search-results h-max-content grid lg:xl:grid-cols-3 gap-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: Search Result -->

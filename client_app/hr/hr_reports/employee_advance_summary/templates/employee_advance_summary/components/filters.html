@@ -1,0 +1,43 @@
+<div class=" report-filters-wrapper w-full my-2 mt-5 bg-white rounded-md border intro-y p-3 grid grid-cols-6 gap-2">
+    <div class="relative w-full">
+        <small class="text-gray-500 text-10">From Date</small>
+        <input field-name="dates" type="date" class="filter-field shadow-none  form-control box">
+    </div>
+   <div class="relative w-full">
+        <small class="text-gray-500 text-10">To Date</small>
+        <input field-name="dates" type="date" class="filter-field shadow-none  form-control box">
+    </div>
+    <div class="relative w-full">
+        <small class="text-gray-500 text-10">Company</small>
+        <select field-name="accounting_period" data-placeholder="Account" class="tom-select w-full rounded-full text-[11px] text-gray-800 border-none"
+            aria-placeholder="Account Type">
+            <option value="0">Probase</option>
+                   </select>
+    </div>
+    <div class="relative w-full">
+        <small class="text-gray-500 text-10">Employee</small>
+        <select field-name="currency" data-placeholder="Select Employee"
+            class="tom-select w-full rounded-full text-[11px] text-gray-800 border-none" aria-placeholder="Currency">
+            <option value="0">Kakuhu</option>
+            <option value="1">Bruce</option>
+            <option value="2">Bright</option>
+            <option value="3">Christine</option>
+        </select>
+    </div>
+    <div class="relative w-full">
+        <small class="text-gray-500 text-10">Status</small>
+        <select field-name="account_type" data-placeholder="Status"
+            class="tom-select w-full rounded-full text-[11px] text-gray-800 border-none"
+            aria-placeholder="Status">
+            <option selected value="0">Status</option>
+            <option value="Draft">Draft</option>
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+            <option value="Claimed">Claimed</option>
+            <option value="Cancelled">Cancelled</option>
+            
+        </select>
+    </div>
+   
+   
+</div>

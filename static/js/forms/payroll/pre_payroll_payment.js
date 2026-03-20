@@ -1,0 +1,97 @@
+       
+export default {
+    setup: {
+        new_form_id: 'new-pre-payroll-payment',
+        info_form_id: 'pre-payroll-payment-info',
+        title: "Pre-Payroll Payment",
+        layout_columns: 4,
+        model: "Pre_Payroll_payment",
+        allow_submit: true,
+        allow_download: false,
+        allow_delete: false,
+        allow_cancel: true,
+        allow_print: false,
+        allow_update: true,
+    },
+    fields: [      
+        {
+            id: "separations",
+            fieldlabel: "Separations",
+            fieldname: "separations",
+            fieldtype: "table",
+            columns: 4,
+            model: "Paid_Separation_List",
+            placeholder: " ",
+            required: false,
+            hidden: false,
+            fields: [
+                {
+                    id: "separation",
+                    fieldlabel: "Separation",
+                    fieldname: "separation",
+                    fieldtype: "link",
+                    model: "Employee_Seperation",
+                    columns: 6,
+                    placeholder: " ",
+                    required: false,
+                    hidden: false,
+                }, 
+                {
+                    id: "employee",
+                    fieldlabel: "Separating Employee",
+                    fieldname: "employee",
+                    fieldtype: "link",
+                    model: "Employee",
+                    columns: 6,
+                    placeholder: " ",
+                    required: false,
+                    hidden: false,
+                    fetchfrom: "separation",
+                    fetchfield: "employee"
+                },     
+                {
+                    id: "employee-name",
+                    fieldlabel: "Employee Full Name",
+                    fieldname: "employee_name",
+                    fieldtype: "read-only",
+                    columns: 6,
+                    placeholder: " ",
+                    required: false,
+                    hidden: false,
+                    // classnames: "text-[2rem] text-end font-semibold text-blue-500",
+                    default: "",
+                    fetchfrom: "employee",
+                    fetchfield: "full_name"
+                },  
+                {
+                    id: "salary-grade",
+                    fieldlabel: "Salary Grade",
+                    fieldname: "salary_grade",
+                    fieldtype: "read-only",
+                    model: "Employee_Grade",
+                    columns: 6,
+                    placeholder: " ",
+                    required: false,
+                    hidden: false,
+                    // classnames: "text-[2rem] text-end font-semibold text-rose-500",
+                    default: "",
+                    fetchfrom: "employee",
+                    fetchfield: "employee_grade"
+                },
+                {
+                    id: "job-title",
+                    fieldlabel: "Job Title",
+                    fieldname: "job_title",
+                    fieldtype: "read-only",
+                    model: "Designation",
+                    columns: 6,
+                    placeholder: " ",
+                    required: false,
+                    hidden: false,           
+                    fetchfrom: "employee",
+                    fetchfield: "designation"
+                }
+            ]
+        },
+    ],
+}

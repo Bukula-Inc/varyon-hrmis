@@ -1,0 +1,213 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Core Dashboard
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[75%] gap-7">
+        <!-- tab list view for the  -->
+        <div class="w-full col-span-3">
+            {% include 'client_app/components/navigators.html' %}
+            <!-- main content -->
+            <div class="main-content-wrapper w-full">
+                <div class="content-groups dashboard-view-content w-full">
+                    <!-- top content -->
+                    <div class="top-stats w-full h-[200px] grid grid-cols-3 gap-3">
+                        <div class=" w-full h-full h-full col-span-2 intro-y">
+                            <div class="stats intro-y">
+                                <div
+                                    class="box py-0 xl:py-5 grid grid-cols-12 gap-0 divide-y xl:divide-y-0 divide-x divide-dashed divide-slate-200 dark:divide-white/5">
+                                    <div class="report-box__item border-r py-5 xl:py-0 px-5 col-span-4 pl-3">
+                                        <div class="report-box__content">
+                                            {% comment %} <div class="flex">
+                                                <div
+                                                    class="report-box__item__icon text-pending bg-pending/10 border border-pending/20 flex items-center justify-center rounded-full">
+                                                    <i data-lucide="pie-chart"></i>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <div class="report-box__item__indicator text-pending tooltip cursor-pointer"
+                                                        title="5.2% Higher than last month"> +5.2% <i
+                                                            data-lucide="arrow-up" class="w-4 h-4 ml-0.5"></i> </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-[25px] font-bold leading-7 mt-6">149,300.05</div>
+                                            <div class="text-slate-500 text-[13px] mt-1">Total Receivables</div> {% endcomment %}
+                                        </div>
+                                    </div>
+                                    <div class="report-box__item py-5 col-span-4 pl-3">
+                                        <div class="report-box__content">
+                                            {% comment %} <div class="flex">
+                                                <div
+                                                    class="report-box__item__icon text-default bg-indigo-100 border border-indigo-600 flex items-center justify-center rounded-full">
+                                                    <i data-lucide="check-square"></i>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <div class="report-box__item__indicator text-indigo tooltip cursor-pointer"
+                                                        title="2% Lower than last month">
+                                                        +2%
+                                                        <i data-lucide="arrow-up" class="w-4 h-4 ml-0.5"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-[25px] font-bold leading-7 mt-6">523,655.241</div>
+                                            <div class="text-slate-500 text-[13px] mt-1">Total Paybles</div> {% endcomment %}
+                                        </div>
+                                    </div>
+                                    <div class="report-box__item border-l py-5 xl:py-0 px-5 col-span-4 pl-3"
+                                        style="border-left: 1px #d4d4d4 solid !important;">
+                                        <div class="report-box__content">
+                                            {% comment %} <div class="flex">
+                                                <div
+                                                    class="report-box__item__icon text-danger bg-red-100 border border-red-800 flex items-center justify-center rounded-full">
+                                                    <i data-lucide="calendar"></i>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <div class="report-box__item__indicator text-danger tooltip cursor-pointer"
+                                                        title="4.1% Higher than last month">
+                                                        -4.1%
+                                                        <i data-lucide="arrow-down" class="w-4 h-4 ml-0.5"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-[25px] font-bold leading-7 mt-6">777,823.99</div>
+                                            <div class="text-slate-500 text-[13px] mt-1">Total Revenue This year</div> {% endcomment %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="-2 w-full h-full intro-y">
+                            <div class="box w-full h-full flex items-center justify-start flex-col p-3">
+                                {% comment %} <span class="font-bold w-full">Bank Balances</span>
+                                <div id="dashboard-pie-chart"></div> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- top content -->
+                    <div class="w-full h-[340px] grid grid-cols-2 gap-4 mt-9">
+                        <div class="-2 w-full h-full intro-y">
+                            <div class="box w-full h-full p-3">
+                                {% comment %} <div class="w-full flex items-center justify-between">
+                                    <span class="font-bold">Annual Profit</span>
+                                    <select type="link" for="Accounting_Period" linkfield="name" class="lite-selector filter-field w-[200px] text-gray-700"></select>
+                                </div>
+                                <div id="monthly-revenue"></div> {% endcomment %}
+                            </div>
+                        </div>
+                        <div class="w-full grid grid-rows-2 gap-y-3">
+                            <div class="-2 w-full h-full intro-y">
+                                <div class="box w-full h-full p-2">
+                                    {% comment %} <div id="receivable-ageing"></div> {% endcomment %}
+                                </div>
+                            </div>
+
+                            <div class="-2 w-full h-full intro-y mt-2">
+                                <div class="box w-full h-full p-2">
+                                    {% comment %} <div id="payable-ageing"></div> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- main content -->
+        </div>
+
+        <!-- side stats -->
+        <div class="w-full h-full grid gap-y-5 grid-rows-2">
+            <div class="-2 w-full h-full intro-x">
+                {% comment %} <div class="box w-full h-full p-3 grid grid-cols-2 gap-3">
+                    <div class="w-full h-full bg-orange-100 rounded-md flex items-center justify-center flex-col">
+                        <h3 class="text-orange-900 font-bold text-[25px]">77</h3>
+                        <span class="font-semibold my-2 text-[13px]">ZMW 1,755,899.00</span>
+                        <small class="text-gray-500 font-bold">Unpaid Tax Invoices</small>
+                    </div>
+                    <div class="w-full h-full bg-blue-100 rounded-md flex items-center justify-center flex-col">
+                        <h3 class="text-blue-900 font-bold text-[25px]">129</h3>
+                        <span class="font-semibold my-2 text-[13px]">ZMW 3,255,409.77</span>
+                        <small class="text-gray-500 font-bold">Paid Tax Invoices</small>
+                    </div>
+                    <div class="w-full h-full bg-green-100 rounded-md flex items-center justify-center flex-col">
+                        <h3 class="text-green-900 font-bold text-[25px]">231</h3>
+                        <span class="font-semibold my-2 text-[13px]">ZMW 28,077.27</span>
+                        <small class="text-gray-500 font-bold">Quotations Sent to clients</small>
+                    </div>
+                    <div class="w-full h-full bg-red-100 rounded-md flex items-center justify-center flex-col">
+                        <h3 class="text-red-800 font-bold text-[25px]">37</h3>
+                        <span class="font-semibold my-2 text-[13px]">ZMW 1,033,077.89</span>
+                        <small class="text-gray-500 font-bold">Uncleared Bills</small>
+                    </div>
+                    <div class="w-full h-full bg-slate-100 rounded-md flex items-center justify-center flex-col">
+                        <h3 class="text-red-800 font-bold text-[25px]">15</h3>
+                        <span class="font-semibold my-2 text-[13px]">ZMW 3,988.26</span>
+                        <small class="text-gray-500 font-bold">Sales Orders Requested</small>
+                    </div>
+                    <div class="w-full h-full bg-purple-100 rounded-md flex items-center justify-center flex-col">
+                        <h3 class="text-purple-900 font-bold text-[25px]">10</h3>
+                        <span class="font-semibold my-2 text-[13px]">ZMW 3,988.26</span>
+                        <small class="text-gray-500 font-bold">Purchase Orders Issued</small>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+            <div class="-2 w-full intro-x">
+                {% comment %} <div class="box w-full h-full p-3">
+                    <h3 class="font-semibold text-12 text-gray-700 w-full border-b pb-2">Quick Links</h3>
+                    <a href="/coa"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-yellow-800">
+                            account_tree
+                        </span>
+                        Chart Of Accounts
+                    </a>
+                    <a href="/income_statement"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-green-700">
+                            bar_chart_4_bars
+                        </span>
+                        Profit & Loss Report
+                    </a>
+                    <a href="/general_ledger"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-warning">
+                            chart_data
+                        </span>
+                        General Ledger
+                    </a>
+                    <a href="/receivables"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-success">
+                            stacked_line_chart
+                        </span>
+                        Receivables Report
+                    </a>
+                    <a href="/payables"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-danger">
+                            query_stats
+                        </span>
+                        Payables Report
+                    </a>
+                    <a href="/accounting/trading?module=accounting&app=trading&page=list&content_type=customer"
+                        class="w-full flex items-center justify-start h-[40px] hover:text-blue-700 transition duration-100 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-indigo-600">
+                            partner_exchange
+                        </span>
+                        Customers
+                    </a>
+                    <a href="/accounting/trading?module=accounting&app=trading&page=list&content_type=supplier"
+                        class="w-full flex items-center justify-start my-5 hover:text-blue-700 hover:translate-x-[-3%]">
+                        <span class="material-symbols-outlined text-[14px] mr-1 text-orange-600">
+                            forklift
+                        </span>
+                        Suppliers
+                    </a>
+                </div> {% endcomment %}
+            </div>
+        </div>
+        <!-- side stats -->
+    </div>
+
+
+</div>
+{% endblock content %}

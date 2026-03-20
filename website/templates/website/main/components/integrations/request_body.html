@@ -1,0 +1,45 @@
+<div class="w-[92%] mx-auto min-h-[300px] bg-gray-200 rounded-md p-5 grid grid-cols-2 gap-x-3 relative">
+    <div class="w-full flex flex-col">
+        <span class="mb-2 flex items-center justify-start">
+            <span class="material-symbols-outlined mr-2"> send </span>
+            <span class="request-text">Creating a new Tax Invoice</span>
+        </span>
+        <div class="w-full h-[150px] overflow-hidden overflow-y-auto borders border-secondary_color rounded-md bg-white mb-2 p-2">
+            <div class="w-full flex items-center justify-start">
+                <small>Headers</small>
+                <div class="font-semibold flex items-center justify-center">
+                    <span class="material-symbols-outlined mx-2 text-17"> east </span>
+                    <a href="" id="request-url" target="_blank">
+                        <small class=" text-red-600"></small>
+                    </a>
+                </div>
+            </div>
+            <div class="w-full borders border-secondary_color rounded-md rounded-md">
+                <pre><code class="language-json" id="request-headers" contenteditable="false"></code></pre>
+            </div>
+        </div>
+        <div class="w-full max-h-[400px] overflow-hidden overflow-y-auto borders border-indigo-300 rounded-md shadow-md bg-white p-2">
+            <small>Body</small>
+            <pre><code class="language-json" id="request-body" contenteditable="false"></code></pre>
+        </div>
+        
+    </div>
+    <div class="w-full flex flex-col">
+        <span class="mb-2 flex items-center justify-start">
+            <span class="material-symbols-outlined mr-2"> task_alt </span>
+            Response from the request sent.
+        </span>
+        <div class="w-full max-h-[560px] overflow-hidden overflow-y-auto borders border-indigo-300 rounded-md shadow-md bg-white p-2">
+            <small>Response</small>
+            <pre><code class="language-json" id="response-body" contenteditable="false"></code></pre>
+        </div>
+    </div>
+
+    <div class="w-full col-span-2 mt-5 bg-gray-100 p-4 rounded-md min-h-[100px]">
+        <span class="font-semibold flex items-center justify-start text-13">
+            <span class="material-symbols-outlined text-gray-500 mr-1 text-15"> adjust </span>
+            Status Codes
+        </span>
+    </div>
+    {% include "./menu_items.html"%}
+</div>

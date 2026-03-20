@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{name}}</title>
+    <link rel="stylesheet" href="/static/css/print_layout.css">
+    <script src="/static/js/tailwindcss.js"></script>
+</head>
+<body>
+    <div class="w-full min-h-screen bg-white">
+        <div class="table-wrapper min-h-screen bg-white">
+            <div class="table bg-white mx-auto w-94">
+                <div class="trow dochead">
+                    <div class="tcell v-align-middle">
+                        <img src="http://{{full_url}}/{{linked_fields.get('company').get('company_logo')}}" class="logo" alt="">
+                    </div>
+                    <div class="tcell v-align-middle h-align-end">
+                        <div class="titles-wrapper h-align-end">
+                            <h1 class="font-bold  h-align-end title"> {{ doctype|replace('_', ' ')|title }} </h1>
+                            <div class="doc-name font-semibold mt-7">{{name}} </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tbody h-align-center">
+                <div class="table w-98">
+                    <div class="trow">
+                        <div class="tcell flex flex-col" colspan="2" >
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold">From</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{from_date}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold">To</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{to_date}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Emp. NO</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{employee}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Full Names</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{employee_names}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Job Title</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{designation}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Department</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{department}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Emp. Type</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{employment_type}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Working Days</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{working_days}} </div>
+                            </div>
+                        </div>
+                        <div class="tcell seperator" colspan="3"></div>
+                        <div class="tcell" colspan="2">
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold">Eng. Date</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{"2020-01-01"}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold">ID NO</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{"475599/1/1"}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold">Years in Service</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{years_in_service}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Emp. TPIN</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{7323632736327}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Bank Name</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{"ZANACO"}} </div>
+                            </div>
+                            <div class="flex mt-2">
+                                <div class="content-title font-bold">Bank Acc</div>
+                                <div class="content-sep">:</div>
+                                <div class="content"> {{"843748347438"}} </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- earnings and deductions -->
+            <div class="tbody thead border-top w-94 mx-auto">
+                <div class="w-full mx-auto mt-2"><span class="text-gray">Earnings & Deductions</span></div>
+                <div class="table w-full">
+                    <div class="trow v-align-middle">
+                        <div class="tcell font-bold ">
+                            
+                            <div class="thead items-body">
+                                <div class="w-full h-align-start mb-1"><small>Earnings</small></div>
+                                <div class="table w-full">
+                                    <div class="trow v-align-middle rounded-md">
+                                        <div class="tcell bg-default font-bold h-align-start v-align-middle" colspan="2">Earning</div>
+                                        <div class="tcell bg-default font-bold h-align-end v-align-middle" colspan="1">Amount</div>
+                                    </div>
+                                    
+                                    {%if earnings %}
+                                        {% for earning in earnings %}
+                                            <div class="trow child-row v-align-middle border-bottom">
+                                                <div class="tcell h-align-start v-align-middle" colspan="2">
+                                                    {{ earning.get("earning") }}
+                                                </div>
+                                                <div class="tcell h-align-end v-align-top" colspan="1"> {{ utils.thousand_separator(earning.get("amount")) }} </div>
+                                            </div>
+                
+                                        {% endfor %}
+                                    {% endif %}
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tcell font-bold ">
+                            
+                            <div class="thead items-body">
+                                <div class="w-full h-align-start mb-1"><small>Deductions</small></div>
+                                <div class="table w-full">
+                                    <div class="trow v-align-middle rounded-md">
+                                        <div class="tcell bg-default font-bold h-align-start v-align-middle" colspan="2">Deduction</div>
+                                        <div class="tcell bg-default font-bold h-align-end v-align-middle" colspan="1">Amount</div>
+                                    </div>
+                                    {%if deductions %}
+                                        {% for deduction in deductions %}
+                                            <div class="trow child-row v-align-middle border-bottom">
+                                                <div class="tcell h-align-start v-align-middle" colspan="2">
+                                                    {{ deduction.get("deduction") }}
+                                                </div>
+                                                <div class="tcell h-align-end v-align-top" colspan="1"> {{ utils.thousand_separator(deduction.get("amount")) }} </div>
+                                            </div>
+                
+                                        {% endfor %}
+                                    {% endif %}
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- totals details -->
+            <div class="h-align-center border-top w-90 mx-auto text-12" style="margin-top: 350px;">
+                <div class="w-full mx-auto my-2 h-align-start"><small class="text-gray">Overrall Totals</small></div>
+                <div class="table w-full">
+                    <div class="trow">
+                        <div class="tcell flex flex-col">
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">Gross Pay</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW  {{utils.thousand_separator(gross)}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">Net Pay</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW  {{utils.thousand_separator(net)}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">Total Earnings</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW  {{utils.thousand_separator(total_earnings)}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">Total Deductions</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW  {{utils.thousand_separator(total_deductions)}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">YTD Gross</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW  {{utils.thousand_separator(ytd_gross)}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">YTD Net</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW  {{utils.thousand_separator(ytd_net)}} </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="tcell seperator" colspan="1"></div>
+                        <div class="tcell ml-5">
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">YDT Earnings</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW {{utils.thousand_separator(ytd_earnings)}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">YDT Deductions</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW {{utils.thousand_separator(ytd_deductions)}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">Total Advance</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW {{utils.thousand_separator(total_advance)  or "-"}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">Leave Days</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW {{utils.thousand_separator(ytd_leave_days)  or "-"}} </div>
+                            </div>
+                            <div class="flex mb-1">
+                                <div class="content-title font-bold h-align-start">Leave Value</div>
+                                <div class="content-sep">:</div>
+                                <div class="content h-align-end">ZMW {{utils.thousand_separator(ytd_leave_value)  or "-"}} </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+export default {
+    setup: {
+        new_form_id: 'new-bonus-types',
+        info_form_id: 'bonus-types-info',
+        title: "Bonus Type",
+        layout_columns: 6,
+        model: "Bonus_Type",
+        // allow_submit: true,
+        // allow_councel: true,
+        // allow_print: true,
+        // allow_delete: true,
+    },
+    fields: [
+        {       
+            id: "name",
+            fieldlabel: "Bonus Type",
+            fieldname: "name",
+            fieldtype: "text",
+            columns: 2,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+        },
+        {
+            id: "description",
+            fieldlabel: "Description",
+            fieldname: "description",
+            fieldtype: "longtext",
+            columns: 6,
+            placeholder: " ",
+            required: false,
+            classnames: "p-2 h-[350px]",
+            hidden: false,
+        },   
+    ],
+}

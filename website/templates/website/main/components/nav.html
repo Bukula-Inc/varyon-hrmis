@@ -1,0 +1,88 @@
+<nav class="lg:xl:w-[80%] w-full text-white flex items-center justify-center relative lg:xl:fixed lg:xl:top-[30px] top-0 left-0 lg:xl:left-[10%] h-[60px] lg:xl:h-[80px] z-[20] lg:xl:rounded-md px-5 lg:xl:border bg-default lg:xl:border-purple-500 lg:xl:bg-default transition duration-1000 z-[20]" style="z-index:100">
+    <div class="nav-content w-full h-full flex items-center justify-between relative ">
+        <div class="flex items-center justify-start">
+            <a href="/web/home">
+                <img src="/static/images/logo/white.svg" alt="" class="w-[100px]">
+            </a>
+        </div>
+
+        <div class="grid-cols-5 gap-x-1 text-14 hidden xl:grid text-13">
+            <div item="home" class="nav-item-wrapper w-full intro-x flex items-center justify-between flex-col h-full h-">
+                <a href="/web/home" class="text-white transition duration-1500 hover:text-gray-400">Homepage</a>
+                <div class="w-[90%] bg-white rounded-full h-[3px] hidden mt-1 intro-x active-menu-item"></div>
+            </div>
+            <div item="modules" class="nav-item-wrapper w-full intro-x flex items-center justify-between flex-col h-full h-">
+                <a href="/web/modules" class="text-white transition duration-1500 hover:text-gray-400">Modules</a>
+                <div class="w-[90%] bg-white rounded-full h-[3px] hidden mt-1 intro-x active-menu-item"></div>
+            </div>
+            <div item="modules" class="nav-item-wrapper w-full intro-x flex items-center justify-between flex-col h-full h-">
+                <a href="/web/careers" class="text-white transition duration-1500 hover:text-gray-400">Career</a>
+                <div class="w-[90%] bg-white rounded-full h-[3px] hidden mt-1 intro-x active-menu-item"></div>
+            </div>
+            
+            {% comment %} <div item="integrations" class="nav-item-wrapper w-full intro-x flex items-center justify-between flex-col h-full h-">
+                <a href="/web/integrations" class="text-white transition duration-1500 hover:text-gray-400">Integrations</a>
+                <div class="w-[90%] bg-white rounded-full h-[3px] hidden mt-1 intro-x active-menu-item"></div>
+            </div> {% endcomment %}
+            <div item="about" class="nav-item-wrapper w-full intro-x flex items-center justify-between flex-col h-full h-">
+                <a href="/web/about" class="text-white transition duration-1500 hover:text-gray-400">About Us</a>
+                <div class="w-[90%] bg-white rounded-full h-[3px] hidden mt-1 intro-x active-menu-item"></div>
+            </div>
+            <div item="login" class="nav-item-wrapper w-full intro-x flex items-center justify-between flex-col h-full">
+                <a href="/auth/login" class="text-white transition duration-1500 hover:text-gray-400 flex items-center justify-between bg-teal-600 font-bold px-6 py-1 rounded-md">
+                    <span class="material-symbols-outlined mr-1 text-17"> lock </span>
+                    Sign In
+                </a>
+                <div class="w-[90%] bg-white rounded-full h-[3px] hidden mt-1 intro-x active-menu-item"></div>
+            </div>
+        </div>
+
+        <div class="hidden xl:grid grid-cols-5 gap-x-8 text-13 font-semibold">
+            <a href="/web/onboarding/" class="bg-white  intro-x flex items-center justify-center px-2 h-[30px] rounded-md text-default col-span-2">
+                Get Started 
+                <span class="material-symbols-outlined ml-2"> arrow_forward_ios </span>
+            </a>
+            <a href="/portal/client_auth" class="bg-white  intro-x flex items-center justify-center px-2 h-[30px] rounded-md text-default col-span-2">
+                Customer Portal
+                <span class="material-symbols-outlined ml-2"> arrow_forward_ios </span>
+            </a>
+        </div>
+        <button id="mobile-menus-btn" class="border-none w-[40px] h-[30px] flex xl:hidden items-end justify-center flex-col">
+            <span class="w-[80%] h-[7px] rounded-full mb-2 bg-white"></span>
+            <span class="w-full h-[7px] rounded-full mb-2 bg-white"></span>
+            <span class="w-[80%] h-[7px] rounded-full mb-2 bg-white"></span>
+        </button>
+    </div>
+
+    <div class="w-full mobile-nav-menus hidden bg-default h-[100vh] fixed top-[70px] border-t">
+        <div class="w-[80%] mt-10 mx-auto text-white">
+            <a href="/web/home" class="flex items-center justify-start h-[70px] intro-x rounded-md hover:bg-white/10 pl-2 text-20">
+                <span class="material-symbols-outlined mr-1 text-20 text-indigo-500"> home </span>
+                Homepage
+            </a>
+            <a href="/web/modules" class="flex items-center justify-start h-[70px] intro-x rounded-md hover:bg-white/10 pl-2 text-20">
+                <span class="material-symbols-outlined mr-1 text-20 text-purple-500"> view_module </span>
+                Modules
+            </a>
+            <a href="/web/integrations" class="flex items-center justify-start h-[70px] intro-x rounded-md hover:bg-white/10 pl-2 text-20">
+                <span class="material-symbols-outlined mr-1 text-20 text-orange-500"> lan </span>
+                Integrations
+            </a>
+            
+            <a href="/web/about" class="flex items-center justify-start h-[70px] intro-x rounded-md hover:bg-white/10 pl-2 text-20">
+                <span class="material-symbols-outlined mr-1 text-20 text-orange-500"> help </span>
+                About Us
+            </a>
+        </div>
+        <div class="grid grid-cols-2 mt-20 gap-x-5 text-13 font-semibold w-[80%] mx-auto intro-x">
+            <a href="/web/onboarding/" class="bg-white  intro-x flex items-center justify-center px-2 h-[50px] rounded-md text-default">
+                Get Started 
+                <span class="material-symbols-outlined ml-2"> arrow_forward_ios </span>
+            </a>
+            <a href="/portal/client_auth" class="bg-white  intro-x flex items-center justify-center px-2 h-[50px] rounded-md text-default">
+                Customer Portal
+                <span class="material-symbols-outlined ml-2"> arrow_forward_ios </span>
+            </a>
+        </div>
+    </div>
+</nav>

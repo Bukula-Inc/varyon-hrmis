@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/print_layout.css">
+    <script src="/static/js/tailwindcss.js"></script>
+    <link rel="icon" href="https://startapperp.com/img/logo/ico.png">
+    <style> @page { size: A4 landscape; } </style>
+</head>
+<body>
+    <div class="w-full min-h-screen bg-white">
+        <div class="table-wrapper bg-white">
+            <div class="table bg-white mx-auto w-94">
+                <div class="trow dochead">
+                    <!-- <div class="tcell v-align-middle">
+                        <img src="http://{{host}}/media/{{linked_fields.company.company_logo}}" class="logo" alt="">
+                    </div> -->
+                    <div class="tcell v-align-middle h-align-end">
+                        <div class="titles-wrapper h-align-end">
+                            <h5 class="font-bold  h-align-end title"> {{title}} </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- items -->
+            <div class="thead items-body">
+                <div class="table w-94">
+                    <div class="trow v-align-middle rounded-md">
+                        <div class="tcell bg-default font-bold h-align-center v-align-middle rounded-tl-md rounded-bl-md">S/N</div>
+                        {%if fields %}
+                            {% for field in fields %}
+                                <div class="tcell bg-default font-bold h-align-start v-align-middle" colspan="4">{{field}}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

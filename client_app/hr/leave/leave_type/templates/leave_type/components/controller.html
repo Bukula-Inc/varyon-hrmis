@@ -1,0 +1,69 @@
+<div class="page-actions-wrapper  flex items-center sm:ml-auto mt-3 sm:mt-0">
+    <div class="content-group actions-group list-view-content list-actions flex items-center justify-center ml-3 customer-type">
+        <select data-placeholder="Select Type" id="content-type-action"
+            class="page-content-content-type tom-select w-[170px] rounded-full text-[11px] text-gray-800 border-none"
+            aria-placeholder="Type">
+            <option value="0">Trade Type</option>
+            <option value="customer">Customer</option>
+            <option value="supplier">Supplier</option>
+        </select>
+    </div>
+    <div class="content-group actions-group info-view-content w-full flex items-center justify-between hidden">
+        <select class="form-select box w-[max-content] performance-type"
+            aria-label="Sales Performance">
+            <option value="2022">Sales Performance 2022</option>
+            <option value="2021">Sales Performance 2021</option>
+        </select>
+
+        <div class="dropdown w-1/2 sm:w-auto mx-2" style="position: relative;">
+            <button class="dropdown-toggle btn btn-outline-secondary w-full sm:w-auto bg-white"
+                aria-expanded="false" data-tw-toggle="dropdown">
+                <i data-lucide="more-vertical" class="w-[17px] h-[17px]"></i>
+                <!-- Actions -->
+            </button>
+            <div class="dropdown-menu w-[max-content]" id="_hjlc5luf1"
+                data-popper-placement="bottom-end"
+                style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(-0.5px, 38px, 0px);">
+                <ul class="dropdown-content">
+                    <li>
+                        <a id="tabulator-export-csv" href="javascript:;" class="dropdown-item">
+                            <i data-lucide="eye-off" class="w-[17px] h-[17px] mr-2"></i>
+                            Disable Customer
+                        </a>
+                    </li>
+                    <li>
+                        <a id="tabulator-export-csv" href="javascript:;" class="dropdown-item">
+                            <i data-lucide="trash"
+                                class="w-[17px] h-[17px] mr-2 text-red-700"></i>
+                            Delete Customer
+                        </a>
+                    </li>
+                    <li>
+                        <a id="tabulator-export-csv" href="javascript:;" class="dropdown-item">
+                            <i data-lucide="file-text" class="w-[17px] h-[17px] mr-2"></i>
+                            Download Statement
+                        </a>
+                    </li>
+                    <li>
+                        <a id="tabulator-export-csv" href="javascript:;" class="dropdown-item">
+                            <i data-lucide="file-text" class="w-[17px] h-[17px] mr-2"></i>
+                            General Ledger
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <button class="w-[170px] btn bg-default text-theme_text_color shadow-md ">
+            <i data-lucide="save" class="w-[17px] h-[17px] mr-2"></i>
+            Update
+        </button>
+    </div>
+   
+    <div class="flex justify-end items-center">
+        <button class="w-[170px] btn bg-default text-theme_text_color shadow-md ">
+            <i data-lucide="save" class="w-[17px] h-[17px] mr-2"></i>
+            Save
+        </button>
+    </div>
+</div>

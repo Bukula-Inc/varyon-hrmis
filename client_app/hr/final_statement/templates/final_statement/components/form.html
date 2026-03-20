@@ -1,0 +1,25 @@
+{% load static %}
+<div class="w-full mt-5 intro-y">
+    <div class="box p-3 h-[670px] overflow-y-auto">
+        <form id="new-final-statement" class="w-full">
+            <div class="form-header w-full flex justify-between items-center gap-2">
+                <div class="flex items-center justify-start">
+                    
+                </div>
+                <h1 class="form-title font-bold text-[19px] mb-5 text-gray-500"></h1>
+            </div>
+            <div class="form-fields grid gap-3 gap-x-5"></div>
+        </form>
+        <div class="totals-area">
+            <div class="min-h-[100px] mt-5 grid grid-cols-9">
+                <div class="col-span-6"></div>
+                <div class="col-span-3 flex justify-end items-start flex-col">
+                    <h1 class="font-bold mt-3 text-slate-500 text-xl text-center">Totals:</h1>
+                    <h3 id="payable_t" class="mt-3 text-slate-500 font-semibold text-lg">Payable: <span id="amount-payable"></span> <span class="currency"></span></h3>
+                    <h3 id="receivable_t" class="mt-3 text-slate-500 font-semibold text-lg">Receivable: <span id="amount-receivable"></span> <span class="currency"></span></h3>
+                    <h3 id="total-amount-payable" class="mt-3 text-slate-500 font-semibold text-lg">Total Payable: <span id="amount-for-payable"></span> <span class="currency"></span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

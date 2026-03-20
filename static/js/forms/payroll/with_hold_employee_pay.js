@@ -1,0 +1,121 @@
+export default {
+    setup: {
+        new_form_id: 'new-recovery',
+        info_form_id: 'recovery-info',
+        title: "With Hold Employee Pay",
+        layout_columns: 3,
+        model: "With_Hold_Employee_Pay",
+        allow_submit: true,
+        allow_cancel: true,
+        allow_delete: false,
+        allow_print: false,
+        allow_sending_mail: false,
+    },
+    fields: [
+        {
+            id: "from_date",
+            fieldlabel: "Payroll Period Start Date",
+            fieldname: "from_date",
+            fieldtype: "date",
+            placeholder: " ",
+            columns: 1,
+            required: true,
+            hidden: false,
+            classnames: "h-[60px] bg-default/20 text-default text-35 font-extrabold"
+        },
+        {
+            id: "to_date",
+            fieldlabel: "Payroll Period End Date",
+            fieldname: "to_date",
+            fieldtype: "date",
+            placeholder: " ",
+            columns: 1,
+            required: true,
+            hidden: false,
+            classnames: "h-[60px] bg-default/20 text-default text-35 font-extrabold"
+        },
+        {
+            id: "employees",
+            fieldlabel: "Employees To With Hold Pay For",
+            fieldname: "employees",
+            fieldtype: "table",
+            model: "EmployeesJSON",
+            description: "add all employee to applied with holding to",
+            placeholder: " ",
+            columns: 3,
+            required: true,
+            hidden: false,
+            fields: [
+                {
+                    id: "employee",
+                    fieldlabel: "Employee",
+                    fieldname: "employee",
+                    fieldtype: "link",
+                    model: "Employee",
+                    columns: 4,
+                    required: true,
+                    hidden: false,
+                    placeholder: " ",
+                },
+                {
+                    id: "employee_names",
+                    fieldlabel: "Employee Names",
+                    fieldname: "employee_names",
+                    fieldtype: "read-only",
+                    columns: 4,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    fetchfrom: "employee",
+                    fetchfield: "full_name"
+                },
+                {
+                    id: "designation",
+                    fieldlabel: "Job Title",
+                    fieldname: "designation",
+                    fieldtype: "read-only",
+                    columns: 4,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    fetchfrom: "employee",
+                    fetchfield: "designation"
+                },
+                {
+                    id: "department",
+                    fieldlabel: "Department",
+                    fieldname: "department",
+                    fieldtype: "read-only",
+                    columns: 4,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    fetchfrom: "employee",
+                    fetchfield: "department"
+                },
+                {
+                    id: "reports_to",
+                    fieldlabel: "Supervisor",
+                    fieldname: "reports_to",
+                    fieldtype: "read-only",
+                    columns: 4,
+                    required: false,
+                    hidden: false,
+                    placeholder: " ",
+                    fetchfrom: "employee",
+                    fetchfield: "reports_to"
+                },
+                {
+                    id: "with_holding_reason",
+                    fieldlabel: "With Holding Reason",
+                    fieldname: "with_holding_reason",
+                    fieldtype: "expandable",
+                    columns: 4,
+                    required: true,
+                    hidden: false,
+                    placeholder: " ",
+                }
+            ]
+        }
+    ],
+}

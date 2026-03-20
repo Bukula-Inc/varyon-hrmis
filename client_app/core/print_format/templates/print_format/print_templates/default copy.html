@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Print</title>
+    <link rel="icon" href="https://startapperp.com/img/logo/ico.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body>
+    <div class="w-full min-h-[100vh] bg-black flex items-center justify-center">
+        <div class="w-[50%] min-h-[100vh] h-[max-content] bg-white p-3">
+            <div class="w-full grid grid-cols-3 gap-x-5 min-h-[100px] p-3">
+                <div class="w-full flex items-start justify-start flex-col">
+                    <img src="https://startapperp.com/img/logo/logo.svg" alt="" class="w-[150px] h-[100px]">
+                </div>
+                <div class=""></div>
+                <div class="flex items-end justify-center flex-col w-full">
+                    <span class="font-bold text-[30px] font-bold">{{doctype}}</span>
+                    <span class="text-gray-800 text-[13px] font-semi-bold">{{name}}</span>
+                </div>
+            </div>
+
+            <div class="border-b border-b-gray-300 mb-5"></div>
+            <div class="w-full grid grid-cols-4 gap-x-4 text-[14px]">
+                {% for key, value in doc_dict.items() %}
+                    {% if key not in doc_exclusives and value is not mapping %}
+                            <div class="w-full col-span-2">
+                                <div class="grid grid-cols-5 gap-x-1 mb-2">
+                                    <span class="font-semibold grid grid-cols-5 col-span-2 w-full"> 
+                                        <span class="col-span-4">{{key|replace('_', ' ')|title}}</span>
+                                        <span class="col-span-1">:</span>
+                                    </span>
+                                    <span class="col-span-3">{{value or '-'}}</span>
+                                </div>
+                            </div>
+                    {% endif %}
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,456 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Employee Profile
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[99%] mx-auto h-[85vh]">
+   <div class="w-full grid grid-cols-4 h-full gap-7">
+        <!-- tab list view for the  -->
+        <div class="w-full max-h-[80vh] mobile-col-4 col-span-4">
+           {% include "./components/controller.html" %}
+            <!-- main content -->
+            <div class="main-content-wrapper h-full w-full">
+                <div class="h-full w-full">
+                    <div class="h-full w-full overflow-y-auto">
+                        <div id="default-profile" class="min-h-[93%] w-full grid grid-cols-12 gap-4 mt-5">
+                            <div class="col-span-8 h-full">
+                                <div class="h-full w-full grid grid-rows-6 gap-4">
+                                    <div class="row-span-1">
+                                        <div class="h-full w-full grid grid-cols-3 gap-4">
+                                            <div class="w-full -2 intro-y">
+                                                <div class="box h-full w-full overflow-hidden">
+                                                    <div class="h-full w-full grid grid-cols-7 p-3">
+                                                        <div class="col-span-2 flex justify-center items-center">
+                                                            <div class="h-[80%] w-[80%] text-indigo-600 flex justify-content items-center">
+                                                                <div>
+                                                                    <span class="material-symbols-outlined text-[50px] block">
+                                                                        event
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-span-5 h-full flex justify-center items-center">
+                                                            <div class="flex flex-col justify-center h-full w-full relative">
+                                                                <h3 class="w-full text-end font-semibold capitalize text-[22px]">Leave Balance</h3>
+                                                                <div class="absolute bottom-1 right-4 flex justify-end w-full mr-3">
+                                                                    <div class="h-full w-[60%] flex justify-between gap-4">
+                                                                        <p class="font-semibold capitalize text-[12px] mx-[22px]"><span class="ml-2" id="avaliable_leave_days">0</span></p>
+                                                                        <p class="font-semibold capitalize text-[12px] text-indigo-600"><span class="mr-2" id="leave_value">days</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-full -2 intro-y">
+                                                <div class="box h-full w-full overflow-hidden">
+                                                    <div class="h-full w-full grid grid-cols-7 p-3">
+                                                        <div class="col-span-2 flex justify-center items-center">
+                                                            <div class="h-[80%] w-[80%] text-indigo-600 flex justify-content items-center">
+                                                                <div>
+                                                                    <span class="material-symbols-outlined text-[50px] block">
+                                                                        monitoring
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-span-5 h-full flex justify-center items-center">
+                                                            <div class="flex flex-col justify-center h-full w-full relative">
+                                                                <h3 class="w-full text-end font-semibold capitalize text-[22px]">Total Income</h3>
+                                                                <div class="absolute bottom-1 right-4 flex justify-end w-full mr-3">
+                                                                    <div class="h-full w-[60%] flex justify-between gap-4">
+                                                                        <p class="font-semibold capitalize text-[12px] mx-[22px] border-black"><span class="years_served"> </span><small class="period-qty"></small></p>
+                                                                        <p class="font-semibold capitalize text-[12px] text-indigo-600"><span class="mr-2" id="income"></span><span class="currency">ZMW</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w-full -2 intro-y">
+                                                <div class="box h-full w-full overflow-hidden">
+                                                    <div class="h-full w-full grid grid-cols-7 p-3">
+                                                        <div class="col-span-2 flex justify-center items-center">
+                                                            <div class="h-[80%] w-[80%] text-indigo-600 flex justify-content items-center">
+                                                                <div>
+                                                                    <span class="material-symbols-outlined text-[50px] block">
+                                                                        payments
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-span-5 h-full flex justify-center items-center">
+                                                            <div class="flex flex-col justify-center h-full w-full relative">
+                                                                <h3 class="w-full text-end font-semibold capitalize text-[22px]">Total Expenses</h3>
+                                                                <div class="absolute bottom-1 right-4 flex justify-end w-full mr-3">
+                                                                    <div class="h-full w-[60%] flex justify-between gap-4">
+                                                                        <p class="font-semibold capitalize text-[12px] mx-[21px]"><span class="ml-2 years_served"> </span><small class="period-qty"></small></p>
+                                                                        <p class="font-semibold capitalize text-[12px] text-indigo-600"><span class="mr-2" id="amount"></span><span class="currency">ZMW</span></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-span-5 flex justify-center items-end">
+                                        <div class="h-[98%] w-full">
+                                            <div class="h-full w-full grid grid-cols-15 gap-4">
+                                                <div class="col-span-4">
+                                                    <div class="h-full -2 intro-y">
+                                                        <div class="box h-full w-full p-3">
+                                                            <p class="font-semibold pb-3 border-b">Leave Utilization</p>
+                                                            <div class="h-[95%] w-full grid grid-rows-2 gap-4">
+                                                                <div class="row-span-1 w-full flex justify-center items-center">
+                                                                    <div id="leave_summary"></div>
+                                                                </div>
+                                                                <div class="w-full border-t" id="leave_type_data">
+                                                                    {% comment %} <div class="w-full flex items-center justify-between border-b border-dotted min-h-[30px]">
+                                                                        <div class="flex items-center justify-start py-2">
+                                                                            <a href="" class="flex items-center justify-start">
+                                                                                <div class="w-[27px] h-[27px] rounded-md bg-indigo-100 text-indigo-900 flex items-center justify-center mr-2">
+                                                                                    <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> event </span>
+                                                                                </div>
+                                                                                <div class="flex flex-col">
+                                                                                    <span class="text-13">Annual Leave</span>
+                                                                                    <small class="text-gray-400 text-10">Approved</small>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div>
+                                                                            <div class="span text-purple-700 text-13 font-semibold">Approved</div>
+                                                                            <small class="text-10 text-gray-600">0 day</small>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="w-full flex items-center justify-between border-b border-dotted min-h-[30px]">
+                                                                        <div class="flex items-center justify-start py-2">
+                                                                            <a href="" class="flex items-center justify-start">
+                                                                                <div class="w-[27px] h-[27px] rounded-md bg-red-100 text-indigo-900 flex items-center justify-center mr-2">
+                                                                                    <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> event </span>
+                                                                                </div>
+                                                                                <div class="flex flex-col">
+                                                                                    <span class="text-13">Study Leave</span>
+                                                                                    <small class="text-gray-400 text-10">Rejected</small>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div>
+                                                                            <div class="span text-purple-700 text-13 font-semibold">Rejected</div>
+                                                                            <small class="text-10 text-gray-600">0 day</small>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="w-full flex items-center justify-between border-b border-dotted min-h-[30px]">
+                                                                        <div class="flex items-center justify-start py-2">
+                                                                            <a href="" class="flex items-center justify-start">
+                                                                                <div class="w-[27px] h-[27px] rounded-md bg-indigo-100 text-indigo-900 flex items-center justify-center mr-2">
+                                                                                    <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> event </span>
+                                                                                </div>
+                                                                                <div class="flex flex-col">
+                                                                                    <span class="text-13">Annual Leave</span>
+                                                                                    <small class="text-gray-400 text-10">Approved</small>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div>
+                                                                            <div class="span text-purple-700 text-13 font-semibold">Approved</div>
+                                                                            <small class="text-10 text-gray-600">0 day</small>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="w-full flex items-center justify-between border-b border-dotted min-h-[30px]">
+                                                                        <div class="flex items-center justify-start py-2">
+                                                                            <a href="" class="flex items-center justify-start">
+                                                                                <div class="w-[27px] h-[27px] rounded-md bg-indigo-100 text-indigo-900 flex items-center justify-center mr-2">
+                                                                                    <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> event </span>
+                                                                                </div>
+                                                                                <div class="flex flex-col">
+                                                                                    <span class="text-13">Annual Leave</span>
+                                                                                    <small class="text-gray-400 text-10">Approved</small>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div>
+                                                                            <div class="span text-purple-700 text-13 font-semibold">Approved</div>
+                                                                            <small class="text-10 text-gray-600">0 day</small>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="w-full flex items-center justify-between border-b border-dotted min-h-[30px]">
+                                                                        <div class="flex items-center justify-start py-2">
+                                                                            <a href="" class="flex items-center justify-start">
+                                                                                <div class="w-[27px] h-[27px] rounded-md bg-indigo-100 text-indigo-900 flex items-center justify-center mr-2">
+                                                                                    <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> event </span>
+                                                                                </div>
+                                                                                <div class="flex flex-col">
+                                                                                    <span class="text-13">Annual Leave</span>
+                                                                                    <small class="text-gray-400 text-10">Approved</small>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div>
+                                                                            <div class="span text-purple-700 text-13 font-semibold">Approved</div>
+                                                                            <small class="text-10 text-gray-600">0 day</small>
+                                                                        </div>
+                                                                    </div> {% endcomment %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-span-11 h-full">
+                                                    <div class="h-full w-full grid grid-rows-2 gap-4">
+                                                        <div class="row-span-1">
+                                                            <div class="h-full w-full pb-3">
+                                                                <div class="h-full w-full -2 intro-y">
+                                                                    <div class="box h-full w-full p-3 overflow-hidden">
+                                                                        <p class="font-semibold pb-3 border-b">Expanse Distribution'</p>
+                                                                        <div class="h-[90%] w-full grid grid-cols-7">
+                                                                            <div class="h-full col-span-3"></div>
+                                                                            <div class="h-full col-span-5 border-r" id="appraisal_360_a"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row-span-1">
+                                                            <div class="h-full -2 intro-y">
+                                                                <div class="box h-full w-full p-3 overflow-hidden">
+                                                                    <div class="h-full w-full grid grid-cols-7 gap-4">
+                                                                        <div class="col-span-4 h-full">
+                                                                            <div class="h-full w-full">
+                                                                                <p class="font-semibold pb-3 border-b ">Income Distribution</p>
+                                                                                <div class="h-[90%]" id="work_plan_tasks"></div>
+                                                                            {% comment %} </div>
+                                                                        </div>
+                                                                        <div class="col-span-3">
+                                                                            <div class="h-full w-full">
+                                                                                <p class="font-semibold pb-3 border-b text-end">This Month Work Plan Stats</p>
+                                                                                <div class="h-[90%] w-full flex justify-center items-center" id="monthly_work_plan"></div> {% endcomment %}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-4 h-full">
+                                <div class="grid grid-rows-12 h-full w-full gap-4">
+                                    <div class="row-span-4 w-full -2 intro-y">
+                                        <div class="box h-full w-full p-3">
+                                            <p class="font-semibold pb-3 border-b">Personal & Job Details</p>
+                                            <div class="h-[95%] w-full grid grid-cols-2 gap-4">
+                                                <div class="h-full">
+                                                    <div class="h-full w-full">
+                                                        <div class="flex items-center justify-start py-2">
+                                                            <div class="flex items-center justify-start">
+                                                                <div class="w-[27px] h-[27px] rounded-md bg-indigo-100 text-indigo-900 flex items-center justify-center mr-2">
+                                                                    <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> person </span>
+                                                                </div>
+                                                                <div class="flex flex-col">
+                                                                    <span class="text-13 personel_job_info full_name"></span>
+                                                                    <small class="text-gray-400 text-10">Full Name</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex items-center justify-start py-2">
+                                                            <div class="flex items-center justify-start">
+                                                                <div class="w-[27px] h-[27px] rounded-md bg-emerald-100 text-emerald-900 flex items-center justify-center mr-2">
+                                                                    <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> phone_forwarded </span>
+                                                                </div>
+                                                                <div class="flex flex-col">
+                                                                    <span class="text-13 personel_job_info contact"></span>
+                                                                    <small class="text-gray-400 text-10">Contacts Number</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex items-center justify-start py-2">
+                                                            <div class="flex items-center justify-start">
+                                                                <div class="w-[27px] h-[27px] rounded-md bg-indigo-100 text-indigo-900 flex items-center justify-center mr-2">
+                                                                    <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> mail_lock </span>
+                                                                </div>
+                                                                <div class="flex flex-col">
+                                                                    <span class="text-13 personel_job_info email"></span>
+                                                                    <small class="text-gray-400 text-10">Email</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex items-center justify-start py-2">
+                                                            <div class="flex items-center justify-start">
+                                                                <div class="w-[27px] h-[27px] rounded-md bg-red-100 text-red-900 flex items-center justify-center mr-2">
+                                                                    <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> phone_forwarded </span>
+                                                                </div>
+                                                                <div class="flex flex-col">
+                                                                    <span class="text-13 text-red-400 personel_job_info emergency_contact"></span>
+                                                                    <small class="text-red-400 text-10">Emergency Contact</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="h-full">
+                                                    <div class="flex items-center justify-start py-2">
+                                                        <div class="flex items-center justify-start">
+                                                            <div class="w-[27px] h-[27px] rounded-md bg-indigo-100 text-indigo-900 flex items-center justify-center mr-2">
+                                                                <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> account_balance </span>
+                                                            </div>
+                                                            <div class="flex flex-col">
+                                                                <span class="text-13 personel_job_info company"></b></span>
+                                                                <small class="text-gray-400 text-10">Company</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center justify-start py-2">
+                                                        <div class="flex items-center justify-start">
+                                                            <div class="w-[27px] h-[27px] rounded-md bg-sky-100 text-sky-900 flex items-center justify-center mr-2">
+                                                                <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> corporate_fare </span>
+                                                            </div>
+                                                            <div class="flex flex-col">
+                                                                <span class="text-13 text-grey-400 personel_job_info department"></span>
+                                                                <small class="text-gray-400 text-10">Department</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center justify-start py-2">
+                                                        <div class="flex items-center justify-start">
+                                                            <div class="w-[27px] h-[27px] rounded-md bg-indigo-100 text-indigo-900 flex items-center justify-center mr-2">
+                                                                <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> for_you </span>
+                                                            </div>
+                                                            <div class="flex flex-col">
+                                                                <span class="text-13 personel_job_info job_title"></span>
+                                                                <small class="text-gray-400 text-10">Job Title</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center justify-start py-2">
+                                                        <div class="flex items-center justify-start">
+                                                            <div class="w-[27px] h-[27px] rounded-md bg-emerald-100 text-emerald-900 flex items-center justify-center mr-2">
+                                                                <span class="material-symbols-outlined text-20 .material-symbols-outlined-hidden"> leak_add </span>
+                                                            </div>
+                                                            <div class="flex flex-col">
+                                                                <span class="text-13 personel_job_info supervisor"></span>
+                                                                <small class="text-gray-400 text-10">Supervisor</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-span-8 w-full -2 intro-y">
+                                        <div class="box h-full w-full grid grid-cols-12">
+                                            <div class="h-full col-span-4 border-r">
+                                                <h4 class="font-semibold p-2 border-b">Compensation</h4>
+                                                <div class="w-full h-[90%] grid grid-rows-5">
+                                                    <div class="border-b relative flex justify-center flex-col p-3">
+                                                        <h5 class="font-semibold capitalize mb-2">Salary</h5>
+                                                        <p class="font-semibold text-[21px] text-slate-600/70 personel_job_info salary">0</p>
+                                                    </div>
+                                                    <div class="border-b relative flex justify-center flex-col p-3">
+                                                        <h5 class="font-semibold capitalize mb-2">Statutory</h5>
+                                                        <p class="font-semibold text-[21px] text-slate-600/70">0</p>
+                                                    </div>
+                                                    <div class="border-b relative flex justify-center flex-col p-3">
+                                                        <h5 class="font-semibold capitalize mb-2">Bonus</h5>
+                                                        <p class="font-semibold text-[21px] text-slate-600/70">0</p>
+                                                    </div>
+                                                    <div class="row-span-2 w-full">
+                                                        <div class="p-3 h-full w-full" id="compensation"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="h-full col-span-8 border-l p-2">
+                                                <div class="h-[40%] bg-slate-200/50 w-full flex flex-col justify-center items-center">
+                                                    {%load static%}
+                                                    <img src="/media/defaults/avatas/dp.jpeg" class="object-cover h-[160px] w-[160px] rounded-full overflow-hidden" alt="AVATAR USER">
+                                                    <p class="w-full p-2 flex justify-center flex-col items-center">
+                                                        <span class="font-semibold main_full_name"></span>
+                                                        <span class="font-light text-[11px] main_job_title"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="h-[60%] w-full py-2">
+                                                    <p class="border-b py-2">
+                                                        <span class="text-[12px] mb-1 text-purple-400 flex items-center">
+                                                            <span class="material-symbols-outlined">
+                                                                detector_status
+                                                            </span>
+                                                            <b class="mr-2">&nbsp;Status</b>
+                                                        </span>
+                                                        <span class="font-semibold text-slate-600/70 flex items-center main_status">
+                                                            
+                                                        </span>
+                                                    </p>
+                                                    <p class="border-b py-2">
+                                                        <span class="text-[12px] mb-1 text-indigo-400 flex items-center">
+                                                            <span class="material-symbols-outlined">
+                                                                event
+                                                            </span>
+                                                            <b class="mr-2">&nbsp;Joined On</b>
+                                                        </span>
+                                                        <span class="font-semibold text-slate-600/70 flex items-center main_joining_date">
+                                                            
+                                                        </span>
+                                                    </p>
+                                                    <p class="border-b py-2">
+                                                        <span class="text-[12px] mb-1 text-blue-400 flex items-center">
+                                                            <span class="material-symbols-outlined">
+                                                                workspace_premium
+                                                            </span>
+                                                            <b class="mr-2">&nbsp;Qualifications</b>
+                                                        </span>
+                                                        <span class="font-semibold text-slate-600/70 flex items-center relative flex items-center gap-1">
+                                                            <span class="block text-[9px] relative px-1 py-[3px] bg-purple-200/40 text-purple-600 rounded-2xl">Certificate in ICT (3)</span>
+                                                            <span class="block text-[9px] relative px-1 py-[3px] bg-indigo-200/40 text-indigo-600 rounded-2xl">Degree in CS</span>
+                                                            <span class="block text-[9px] relative px-1 py-[3px] bg-blue-200/40 text-blue-600 rounded-2xl">PHD in CS</span>
+                                                        </span>
+                                                    </p>
+                                                    <p class="border-b py-2">
+                                                        <span class="text-[12px] mb-1 text-indigo-400 flex items-center">
+                                                            <span class="material-symbols-outlined">
+                                                                event
+                                                            </span>
+                                                            <b class="mr-2">&nbsp;Date Of Birth</b>
+                                                        </span>
+                                                        <span class="font-semibold text-slate-600/70 flex items-center main_dob">
+                                                            
+                                                        </span>
+                                                    </p>
+
+                                                    <p class="border-b py-2">
+                                                        <span class="text-[12px] mb-1 text-blue-400 flex items-center">
+                                                            <span class="material-symbols-outlined">
+                                                                workspace_premium
+                                                            </span>
+                                                            <b class="mr-2">&nbsp;Contacts</b>
+                                                        </span>
+                                                        <span class="font-semibold text-slate-600/70 flex items-center relative flex items-center gap-1">
+                                                            <span class="block text-[9px] relative px-1 py-[3px] bg-purple-200/40 text-purple-600 rounded-2xl main_contact"></span>
+                                                            <span class="block text-[9px] relative px-1 py-[3px] bg-indigo-200/40 text-indigo-600 rounded-2xl main_email"></span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

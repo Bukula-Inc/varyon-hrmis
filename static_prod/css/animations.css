@@ -1,0 +1,152 @@
+/* 
+*
+***
+****
+*****
+********
+**********
+class for card animations 
+*/
+.ani-cards-wrapper {
+    grid-column: span 5;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ani-card {
+    position: absolute;
+    transition: .6s;
+    cursor: pointer;
+}
+
+.ani-card:hover {
+    transform: translate(2%, 2%) scale(1.01);
+}
+
+.ani-card.active {
+    opacity: 1 !important;
+    z-index: 3 !important;
+    /* transform: translate(0) rotate(0) */
+}
+
+.ani-card.active.seperate {
+    transform: translate(-52%, -5%) !important
+}
+
+.ani-card.seperate {
+    transform: translate(52%, 5%) !important
+}
+
+.ani-selection {
+    transform: translate(57%, 5%) !important
+}
+
+.ani-card.overwrap {
+    z-index: 2;
+}
+
+.ani-card.last {
+    z-index: 1;
+}
+
+.ani-card-intro {
+    animation: animate-cards .7s ease-in;
+}
+
+@keyframes animate-cards {
+    from {
+        opacity: 0.6
+    }
+}
+
+.ani-card.rotate:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.ani-card.rotate:nth-child(3) {
+    transform: rotate(4deg);
+}
+
+.ani-card.rotate:nth-child(4) {
+    transform: rotate(6deg);
+}
+
+.ani-card.rotate:nth-child(5) {
+    transform: rotate(8deg);
+}
+
+.ani-card.rotate:nth-child(6) {
+    transform: rotate(10deg);
+}
+
+.ani-card.rotate:nth-child(7) {
+    transform: rotate(12deg);
+}
+
+.ani-card.rotate:nth-child(8) {
+    transform: rotate(14deg);
+}
+
+.ani-card.rotate:nth-child(9) {
+    transform: rotate(16deg);
+}
+
+.ani-card.rotate:nth-child(10) {
+    transform: rotate(18deg);
+}
+
+.ani-card.rotate:nth-child(11) {
+    transform: rotate(20deg);
+}
+
+.ani-card.rotate:nth-child(12) {
+    transform: rotate(22deg);
+}
+
+.ani-card.rotate:nth-child(13) {
+    transform: rotate(24deg);
+}
+
+.ani-card.rotate:nth-child(14) {
+    transform: rotate(26deg);
+}
+
+.ani-card.rotate:nth-child(15) {
+    transform: rotate(28deg);
+}
+
+.ani-card.rotate:nth-child(16) {
+    transform: rotate(30deg);
+}
+
+
+.ani-card.rotate:nth-child(17) {
+    transform: rotate(32deg);
+}
+
+.ani-card.rotate:nth-child(18) {
+    transform: rotate(34deg);
+}
+
+.ani-card.rotate:nth-child(19) {
+    transform: rotate(36deg);
+}
+
+.ani-card.rotate:nth-child(20) {
+    transform: rotate(38deg);
+}
+
+/* 
+*
+***
+****
+*****
+********
+**********
+class for card animations 
+*/

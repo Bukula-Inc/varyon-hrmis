@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Year Picker</title>
+  <style>
+    /* Add some basic styling */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #year-picker-container {
+      position: relative;
+    }
+    #year-picker-list {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px;
+      list-style: none;
+    }
+    #year-picker-list li {
+      padding: 10px;
+      cursor: pointer;
+    }
+    #year-picker-list li:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div id="year-picker-container">
+    <input id="year-picker" type="text" placeholder="Pick a year">
+    <ul id="year-picker-list"></ul>
+  </div>
+
+  <script>
+    const yearPicker = document.getElementById('year-picker');
+    const yearPickerList = document.getElementById('year-picker-list');
+    const currentYear = new Date().getFullYear();
+
+    // Populate year list
+    for (let i = currentYear - 20; i <= currentYear + 20; i++) {
+      const yearItem = document.createElement('li');
+      yearItem.textContent = i;
+      yearItem.addEventListener('click', () => {
+        yearPicker.value = i;
+        yearPickerList.style.display = 'none';
+      });
+      yearPickerList.appendChild(yearItem);
+    }
+
+    // Show/hide year list on input click
+    yearPicker.addEventListener('click', () => {
+      yearPickerList.style.display = yearPickerList.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Hide year list on outside click
+    document.addEventListener('click', (e) => {
+      if (!yearPicker.contains(e.target) && !yearPickerList.contains(e.target)) {
+        yearPickerList.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

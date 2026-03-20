@@ -1,0 +1,35 @@
+<div class=" flex items-end justify-between sm:flex items-end h-[max-content] mb-5">
+    {% include 'client_app/components/navigators.html' %}
+    <!-- TITLE CONTENT -->
+    <!-- RIGHT ACTIONS -->
+    <div class=" page-actions-wrapper flex items-center justify-center ">
+        <!-- actions for the list view -->
+        <div class="content-group list-view-content flex items-center justify-center">
+            <select type="select" action-type="multi-content-toggler" class="lite-selector border rounded-md px-3 w-[220px] mr-3" placeholder="Select Content Type">
+                <option selected value="Bank">Bank</option>
+                <option value="Account Branch Code">Account Branch Code</option>
+                <option selected value="Bank Account">Bank Account</option>
+            </select>
+            <div class="content-group list-view-content">
+                <div for="Bank Account" class="multi-content-group w-full intro-x">
+                    <button class="new-action-btn h-[47px] text-16 w-max btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i>New Bank Account
+                    </button>
+                </div>
+                <div for="Bank" class="multi-content-group w-full intro-x">
+                    <button class="new-action-btn h-[47px] text-16 w-max btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i>New Bank
+                    </button>
+                </div>
+                <div for="Account Branch Code" class="multi-content-group w-full intro-x hidden">
+                    <button class="new-action-btn h-[47px] text-16 w-max  btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i> New Account Branch Code
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- actions for the form --> 
+        <div class="content-group info-view-content new-form-view-content form-content-view info-actions flex items-center justify-center hidden"></div>
+    </div>
+</div>

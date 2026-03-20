@@ -1,0 +1,62 @@
+<div class="w-full stats content-group list-view-content intro-y  h-[170px] grid grid-cols-2 gap-x-3">
+    <div class="w-full h-full col-span-2">
+        <div class="w-full grid grid-cols-3 gap-x-2">
+            <div class=" w-full-2">
+                <div class="box w-full h-full p-3">
+                    <div class="w-full flex items-center justify-start border-b">
+                        <div class="w-[6px] h-[6px] rounded-full bg-indigo-600 mr-2"></div>
+                        Leave Breakdown
+                    </div>
+                    <div class="w-full h-[120px] relative" id="leave-breakdown-h">
+                        <div class="h-full w-full grid grid-cols-4 grid-cols-2 gap-1" id="leave-breakdown"></div>
+                        <!-- <div class="rounded-md bg-indigo-600/30">
+                            <div class="h-full w-full flex justify-center flex-col items-center">
+                                <p class="text-[9px]">Annual Leave</p>
+                                <p class="font-semibold slate-600 text-[13px]">30 days</p>
+
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class=" w-full-2">
+                <div class="box w-full h-full p-3">
+                    <div class="w-full flex items-center justify-start">
+                        <div class="w-[6px] h-[6px] rounded-full bg-orange-600 mr-2"></div>
+                        Used Days
+                    </div>
+                    <div class="w-full h-[120px] flex items-center justify-center flex-col">
+                        <div
+                            class="border border-secondary_color/50 border-[4px] rounded-full w-[80px] h-[80px] text-[20px] flex items-center justify-center flex-col">
+                            <h3 class="font-bold total-leave-used" id="staff_utilized_leave_days">0</h3>
+                            <small class="text-[9px] text-gray-400">Days</small>
+                        </div>
+                        <div
+                            class="px-3 bg-orange-100 text-orange-800 rounded-full mt-2 font-semibold text-[12px]">
+                            Used Days
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" w-full-2">
+                <div class="box w-full h-full p-3">
+                    <div class="w-full flex items-center justify-start">
+                        <div class="w-[6px] h-[6px] rounded-full bg-teal-600 mr-2"></div>
+                        Available
+                    </div>
+                    <div class="w-full h-[120px] flex items-center justify-center flex-col">
+                        <div
+                            class=" border border-teal-300 border-[4px] rounded-full w-[80px] h-[80px] text-[20px] flex items-center justify-center flex-col">
+                            <h3 class="font-bold total-leave-available" id="staff_availableleave_days">0</h3>
+                            <small class="text-[9px] text-gray-400">Days</small>
+                        </div>
+                        <div
+                            class="px-3 bg-teal-100 text-teal-800 rounded-full mt-2 font-semibold text-[12px]">
+                            Available
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

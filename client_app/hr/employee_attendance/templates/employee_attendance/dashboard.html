@@ -1,0 +1,40 @@
+{% extends "../client_app/layout.html" %}
+{% block title %}
+Attendance
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="mt-10 w-[96%] mx-auto h-[80vh]">
+    <div class="w-full grid grid-cols-4 h-[75%] gap-7">
+        <!-- tab list view for the  -->
+        <div class="w-full col-span-4">
+            <!-- BEGIN: top action -->
+            <div class="col-span-12">
+                <div class="intro-y flex items-center justify-between items-end h-[max-content]">
+                    {% include 'client_app/components/navigators.html' %}
+                    <!-- TITLE CONTENT -->
+                    <!-- RIGHT ACTIONS -->
+                    {% include "./components/controller.html" %}
+                    <!-- RIGHT ACTIONS -->
+                </div>
+            </div>
+            <!-- END: top action -->
+    
+            <!-- main content -->
+            <div class="w-full">
+                <div class="w-full">
+                    {% include "./components/info_view.html" %}
+                </div>
+            </div> 
+            <!-- main content -->
+        </div>
+
+        <!-- side/summary content for the tax Quota -->
+        {% comment %} <div class="w-full h-full">
+            {% include "./components/side_list_view.html" %}
+        </div> {% endcomment %}
+    </div>
+
+
+</div>
+{% endblock content %}

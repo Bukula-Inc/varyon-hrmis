@@ -1,0 +1,133 @@
+<!-- <div
+    id='loader-overlay'
+    class='fixed inset-0 z-[1000] flex items-center justify-center bg-black/40 backdrop-blur-sm'
+>
+    <div class='flex flex-col items-center gap-8'>
+
+        <div class='relative w-24 h-24'>
+            <span class='loader-shape'></span>
+            <span class='loader-shape delay-1'></span>
+            <span class='loader-shape delay-2'></span>
+        </div>
+
+        <p class='text-white/80 text-sm tracking-wide animate-pulse'>
+            Loading, please wait…
+        </p>
+    </div>
+</div>
+
+<style>
+.loader-shape {
+    position: absolute;
+    inset: 0;
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, #4f46e5, #4338ca, #2563eb, #1d4ed8);
+    animation: morph 1.8s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.loader-shape.delay-1 {
+    animation-delay: 0.3s;
+    opacity: 0.6;
+}
+
+.loader-shape.delay-2 {
+    animation-delay: 0.6s;
+    opacity: 0.4;
+}
+
+@keyframes morph {
+    0% {
+        transform: scale(1) rotate(0deg);
+        border-radius: 1.25rem;
+    }
+    50% {
+        transform: scale(1.25) rotate(45deg);
+        border-radius: 50%;
+    }
+    100% {
+        transform: scale(1) rotate(90deg);
+        border-radius: 1.25rem;
+    }
+}
+</style> -->
+
+<div
+    id='loader-overlay'
+    class='fixed inset-0 z-[1000] flex items-center justify-center bg-gradient-to-r from-purple-600/30 to-indigo-700/60 backdrop-blur-md'
+>
+    <div class='flex flex-col items-center gap-10'>
+
+        <div class='relative w-28 h-28'>
+            <span class='shape core'></span>
+            <span class='shape orbit orbit-1'></span>
+            <span class='shape orbit orbit-2'></span>
+        </div>
+
+        <p class='text-white/80 text-sm tracking-wider animate-pulse'>
+            Varyon HRMIS is Loading…
+        </p>
+    </div>
+</div>
+
+<style>
+
+.shape {
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #4338ca,
+        #2563eb,
+        #1d4ed8
+    );
+    filter: drop-shadow(0 0 25px rgba(79, 70, 229, 0.6));
+}
+
+.core {
+    animation: coreMorph 2.4s cubic-bezier(.4,0,.2,1) infinite;
+}
+
+.orbit {
+    opacity: 0.6;
+    animation: orbit 3s cubic-bezier(.4,0,.2,1) infinite;
+}
+
+.orbit-1 {
+    animation-delay: 0s;
+}
+
+.orbit-2 {
+    animation-delay: 1.5s;
+    opacity: 0.4;
+}
+
+@keyframes coreMorph {
+    0% {
+        transform: scale(1) rotate(0deg);
+        border-radius: 1.5rem;
+    }
+    50% {
+        transform: scale(1.25) rotate(45deg);
+        border-radius: 50%;
+    }
+    100% {
+        transform: scale(1) rotate(90deg);
+        border-radius: 1.5rem;
+    }
+}
+
+@keyframes orbit {
+    0% {
+        transform: scale(0.9) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.4) rotate(180deg);
+    }
+    100% {
+        transform: scale(0.9) rotate(360deg);
+    }
+}
+</style>

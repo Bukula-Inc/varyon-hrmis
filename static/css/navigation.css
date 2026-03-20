@@ -1,0 +1,124 @@
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: #2563eb;
+    border-radius: 10px;
+}
+
+/* Navigation */
+.nav-link,
+.nav-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-toggle:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.nav-link.active {
+    background: #111827;
+    color: white;
+}
+
+.nav-sub {
+    display: none;
+    margin-left: 20px;
+    margin-top: 4px;
+}
+
+.sub-link {
+    display: block;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.sub-link:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.badge {
+    background: #2563eb;
+    color: white;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 999px;
+}
+
+/* Sidebar collapsed */
+.collapsed {
+    width: 4.5rem !important;
+}
+.collapsed .label,
+.collapsed .badge,
+.collapsed .nav-sub {
+    display: none !important;
+}
+.collapsed .nav-link,
+.collapsed .nav-toggle {
+    justify-content: center;
+}
+
+/* Modules animations */
+@keyframes modulesIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes modulesOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(16px) scale(0.95);
+    }
+}
+
+.modules-enter {
+    animation: modulesIn 0.35s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+.modules-exit {
+    animation: modulesOut 0.25s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+.search-enter {
+    animation: modulesIn 0.35s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.search-exit {
+    animation: modulesOut 0.25s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* Module cards */
+.module-card {
+    height: 80px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.module-card:hover {
+    background: #2563eb;
+    color: white;
+}

@@ -1,0 +1,30 @@
+
+<div class=" flex items-end justify-between sm:flex items-end h-[max-content] mb-5">
+    {% include 'client_app/components/navigators.html' %}
+    <!-- TITLE CONTENT -->
+    <!-- RIGHT ACTIONS -->
+    <div class=" page-actions-wrapper flex items-center justify-center ">
+        <!-- actions for the list view -->
+        <div class="content-group list-view-content flex items-center justify-center">
+            <select type="select" action-type="multi-content-toggler" class="lite-selector border rounded-md px-3 w-[230px]" placeholder="Select View">
+                <option value="Leave Commutation Memo" selected>Leave Commutation Memo</option>
+                <option value="Leave Commutation">Leave Commutation</option>
+            </select>
+            <div class="content-group list-view-content">
+                <div for="Leave Commutation" class="multi-content-group w-full intro-x">
+                    <button class="new-action-btn h-[47px] text-16 w-max btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i>New Leave Commutation
+                    </button>
+                </div>
+                <div for="Leave Commutation Memo" class="multi-content-group w-full intro-x hidden">
+                    <button class="new-action-btn h-[47px] text-16 w-max btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i> New Leave Commutation Memo
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- actions for the form --> 
+        <div class="content-group info-view-content new-form-view-content form-content-view info-actions flex items-center justify-center hidden"></div>
+    </div>
+</div>

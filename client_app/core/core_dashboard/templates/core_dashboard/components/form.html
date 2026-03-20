@@ -1,0 +1,356 @@
+{% load static %}
+<!-- invoice information -->
+<div class="report-box-2 w-full mt-3">
+    <div class="box w-full p-8 h-[72vh] overflow-y-auto">
+        <div class="w-full h-[max-content]">
+            <div class="invoice-hear w-full grid grid-cols-2 gap-2">
+                <div class="w-full flex left-header-content">
+                </div>
+                <div class="w-full flex items-end justify-center flex-col">
+                    <h1 class="font-bold text-[17px] mb-5 text-gray-500">New Quotation</h1>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+                <div class="mt-1">
+                    <label for="modal-form-1" class="form-label text-slate-500">Issue Date</label>
+                    <input type="text" class="shadow-none datepicker form-control w-full block mx-auto"
+                        data-single-mode="true">
+                </div>
+                <div class="mt-1">
+                    <label for="modal-form-1" class="form-label text-slate-500">Due Date</label>
+                    <input type="text" class="shadow-none datepicker form-control w-full block mx-auto"
+                        data-single-mode="true">
+                </div>
+                <div class="mt-1">
+                    <label for="modal-form-1" class="form-label text-slate-500">Customer</label>
+                    <select data-placeholder="Select Customer"
+                        class="shadow-none tom-select w-full rounded-2xl text-[11px] text-gray-700 shadow-defaults border-none"
+                        aria-placeholder="Customer">
+                        <option value="0">Customer</option>
+                        <option value="1">Bruce Chikola</option>
+                        <option value="2">Bright Kunda</option>
+                        <option value="3">Kakuhu Kabwe</option>
+                        <option value="4">Newton</option>
+                        <option value="5">Progress Mwiinde</option>
+                    </select>
+                </div>
+                <div class="mt-1">
+                    <label for="modal-form-1" class="form-label text-slate-500">Currency</label>
+                    <select data-placeholder="Select Currency"
+                        class="shadow-none tom-select w-full rounded-full text-[11px] text-gray-800 border-none  mr-3"
+                        aria-placeholder="Currency">
+                        <option value="1">USD</option>
+                        <option value="2">ZMW</option>
+                        <option value="3">ZAR</option>
+                    </select>
+                </div>
+                <div class="mt-1">
+                    <label for="modal-form-1" class="form-label text-slate-500">Exchange Rate</label>
+                    <input type="number" class="form-control w-full block mx-auto" data-single-mode="true"
+                        placeholder="EG. X.XXX">
+                </div>
+                <div class="mt-1">
+                    <label for="modal-form-1" class="form-label text-slate-500">Customer Tax ID</label>
+                    <input type="number" class="form-control w-full block mx-auto" data-single-mode="true"
+                        placeholder="Customer Tax ID">
+                </div>
+                <!-- items-table -->
+                <div class="w-full mt-3 col-span-3">
+                    <div class="text-slate-500 mb-3">Add Items</div>
+                    <div class="items-table w-full rounded-md border">
+                        <div class="thead w-full h-[40px]">
+                            <div
+                                class="tr w-full h-full grid grid-cols-19  bg-default text-theme_text_color font-semibold rounded-t-md">
+                                <div
+                                    class="th w-full h-full flex items-center pl-2 border-r justify-center col-span-1 pl-2">
+                                    <input id="horizontal-form-3" class="form-check-input" type="checkbox" value="">
+                                </div>
+                                <div
+                                    class="th w-full h-full flex items-center pl-2 border-r justify-start col-span-3 pl-2">
+                                    Item
+                                </div>
+                                <div class="th w-full h-full flex items-center pl-2 border-r justify-start col-span-3">
+                                    Description
+                                </div>
+                                <div class="th w-full h-full flex items-center pl-2 border-r justify-start col-span-2">
+                                    Qty
+                                </div>
+                                <div class="th w-full h-full flex items-center pl-2 border-r justify-start col-span-2">
+                                    Unit Price
+                                </div>
+                                <div class="th w-full h-full flex items-center pl-2 border-r justify-start col-span-2">
+                                    Exclusive
+                                </div>
+                                <div class="th w-full h-full flex items-center pl-2 border-r justify-start col-span-2">
+                                    Disc %
+                                </div>
+                                <div class="th w-full h-full flex items-center pl-2 border-r justify-start col-span-2">
+                                    Tax %
+                                </div>
+                                <div class="th w-full h-full flex items-center pl-2 justify-start col-span-2">
+                                    Inclusive
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tbody w-full text-[13px]">
+                            <div class="tr w-full h-full grid grid-cols-19 text-slate-700 border-b min-h-[40px]">
+                                <div
+                                    class="th w-full h-full flex items-center pl-2 border-r justify-center col-span-1 pl-2">
+                                    <input id="horizontal-form-3" class="form-check-input" type="checkbox" value="">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-3 border-r">
+                                    <select data-placeholder="Select Item text-12"
+                                        class="tom-select table-select text-[11px]" aria-placeholder="Select Item">
+                                        <option value="1">MacBook 2017</option>
+                                        <option value="2">Iphone 13</option>
+                                        <option value="3">Iphone 12 Pro Max</option>
+                                        <option value="4">HP Pavilion laptop</option>
+                                        <option value="5">ASUS Gaming PC</option>
+                                        <option value="11">MacBook Laptop</option>
+                                        <option value="21">Iphone 13</option>
+                                        <option value="31">Iphone 12 Pro Max</option>
+                                        <option value="41">HP Pavilion laptop</option>
+                                        <option value="51">ASUS Gaming PC</option>
+                                    </select>
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-3  border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="In Perfect condition">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Qty" value="10">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="22,355.00">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="64,677.90">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="10%">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="16%">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 ">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="4,588.00">
+
+                                </div>
+
+                            </div>
+                            <div class="tr w-full h-full grid grid-cols-19 text-slate-700 border-b min-h-[40px]">
+                                <div
+                                    class="th w-full h-full flex items-center pl-2 border-r justify-center col-span-1 pl-2">
+                                    <input id="horizontal-form-3" class="form-check-input" type="checkbox" value="">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-3 border-r">
+                                    <select data-placeholder="Select Item text-12"
+                                        class="tom-select table-select text-[11px]" aria-placeholder="Select Item">
+                                        <option value="1">MacBook 2017</option>
+                                        <option value="2">Iphone 13</option>
+                                        <option value="3">Iphone 12 Pro Max</option>
+                                        <option value="4">HP Pavilion laptop</option>
+                                        <option value="5">ASUS Gaming PC</option>
+                                        <option value="11">MacBook Laptop</option>
+                                        <option value="21">Iphone 13</option>
+                                        <option value="31">Iphone 12 Pro Max</option>
+                                        <option value="41">HP Pavilion laptop</option>
+                                        <option value="51">ASUS Gaming PC</option>
+                                    </select>
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-3  border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="In Perfect condition">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Qty" value="10">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="22,355.00">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="64,677.90">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="10%">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="16%">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 ">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="4,588.00">
+
+                                </div>
+
+                            </div>
+                            <div class="tr w-full h-full grid grid-cols-19 text-slate-700 border-b min-h-[40px]">
+                                <div
+                                    class="th w-full h-full flex items-center pl-2 border-r justify-center col-span-1 pl-2">
+                                    <input id="horizontal-form-3" class="form-check-input" type="checkbox" value="">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-3 border-r">
+                                    <select data-placeholder="Select Item text-12"
+                                        class="tom-select table-select text-[11px]" aria-placeholder="Select Item">
+                                        <option value="1">MacBook 2017</option>
+                                        <option value="2">Iphone 13</option>
+                                        <option value="3">Iphone 12 Pro Max</option>
+                                        <option value="4">HP Pavilion laptop</option>
+                                        <option value="5">ASUS Gaming PC</option>
+                                        <option value="11">MacBook Laptop</option>
+                                        <option value="21">Iphone 13</option>
+                                        <option value="31">Iphone 12 Pro Max</option>
+                                        <option value="41">HP Pavilion laptop</option>
+                                        <option value="51">ASUS Gaming PC</option>
+                                    </select>
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-3  border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="In Perfect condition">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Qty" value="10">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="22,355.00">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="64,677.90">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="10%">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="16%">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 ">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="4,588.00">
+
+                                </div>
+
+                            </div>
+                            <div class="tr w-full h-full grid grid-cols-19 text-slate-700 border-b min-h-[40px]">
+                                <div
+                                    class="th w-full h-full flex items-center pl-2 border-r justify-center col-span-1 pl-2">
+                                    <input id="horizontal-form-3" class="form-check-input" type="checkbox" value="">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-3 border-r">
+                                    <select data-placeholder="Select Item text-12"
+                                        class="tom-select table-select text-[11px]" aria-placeholder="Select Item">
+                                        <option value="1">MacBook 2017</option>
+                                        <option value="2">Iphone 13</option>
+                                        <option value="3">Iphone 12 Pro Max</option>
+                                        <option value="4">HP Pavilion laptop</option>
+                                        <option value="5">ASUS Gaming PC</option>
+                                        <option value="11">MacBook Laptop</option>
+                                        <option value="21">Iphone 13</option>
+                                        <option value="31">Iphone 12 Pro Max</option>
+                                        <option value="41">HP Pavilion laptop</option>
+                                        <option value="51">ASUS Gaming PC</option>
+                                    </select>
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-3  border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="In Perfect condition">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Qty" value="10">
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="22,355.00">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="64,677.90">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="10%">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 border-r">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="16%">
+
+                                </div>
+                                <div class="td w-full h-full flex items-center justify-start col-span-2 ">
+                                    <input type="text" class="w-full table-input text-12 font-semibold"
+                                        placeholder="Decription" value="4,588.00">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full flex items-center justify-start mt-4">
+                        <button class="btn text-[12px] bg-gray-50 font-normal">Remove Rows</button>
+                        <button class="btn text-[12px] btn ml-2">Add New Row</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- more totals -->
+            <div class="w-full grid grid-cols-3 mt-[80px] gap-2 border-t pt-10">
+                <div class="w-full text-12"></div>
+                <div class="w-full"></div>
+                <div class="w-full">
+                    <div class="w-full flex items-center justify-between mb-2">
+                        <span class="font-bold">Sub Total</span>
+                        <span class="font-bold">ZMW 355.67</span>
+                    </div>
+                    <div class="w-full flex items-center justify-between mb-2">
+                        <span class="font-bold">Total Discount</span>
+                        <span class="font-bold">ZMW 355.67</span>
+                    </div>
+                    <div class="w-full flex items-center justify-between mb-2">
+                        <span class="font-bold">Total VAT Exclusive</span>
+                        <span class="font-bold">ZMW 355.67</span>
+                    </div>
+                    <div class="w-full flex items-center justify-between mb-2">
+                        <span class="font-bold">VAT</span>
+                        <span class="font-bold">ZMW 355.67</span>
+                    </div>
+                    <div class="w-full flex items-center justify-between mb-2">
+                        <span class="font-bold">Total VAT Inclusive</span>
+                        <span class="font-bold">ZMW 355.67</span>
+                    </div>
+                </div>
+            </div>
+            <!-- more totals -->
+        </div>
+    </div>
+</div>
+<!-- invoice information -->

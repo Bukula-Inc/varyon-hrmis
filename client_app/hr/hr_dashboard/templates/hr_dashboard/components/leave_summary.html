@@ -1,0 +1,56 @@
+<div class="-2 w-full h-full intro-y">
+    <div class="box w-full h-full p-2 flex items-center justify-start flex-col relative dashboard-content">
+        <div class="w-full flex items-center justify-between mb-5">
+            <span class="font-bold w-full ">Leave Summary</span>
+        </div>
+        <div class="w-[110px] h-[110px] rounded-full border-indigo-500 border-4 flex items-center justify-center flex-col">
+            <h2 id="total" class="font-bold text-23 total-leave-days">0</h2>
+            <span class="mt-2 text-13 font-semibold">Total Days</span>
+        </div>
+        <div class="w-full h-1 border-gray border rounded-full my-3"></div>
+        <div class="w-full flex items-center justify-between h-[60px] border rounded-md mb-3 px-1">
+            <div class="flex items-center justify-start">
+                <div class="flex items-center justify-center  w-[30px] h-[30px] rounded-full bg-orange-100 mr-2">
+                    <span class="material-symbols-outlined text-18 text-orange-900"> calendar_clock </span>
+                </div>
+                <div class="flex items-start justify-center flex-col">
+                    <h6>Available Leave Days</h6>
+                    <small id="unused-leaves" class="flex items-center justify-center font-semibold text-11"> <span class="total-available-days mr-1">0</span> Days </small>
+                </div>
+            </div>
+            <a href="/app/hr/leave_application/?app=leave&page=list&content_type=leave%20application" class="flex items-center justify-center">
+                <span class="material-symbols-outlined text-18"> arrow_right_alt </span>
+            </a>
+        </div>
+        <div class="w-full flex items-center justify-between h-[60px] border rounded-md mb-3 px-1">
+            <div class="flex items-center justify-start">
+                <div class="flex items-center justify-center  w-[30px] h-[30px] rounded-full bg-red-100 mr-2">
+                    <span class="material-symbols-outlined text-18 text-red-900"> event </span>
+                </div>
+                <div class="flex items-start justify-center flex-col">
+                    <h6>Pending Applications</h6>
+                    <small id="pending-approval" class="flex items-center justify-center font-semibold text-11 "><span class="pending-leave-applications mr-1">0</span> Applications</small>
+                </div>
+            </div>
+            <a href="/app/hr/leave_application/?app=leave&page=list&content_type=leave%20application" class="flex items-center justify-center">
+                <span class="material-symbols-outlined text-18"> arrow_right_alt </span>
+            </a>
+        </div>
+        <div class="w-full flex items-center justify-between h-[60px] border rounded-md mb-3 px-1">
+            <div class="flex items-center justify-start">
+                <div class="flex items-center justify-center  w-[30px] h-[30px] rounded-full bg-blue-100 mr-2">
+                    <span class="material-symbols-outlined text-18 text-blue-900"> event_available </span>
+                </div>
+                <div class="flex items-start justify-center flex-col">
+                    <h6>Approved Leaves</h6>
+                    <small id="approved-leave" class="flex items-center justify-center font-semibold text-11 "><span class="approved-leave-applications mr-1">0</span>Applications</small>
+                </div>
+            </div>
+            <a href="/app/hr/leave_application/?app=leave&page=list&content_type=leave%20application" class="flex items-center justify-center">
+                <span class="material-symbols-outlined text-18"> arrow_right_alt </span>
+            </a>
+        </div>
+    </div>
+</div>
+
+

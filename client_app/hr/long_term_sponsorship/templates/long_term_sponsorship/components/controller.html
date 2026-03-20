@@ -1,0 +1,30 @@
+<div class=" flex items-end justify-between sm:flex items-end h-[max-content] mb-5">
+    {% include 'client_app/components/navigators.html' %}
+    <!-- TITLE CONTENT -->
+    <!-- RIGHT ACTIONS -->
+    <div class=" page-actions-wrapper flex items-center justify-center ">
+        <!-- actions for the list view -->
+        <div class="content-group list-view-content flex items-center justify-center">
+            <select type="select" action-type="multi-content-toggler" class="lite-selector border rounded-md px-3 w-[220px] mr-3" placeholder="Select Content Type">
+                <option value="Long Term Sponsorship Bonding Agreement">Long Term Sponsorship Bonding Agreement</option>
+                <option selected value="Long Term Sponsorship">Long Term Sponsorship</option>
+                <option selected value="Long Term Sponsorship Fund Request">Long Term Sponsorship Fund Request</option>
+            </select>
+            <div class="content-group list-view-content">
+                <div for="Long Term Sponsorship" class="multi-content-group w-full intro-x">
+                    <button class="new-action-btn h-[47px] text-16 w-max btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i>New Long Term Sponsorship
+                    </button>
+                </div>
+                <!-- <div for="Long Term Sponsorship Bonding Agreement" class="multi-content-group w-full intro-x hidden">
+                    <button class="new-action-btn h-[47px] text-16 w-max  btn bg-default text-theme_text_color shadow-md mr-2">
+                        <i data-lucide="plus-circle" class="w-[17px] h-[17px] mr-2"></i> New Long Term Sponsorship Bonding Agreement
+                    </button>
+                </div> -->
+            </div>
+        </div>
+        
+        <!-- actions for the form --> 
+        <div class="content-group info-view-content new-form-view-content form-content-view info-actions flex items-center justify-center hidden"></div>
+    </div>
+</div>

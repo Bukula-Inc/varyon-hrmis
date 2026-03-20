@@ -1,0 +1,240 @@
+import {create_jobOpenning_from_staffPlan} from "../../overrides/form/hr/core.js";
+const ss = await lite.connect.get_system_settings()
+export default {
+    setup: {
+        model: "Staffing_Plan",
+        new_form_id: 'new-staffing-plan',
+        info_form_id: 'staffing-plan-info',
+        title: "Staffing Plan",
+        layout_columns: 3,
+        allow_submit: true,
+        allow_cancel: true,
+        allow_delete: false,
+        allow_print: false,
+        allow_sending_mail: false,
+    },
+    form_actions: [
+        {
+            title: "Create A Job Openning",
+            icon: "door_open",
+            icon_color: "teal",
+            action: create_jobOpenning_from_staffPlan,
+            for_docstatus: [1],
+            at_index:[1]
+        }, 
+    ],
+
+
+    fields: [
+        {
+            id: "name",
+            fieldlabel: "Title",
+            fieldname: "name",
+            fieldtype: "text",
+            columns: 1,
+            placeholder: " ",
+            required: true,
+            hidden: false,
+            description: ""
+        },
+    
+        {
+            id: "from-date",
+            fieldlabel: "From Date",
+            fieldname: "from_date",
+            fieldtype: "date",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+            
+            default:lite.utils.today()
+        },
+       
+        {
+            id: "to-date",
+            fieldlabel: "To Date",
+            fieldname: "to_date",
+            fieldtype: "date",
+            columns: 1,
+            placeholder: "Date",
+            required: false,
+            hidden: false,
+            
+            default: lite.utils.add_days(lite.utils.today(),30)
+        },
+        {
+            id: "company",
+            fieldlabel: "Council",
+            fieldname: "company",
+            fieldtype: "link",
+            model: "Company",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: true,
+            default:lite?.user?.company?.name
+        },
+        {
+            id: "staffing-details",
+            fieldlabel: "Staffing Details",
+            fieldname: "staffing_details",
+            fieldtype: "table",
+            model: "Staffing",
+            required: true,
+            hidden: false,
+            
+            fields: [
+                {
+                    id: "designation",
+                    fieldlabel: "Job Title",
+                    fieldname: "designation",
+                    fieldtype: "link",
+                    model: "Designation",
+                    columns: 4,
+                    placeholder: " ",
+                    required: true,
+                    hidden: false,
+                    // istablefield: true,
+                },
+                // {
+                //     id: "department",
+                //     fieldlabel: "Department /  Unit",
+                //     fieldname: "department",
+                //     fieldtype: "link",
+                //     model: "Department",
+                //     columns: 4,
+                //     placeholder: " ",
+                //     required: false,
+                //     hidden: false,
+                //     istablefield: true,
+                //     fetchfrom: "designation",
+                //     fetchfield: "department",
+                // },
+                // {
+                //     id: "vacancies",
+                //     fieldlabel: "Vacancies",
+                //     fieldname: "vacancies",
+                //     fieldtype: "text",
+                //     model: "",
+                //     columns: 4,
+                //     placeholder: " ",
+                //     required: false,
+                //     hidden: false,
+                //     istablefield: true,
+                //     default:"1"
+                // },
+                // {
+                //     id: "from_date",
+                //     fieldlabel: "From Date",
+                //     fieldname: "from_date",
+                //     fieldtype: "date",
+                //     model: "",
+                //     columns: 4,
+                //     placeholder: " ",
+                //     required: false,
+                //     hidden: false,
+                //     // istablefield: true,
+                // },{
+                //     id: "to_date",
+                //     fieldlabel: "To Date",
+                //     fieldname: "to_date",
+                //     fieldtype: "date",
+                //     columns: 4,
+                //     placeholder: " ",
+                //     required: false,
+                //     hidden: false,
+                //     // istablefield: true,
+                // },
+                // {
+                //     id: "estimated-cost",
+                //     fieldlabel: "Estimated Cost Per Positions",
+                //     fieldname: "estimated_cost",
+                //     fieldtype: "currency",
+                //     columns: 4,
+                //     placeholder: " ",
+                //     required: false,
+                //     hidden: false,
+                //     istablefield: true,
+                //     default:"0.00",
+                //     // is_figure:true
+                // },
+                // {
+                //     id: "total-cost",
+                //     fieldlabel: "Total Annual Estimated Costs",
+                //     fieldname: "total_cost",
+                //     fieldtype: "read-only",
+                //     columns: 4,
+                //     placeholder: " ",
+                //     required: false,
+                //     hidden: false,
+                //     istablefield: true,
+                //     default:"0.00",
+                //     // is_figure:true
+                // },
+            ]
+        },
+        {
+            id: "33dd",
+            fieldlabel: "Job Offer Configurations",
+            fieldname: "33dd",
+            fieldtype: "section-break",
+            columns: 1,
+            placeholder: " ",
+            addborder: true,
+        },
+        {
+            id: "create_job_offers",
+            fieldlabel: "Create Job Openings",
+            fieldname: "create_job_offers",
+            fieldtype: "check",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+        },
+        {
+            id: "publish_job_offer",
+            fieldlabel: "Publish Job Openings",
+            fieldname: "publish_job_offer",
+            fieldtype: "check",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+        },
+        {
+            id: "publish_salary",
+            fieldlabel: "Publish Job Salary's",
+            fieldname: "publish_salary",
+            fieldtype: "check",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+        },
+        {
+            id: "33dd",
+            fieldlabel: "Impact On Recruitment Budget",
+            fieldname: "33dd",
+            fieldtype: "section-break",
+            columns: 1,
+            placeholder: " ",
+            addborder: true,
+        },
+        {
+            id: "total-estimated",
+            fieldlabel: "Total Estimated Budget",
+            fieldname: "total_estimated",
+            fieldtype: "read-only",
+            columns: 1,
+            placeholder: " ",
+            required: false,
+            hidden: false,
+            
+            default:"0.00",
+            is_figure:true
+        },
+
+    ]
+}

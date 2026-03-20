@@ -1,0 +1,96 @@
+{% load static %}
+<div class="stat-wrapper w-full grid grid-cols-4 gap-4 h-[165px] mb-8">
+        <div class="w-full intro-y box p-3 h-full flex flex-col items-between justify-between">
+            <div class="w-full flex items-center justify-between">
+                <div class="flex items-center justify-start">
+                    <div class="w-[40px] h-[40px] flex items-center justify-center mr-2 border rounded-md">
+                        <span class="material-symbols-outlined text-[25px]">history</span>
+                    </div>
+                    Overall Salary Information History
+                </div>
+            </div>
+            <div class="w-full flex items-center  justify-between px-3 h-[65px]">
+                <div class="flex flex-col">
+                    <h2 class="text-20 font-semibold flex items-center justify-center total-basic"></h2>
+                    <small class="text-gray-500">Overall Basic Pay</small>
+                </div>
+                <div class="flex flex-col">
+                    <h2 class="text-20 font-semibold flex items-center justify-center total-gross"></h2>
+                    <small class="text-gray-500">Overall Gross Pay</small>
+                </div>
+                <div class="flex flex-col">
+                    <h2 class="text-20 font-semibold flex items-center justify-center total-net"></h2>
+                    <small class="text-gray-500">Overall Net Pay</small>
+                </div>
+            </div>
+            <small class="w-full flex items-center justify-start text-gray-600">
+                Details on Salary Information
+            </small>
+        </div>
+
+
+    <!-- Current Month's Payslip -->
+   
+        <div class="w-full intro-y box p-3 h-full flex flex-col items-between justify-between">
+            <div class="w-full flex items-center justify-between">
+                <div class="flex items-center justify-start">
+                    <div class="w-[40px] h-[40px] flex items-center justify-center mr-2 border rounded-md">
+                        <span class="material-symbols-outlined text-[25px]">attach_money</span>
+                    </div>
+                    Total Earnings
+                </div>
+            </div>
+            <div class="w-full flex items-center justify-between h-[65px]">
+                <div class="flex flex-col px-3">
+                    <h2 class="text-20 font-semibold flex items-center justify-center total-earning"></h2>
+                </div>
+            </div>
+            <small class="w-full flex items-center justify-start text-gray-600">
+                Year-to-date earnings
+            </small>
+        </div>
+  
+
+    <!-- Tax Information -->
+    
+        <div class="w-full intro-y box p-3 h-full flex flex-col items-between justify-between">
+            <div class="w-full flex items-center justify-between">
+                <div class="flex items-center justify-start">
+                    <div class="w-[40px] h-[40px] flex items-center justify-center mr-2 border rounded-md">
+                        <span class="material-symbols-outlined text-[25px]">calculate</span>
+                    </div>
+                    Overall Tax Information
+                </div>
+            </div>
+            <div class="w-full flex items-center justify-between h-[65px]">
+                <div class="flex flex-col px-3">
+                    <h2 class="text-20 font-semibold flex items-center justify-center total-tax"></h2>
+                </div>
+            </div>
+            <small class="w-full flex items-center justify-start text-gray-600">
+                Year-to-date Details on tax deductions
+            </small>
+        </div>
+
+
+    <!-- Total Earnings -->
+   
+        <div class="w-full intro-y box p-3 h-full flex flex-col items-between justify-between">
+            <div class="w-full flex items-center justify-between">
+                <div class="flex items-center justify-start">
+                    <div class="w-[40px] h-[40px] flex items-center justify-center mr-2 border rounded-md">
+                        <span class="material-symbols-outlined text-[25px]">attach_money</span>
+                    </div>
+                    Total Deductions
+                </div>
+            </div>
+            <div class="w-full flex items-center justify-between h-[65px]">
+                <div class="flex flex-col px-3">
+                    <h2 class="text-20 font-semibold flex items-center justify-center total-deduction"></h2>
+                </div>
+            </div>
+            <small class="w-full flex items-center justify-start text-gray-600">
+                Year-to-date deductions
+            </small>
+        </div>
+</div>
