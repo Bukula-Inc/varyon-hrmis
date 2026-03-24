@@ -422,7 +422,7 @@ DATABASES = {
         'NAME': 'varyon_uat',
         'USER': 'postgres',
         'HOST': 'localhost',
-        'PASSWORD': 'erpteam@probase',
+        'PASSWORD': 'vardbmainpass2026',
         'PORT': '5432',
         'CONN_MAX_AGE': 600,
     },
