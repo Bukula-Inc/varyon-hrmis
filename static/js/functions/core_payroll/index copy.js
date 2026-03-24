@@ -260,7 +260,7 @@ export default class Core_Payroll{
             return false
         }
 
-        if (lite.utils.get_url_parameters("page") !== "new-form") return
+        if (lite.utils.get_url_parameters("page") !== "new-form" || lite.utils.get_url_parameters("page") !== "new") return
         const employeeData = lite.default_form_data.employees
         this.employees = lite.utils.array_to_object (employeeData, "name")
         if (!lite.utils.object_has_data(employeeData)) return

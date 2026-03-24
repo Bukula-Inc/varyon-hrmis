@@ -113,8 +113,8 @@ class Workflow:
             return False
         md = model_module.data
         entry = "app" if md.wrapper_module == "client_app" else "app" #to accommodate future entry points
-        return f"""https://{self.dbms.host}/{entry}/staff/approval?module=staff&app=approval&page=info&content_type=approval&doc={doc_name}"""
-        return f"""https://{self.dbms.host}/{entry}/{md.module}/{md.app}?module={md.module}&app={md.app}&page=info&content_type={md.content_type}&doc={doc_name}"""
+        return f"""https://{self.dbms.host}/{entry}/staff/approval?module=staff&loc=approval&type=info&document=approval&doc={doc_name}"""
+        return f"""https://{self.dbms.host}/{entry}/{md.module}/{md.app}?module={md.module}&loc={md.app}&type=info&document={md.content_type}&doc={doc_name}"""
 
 
     # initialize workflow

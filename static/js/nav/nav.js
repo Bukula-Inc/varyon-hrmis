@@ -113,7 +113,7 @@ class Nav_Manager {
         let links = ''
         if (lite.utils.array_has_data (item)) {
             item.forEach ((itm, idx) => {
-                let url = this.create_url (itm.app, itm.module, itm.app, itm.page_type, itm.content_type)
+                let url = this.create_url (itm.loc, itm.module, itm.loc, itm.type, itm.document)
                 const id = this.utils.unique ()
                 const color = this.generate_color ()
                 
@@ -135,7 +135,7 @@ class Nav_Manager {
                             <div class="text-left">
                                 <div class="text-sm font-semibold text-[${color.inner}]">${itm.title}</div>
                                 <div class="text-xs text-slate-300 truncate max-w-[200px]">
-                                    ${ itm?.content_type || ''}
+                                    ${ itm?.document || ''}
                                 </div>
                             </div>
                         </div>
@@ -324,7 +324,7 @@ class Nav_Manager {
         let links = ''
         if (lite.utils.array_has_data (item)) {
             item.forEach ((itm, idx) => {
-                let url = this.create_url (itm.app, itm.module, itm.app, itm.page_type, itm.content_type)
+                let url = this.create_url (itm.loc, itm.module, itm.loc, itm.type, itm.document)
                 const id = this.utils.unique ()
                 const color = this.generate_color ()
 
@@ -362,8 +362,9 @@ class Nav_Manager {
         }
     }
     
-    create_url(url, module, app, page, content_type, doc) {
-        return url ? `/${module}/${url}?app=${app}&page=${page}&content_type=${content_type} ${doc ? "&doc=" + doc : ''}` : ''
+    create_url(url, module, loc, type, document, doc) {
+        const normalized_type = type === "new-form" || type === "new" ? "new" : type
+        return url ? `/${module}/${url}?loc=${loc}&type=${normalized_type}&document=${document}${doc ? "&doc=" + doc : ''}` : ''
     }
 
     // create breadcrumb
@@ -385,7 +386,7 @@ class Nav_Manager {
             `<span class="material-symbols-outlined text-gray-600 text-[${size}px]"> expand_more </span>`
     }
 
-    create_new_url({mod="", model="", page_type="list", content_type="", url_params=""}) {
+    create_new_url({mod="", model="", page_type="list", document="", url_params=""}) {
         if(!mod){
             return false
         }
@@ -414,7 +415,7 @@ class Nav_Manager {
     }
 
     goto_profile(){
-        window.location.href = "/app/staff/staff_dashboard?app=staff_dashboard&module=staff&page=dashboard&content_type=Dashboard"
+        window.location.href = "/app/staff/staff_dashboard?loc=staff_dashboard&module=staff&type=dashboard&document=Dashboard"
     }
 
     logout(){

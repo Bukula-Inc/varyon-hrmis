@@ -7,11 +7,11 @@ core =  {
                 {
                     "display":1,
                     "module": "core",
-                    "app": "cor_dashboard",
+                    "loc": "cor_dashboard",
                     "title": "Dashboard",
                     "icon": "bar_chart_4_bars",
-                    "page_type": "dashboard",
-                    "content_type": "Dashboard",
+                    "type": "dashboard",
+                    "document": "Dashboard",
                     "child_items": []
                 }
             ]
@@ -22,143 +22,89 @@ core =  {
                 {
                     "display":1,
                     "module": "core",
-                    "app": "branch",
+                    "loc": "branch",
                     "title": "Location",
                     "icon": "brunch_dining",
-                    "page_type": "list",
-                    "content_type": "Location",
+                    "type": "list",
+                    "document": "Location",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "core",
-                    "app": "gender",
+                    "loc": "gender",
                     "title": "Gender",
                     "icon": "male",
-                    "page_type": "list",
-                    "content_type": "gender",
+                    "type": "list",
+                    "document": "gender",
                     "child_items": []
                 },
-                # {
-                #     "display":1,
-                #     "module": "core",
-                #     "app": "currency",
-                #     "title": "Currency",
-                #     "icon": "calendar_month",
-                #     "page_type": "list",
-                #     "content_type": "Currency",
-                #     "child_items": []
-                # },
-                # {
-                #     "display": 1,
-                #     "module": "core",
-                #     "app": "cost_center",
-                #     "title": "Cost Center",
-                #     "icon": "hub",
-                #     "page_type": "list",
-                #     "content_type": "Cost Center",
-                #     "child_items": []
-                # },
                 {
                     "display": 1,
                     "module": "core",
-                    "app": "department",
+                    "loc": "department",
                     "title": "Department",
                     "icon": "diversity_3",
-                    "page_type": "list",
-                    "content_type": "department",
+                    "type": "list",
+                    "document": "department",
                     "child_items": []
                 },
                 {
                     "display": 1,
                     "module": "core",
-                    "app": "system_settings",
+                    "loc": "system_settings",
                     "title": "System Settings",
                     "icon": "tune",
-                    "page_type": "list",
-                    "content_type": "System Settings",
+                    "type": "list",
+                    "document": "System Settings",
                     "child_items": []
                 },
                 {
                     "display": 1,
                     "module": "core",
-                    "app": "default_dashboard",
+                    "loc": "default_dashboard",
                     "title": "Default Dashboards",
                     "icon": "tune",
-                    "page_type": "list",
-                    "content_type": "Default Dashboard",
+                    "type": "list",
+                    "document": "Default Dashboard",
                     "child_items": []
                 },
                 {
                     "display": 1,
                     "module": "core",
-                    "app": "menu_card",
+                    "loc": "menu_card",
                     "title": "Menu Card",
                     "icon": "settings",
-                    "page_type": "list",
-                    "content_type": "Menu Card",
+                    "type": "list",
+                    "document": "Menu Card",
                     "child_items": []
                 },
             ]
         },
-        # {
-        #     "title": "Geo",
-        #     "routes": [
-        #         {
-        #             "display":1,
-        #             "module": "core",
-        #             "app": "province",
-        #             "title": "Province",
-        #             "icon": "emoji_transportation",
-        #             "page_type": "list",
-        #             "content_type": "province",
-        #             "child_items": []
-        #         },
-        #         {
-        #             "display":1,
-        #             "module": "core",
-        #             "app": "district",
-        #             "title": "District",
-        #             "icon": "family_home",
-        #             "page_type": "list",
-        #             "content_type": "District",
-        #             "child_items": []
-        #         },
-        #         {
-        #             "display":1,
-        #             "module": "core",
-        #             "app": "city",
-        #             "title": "City",
-        #             "icon": "electric_car",
-        #             "page_type": "list",
-        #             "content_type": "City",
-        #             "child_items": []
-        #         },
-        #     ]
-        # },
+        
         {
             "title": "Others",
             "routes": [
                 {
                     "display":1,
                     "module": "core",
-                    "app": "data_importation",
+                    "loc": "data_importation",
                     "title": "Data Importation",
                     "icon": "partner_reports",
-                    "page_type": "list",
-                    "content_type": "data importation",
+                    "type": "list",
+                    "document": "data importation",
                     "child_items": []
                 },
-                # {
-                #     "display":1,
-                #     "module": "core",
-                #     "app": "working_hours",
-                #     "title": "Working Hours",
-                #     "icon": "history",
-                #     "page_type": "list",
-                #     "content_type": "working hours",
-                #     "child_items": []
-                # },
+                {
+                    "display":1,
+                    "module": "core",
+                    "loc": "working_hours",
+                    "title": "Working Hours",
+                    "icon": "history",
+                    "type": "list",
+                    "document": "working hours",
+                    "child_items": []
+                },
             ]
         },
         {
@@ -167,31 +113,31 @@ core =  {
                 {
                     "display":1,
                     "module": "core",
-                    "app": "user",
+                    "loc": "user",
                     "title": "User Account",
                     "icon": "manage_accounts",
-                    "page_type": "list",
-                    "content_type": "User",
+                    "type": "list",
+                    "document": "User",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "core",
-                    "app": "role",
+                    "loc": "role",
                     "title": "Role",
                     "icon": "verified_user",
-                    "page_type": "list",
-                    "content_type": "Role",
+                    "type": "list",
+                    "document": "Role",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "core",
-                    "app": "workflow",
+                    "loc": "workflow",
                     "title": "Workflow Management",
                     "icon": "account_tree",
-                    "page_type": "list",
-                    "content_type": "Workflow",
+                    "type": "list",
+                    "document": "Workflow",
                     "child_items": []
                 },
             ]
@@ -203,63 +149,108 @@ core =  {
                 {
                     "display":1,
                     "module": "core",
-                    "app": "series",
+                    "loc": "series",
                     "title": "Naming Series",
                     "icon": "signature",
-                    "page_type": "list",
-                    "content_type": "Series",
+                    "type": "list",
+                    "document": "Series",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "core",
-                    "app": "doc_status",
+                    "loc": "doc_status",
                     "title": "Document Status",
                     "icon": "inventory",
-                    "page_type": "list",
-                    "content_type": "Doc Status",
+                    "type": "list",
+                    "document": "Doc Status",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "core",
-                    "app": "print_format",
+                    "loc": "print_format",
                     "title": "Print Formats",
                     "icon": "edit_note",
-                    "page_type": "list",
-                    "content_type": "Print Format",
+                    "type": "list",
+                    "document": "Print Format",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "core",
-                    "app": "print_configuration",
+                    "loc": "print_configuration",
                     "title": "Print Configuration",
                     "icon": "print_connect",
-                    "page_type": "list",
-                    "content_type": "Print Configuration",
+                    "type": "list",
+                    "document": "Print Configuration",
                     "child_items": []
                 },
-                # {
-                #     "display":1,
-                #     "module": "core",
-                #     "app": "email_config",
-                #     "title": "Email Configuration",
-                #     "icon": "mail",
-                #     "page_type": "list",
-                #     "content_type": "Email Config",
-                #     "child_items": []
-                # },
-                # {
-                #     "display":1,
-                #     "module": "core",
-                #     "app": "template_content",
-                #     "title": "Template Content",
-                #     "icon": "code",
-                #     "page_type": "list",
-                #     "content_type": "Template Content",
-                #     "child_items": []
-                # }
+                {
+                    "display":1,
+                    "module": "core",
+                    "loc": "email_config",
+                    "title": "Email Configuration",
+                    "icon": "mail",
+                    "type": "list",
+                    "document": "Email Config",
+                    "child_items": []
+                },
+                {
+                    "display":1,
+                    "module": "core",
+                    "loc": "template_content",
+                    "title": "Template Content",
+                    "icon": "code",
+                    "type": "list",
+                    "document": "Template Content",
+                    "child_items": []
+                }
+            ]
+        },
+        {
+            "title": "Company & Shares",
+            "routes": [
+                {
+                    "display":1,
+                    "module": "core",
+                    "loc": "company",
+                    "title": "Company",
+                    "icon": "add_business",
+                    "type": "list",
+                    "document": "Company",
+                    "child_items": []
+                },
+                {
+                    "display":1,
+                    "module": "core",
+                    "loc": "share_management",
+                    "title": "Share Type",
+                    "icon": "partner_reports",
+                    "type": "list",
+                    "document": "Share Type",
+                    "child_items": []
+                },
+                {
+                    "display":1,
+                    "module": "core",
+                    "loc": "share_management",
+                    "title": "Shareholders",
+                    "icon": "partner_reports",
+                    "type": "list",
+                    "document": "Shareholder",
+                    "child_items": []
+                },
+                {
+                    "display":1,
+                    "module": "core",
+                    "loc": "share_management",
+                    "title": "Shares",
+                    "icon": "partner_reports",
+                    "type": "list",
+                    "document": "Shares",
+                    "child_items": []
+                },
             ]
         },
         {
@@ -268,21 +259,21 @@ core =  {
                 {
                     "display":1,
                     "module": "core",
-                    "app": "auth_trail/",
+                    "loc": "auth_trail/",
                     "title": "Authentication Trail",
                     "icon": "trail_length",
-                    "page_type": "report",
-                    "content_type": "authentication trail",
+                    "type": "report",
+                    "document": "authentication trail",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "core",
-                    "app": "audit_trail_report/",
+                    "loc": "audit_trail_report/",
                     "title": "Audit Trail",
                     "icon": "data_loss_prevention",
-                    "page_type": "report",
-                    "content_type": "audit trail",
+                    "type": "report",
+                    "document": "audit trail",
                     "child_items": []
                 },
             ]

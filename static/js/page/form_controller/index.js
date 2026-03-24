@@ -9,7 +9,7 @@ export default class Form_Controller {
         this.connect = config?.connect
         this.lite_picker = config?.lite_picker
         this.page_session = ''
-        this.content_type = ''
+        this.document = ''
         this.doc_name = ''
         this.doc_data = ''
         this.page_type = ''
@@ -95,19 +95,19 @@ export default class Form_Controller {
                 const old_setup = {...form_setup}
                 const {data, model_path, extra_form_setup} = await form_setup?.form_customizer(form_setup)
                 if(model_path && lite.utils.object_has_data(model_path)){
-                    form_setup = await lite.utils.import_form_content(model_path?.module, model_path?.content_type)
+                    form_setup = await lite.utils.import_form_content(model_path?.module, model_path?.document || model_path?.content_type)
                     form_setup.setup = {
                         ...form_setup?.setup,
                         ...old_setup?.setup,
                         ...extra_form_setup || {}
                     }
-                    form_setup.setup.model = lite.utils.replace_chars(model_path?.content_type, " ","_")
-                    lite.page_controller?.content_type_title?.html(lite.utils.capitalize(lite.utils.replace_chars(model_path?.content_type, "_"," ")))
+                    form_setup.setup.model = lite.utils.replace_chars(model_path?.document || model_path?.content_type, " ","_")
+                    lite.page_controller?.content_type_title?.html(lite.utils.capitalize(lite.utils.replace_chars(model_path?.document || model_path?.content_type, "_"," ")))
                     if(form_setup?.form_actions){
                         delete form_setup.form_actions
                     }
                 }
-                lite.session.set_session("content_type", model_path?.content_type)
+                lite.session.set_session("document", model_path?.document || model_path?.content_type)
                 if(lite.utils.object_has_data(data)){
                     this.prefetched_data  = {status:lite.status_codes.ok, data:data}
                 }
@@ -126,15 +126,15 @@ export default class Form_Controller {
             this.form_setup = {...form_setup}
             this.form_data = {}
             this.form_buttons = []
-            this.page_session = lite.session.get_page_session()
-            this.content_type = this.page_session.content_type
-            this.page_type = this.page_session.page
+            this.page_session = lite.session.get_type_session()
+            this.document = this.page_session.document
+            this.page_type = this.page_session.type
             this.on_quick_form_save = on_quick_form_save
             this.$quick_form_save_btn = $(".modal-action-btn[action='save']")
-            if (this.page_type === 'info' || this.page_type === 'new-form' || is_quick_form) {
+            if (this.page_type === 'info' || this.page_type === 'new' || is_quick_form) {
                 this.doc_data = {}
                 this.doc_name = this.page_session?.doc
-                if (this.content_type) {
+                if (this.document) {
                     const
                         form_config = this.form_setup,
                         setup = lite.utils.copy_object(form_config?.setup),
@@ -169,7 +169,7 @@ export default class Form_Controller {
                             }
                             else{
                                 if (this.$form) {
-                                    this.$form.find('.form-title').text(`${this.page_type === 'new-form' ? 'New' : ''} ${setup.title || setup.model}`)
+                                    this.$form.find('.form-title').text(`${this.page_type === 'new-form' || this.page_type === 'new' ? 'New' : ''} ${setup.title || setup.model}`)
                                     if (this.$form_fields) {
                                         this.$form.addClass("relative mih-h-[30vh]").find(".dynamic-loader").remove().append(lite.utils.generate_loader({size:20,title:"Preparing Form", loader_type:"dots"}))
                                         this.get_opened_document().then(async status => {
@@ -276,7 +276,7 @@ export default class Form_Controller {
             this.form_setup = {}
             this.form_data = {}
             this.page_session = null
-            this.content_type = null
+            this.document = null
             this.page_type = null
             this.doc_data = {}
             this.doc_name = null
@@ -630,13 +630,13 @@ export default class Form_Controller {
         data.values.status = "Active"
         data.values.docstatus = 0
         lite.session.set_session("clone_doc", data.values)
-        cls.page_controller.utils.update_url_parameters({page: "new-form"})
+        cls.page_controller.utils.update_url_parameters({type: "new"})
         cls.page_controller.init_page_url_changed()
     }
 
     new_form(data) {
         const cls = data.form_controller
-        cls.page_controller.utils.update_url_parameters({page: "new-form"})
+        cls.page_controller.utils.update_url_parameters({type: "new"})
         cls.page_controller.init_page_url_changed()
     }
 
@@ -746,7 +746,7 @@ export default class Form_Controller {
                             })
                             this.doc_data = data
                             lite.form_data = this.doc_data
-                            lite.utils.update_url_parameters({page:"info", doc: data.data.id})
+                            lite.utils.update_url_parameters({type:"info", doc: data.data.id})
                             lite.page_controller.init_page_url_changed()
                         }
                         return resolve
@@ -1778,7 +1778,7 @@ export default class Form_Controller {
             this.$form_actions_wrapper?.empty()
         }
         // if the form is new
-        if (this.page_type === 'new-form' && !this.is_quick_form) {
+        if (this.page_type === 'new-form' || this.page_type === 'new' && !this.is_quick_form) {
             this.$form_actions_wrapper.html(this.html_bulder.create_save_button())
             this.$form_actions_wrapper.find(".save-action-btn")?.off("click")?.on("click", e => {
                 e.preventDefault()

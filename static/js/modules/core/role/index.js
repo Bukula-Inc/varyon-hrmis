@@ -11,10 +11,10 @@ export default class Role{
     }
 
     async on_page_type_change(data,cls){
-        if(data.page === "new-form"){
+        if(data.type === "new-form" || data.type === 'new'){
             cls.init_permissions(null)
         }
-        if(data.page === "info"){
+        if(data.type === "info"){
             this.form_data = null
             const data = await lite.utils.delay_until(()=>{
                 if(lite.utils.object_has_data(lite.form_data)){
@@ -72,8 +72,8 @@ export default class Role{
 
             if($(data?.field).hasClass("select-all")){
                 const v = data.value
-                const content_type = lite.utils.get_attribute(data?.field, "id")
-                const actions = $(data.field).parents(".content-group.active .module-permission-card-wrapper")?.find(`.permission-card[app="${content_type}"]`).find(".lite-field[type='switch']:not(.allow-all)")
+                const document = lite.utils.get_attribute(data?.field, "id")
+                const actions = $(data.field).parents(".content-group.active .module-permission-card-wrapper")?.find(`.permission-card[app="${document}"]`).find(".lite-field[type='switch']:not(.allow-all)")
                 if(lite.utils.array_has_data(actions)){
                     $.each(actions,(_,act)=>{
                         lite.lite_switch.set_switch_value(act, v)

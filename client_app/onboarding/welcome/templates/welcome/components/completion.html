@@ -1,23 +1,40 @@
-<div class="w-[50%] m-auto h-[70%] flex items-center justify-center flex-col onboarding-stage hidden" stage="4">
-    <div class="mt-10">
-        <div class="w-full intro-y">
-            <h1 class="font-bold mb-3 text-40 intro-y">Congratulations!</h1>
+<div class="w-full m-auto h-full mt-16 flex items-center justify-center flex-col onboarding-stage hidden" stage="4">
+    <div class="bg-slate-950 text-white h-full flex items-center justify-center relative overflow-hidden">
+
+        <div class="absolute w-72 h-72 bg-indigo-500 opacity-20 rounded-full blur-3xl top-10 left-10"></div>
+        <div class="absolute w-80 h-80 bg-purple-500 opacity-20 rounded-full blur-3xl bottom-10 right-10"></div>
+        <div class="absolute w-60 h-60 bg-blue-400 opacity-20 rounded-full blur-3xl top-1/3 right-1/4"></div>
+        <div class="absolute w-40 h-40 bg-pink-400 opacity-20 rounded-full blur-3xl bottom-1/4 left-1/3"></div>
+
+        <div class="relative text-center max-w-xl px-6">
+
+            <div class="flex justify-center mb-6">
+                <div class="w-14 h-14 flex items-center justify-center border border-white/20 rounded-xl">
+                    ✈️
+                </div>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                Thank you!
+            </h1>
+
+            <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                We appreciate your Subscription and we promise to be in always be available and to attend to your needs 
+                <span class="text-white font-semibold">168 Hours</span> is the latest we will your issues are attended to
+                we will streamline all your processes.
+            </p>
+
+            <button for="get started" class="completion-action-btn text-sm underline text-gray-300 hover:text-white transition">
+                Back Home
+            </button>
+
+            <div class="mt-16 w-full flex justify-center text-gray-400 text-sm">
+                <h1 class="font-bold text-20 flex items-center justify-start ml-5 mt-5">
+                    <img src="/static/images/varyon.png" class="w-[80px] h-[50px] company-logo object-contain mr-5 intro-x" alt="">
+                </h1>
+            </div>
+
         </div>
-        <div class="intro-y w-full mt-5">
-            You have successfully completed the user onboarding process! <br>
-            Your ECZ HRMIS Certification is ready.  <br>
-            Please click below 
-            to download your certificate or click go to home to get started.
+
         </div>
-    </div>
-    <div class="w-full border-t flex items-center justify-center mt-10 pt-5 grid grid-cols-2 gap-x-5">
-        <button for="download certificate" class="completion-action-btn intro-y bg-purple-200 border-purple-600 text-center justify-center rounded-md btn text-purple-800 font-semibold">
-            <span class="material-symbols-outlined mr-1 text-25"> download </span>
-            Download Certificate
-        </button>
-        <button for="get started" class="completion-action-btn intro-y bg-default text-center justify-center rounded-md btn text-white">
-            Get Started
-            <span class="material-symbols-outlined ml-2"> trending_flat </span>
-        </button>
-    </div>
 </div>

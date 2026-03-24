@@ -11,9 +11,9 @@ export default class Appointment_Letter
         // this.form_controller =undefined
     }
     // loadForm () {
-    //     const content_type = lite.utils.get_url_parameters ("content_type")
+    //     const document = lite.utils.get_url_parameters ("document")
         
-    //     if (content_type == "appointment_confirmation") {
+    //     if (document == "appointment_confirmation") {
     //         this.form_controller = new Form_Controller({
     //             page_controller: this,
     //             session: this.session,

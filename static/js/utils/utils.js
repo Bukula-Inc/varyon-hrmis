@@ -312,7 +312,7 @@ class Utils {
         }
         return ''
     }
-    get_current_app() {
+    get_current_loc() {
         const url = window.location.pathname
         if (url) {
             const comps = url?.split('/')
@@ -323,8 +323,11 @@ class Utils {
         }
         return ''
     }
+    get_current_app() {
+        return this.get_current_loc()
+    }
 
-    get_current_sub_app() {
+    get_current_sub_loc() {
         const url = window.location.pathname
         if (url) {
             const comps = url?.split('/')
@@ -334,6 +337,9 @@ class Utils {
             return comps[3]?.toLowerCase() || null
         }
         return ''
+    }
+    get_current_sub_app() {
+        return this.get_current_sub_loc()
     }
 
     async import_nav_content(){
@@ -357,18 +363,18 @@ class Utils {
 
     async import_module_content(){
         const current_module  = this.get_current_module()
-        const current_app = this.get_current_app()
+        const current_loc = this.get_current_loc()
         if(current_module){
             try{
-                const module_app = await import(`../modules/${current_module}/${current_app}/index.js`)
-                if(typeof module_app?.default === 'function'){
-                    return module_app?.default || false
+                const module_loc = await import(`../modules/${current_module}/${current_loc}/index.js`)
+                if(typeof module_loc?.default === 'function'){
+                    return module_loc?.default || false
                 }
-                console.warn(`MODULE APP CLASS IMPORTATION ERROR: Failed to find /modules/${current_module}/${current_app}/index.js file in modules. ensure the module directory and app directory matches both module and app names!`)
+                console.warn(`MODULE APP CLASS IMPORTATION ERROR: Failed to find /modules/${current_module}/${current_loc}/index.js file in modules. ensure the module directory and app directory matches both module and loc names!`)
                 return false
             }
             catch{
-                // console.warn(`MODULE APP CLASS IMPORTATION ERROR: Failed to find /modules/${current_module}/${current_app}/index.js file in modules. ensure the module directory and app directory matches both module and app names!`)
+                // console.warn(`MODULE APP CLASS IMPORTATION ERROR: Failed to find /modules/${current_module}/${current_loc}/index.js file in modules. ensure the module directory and loc directory matches both module and loc names!`)
                 return false
             }
         }
@@ -377,19 +383,19 @@ class Utils {
     async import_list_content(){
         const current_module  = this.get_current_module()
         if(current_module && current_module !== "portal"){
-            const content_type = this.get_url_parameters("content_type")
-            if(content_type){
-                const file_name = this.lower_case(this.replace_chars(content_type," ","_"))
+            const document = this.get_url_parameters("document")
+            if(document){
+                const file_name = this.lower_case(this.replace_chars(document," ","_"))
                 try{
                     const lisview = await import(`../listviews/${current_module}/${file_name}.js`)
                     if(lisview.default){
                         return lisview.default || false
                     }
-                    console.warn(`APP LISTVIEW CONFIGURATION IMPORTATION ERROR: Failed to find /listviews/${current_module}/${file_name}.js file in module listviews. ensure listview file for ${file_name} matches content_type!`)
+                    console.warn(`APP LISTVIEW CONFIGURATION IMPORTATION ERROR: Failed to find /listviews/${current_module}/${file_name}.js file in module listviews. ensure listview file for ${file_name} matches document!`)
                     return false
                 }
                 catch{
-                    console.warn(`APP LISTVIEW CONFIGURATION IMPORTATION ERROR: Failed to find /listviews/${current_module}/${file_name}.js file in module listviews. ensure listview file for ${file_name} matches content_type!`)
+                    console.warn(`APP LISTVIEW CONFIGURATION IMPORTATION ERROR: Failed to find /listviews/${current_module}/${file_name}.js file in module listviews. ensure listview file for ${file_name} matches document!`)
                     return false
                 }
             }
@@ -415,19 +421,19 @@ class Utils {
         }
     }
 
-    async import_form_content(module_name=undefined, content_type_name=undefined){
+    async import_form_content(module_name=undefined, document_name=undefined){
         const current_module  = module_name || this.get_current_module()
         if(current_module){
-            const page_type = this.get_url_parameters("page")
-            const content_type = content_type_name || this.get_url_parameters("content_type")
-            if(content_type && page_type && ["new-form","info"].includes(page_type)){
-                const file_name = this.lower_case(this.replace_chars(content_type," ","_"))
+            const current_type = this.get_url_parameters("type")
+            const document = document_name || this.get_url_parameters("document")
+            if(document && current_type && ["new","info"].includes(current_type)){
+                const file_name = this.lower_case(this.replace_chars(document," ","_"))
                 try{
                     const form = await import(`../forms/${current_module}/${file_name}.js`)
                     if(form.default){
                         return form.default || false
                     }
-                    console.warn(`APP FORM CONFIGURATION IMPORTATION ERROR: Failed to find /forms/${current_module}/${file_name}.js file in module forms. ensure form file for ${file_name} matches content_type!`)
+                    console.warn(`APP FORM CONFIGURATION IMPORTATION ERROR: Failed to find /forms/${current_module}/${file_name}.js file in module forms. ensure form file for ${file_name} matches document!`)
                     return false
                 }
                 catch(e){
@@ -441,9 +447,9 @@ class Utils {
     async import_form_overrides(){
         const current_module  = this.get_current_module()
         if(current_module){
-            const content_type = this.get_url_parameters("content_type")
-            if(content_type){
-                const file_name = this.lower_case(this.replace_chars(content_type," ","_"))
+            const document = this.get_url_parameters("document")
+            if(document){
+                const file_name = this.lower_case(this.replace_chars(document," ","_"))
                 try{
                     const overrides = await import(`../overrides/form/${current_module}/index.js`)
                     if(overrides){
@@ -485,17 +491,17 @@ class Utils {
 
     async import_report_content(){
         const current_module  = this.get_current_module()
-        const sub_app = this.get_current_sub_app()
-        const content_type = this.get_url_parameters("content_type")
-        if(current_module && content_type){
-            const file_name = this.lower_case(this.replace_chars(content_type," ","_"))
+        const sub_loc = this.get_current_sub_loc()
+        const document = this.get_url_parameters("document")
+        if(current_module && document){
+            const file_name = this.lower_case(this.replace_chars(document," ","_"))
             try{
                 
                 const report = await import(`../reports/${current_module}/${file_name}.js`)
                 if(report.default){
                     return report.default || false
                 }
-                console.warn(`APP REPORT CONFIGURATION IMPORTATION ERROR: Failed to find /reports/${current_module}/${file_name}.js file in module reports. ensure report file for ${file_name} matches content_type!`)
+                console.warn(`APP REPORT CONFIGURATION IMPORTATION ERROR: Failed to find /reports/${current_module}/${file_name}.js file in module reports. ensure report file for ${file_name} matches document!`)
                 return false
             }
             catch(e){
@@ -503,18 +509,30 @@ class Utils {
                 return false
             }
         }
-        console.warn(`APP REPORT CONFIGURATION IMPORTATION ERROR: Failed to find /reports/${current_module}/${file_name}.js file in module reports. ensure report file for ${file_name} matches content_type!`)
+        console.warn(`APP REPORT CONFIGURATION IMPORTATION ERROR: Failed to find /reports/${current_module}/${file_name}.js file in module reports. ensure report file for ${file_name} matches document!`)
         return false
     }
 
     is_report_page(){
-        return this.lower_case(this.get_current_app())?.includes("report")
+        return this.lower_case(this.get_current_loc())?.includes("report")
     }
     
     // get url parameters
     get_url_parameters(key) {
         const urlSearchParams = new URLSearchParams(window.location.search);
         const searchParameters = Object.fromEntries(urlSearchParams.entries());
+        if (searchParameters.app && !searchParameters.loc) {
+            searchParameters.loc = searchParameters.app
+            delete searchParameters.app
+        }
+        if (searchParameters.page && !searchParameters.type) {
+            searchParameters.type = searchParameters.page === "new-form" || searchParameters.page === "new" ? "new" : searchParameters.page
+            delete searchParameters.page
+        }
+        if (searchParameters.content_type && !searchParameters.document) {
+            searchParameters.document = searchParameters.content_type
+            delete searchParameters.content_type
+        }
         if(!this.is_empty_object(searchParameters)){
             if(!key){
                 return searchParameters
@@ -543,7 +561,15 @@ class Utils {
         else {
             if (!this.is_empty_object(obj)) {
                 this.get_object_keys(obj).forEach(key => {
-                    params[key] = obj[key];
+                    let mapped_key = key
+                    if (key === "app") mapped_key = "loc"
+                    if (key === "page") mapped_key = "type"
+                    if (key === "content_type") mapped_key = "document"
+                    let value = obj[key]
+                    if (mapped_key === "type" && value === "new-form") {
+                        value = "new"
+                    }
+                    params[mapped_key] = value;
                 })
             }
             params = this.remove_undefined_keys(params)
@@ -572,21 +598,30 @@ class Utils {
 
         if (!this.is_empty_array(keys)) {
             let parameter_string = ''
+            const mapped_keys = keys.map(key => {
+                if (key === "app") return "loc"
+                if (key === "page") return "type"
+                if (key === "content_type") return "document"
+                return key
+            })
             if (!this.is_empty_object(params)) {
                 this.get_object_keys(params).forEach(key => {
-                    if (!keys.includes(key))
+                    if (!mapped_keys.includes(key))
                         parameter_string += `${key}=${params[key]}&`;
                 })
             }
             this.set_url_parameters(parameter_string.slice(0, -1))
         }
     }
-    redirect(module,app,page,content_type,params,open_new_doc=false){
+    redirect(module,loc,type,document,params,open_new_doc=false){
+        if (type === "new-form") {
+            type = "new"
+        }
         if(!open_new_doc){
-            window.location.href = `/app/${module}/${app}/?app=${app}&page=${page}&content_type=${content_type}&${params || ''}`
+            window.location.href = `/app/${module}/${loc}/?loc=${loc}&type=${type}&document=${document}&${params || ''}`
         }
         else{
-            const new_window = window.open(`/app/${module}/${app}/?app=${app}&page=${page}&content_type=${content_type}&${params || ''}`)
+            const new_window = window.open(`/app/${module}/${loc}/?loc=${loc}&type=${type}&document=${document}&${params || ''}`)
         }
             
     }

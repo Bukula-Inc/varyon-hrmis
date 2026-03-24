@@ -2,26 +2,25 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 {% include "client_app/header.html" %}
-<body class="main">
-    <div class="xl:pl-5 xl:py-5 flex h-screen relative dashboard-contents">
-        <div class="wrapper h-full hidden">
-            <div class="content h-full">
-                <div class="w-full h-full relative mt-3" style="z-index:2000;">
+<body class="main bg-slate-950">
+    <div class="xl:pl-5 xl:py-5 bg-slate-950 flex h-screen relative dashboard-contents">
+        <div class="wrapper bg-slate-950 h-full hidden">
+            <div class="content h-full bg-slate-950">
+                <div class="w-full h-full relative bg-slate-950 mt-3" style="z-index:2000;">
                     <div class="w-full h-[50px] border-b border-dotted border-gray-400">
                         <h1 class="font-bold text-20 flex items-center justify-start ml-5 mt-5">
-                            <img src="/static/images/logo/logo.svg" class="w-[80px] h-[50px] company-logo object-contain mr-5 intro-x" alt="">
+                            <img src="/static/images/varyon.png" class="w-[80px] h-[50px] company-logo object-contain mr-5 intro-x" alt="">
                             Onboarding
                         </h1>
                     </div>
                     {% include "./components/stages.html" %}
-                    <div class="w-full h-[70vh] bg-gray-100 p-5 relative">
-                        <div class="w-[70%] h-full relative z-5 mx-auto">
+                    <div class="w-full h-[70vh] p-5 relative">
+                        <div class="w-full h-full relative z-5 mx-auto">
                             {% include "./components/welcome.html" %}
                             {% include "./components/new_password.html" %}
                             {% include "./components/your_role.html" %}
                             {% include "./components/completion.html" %}
                         </div>
-                        {% include "./components/decos.html" %}
                     </div>
                     {% include "./components/actions.html" %}
                 </div>

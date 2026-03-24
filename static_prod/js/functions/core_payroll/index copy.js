@@ -163,7 +163,7 @@ export default class Core_Payroll{
         } 
         else {
         
-            if (lite.utils.get_url_parameters("page") !== "new-form") return;
+            if (lite.utils.get_url_parameters("page") !== "new-form" || lite.utils.get_url_parameters("page") !== "new") return;
     
             const employeeData = lite.payroll_content?.employee;
             if (!lite.utils.object_has_data(employeeData)) return;
@@ -341,7 +341,7 @@ export default class Core_Payroll{
 
 
 async populate_employee({ controller, employeeId }) {
-    if (lite.utils.get_url_parameters("page") !== "new-form") {
+    if (lite.utils.get_url_parameters("page") !== "new-form" || lite.utils.get_url_parameters("page") !== "new") {
         return;
     }
     

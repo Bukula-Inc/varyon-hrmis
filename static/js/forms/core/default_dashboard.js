@@ -40,7 +40,7 @@ export default {
         {
             id: "content-type",
             fieldlabel: "Content Type",
-            fieldname: "content_type",
+            fieldname: "document",
             fieldtype: "text",
             columns: 1,
             placeholder: "Enter Content Type",

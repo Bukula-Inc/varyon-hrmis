@@ -25,13 +25,10 @@ class Mailing:
         # self.config = email_data
         # ============================== to be updated later ===================
         # self.server_name = "mail.exams-council.org.zm"
-        self.email_address = "hradmin@exams-council.org.zm"
-        self.server_name = "192.9.200.33"
-        self.email_password = "12345@abc"
+        self.email_address = "info@varyon-hrmis.com"
+        self.server_name = "mail.varyon-hrmis.com"
+        self.email_password = "Dev.25-erphrims"
         self.port_no = 587
-        # self.email_address = "admin@startappsolutions.com"
-        # self.server_name = "smtp.office365.com"
-        # self.email_password = "erpteam@probase"
 
         
     def __get_email_config(self):

@@ -419,7 +419,7 @@ WSGI_APPLICATION = 'multitenancy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ecz_uat',
+        'NAME': 'varyon_uat',
         'USER': 'postgres',
         'HOST': 'localhost',
         'PASSWORD': 'erpteam@probase',
@@ -477,6 +477,6 @@ CELERY_ROUTES = { 'cron.tasks.*': {'queue': 'multitenancy'},}
 
 
 TENANT_ADMIN = {
-    'DB': 'ecz_uat',
-    'DOMAIN': 'startappsolution.com'
+    'DB': 'varyon_uat',
+    'DOMAIN': 'varyon-hrmis.com'
 }

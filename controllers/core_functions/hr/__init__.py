@@ -55,7 +55,7 @@ class Core_Hr:
     def send_mail_to_witnesses (self, doctype: str, doc_name: str, applicant, witness:str):
         data = utils.from_dict_to_object ()
         applicant_names = DataConversion.safe_get (applicant, "full_name", f"""{DataConversion.safe_get (applicant,'first_name')} {DataConversion.safe_get (applicant,'middle_name', '')} {DataConversion.safe_get (applicant,'last_name')}""")
-        DataConversion.safe_set (data, "doc_url", f"""https://{self.dbms.host}/app/staff/witness?module=staff&app=witness&page=new-form&content_type=witness&doc={doc_name}""")
+        DataConversion.safe_set (data, "doc_url", f"""https://{self.dbms.host}/app/staff/witness?module=staff&loc=witness&type=new&document=witness&doc={doc_name}""")
         DataConversion.safe_set (data, "document_type", doctype)
         DataConversion.safe_set (data, "document_name", doc_name)
         DataConversion.safe_set (data, "submission_date", dates.today ())

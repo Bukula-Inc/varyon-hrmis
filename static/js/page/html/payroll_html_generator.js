@@ -102,7 +102,7 @@ export default class Payroll_HTML_Generator{
     create_recent_payment_row(data){
         return `
             <div class="w-full grid grid-cols-7 border-b h-[40px] text-12 pl-2 intro-x">
-                <a href="/app/payroll/payroll_processor/?app=payroll_processor&page=info&content_type=Payroll%20Processor&doc=${data.id}" class="w-full flex items-center justify-start h-full col-span-2">
+                <a href="/app/payroll/payroll_processor/?loc=payroll_processor&type=info&document=Payroll%20Processor&doc=${data.id}" class="w-full flex items-center justify-start h-full col-span-2">
                     <span class="material-symbols-outlined mr-1 text-orange-600">
                         event_available
                     </span>

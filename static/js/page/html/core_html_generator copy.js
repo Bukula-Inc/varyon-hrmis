@@ -10,7 +10,7 @@ export default class Core_HTML_Generator{
         return `
             <div class="w-full flex items-start justify-start mb-4 intro-y hover:translate-x-[-3%] hover:text-purple-700">
                 <span class="material-symbols-outlined mr-2 text-purple-800 text-16"> work </span>
-                <a href="/app/core/sector/?app=sector&page=info&content_type=Sector&doc=${data?.id}" class="overflow-ellipsis truncate">${data.name}</a>
+                <a href="/app/core/sector/?loc=sector&type=info&document=Sector&doc=${data?.id}" class="overflow-ellipsis truncate">${data.name}</a>
             </div>
         `
     }
@@ -18,7 +18,7 @@ export default class Core_HTML_Generator{
         return `
             <div class="w-full flex items-start justify-start mb-4 intro-y hover:translate-x-[-3%] hover:text-purple-700">
                 <span class="material-symbols-outlined mr-2 text-emerald-800 text-16"> business_center </span>
-                <a href="/app/core/industry/?app=industry&page=info&content_type=Industry&doc=${data?.id}" class="overflow-ellipsis truncate">${data.name}</a>
+                <a href="/app/core/industry/?loc=industry&type=info&document=Industry&doc=${data?.id}" class="overflow-ellipsis truncate">${data.name}</a>
             </div>
         `
     }
@@ -27,7 +27,7 @@ export default class Core_HTML_Generator{
         return `
             <div class="flex items-start justify-start intro-y">
                 <span class="material-symbols-outlined text-17 mr-2 text-default"> admin_panel_settings </span>
-                <a href="/app/core/role/?app=core&page=info&content_type=Role&doc=${data?.id}" class="hover:text-default">${data.name}</a>
+                <a href="/app/core/role/?loc=core&type=info&document=Role&doc=${data?.id}" class="hover:text-default">${data.name}</a>
             </div>
         `
     }
@@ -35,7 +35,7 @@ export default class Core_HTML_Generator{
         return `
             <div class="flex items-start justify-start intro-y">
                 <span class="material-symbols-outlined text-17 mr-2 text-orange-500"> hub </span>
-                <a href="/app/core/workflow/?app=core&page=info&content_type=Workflow&doc=${data?.id}" class="hover:text-orange-500">${lite.utils.replace_chars(data.name,"_"," ")}</a>
+                <a href="/app/core/workflow/?loc=core&type=info&document=Workflow&doc=${data?.id}" class="hover:text-orange-500">${lite.utils.replace_chars(data.name,"_"," ")}</a>
             </div>
         `
     }
@@ -44,7 +44,7 @@ export default class Core_HTML_Generator{
         return `
             <div class="flex items-start justify-start intro-y">
                 <span class="material-symbols-outlined text-17 mr-2 text-default"> publish </span>
-                <a href="/app/core/data_importation/?app=data_importation&page=info&content_type=data%20importation&doc=${data?.id}" class="hover:text-default">${data.name}</a>
+                <a href="/app/core/data_importation/?loc=data_importation&type=info&document=data%20importation&doc=${data?.id}" class="hover:text-default">${data.name}</a>
             </div>
         `
     }
@@ -53,7 +53,7 @@ export default class Core_HTML_Generator{
         return `
             <div class="flex items-start justify-start overflow-hidden intro-y">
                 <span class="material-symbols-outlined text-17 mr-2 text-default"> signature </span>
-                <a href="/app/core/series/?app=series&page=info&content_type=Series&doc=${data?.id}" class="hover:text-default overflow-ellipsis truncate">${data.name_format}</a>
+                <a href="/app/core/series/?loc=series&type=info&document=Series&doc=${data?.id}" class="hover:text-default overflow-ellipsis truncate">${data.name_format}</a>
             </div>
         `
     }
@@ -248,7 +248,7 @@ export default class Core_HTML_Generator{
                     </div>
                     <button class="flex items-center justify-center h-[25px] w-[70px] rounded-md btn">
                         <span class="material-symbols-outlined mr-2 text-purple-700"> open_in_new </span>
-                        <a href="/app/core/user/?app=core&page=info&content_type=User&doc=${u.id}" class="text-11">View</a>
+                        <a href="/app/core/user/?loc=core&type=info&document=User&doc=${u.id}" class="text-11">View</a>
                     </button>
                 </div>
             </div>
@@ -414,7 +414,7 @@ export default class Core_HTML_Generator{
     // data importation
     create_recent_data_importation_row(i){
         return `
-            <a href="/app/core/data_importation/?app=data_importation&page=info&content_type=data%20importation&doc=${i.id}" class="w-full flex items-center justify-between h-[50px] border-b intro-x hover:text-default">
+            <a href="/app/core/data_importation/?loc=data_importation&type=info&document=data%20importation&doc=${i.id}" class="w-full flex items-center justify-between h-[50px] border-b intro-x hover:text-default">
                 <div class="flex items-center justify-start">
                     <div class="flex items-center justify-start truncate overflow-ellipsis">
                         <span class="material-symbols-outlined text-17 flex items-center justify-center rounded-md bg-indigo-100 mr-2 p-1 rounded-full"> publish </span>

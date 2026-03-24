@@ -1,32 +1,62 @@
-<div class="w-full m-auto h-full onboarding-stage hidden" stage="1">
+<div class="w-full bg-slate-950 m-auto h-full onboarding-stage hidden" stage="1">
     
     <div class="w-full flex items-center justify-between">
         <div class="w-50 intro-y">
             <h1 class="text-35 font-bold intro-y">HELLO <span class="user-names"></span>!</h1>
         </div>
         <div class="intro-y">
-            <img src="/static/images/others/welcome.svg" alt="" class="w-[200px] h-[150px]">
+            <img src="/static/images/varyon.png" alt="" class="w-[200px] h-[150px]">
         </div>
     </div>
-    <div class="mt-10">
-        <div class="w-full intro-y">
-            <h3 class="font-bold mb-3 intro-y">Welcome to Examinations Council HRMIS!</h3>
-        </div>
-        <div class="intro-y">
-            We are excited to have you on board! <br> Our comprehensive HRMIS system is designed to streamline and optimize Councils HR operations. <br>
-            With HRMIS Solution, 
-            you'll have access to a suite of Roles that cater to various aspects of our organization HR facilities. <br>
-            Let's take a brief tour of our HR Facilities:
-        </div>
+    <div class="mt-3">
+        <div class="w-full max-w-full grid md:grid-cols-2 gap-8 items-center px-6">
 
-        <div class="intro-y w-full">
-            With HRMIS, you'll enjoy a seamless and integrated experience across all HR Facilities, enabling you to an automated experience in the FLow of operations. <br><br>
-            Explore our HR Facilities, and discover how HRMIS can transform and automate our operations!
-        </div>
-        <div class="intro-y w-full">
-            <h3 class="font-bold text-30 mt-10">
-                Click Next to go to the next stage
-            </h3>
+            <!-- Left Content -->
+            <div class="space-y-6">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                    Welcome to <span class="text-indigo-400">Varyon HRMIS</span>
+                </h1>
+
+                <p class="text-gray-400 text-lg">
+                    HRMIS is to improve efficiency, accuracy, and decision-making by providing real-time access to employee information. It reduces manual paperwork, minimizes errors, and enhances communication between HR departments and employees.
+                </p>
+
+                <div class="flex items-center gap-4">
+                    <button action="next" class="onboarding-action-btn px-6 py-3 bg-indigo-500 hover:bg-indigo-600 transition rounded-xl font-semibold shadow-lg">
+                        Get Started
+                    </button>
+
+                    <a href="/" class="px-6 py-3 border border-gray-700 hover:border-gray-500 transition rounded-xl">
+                        Learn More
+                    </a>
+                </div>
+
+                <!-- Indicators -->
+                <div class="flex gap-2 pt-4">
+                    <span class="w-3 h-3 bg-indigo-500 rounded-full"></span>
+                    <span class="w-3 h-3 bg-gray-700 rounded-full"></span>
+                    <span class="w-3 h-3 bg-gray-700 rounded-full"></span>
+                </div>
+            </div>
+
+            <!-- Right Card -->
+            <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-600 blur-3xl opacity-30 rounded-3xl"></div>
+
+                <div class="relative bg-gray-900 border border-gray-800 rounded-3xl p-6 shadow-2xl backdrop-blur">
+                    <img 
+                        src="/static/images/hr_login.webp" 
+                        alt="App preview"
+                        class="rounded-xl mb-4"
+                    />
+
+                    <h3 class="text-xl font-semibold mb-2">Stay Organized</h3>
+                    <p class="text-gray-400 text-sm">
+                        Track your processes, manage Human Resource, and Payroll with ease in one powerful platform.
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

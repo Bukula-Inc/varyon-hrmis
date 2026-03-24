@@ -31,7 +31,7 @@ export default class Accounting_HTML_Generator{
         lite.utils.add_empty_component({$wrapper: $wrapper, text:"No Banks Found.",classnames:"h-full mt-5"})
         $wrapper.append(`
             <div class="flex items-center justify-center flex-col mt-5">
-                <a href="/app/accounting/banking/?app=banking&page=new-form&content_type=Bank%20Account" class="border border-indigo-300 px-2 py-1 rounded-md text-12 flex items-center justify-center btn">
+                <a href="/app/accounting/banking/?loc=banking&type=new&document=Bank%20Account" class="border border-indigo-300 px-2 py-1 rounded-md text-12 flex items-center justify-center btn">
                     New Bank Account 
                     <span class="material-symbols-outlined ml-2"> east </span>
                 </a>
@@ -151,7 +151,7 @@ export default class Accounting_HTML_Generator{
     generate_bank_details(bank){
         return `
             <div class="w-full flex items-center justify-between border rounded-md border-gray-150 p-2 my-1 intro-x hover:bg-gray-100 transition duration-1000">
-                <a href="/app/accounting/banking/?app=banking&page=info&content_type=Bank%20Account&doc=${bank.id}" bank-id="${bank.id}" class="flex w-full cursor-pointer items-center justify-start">
+                <a href="/app/accounting/banking/?loc=banking&type=info&document=Bank%20Account&doc=${bank.id}" bank-id="${bank.id}" class="flex w-full cursor-pointer items-center justify-start">
                     <div class="rounded-full border border-secondary_color/50 border w-[30px] h-[30px] flex items-center justify-center">
                     ${
                         bank.logo ? `<img src="${bank.logo}" class="w-full h-full rounded-full object-cover" alt="">` :
@@ -257,7 +257,7 @@ export default class Accounting_HTML_Generator{
     // ===========================================================TRADING HTMLS =========================================
     create_top_customer_card(data, currency, classnames){
         return `
-                <a href="/app/accounting/trading/?app=trading&page=info&content_type=customer&doc=${data.customer}" class="w-full transition duration-1000 hover:scale-[1.1] mb-1 flex items-start justify-start ${classnames || "bg-gray-100"}  p-1 rounded-md">
+                <a href="/app/accounting/trading/?loc=trading&type=info&document=customer&doc=${data.customer}" class="w-full transition duration-1000 hover:scale-[1.1] mb-1 flex items-start justify-start ${classnames || "bg-gray-100"}  p-1 rounded-md">
                 <div class="flex items-center justify-center rounded-full bg-gray-200 border border-default w-[30px] h-[30px]">
                     <img src="/media/defaults/avatas/dp.jpeg" class="w-full h-full rounded-full object-cover object-top" alt="">
                 </div>
@@ -270,7 +270,7 @@ export default class Accounting_HTML_Generator{
     }
     create_new_customer_card(data){
         return `
-            <a href="/app/accounting/trading/?app=trading&page=info&content_type=Customer&doc=${data?.id}" class="w-[40px] h-[40px] rounded-full border p-[0.5px] new-trader shadow-darker cursor-pointer">
+            <a href="/app/accounting/trading/?loc=trading&type=info&document=Customer&doc=${data?.id}" class="w-[40px] h-[40px] rounded-full border p-[0.5px] new-trader shadow-darker cursor-pointer">
                 <img src="${data?.customer_logo || "/media/defaults/avatas/dp.jpeg"}" alt="" class="w-full h-full object-cover rounded-full">
             </a>
         `
@@ -286,7 +286,7 @@ export default class Accounting_HTML_Generator{
 
     create_top_supplier_card(data,currency, classnames){
         return `
-                <a href="/app/accounting/trading/?app=trading&page=info&content_type=supplier&doc=${data.supplier}" class="w-full transition duration-1000 hover:scale-[1.1] mb-1 flex items-start justify-start ${classnames || "bg-gray-100"}  p-1 rounded-md">
+                <a href="/app/accounting/trading/?loc=trading&type=info&document=supplier&doc=${data.supplier}" class="w-full transition duration-1000 hover:scale-[1.1] mb-1 flex items-start justify-start ${classnames || "bg-gray-100"}  p-1 rounded-md">
                 <div class="flex items-center justify-center rounded-full bg-gray-200 border border-default w-[30px] h-[30px]">
                     <img src="/media/defaults/avatas/dp.jpeg" class="w-full h-full rounded-full object-cover object-top" alt="">
                 </div>
@@ -299,7 +299,7 @@ export default class Accounting_HTML_Generator{
     }
     create_new_supplier_card(data){
         return `
-            <a href="/app/accounting/trading/?app=trading&page=info&content_type=supplier&doc=${data?.id}" class="w-[40px] h-[40px] rounded-full border p-[0.5px] new-trader shadow-darker cursor-pointer">
+            <a href="/app/accounting/trading/?loc=trading&type=info&document=supplier&doc=${data?.id}" class="w-[40px] h-[40px] rounded-full border p-[0.5px] new-trader shadow-darker cursor-pointer">
                 <img src="${data?.supplier_logo || "/media/defaults/avatas/dp.jpeg"}" alt="" class="w-full h-full object-cover rounded-full">
             </a>
         `
@@ -317,7 +317,7 @@ export default class Accounting_HTML_Generator{
     // RECEIVABLES AND PAYABLES DASHBOARD
     create_receivable_top_customer_card(data,currency){
         return `
-            <a href="/app/accounting/trading/?app=trading&page=info&content_type=customer&doc=${data.customer}" class="intro-y w-full flex items-center justify-start bg-gray-100 border border-dotted border-gray-300 p-1 rounded-md transition duration-1000 hover:bg-gray-300">
+            <a href="/app/accounting/trading/?loc=trading&type=info&document=customer&doc=${data.customer}" class="intro-y w-full flex items-center justify-start bg-gray-100 border border-dotted border-gray-300 p-1 rounded-md transition duration-1000 hover:bg-gray-300">
                 <div class="flex items-center justify-center rounded-full bg-gray-200 border border-default w-[30px] h-[30px]">
                     <img src="/media/defaults/avatas/dp.jpeg" class="w-full h-full rounded-full object-cover object-top" alt="">
                 </div>
@@ -331,7 +331,7 @@ export default class Accounting_HTML_Generator{
     
     create_receivable_top_supplier_card(data,currency){
         return `
-            <a href="/app/accounting/trading/?app=trading&page=info&content_type=supplier&doc=${data.supplier}" class="intro-y w-full flex items-center justify-start bg-gray-100 border border-dotted border-gray-300 p-1 rounded-md transition duration-1000 hover:bg-gray-300">
+            <a href="/app/accounting/trading/?loc=trading&type=info&document=supplier&doc=${data.supplier}" class="intro-y w-full flex items-center justify-start bg-gray-100 border border-dotted border-gray-300 p-1 rounded-md transition duration-1000 hover:bg-gray-300">
                 <div class="flex items-center justify-center rounded-full bg-gray-200 border border-default w-[30px] h-[30px]">
                     <img src="/media/defaults/avatas/dp.jpeg" class="w-full h-full rounded-full object-cover object-top" alt="">
                 </div>
@@ -345,7 +345,7 @@ export default class Accounting_HTML_Generator{
 
     create_invoice_due_in_7_days_card(invoice){
         return `
-            <a href="/app/accounting/receivables/?app=receivables&page=info&content_type=tax%20invoice&doc=${invoice.name}" class="intro-y w-full flex items-center justify-between">
+            <a href="/app/accounting/receivables/?loc=receivables&type=info&document=tax%20invoice&doc=${invoice.name}" class="intro-y w-full flex items-center justify-between">
                 <div class="flex items-center justify-start">
                     <div class="flex items-center justify-center bg-orange-100 border border-orange-600 rounded-full w-[30px] h-[30px]">
                         <span class="material-symbols-outlined text-18 text-orange-600"> receipt_long </span>

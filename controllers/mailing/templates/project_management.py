@@ -28,7 +28,7 @@ class Project_Management_Templates:
                                 <li class="mb-2">Start Date:  <span class="font-bold text-blue-500">{start_date}</span></li>
                                 <li class="mb-2">End Date:  <span class="font-bold text-blue-500">{end_date}</span></li>
                                 <p class="text-sm mt-4">Task Description:  <span class="text-gray-600">{description}</span></p>
-                                <a href="/app/project_management/project/?app=project&page=list&content_type=project" class="inline-block mt-4 px-4 py-2 border border-blue-500 rounded-md bg-blue-600 text-white">See More</a>
+                                <a href="/app/project_management/project/?loc=project&type=list&document=project" class="inline-block mt-4 px-4 py-2 border border-blue-500 rounded-md bg-blue-600 text-white">See More</a>
                             </ul>
                         </div>  
                     <div style="width:80%; text-align: center; margin: 0 auto; margin-top: 40px;">
@@ -73,7 +73,7 @@ class Project_Management_Templates:
                                 <li class="mb-2">Start Date:  <span class="font-bold text-blue-500">{start_date}</span></li>
                                 <li class="mb-2">End Date:  <span class="font-bold text-blue-500">{end_date}</span></li>
                                 <p class="text-sm mt-4">Task Description:  <span class="text-gray-600">{description}</span></p>
-                                <a href="/app/project_management/project/?app=project&page=list&content_type=project" class="inline-block mt-4 px-4 py-2 border border-blue-500 rounded-md bg-blue-600 text-white">See More</a>
+                                <a href="/app/project_management/project/?loc=project&type=list&document=project" class="inline-block mt-4 px-4 py-2 border border-blue-500 rounded-md bg-blue-600 text-white">See More</a>
                             </ul>
                         </div>  
                     <div style="width:80%; text-align: center; margin: 0 auto; margin-top: 40px;">
@@ -115,7 +115,7 @@ class Project_Management_Templates:
                     </ul>
                     <div>
                         <li>
-                            <a href="/app/project_management/project_task/?app=project_task&page=list&content_type=project task" style="display: inline-block; padding: 0.5rem 1rem; margin-top: 1rem; color: #000000; background-color: #3B82F6; border-radius: 0.375rem; text-align: center; text-decoration: none; transition: background-color 0.3s ease;">Confirm The Review Schedule</a>
+                            <a href="/app/project_management/project_task/?loc=project_task&type=list&document=project task" style="display: inline-block; padding: 0.5rem 1rem; margin-top: 1rem; color: #000000; background-color: #3B82F6; border-radius: 0.375rem; text-align: center; text-decoration: none; transition: background-color 0.3s ease;">Confirm The Review Schedule</a>
                         </li>
                     </div>                    
                 </div>
@@ -154,7 +154,7 @@ class Project_Management_Templates:
                                 <li class="mb-2">Start Date:  <span class="font-bold text-blue-500">{start_date}</span></li>
                                 <li class="mb-2">End Date:  <span class="font-bold text-blue-500">{end_date}</span></li>
                                 <p class="text-sm mt-4">Task Description:  <span class="text-gray-600">{description}</span></p>
-                                <a href="/app/project_management/project_task/?app=project_task&page=list&content_type=project task" class="inline-block mt-4 px-4 py-2 border border-blue-500 rounded-md bg-blue-600 text-white">See More</a>
+                                <a href="/app/project_management/project_task/?loc=project_task&type=list&document=project task" class="inline-block mt-4 px-4 py-2 border border-blue-500 rounded-md bg-blue-600 text-white">See More</a>
                             </ul>
                         </div>  
                     <div style="width:80%; text-align: center; margin: 0 auto; margin-top: 40px;">
@@ -199,7 +199,7 @@ class Project_Management_Templates:
                                 <li class="mb-2">Start Date: <span class="font-bold text-blue-500">{start_date}</span></li>
                                 <li class="mb-2">End Date: <span class="font-bold text-blue-500">{end_date}</span></li>
                                 <p class="text-sm mt-4">Task Description: <span class="text-gray-600">{description}</span></p>
-                                <a href="/app/project_management/project_task/?app=project_task&page=list&content_type=project task" class="inline-block mt-4 px-4 py-2 border border-blue-500 rounded-md bg-blue-600 text-white">See More</a>
+                                <a href="/app/project_management/project_task/?loc=project_task&type=list&document=project task" class="inline-block mt-4 px-4 py-2 border border-blue-500 rounded-md bg-blue-600 text-white">See More</a>
                             </ul>
                         </div>                        
                     <div style="width:80%; text-align: center; margin: 0 auto; margin-top: 40px;">

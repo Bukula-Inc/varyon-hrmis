@@ -16,7 +16,7 @@ export default class Nav_HTML_Generator{
     create_search_Result_card(card){
         const colour = lite.color_codes[Math.floor(Math.random() * (lite.color_codes.length-1))]
         return `
-            <a href="/app/${card?.module}/${card?.app}?app=${card?.app}&module=accounting&page=${card?.page_type}&content_type=${card?.content_type}" 
+            <a href="/app/${card?.module}/${card?.app}?loc=${card?.app}&module=accounting&type=${card?.page_type}&document=${card?.document}" 
                 module="${lite.utils.lower_case(card.module)}" content-type="${lite.utils.lower_case(card.title)}" 
                 class="search-item rounded-md intro-x flex items-center text-13 bg-[${colour.base}] hover:bg-[${colour.base}] transition duration-300 py-1 h-max-content max-h-[40px]">
                 <div class="ml-3 truncate flex items-start justify-start truncate overflow-ellipsis">

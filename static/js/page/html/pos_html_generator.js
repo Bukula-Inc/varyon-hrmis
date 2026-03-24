@@ -278,7 +278,7 @@ export default class POS_HTML_Generator{
                 item.child_items.forEach((child) => {
                     html_sub_card_items += `
                         <div class="w-[98%] mb-1 ml-1 flex items-center justify-between">
-                            <a href="/app/${child.module}/${child.app_name}?app=${child.app_name}&page=${child.page_type}&content_type=${child.content_type}" class="navigation-link flex items-center text-gray-800 justify-start transition duration-100 hover:translate-x-[-5px] h-[30px] hover:text-default">
+                            <a href="/app/${child.module}/${child.app_name}?loc=${child.app_name}&type=${child.page_type}&document=${child.document}" class="navigation-link flex items-center text-gray-800 justify-start transition duration-100 hover:translate-x-[-5px] h-[30px] hover:text-default">
                                 <span class="material-symbols-outlined text-[#720ecf] mr-1 text-20 .material-symbols-outlined-hidden">${child.icon}</span>
                                 ${child.title}
                             </a>
@@ -292,7 +292,7 @@ export default class POS_HTML_Generator{
             html_card_items += `
                 <div class="navigation-wrapper w-full mb-1 flex items-center justify-start flex-col">
                     <div class="w-[98%] mb-1 ml-1 flex items-center justify-between">
-                        <a href="/app/${item.module}/${item.app}?app=${item.app}&page=${item.page_type}&content_type=${item.content_type}" class="navigation-link flex items-center text-gray-800 justify-start transition duration-100 hover:translate-x-[-5px] h-[30px] hover:text-default">
+                        <a href="/app/${item.module}/${item.app}?loc=${item.app}&type=${item.page_type}&document=${item.document}" class="navigation-link flex items-center text-gray-800 justify-start transition duration-100 hover:translate-x-[-5px] h-[30px] hover:text-default">
                             <span class="material-symbols-outlined text-[#720ecf] mr-1 text-20 .material-symbols-outlined-hidden">${item.icon}</span>
                             ${item.title} 
                         </a>

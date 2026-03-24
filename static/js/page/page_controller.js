@@ -40,6 +40,7 @@ class Page_Controller {
         this.page_description = $('.page-description')
         this.page_actions_wrapper = $('.page-actions-wrapper')
         this.actions_group = $('.actions-group')
+        this.new_create_btn = $ (".list-view-content-create-new-btn")
         // buttons to initialize
         this.content_type_action = $('.content-type-action')
         this.content_type_action_select = $('select.lite-selector[action-type="multi-content-toggler"]')
@@ -89,7 +90,7 @@ class Page_Controller {
 
     init_page_session() {
         lite.session.set_session("listview_status", null)
-        let session_data = this.session.get_page_session()
+        let session_data = this.session.get_type_session()
         const url_parameters = this.utils.get_url_parameters()
         session_data.module = this.utils.get_current_module()
         if (!this.utils.is_empty_object(url_parameters)) {
@@ -97,7 +98,7 @@ class Page_Controller {
                 session_data[key] = url_parameters[key]
             });
         }
-        this.session.set_session("page", session_data)
+        this.session.set_session("type", session_data)
     }
 
     // handle page loading
@@ -181,12 +182,12 @@ class Page_Controller {
     // update breadcrumbs
     update_breadcrumb() {
         this.breadcrumb.empty()
-        const page = this.session.get_page_session()
-        if (page.module) {
-            this.breadcrumb.append(this.nav.create_breadcrumb(this.utils.capitalize(page.module), '', true))
+        const current = this.session.get_type_session()
+        if (current.module) {
+            this.breadcrumb.append(this.nav.create_breadcrumb(this.utils.capitalize(current.module), '', true))
         }
-        if (page.content_type) {
-            this.breadcrumb.append(this.nav.create_breadcrumb(this.utils.capitalize(page.content_type), '', true))
+        if (current.document) {
+            this.breadcrumb.append(this.nav.create_breadcrumb(this.utils.capitalize(current.document), '', true))
         }
     }
 
@@ -212,7 +213,7 @@ class Page_Controller {
         this.update_breadcrumb()
         this.content_type_title.click(function (e) {
             e.preventDefault()
-            cls.utils.update_url_parameters({ page: 'list' })
+            cls.utils.update_url_parameters({ type: 'list' })
             cls.init_page_url_changed()
         })
     }
@@ -241,17 +242,17 @@ class Page_Controller {
     // initialize page url change listener
     init_page_url_changed() {
         let url_params = this.utils.get_url_parameters()
-        if (this.utils.has_key(url_params, 'page') && this.utils.has_key(url_params, 'app') && this.utils.has_key(url_params, 'content_type')) {
+        if (this.utils.has_key(url_params, 'type') && this.utils.has_key(url_params, 'loc') && this.utils.has_key(url_params, 'document')) {
             url_params.module = this.utils.get_current_module()
-            this.session.update_session('page', url_params)
+            this.session.update_session('type', url_params)
         }
         else {
-            const app = this.utils.lower_case(this.utils.get_current_app())
-            if (app?.includes('dashboard')) {
+            const loc = this.utils.lower_case(this.utils.get_current_loc())
+            if (loc?.includes('dashboard')) {
                 const dashboard = this?.nav?.routes[0]
                 if (dashboard && dashboard?.routes && !this.utils.is_empty_object(dashboard?.routes)) {
                     const db = dashboard?.routes[0]
-                    const url = { app: db.app, page: db.page, content_type: db.content_type, module: db.module }
+                    const url = { loc: db.loc, type: db.type, document: db.document, module: db.module }
                     this.utils.update_url_parameters(url)
                     this.init_page_url_changed()
                 }
@@ -262,16 +263,17 @@ class Page_Controller {
     }
 
     update_ui() {
-        const page = this.session.get_page_session()
+        const current = this.session.get_type_session()
         this.hide_content(this.content_group)
-        switch (page.page) {
+        switch (current.type) {
             case 'list':
                 this.show_content(this.list_view_content)
+                // this.show_content (this.new_create_btn)
                 break;
             case 'info':
                 this.show_content(this.info_view_content)
                 break;
-            case 'new-form':
+            case 'new':
                 this.show_content(this.new_form_view_content)
                 break;
             case 'dashboard':
@@ -304,7 +306,7 @@ class Page_Controller {
         this.update_title_content()
         this.update_content_type_action()
         this.handle_multi_content_structures()
-        if (page.page === 'info' || page.page === 'new-form') {
+        if (current.type === 'info' || current.type === 'new') {
             this.form_controller = new Form_Controller({
                 page_controller: this,
                 session: this.session,
@@ -315,7 +317,7 @@ class Page_Controller {
             })
             this.form_controller?.init_form()
         }
-        else if (page.page === 'list') {
+        else if (current.type === 'list') {
             if(!lite.session.get_session("listview_status")){
                 this.listview_controller?.init_listview()
                 lite.session.set_session("listview_status", "loaded")
@@ -333,9 +335,9 @@ class Page_Controller {
 
     handle_multi_content_structures() {
         if (this.multi_content_group?.length) {
-            const content_type = this.session.get_page_session()?.content_type?.toLowerCase()?.trim()
+            const document = this.session.get_type_session()?.document?.toLowerCase()?.trim()
             this.hide_content(this.multi_content_group)
-            const to_show = this.utils.get_elements_by_attribute(this.multi_content_group, 'for', content_type)
+            const to_show = this.utils.get_elements_by_attribute(this.multi_content_group, 'for', document)
             this.show_content(to_show)
         }
     }
@@ -344,37 +346,37 @@ class Page_Controller {
 
     // initialize page title content
     update_title_content() {
-        const page = this.session.get_page_session()
+        const current = this.session.get_type_session()
         this.hide_content(this.doc_status_wrapper)
-        switch (page.page) {
+        switch (current.type) {
             case 'list':
                 this.hide_content(this.module_name_title)
                 this.hide_content(this.app_name_title)
                 this.hide_content(this.doc_name_title)
-                this.content_type_title.text(this.utils.capitalize(page.content_type || page.app))
+                this.content_type_title.text(this.utils.capitalize(current.document || current.loc))
                 break;
             case 'report':
                 this.hide_content(this.module_name_title)
                 this.hide_content(this.app_name_title)
                 this.hide_content(this.doc_name_title)
-                this.content_type_title.text(this.utils.capitalize(page.content_type || page.app))
+                this.content_type_title.text(this.utils.capitalize(current.document || current.loc))
                 break;
             case 'info':
                 this.hide_content(this.module_name_title)
                 this.show_content(this.content_type_title)
-                this.content_type_title.html(this.utils.capitalize(page.content_type))
+                this.content_type_title.html(this.utils.capitalize(current.document))
                 break;
-            case 'new-form':
+            case 'new':
                 this.hide_content(this.module_name_title)
                 this.show_content(this.content_type_title)
                 // this.show_content(this.doc_name_title)
-                this.content_type_title.html(this.utils.capitalize(page.content_type))
+                this.content_type_title.html(this.utils.capitalize(current.document))
                 // this.doc_name_title.html(`${this.nav.create_chevron()} New ${this.utils.capitalize(page.content_type || page.app)}`)
                 // 
                 break;
             case 'dashboard':
                 this.show_content(this.content_type_title)
-                this.content_type_title.html(page.content_type)
+                this.content_type_title.html(current.document)
                 break;
             default:
                 break;
@@ -395,9 +397,9 @@ class Page_Controller {
     }
 
     update_content_type_action() {
-        const content_type = this.utils.capitalize(this.session.get_page_session().content_type)
-        if (content_type && content_type !== 0) {
-            this.content_type_action_select.siblings('.plugin-dropdown_input.content-type-action').find('.item').text(content_type).attr('data-value', content_type)
+        const document = this.utils.capitalize(this.session.get_type_session().document)
+        if (document && document !== 0) {
+            this.content_type_action_select.siblings('.plugin-dropdown_input.content-type-action').find('.item').text(document).attr('data-value', document)
         }
     }
 
@@ -410,8 +412,8 @@ class Page_Controller {
     init_page_content_type_change_listener(data, cls) {
         const action_type = lite.utils.has_key(data, 'action-type') ? data['action-type'] : null
         if (action_type && action_type === 'multi-content-toggler') {
-            if (data.value && lite.utils.lower_case(data.value) !== lite.utils.lower_case(lite.utils.get_url_parameters("content_type"))) {
-                lite.utils.update_url_parameters({ content_type: data.value })
+            if (data.value && lite.utils.lower_case(data.value) !== lite.utils.lower_case(lite.utils.get_url_parameters("document"))) {
+                lite.utils.update_url_parameters({ document: data.value })
                 cls.init_page_url_changed()
             }
         }
@@ -444,7 +446,7 @@ class Page_Controller {
         // on new creation.
         this.new_action_btn.click(function (e) {
             e.preventDefault()
-            cls.utils.update_url_parameters({ page: "new-form" })
+            cls.utils.update_url_parameters({ type: "new" })
             // cls.utils.remove_url_parameters(["doc"])
             cls.init_page_url_changed()
         })
@@ -452,7 +454,7 @@ class Page_Controller {
         // on new creation.
         this.info_view_action_btn.click(function (e) {
             e.preventDefault()
-            cls.utils.update_url_parameters({ page: "info" })
+            cls.utils.update_url_parameters({ type: "info" })
             cls.init_page_url_changed()
         })
     }
@@ -466,7 +468,7 @@ class Page_Controller {
             const doc = cls.utils.get_attribute(this, 'data-id')
             if (doc) {
                 cls.utils.update_url_parameters({
-                    page: 'info',
+                    type: 'info',
                     doc: doc
                 })
                 cls.init_page_url_changed()

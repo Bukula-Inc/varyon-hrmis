@@ -245,7 +245,7 @@ export default class Welcome{
                         $('.allowed-features-list').append(`<div class="col-span-4 intro-y border-b font-semibold my-5 border-b-[${random_color.inner}] text-[${random_color.inner}]">${key}</div>`)
                     }
                     $('.allowed-features-list').append(`
-                        <a target="__blank" href="/app/${feature.module}/${feature.app}?module=${feature.module}&app=${feature.app}&page=${feature.page_type}&content_type=${feature.content_type}" class="w-full h-full bg-[${random_color.base}] rounded-md p-1 min-h-[40px] flex items-center justify-start border border-[${random_color.inner}] intro-y">
+                        <a target="__blank" href="/app/${feature.module}/${feature.app}?module=${feature.module}&loc=${feature.app}&type=${feature.page_type}&document=${feature.document}" class="w-full h-full bg-[${random_color.base}] rounded-md p-1 min-h-[40px] flex items-center justify-start border border-[${random_color.inner}] intro-y">
                             <span class="material-symbols-outlined text-17 ml-2"> ${feature.icon} </span>
                             <div class="flex flex-col ml-2">
                                 <span class="font-semibold text-11">${feature.title}</span>

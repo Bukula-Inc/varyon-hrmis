@@ -6,7 +6,7 @@ export default class Portal_HTML_Generator{
 
     create_client_menu(config){
         return `
-            <a href="/portal/${config.app}?module=portal&app=${config.app}&page=${config.page}&content_type=${config.content_type}" class="client-menu ${this.app === config.app ? "bg-default text-theme_text_color" : ""} w-full flex items-center justify-start h-[50px] intro-x  transition duration-1000 hover:bg-default/30 hover:text-black hover:translate-x-[4%] rounded-md px-2">
+            <a href="/portal/${config.app}?module=portal&loc=${config.app}&type=${config.page}&document=${config.document}" class="client-menu ${this.app === config.app ? "bg-default text-theme_text_color" : ""} w-full flex items-center justify-start h-[50px] intro-x  transition duration-1000 hover:bg-default/30 hover:text-black hover:translate-x-[4%] rounded-md px-2">
                 <span class="material-symbols-outlined text-15"> ${config.icon} </span>
                 <span class="ml-2 text-13">${config.title}</span>
             </a>
@@ -94,7 +94,7 @@ export default class Portal_HTML_Generator{
     // dashboard
     create_dashboard_ticket_history_card(history){
         return `
-            <a href="/portal/client_ticket?module=portal&app=client_ticket&page=new-form&content_type=Ticket" class="flex items-start justify-between border-b h-[50px] w-full py-3 intro-y">
+            <a href="/portal/client_ticket?module=portal&loc=client_ticket&type=new&document=Ticket" class="flex items-start justify-between border-b h-[50px] w-full py-3 intro-y">
                 <div class="flex items-start justify-start">
                     <span class="material-symbols-outlined text-12 mr-1 mt-1"> local_activity </span>
                     <div class="flex flex-col">

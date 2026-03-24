@@ -39,7 +39,7 @@ class User_Controller:
                     dash= dashboard.data
                     data = {
                         "dashboard": dash.name, 
-                        "url": f"/app/{dash.module}/{dash.app_name}?app={dash.app_name}&module={dash.module}&page={dash.page_type}&content_type={dash.content_type}",
+                        "url": f"/app/{dash.module}/{dash.app_name}?loc={dash.app_name}&module={dash.module}&type={dash.page_type}&document={dash.content_type}",
                         "module": dash.module
                     }
                     return utils.respond( utils.ok, data)
@@ -88,7 +88,7 @@ class User_Controller:
                                 "id":dbd.id,
                                 "idx": dbd.idx,
                                 "title":dbd.name,
-                                "url": f"{value.linked_fields.role_module.url}/{dbd.app_name}?app={dbd.app_name}&module={dbd.module}&page={dbd.page_type}&content_type={dbd.content_type}",
+                                "url": f"{value.linked_fields.role_module.url}/{dbd.app_name}?loc={dbd.app_name}&module={dbd.module}&type={dbd.page_type}&document={dbd.content_type}",
                                 # "module": dbd.module,
                                 "module": value.linked_fields.role_module.name,
                                 "app": dbd.app_name,

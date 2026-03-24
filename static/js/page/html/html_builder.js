@@ -1809,8 +1809,8 @@ export default class HTML_Builder {
                 ` : ""
             }
             <div class="dropdown min-w-1/2 sm:w-auto" style="position: relative; ">
-                <button class="dropdown-toggle w-full btn sm:w-auto bg-white border ml-2 h-[47px]" aria-expanded="false" data-tw-toggle="dropdown">
-                    <span class="material-symbols-outlined text-25 text-default"> more_vert </span>
+                <button class="dropdown-toggle w-full btn sm:w-auto bg-default text-secondary_color transition-all hover:bg-secondary_color hover:text-white hover:border-default border-2 rounded-full border ml-2 h-[47px]" aria-expanded="false" data-tw-toggle="dropdown">
+                    <span class="material-symbols-outlined text-25"> more_vert </span>
                 </button>
                 <div class="dropdown-menu w-[max-content]" id="_hjlc5luf1" data-popper-placement="bottom-end"
                     style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(-0.5px, 38px, 0px);">

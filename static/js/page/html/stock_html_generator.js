@@ -9,7 +9,7 @@ export default class Dynamic_Stock_Html {
             if (_ < 5) {
                 card += `
                     <div class="w-full">
-                        <a href="/app/stock/items/?app=items&page=info&content_type=items&doc=${trend.item_name}" class="block w-full hover:bg-slate-400/5">
+                        <a href="/app/stock/items/?loc=items&type=info&document=items&doc=${trend.item_name}" class="block w-full hover:bg-slate-400/5">
                             <div class="w-full h-full flex items-center justify-between border-b py-3">
                                 <div class="flex items-center justify-start">
                                     <div class="ml-4">

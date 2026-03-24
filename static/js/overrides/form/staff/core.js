@@ -13,7 +13,7 @@ export const create_jobapplication = (params) => {
     delete values.description
 
     lite.session.set_session("clone_doc", values)
-    lite.utils.redirect("staff","staff_job_application","new-form","Job_Application")
+    lite.utils.redirect("staff","staff_job_application","new","Job_Application")
 }
 
 export const time_difference = (params)=>{
@@ -52,7 +52,7 @@ export const retire_imprest = (params) => {
     values.currency = values.request_currency
     values.balance = values.balance
     lite.session.set_session("clone_doc", values)
-    lite.utils.redirect("staff","staff_imprest","new-form","Imprest Retirement",null,true)
+    lite.utils.redirect("staff","staff_imprest","new","Imprest Retirement",null,true)
 }
 
 export const recalculate_imprest = async (params) =>{
@@ -145,7 +145,7 @@ export const get_full_name = (params) => {
 
 export const apply_for_training_program = (params) => {
   
-    lite.utils.redirect("staff","scholarship","new-form","scholarship")
+    lite.utils.redirect("staff","scholarship","new","scholarship")
 }
 
 
@@ -160,10 +160,10 @@ export const staff_survey_feedback = async (params) =>{
     console.log(q_tions);
     
    if (q_tions.status = lite.status_codes.ok){
-        if (page === "new-form"){ const survey_queestion = q_tions.data.welfare_questions
+        if (page === "new"){ const survey_queestion = q_tions.data.welfare_questions
             controller.populate_child_table ("question_ans", survey_queestion || [])
         }
-        if (page === "new-form"){ const questionnair = q_tions.data.questionnaire
+        if (page === "new"){ const questionnair = q_tions.data.questionnaire
             controller.populate_child_table ("staff_welfare_questionnair", questionnair || [])
         }
    }

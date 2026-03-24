@@ -3,11 +3,11 @@ export default {
         email: "",
         username: ""
     },
-    page: {
+    type: {
         module: "",
-        app: "",
-        page: "",
-        content_type: ""
+        loc: "",
+        type: "",
+        document: ""
     },
     clone_doc:{},
     navigation_history: [],

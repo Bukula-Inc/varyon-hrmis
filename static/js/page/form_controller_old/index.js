@@ -126,7 +126,7 @@ export default class Form_Controller {
             this.page_type = this.page_session.page
             this.on_quick_form_save = on_quick_form_save
             this.$quick_form_save_btn = $(".modal-action-btn[action='save']")
-            if (this.page_type === 'info' || this.page_type === 'new-form' || is_quick_form) {
+            if (this.page_type === 'info' || this.page_type === 'new-form' ||  this.page_type === 'new' || is_quick_form) {
                 this.doc_data = {}
                 this.doc_name = this.page_session?.doc
                 if (this.content_type) {
@@ -525,13 +525,13 @@ export default class Form_Controller {
         data.values.status = "Active"
         data.values.docstatus = 0
         lite.session.set_session("clone_doc", data.values)
-        cls.page_controller.utils.update_url_parameters({page: "new-form"})
+        cls.page_controller.utils.update_url_parameters({page: "new"})
         cls.page_controller.init_page_url_changed()
     }
 
-    new_form(data) {
+    new(data) {
         const cls = data.form_controller
-        cls.page_controller.utils.update_url_parameters({page: "new-form"})
+        cls.page_controller.utils.update_url_parameters({page: "new"})
         cls.page_controller.init_page_url_changed()
     }
 
@@ -1589,7 +1589,7 @@ export default class Form_Controller {
             this.$form_actions_wrapper?.empty()
         }
         // if the form is new
-        if (this.page_type === 'new-form' && !this.is_quick_form) {
+        if (this.page_type === 'new-form' || this.page_type === 'new' && !this.is_quick_form) {
             this.$form_actions_wrapper.html(this.html_bulder.create_save_button())
             this.$form_actions_wrapper.find(".save-action-btn")?.off("click")?.on("click", e => {
                 e.preventDefault()

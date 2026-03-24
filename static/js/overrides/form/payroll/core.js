@@ -303,8 +303,8 @@ export const on_payroll_load = async (params)=>{
     await lite.core_payroll.calc_payroll_totals(params)
     await lite.core_payroll.addEventListeners (controller)
     
-    // if (controller?.page_type == "new-form" ||( controller.page_type == "info" && lite.form_data.status == "Draft")) {
-    if (controller?.page_type == "new-form" ||( controller.page_type == "info" && lite.form_data.status == "Draft")) {
+    // if (controller?.page_type == "new-form" || controller?.page_type == "new" ||( controller.page_type == "info" && lite.form_data.status == "Draft")) {
+    if (controller?.page_type == "new-form" || controller?.page_type == "new" || controller?.page_type == "new" ||( controller.page_type == "info" && lite.form_data.status == "Draft")) {
         $("#test-payslips").empty ().append (`
             <button id='analyze-payslip' class="flex items-center gap-2 h-[47px] text-16 w-[170px] btn bg-secondary_color text-theme_text_color shadow-md mr-2">
                 <span class="material-symbols-outlined text-20">
@@ -319,7 +319,7 @@ export const on_payroll_load = async (params)=>{
 
         $("#analyze-payslip").off ().on("click", async (e) => {
             $("#analyze-payslip").fadeOut()
-            const $payroll_form = controller?.page_type == "new-form" ? $("#new-payroll-processor") : $ ("#payroll-processor-info")
+            const $payroll_form = controller?.page_type == "new-form" || controller?.page_type == "new" ? $("#new-payroll-processor") : $ ("#payroll-processor-info")
             $payroll_form.addClass('relative')
             
             $payroll_form.addClass("relative").append(`
@@ -1079,7 +1079,7 @@ export const initiate_pre_payroll_payment =async (params)=> {
             sep =save?.data?.emp
             const doc_name =save?.data?.pre_payroll_name
             
-            lite?.utils.redirect("payroll", "payroll_processor", "new-form", "payroll processor", `sep=${sep}&pp=${doc_name}`, )
+            lite?.utils.redirect("payroll", "payroll_processor", "new", "payroll processor", `sep=${sep}&pp=${doc_name}`, )
             
         }else {
             lite.alerts.toast({

@@ -1744,7 +1744,7 @@ export default class HTML_Builder {
                 ` : ""
             }
             <div class="dropdown min-w-1/2 sm:w-auto" style="position: relative; ">
-                <button class="dropdown-toggle w-full btn sm:w-auto bg-white border ml-2 h-[47px]" aria-expanded="false" data-tw-toggle="dropdown">
+                <button class="dropdown-toggle w-full btn sm:w-auto bg-white/40 border ml-2 h-[47px]" aria-expanded="false" data-tw-toggle="dropdown">
                     <span class="material-symbols-outlined text-25 text-default"> more_vert </span>
                 </button>
                 <div class="dropdown-menu w-[max-content]" id="_hjlc5luf1" data-popper-placement="bottom-end"

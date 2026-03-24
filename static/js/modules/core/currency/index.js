@@ -12,7 +12,7 @@ export default class Currency{
         lite.page_controller.on_page_type_change(this.on_page_content_type_changed, this)
     }
     on_page_content_type_changed(data, cls){
-        if(data.content_type === "Currency"){
+        if(data.document === "Currency"){
             lite.page_controller.$main_grid.removeClass("col-span-4").addClass("col-span-3")
             lite.page_controller.$side_grid.removeClass("hidden")
             cls.init_currency_dashboard ()

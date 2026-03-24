@@ -10,9 +10,9 @@ export default class Job_Offer {
         // this.form_controller =undefined
     }
     loadForm () {
-        const content_type = lite.utils.get_url_parameters ("content_type")
-        console.log(content_type);
-        if (content_type == "job_offer_confirmation") {
+        const document = lite.utils.get_url_parameters ("document")
+        console.log(document);
+        if (document == "job_offer_confirmation") {
             this.form_controller = new Form_Controller({
                 page_controller: this,
                 session: this.session,
@@ -50,7 +50,7 @@ export default class Job_Offer {
         //     module: "web",
         //     app: "web",
         //     page: "info",
-        //     content_type: "job_offer_confirmation",
+        //     document: "job_offer_confirmation",
         //     doc: job_offer.id
         // })
 
@@ -117,7 +117,7 @@ export default class Job_Offer {
             module: "web",
             app: "web",
             page: "info",
-            content_type: "job_offer_confirmation",
+            document: "job_offer_confirmation",
             doc: 1,
         })
 

@@ -5,7 +5,7 @@ export default class Smart_Invoice_HTML_Generator{
 
     create_unsubmitted_invoice_row(sn, data){
         return `
-            <a href="/app/smart_invoice/si_receivable?app=si_receivable&page=info&content_type=Tax Invoice&doc=${data?.id}">
+            <a href="/app/smart_invoice/si_receivable?loc=si_receivable&type=info&document=Tax Invoice&doc=${data?.id}">
                 <div class="w-full h-[30px] rounded-t-md grid grid grid-cols-15 gap-x text-11 border-b intro-y">
                     <div class="w-full h-full flex items-center justify-center">${sn}</div>
                     <div class="w-full h-full flex items-center ml-5 justify-start col-span-3 truncate overflow-ellipsis">
@@ -39,7 +39,7 @@ export default class Smart_Invoice_HTML_Generator{
                 cards +=`
                     <div class="w-full flex items-center justify-between border-b border-dotted min-h-[30px]">
                         <div class="flex items-center justify-start py-2">
-                            <a href="/app/smart_invoice/si_receivable?app=si_receivable&page=info&content_type=Customer&doc=${value?.id}" class="flex items-center justify-start">
+                            <a href="/app/smart_invoice/si_receivable?loc=si_receivable&type=info&document=Customer&doc=${value?.id}" class="flex items-center justify-start">
                                 <div class="w-[27px] h-[27px] rounded-md bg-indigo-200  flex items-center justify-center mr-2">
                                     <span class="material-symbols-outlined text-20"> assignment_ind </span>
                                 </div>
@@ -64,7 +64,7 @@ export default class Smart_Invoice_HTML_Generator{
                 cards +=`
                     <div class="w-full flex items-center justify-between border-b border-dotted min-h-[30px]">
                         <div class="flex items-center justify-start py-2">
-                            <a href="/app/smart_invoice/si_item?app=si_item&page=info&content_type=Items&doc=${value?.id}" class="flex items-center justify-start">
+                            <a href="/app/smart_invoice/si_item?loc=si_item&type=info&document=Items&doc=${value?.id}" class="flex items-center justify-start">
                                 <div class="w-[27px] h-[27px] rounded-md bg-purple-200 flex items-center justify-center mr-2">
                                     <span class="material-symbols-outlined text-20"> shopping_bag </span>
                                 </div>

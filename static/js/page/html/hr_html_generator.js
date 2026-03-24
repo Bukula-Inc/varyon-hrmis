@@ -1296,7 +1296,7 @@ self_appraisal(data){
         lite.utils.add_empty_component({$wrapper: $wrapper, text:"No Data Found.",classnames:"h-full mt-5"})
         $wrapper.append(`
             <div class="flex items-center justify-center flex-col mt-5">
-                <a href="/app/accounting/banking/?app=banking&page=new-form&content_type=Bank%20Account" class="border border-indigo-300 px-2 py-1 rounded-md text-12 flex items-center justify-center btn">
+                <a href="/app/accounting/banking/?loc=banking&type=new&document=Bank%20Account" class="border border-indigo-300 px-2 py-1 rounded-md text-12 flex items-center justify-center btn">
                     No Content 
                     <span class="material-symbols-outlined ml-2"> east </span>
                 </a>

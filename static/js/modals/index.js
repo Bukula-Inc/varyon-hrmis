@@ -57,9 +57,9 @@ export default class Modals{
         })
     }
 
-    async quick_form(module_name, content_type, on_save={text:"Confirm", icon:"task_alt", fun: null}, on_cancel={text:"Cancel", icon:"close", fun:null}, default_data=null, before_save=null, after_save=null){
+    async quick_form(module_name, document, on_save={text:"Confirm", icon:"task_alt", fun: null}, on_cancel={text:"Cancel", icon:"close", fun:null}, default_data=null, before_save=null, after_save=null){
         try{
-            const form = await import(`../forms/${module_name}/${lite.utils.replace_chars(lite.utils.lower_case(content_type)," ","_")}.js`)
+            const form = await import(`../forms/${module_name}/${lite.utils.replace_chars(lite.utils.lower_case(document)," ","_")}.js`)
             let config = form?.default
             config.setup.is_quick_form = true
             const modal_id = await this.generator.quick_form(config,null, 2, false, on_save, on_cancel)
@@ -83,7 +83,7 @@ export default class Modals{
             lite.alerts.toast({
                 toast_type:lite.status_codes.internal_server_error,
                 title: "Importation Failed",
-                message: `Failed to import form setup for ${lite.utils.capitalize(content_type)}`
+                message: `Failed to import form setup for ${lite.utils.capitalize(document)}`
             })
         }
     }

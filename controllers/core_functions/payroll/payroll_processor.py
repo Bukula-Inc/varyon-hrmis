@@ -336,7 +336,7 @@ class Process_Payroll:
                         doc=payslip.name
                     )
                     # etry = entry = "app" if md.wrapper_module == "client_app" else "app"
-                    # payslip.doc_url = f"""https://{self.dbms.host}/{etry}/{md.module}/{md.app}?module={md.module}&app={md.app}&page=info&content_type={md.content_type}&doc={doc_name}"""
+                    # payslip.doc_url = f"""https://{self.dbms.host}/{etry}/{md.module}/{md.app}?module={md.module}&loc={md.app}&type=info&document={md.content_type}&doc={doc_name}"""
                     doc_print = core_print.generate_print_doc(skip_validation=True, is_internal_processing=True)
                     pp(doc_print)
                     formatted = payslip.to_date.strftime("%B %Y")

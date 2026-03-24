@@ -41,7 +41,7 @@ export default class Reports {
         this.filter_fields = []
 
         this.configuration = null
-        this.content_type = null
+        this.document = null
         this.filters_setup = []
         this.columns_setup = []
         this.report_column_list = []
@@ -58,8 +58,8 @@ export default class Reports {
         this.report_setup = {...report_content}
         if(report_content){
             this.has_dynamic_columns = this.report_setup?.setup?.has_dynamic_columns
-            const page = lite.utils.get_url_parameters()
-            this.content_type = lite.utils.lower_case(page?.content_type)
+            const current = lite.utils.get_url_parameters()
+            this.document = lite.utils.lower_case(current?.document)
             if (this.#validate_setup()) {
                 this.filters_setup = this.report_setup.filters
                 this.columns_setup = this.report_setup.columns
@@ -102,7 +102,7 @@ export default class Reports {
             this.alerts.toast({
                 toast_type: lite.status_codes.not_found,
                 title: "Not Found",
-                message: `CONFIG NOT FOUND ERROR: ${lite.utils.capitalize(this.content_type)} config not found!`,
+                message: `CONFIG NOT FOUND ERROR: ${lite.utils.capitalize(this.document)} config not found!`,
                 timer: 4000
             })
         }
@@ -398,9 +398,9 @@ export default class Reports {
         
         this.$report_action_option?.click(e => {
             const file_type = lite.utils.get_attribute(e.target, 'for')
-            const page = this.session.get_page_session()
+            const current = this.session.get_type_session()
             if (data && !lite.utils.is_empty_array(data)) {
-                const title = lite.utils.capitalize(page.content_type || page.page) + ` - ${lite.utils.today()}`
+                const title = lite.utils.capitalize(current.document || current.type) + ` - ${lite.utils.today()}`
                 switch (lite.utils.lower_case(file_type)) {
                     case 'csv':
                         lite.utils.export_csv(data, title)

@@ -35,8 +35,8 @@ export default class Careers {
 
     loadForm () {
         return
-        const content_type = lite.utils.get_url_parameters("content_type")
-        if (content_type == "careers") {
+        const document = lite.utils.get_url_parameters("document")
+        if (document == "careers") {
             this.form_controller = new Form_Controller({
                 page_controller: this,
                 session: this.session,
@@ -97,7 +97,7 @@ export default class Careers {
             lite.utils.update_url_parameters ({
                 app: "web",
                 page: "new-form",
-                content_type: "careers",
+                document: "careers",
                 op: opportunity
             })
 

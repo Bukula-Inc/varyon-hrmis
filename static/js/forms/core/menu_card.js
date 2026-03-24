@@ -79,7 +79,7 @@ export default {
             placeholder: "Select Page Type",
             required: true,
             hidden: false,
-            options:["list", "new-form", "info", "dashboard", "report"],
+            options:["list", "new-form", 'new', "info", "dashboard", "report"],
           },
           {
             id: "icon",
@@ -92,9 +92,9 @@ export default {
             hidden: false,
           },
           {
-            id: "content_type",
+            id: "document",
             fieldlabel: "Content Type",
-            fieldname: "content_type",
+            fieldname: "document",
             fieldtype: "text",
             columns: 5,
             placeholder: "Enter Content Type",

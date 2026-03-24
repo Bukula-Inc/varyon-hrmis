@@ -1,5 +1,5 @@
 skills = {
-    "model":"Leave_Type",
+    "model":"Skills",
     "data": [
         {
             "name": "Employee Relations Management",
@@ -21,7 +21,7 @@ skills = {
         },
         {
             "name": "Leadership Development",
-            "skill_qualification": "Qualification",
+            "skill_qualification": "Skill",
             "category": "Leadership & Management Skills",
             "description": "An advanced qualification focused on designing and implementing programs to develop and nurture future leaders within the organization."
         },
@@ -57,7 +57,7 @@ skills = {
         },
         {
             "name": "Organizational Development",
-            "skill_qualification": "Qualification",
+            "skill_qualification": "Skill",
             "category": "Human Resources",
             "description": "A qualification in optimizing organizational structure, processes, and culture to improve overall effectiveness and employee engagement."
         },

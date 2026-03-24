@@ -149,7 +149,7 @@ export default class Dynamic_Help_Desk_Html {
                              <small>Feedback: ${Values.feedback_type || ""}</small>
                         </div>
                     </span>
-                    <a href="/app/crm/customer_feedback/?app=customer_feedback&page=list&content_type=customer feedback">
+                    <a href="/app/crm/customer_feedback/?loc=customer_feedback&type=list&document=customer feedback">
                         <span class="flex items justify-end">
                             <button class="btn flex items-center justify-center btn-sm text-11">
                                 <span class="material-symbols-outlined text-11 mr-1 text-indigo-900">task_alt</span>

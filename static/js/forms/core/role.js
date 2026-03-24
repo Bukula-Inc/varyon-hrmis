@@ -1,7 +1,7 @@
 export default {
     setup: {
-        new_form_id: 'form',
-        info_form_id: 'info',
+        new_form_id: 'form-role',
+        info_form_id: 'role-info',
         title: "Role",
         layout_columns: 6,
         model: "Role"

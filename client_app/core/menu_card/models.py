@@ -8,9 +8,9 @@ def child_items_json():
 class Menu_Card_Item(TableModel):
     title = models.CharField(max_length=255, null=True, default="")
     module = models.CharField(max_length=255, null=True, default="")
-    app = models.CharField(max_length=255, null=True, default="")
-    page_type = models.CharField(max_length=255, null=True, default="")
-    content_type = models.CharField(max_length=255, null=True, default="")
+    loc = models.CharField(max_length=255, null=True, default="")
+    type = models.CharField(max_length=255, null=True, default="")
+    document = models.CharField(max_length=255, null=True, default="")
     child_items = models.JSONField(default=child_items_json, null=True)
     icon = models.TextField(max_length=255, null=True, default="")
     display = models.IntegerField(null=True, default=0)

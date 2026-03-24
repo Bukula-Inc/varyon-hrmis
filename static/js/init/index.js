@@ -31,7 +31,7 @@ export class Global_Action_Inits{
                 const {status, data, error_message} = await lite.connect.core("get_model_path",{"model": model})
                 lite.alerts.destroy_toast(loader_id)
                 if(status === lite.status_codes.ok){
-                    lite.utils.redirect(data.module,data.app,"info",data.content_type,`doc=${value}`,true)
+                    lite.utils.redirect(data.module, data.loc || data.app, "info", data.document || data.content_type, `doc=${value}`, true)
                 }
             }
         });

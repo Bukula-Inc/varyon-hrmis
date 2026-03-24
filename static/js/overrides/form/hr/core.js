@@ -385,7 +385,7 @@ export const on_exit_interview_questionnair = async (params) => {
     const response = await lite.connect.x_post('questions', { name: params.value })  
             
     if (response.status == lite.status_codes.ok) {
-        if (page === "new-form"){const objectives_data = response.data
+        if (page === "new-form" || page === 'new'){const objectives_data = response.data
             controller.populate_child_table ("questions", objectives_data || [])
         }else {
             controller.populate_child_table ("Questions", null)
@@ -402,7 +402,7 @@ export const pull_questiones = async (params) => {
     const response = await lite.connect.x_post('questions', { name: params.value })  
             
     if (response.status == lite.status_codes.ok) {
-        if (page === "new-form"){const objectives_data = response.data
+        if (page === "new-form" || page === 'new'){const objectives_data = response.data
             controller.populate_child_table ("questions", objectives_data || [])
         }
             
@@ -419,7 +419,7 @@ export const create_case_outcome_from_grievance = (params) => {
         type_displineray: "Clean Resolve",
     }
     lite.session.set_session("clone_doc", value)
-    lite.utils.redirect("hr","case_outcome","new-form","case outcome")
+    lite.utils.redirect("hr","case_outcome","new","case outcome")
 }
 export const generate_final_statement = (params) => {
     const values = params.values
@@ -433,7 +433,7 @@ export const generate_final_statement = (params) => {
         transaction_date: lite.utils.today()
     }
     lite.session.set_session("clone_doc", value)
-    lite.utils.redirect("hr","final_statement","new-form","Final Statement")
+    lite.utils.redirect("hr","final_statement","new","Final Statement")
 } 
 
 export const do_exit_interview = (params) => {
@@ -447,7 +447,7 @@ export const do_exit_interview = (params) => {
         company: lite.user.company.name,
     }
     lite.session.set_session("clone_doc", value)
-    lite.utils.redirect("hr","exit_interview","new-form","exit interview")
+    lite.utils.redirect("hr","exit_interview","new","exit interview")
 }
 
 export const count_week_days = (startDate, endDate, holidays = [], remove_saturday=true, remove_sunday=true) => {
@@ -715,13 +715,13 @@ export const leave_date_validate = (params) => {
 export const allocate_leave = (params) => {
     let values = params.values
     lite.session.set_session("clone_doc", {leave_allocation_employees: [{employee: values.name}]})
-    lite.utils.redirect("hr","leave_allocation","new-form","Leave Allocation")
+    lite.utils.redirect("hr","leave_allocation","new","Leave Allocation")
 }
 
 export const create_employee_separation = (params) => {
     const values = params.values
     lite.session.set_session("clone_doc", {employee: values.name})
-    lite.utils.redirect("hr","employee_separation","new-form","employee separation")
+    lite.utils.redirect("hr","employee_separation","new","employee separation")
 }
 
 export const create_employee_promotion = (params) => {
@@ -752,7 +752,7 @@ export const create_employee_promotion = (params) => {
     delete values.earnings
     delete values.deductions
     lite.session.set_session("clone_doc", values)
-    lite.utils.redirect("hr","employee_promotion", "new-form", "Employee Promotion")
+    lite.utils.redirect("hr","employee_promotion", "new", "Employee Promotion")
 }
 
 
@@ -766,7 +766,7 @@ export const renew_contract = (params) => {
     values.name = values.name
     values.period = values.period
     lite.session.set_session("clone_doc", values)
-    lite.utils.redirect("hr","contract","new-form","Contract")
+    lite.utils.redirect("hr","contract","new","Contract")
 }
 
 
@@ -781,7 +781,7 @@ export const terminate_contract = async (params) =>  {
         company: lite.user.company.name,
     }
     lite.session.set_session("clone_doc", value)
-    lite.utils.redirect("hr","employee_separation","new-form","Employee Separation")
+    lite.utils.redirect("hr","employee_separation","new","Employee Separation")
 }
 export const appraisal_setup = (params) => {
     let values = params.values
@@ -789,7 +789,7 @@ export const appraisal_setup = (params) => {
     values.first_name = values.full_name
     values.department = values.department
     lite.session.set_session("clone_doc", {"appraisee": values.name})
-    lite.utils.redirect("hr","appraisal","new-form","Appraisal")
+    lite.utils.redirect("hr","appraisal","new","Appraisal")
 }
 
 export const create_interview = (params) => {
@@ -804,7 +804,7 @@ export const create_interview = (params) => {
     values.interviewer = values.interviewer
     
     lite.session.set_session("clone_doc", values)
-    lite.utils.redirect("hr","interview","new-form","Interview")
+    lite.utils.redirect("hr","interview","new","Interview")
 }
 
 export const open_case_outcome = async(params) => {
@@ -857,7 +857,7 @@ export const create_training_feedback = (params) => {
    
     
     lite.session.set_session("clone_doc", values)
-    lite.utils.redirect("hr","training_feedback","new-form","Training Feedback")
+    lite.utils.redirect("hr","training_feedback","new","Training Feedback")
 }
 
 
@@ -875,7 +875,7 @@ export const create_jobopening = (params) => {
     delete values.total_estimated
     
     lite.session.set_session("clone_doc", values)
-    lite.utils.redirect("hr","job_opening","new-form","Job_Advertisement")
+    lite.utils.redirect("hr","job_opening","new","Job_Advertisement")
 }
 
 export const consider_applicant = async (params) => {
@@ -907,7 +907,7 @@ export const create_job_offer = async (params) => {
     let values = params.values
     const data = {"interview": values.name, "applicant_name": values.applicant,"applicant_email": values.email,"designation": values.designation,}
     lite.session.set_session("clone_doc", data)
-    lite.utils.redirect("hr","job_offer","new-form","job offer")
+    lite.utils.redirect("hr","job_offer","new","job offer")
 }
 
 export const employee_date_validate = (params) => {
@@ -1126,7 +1126,7 @@ export const create_leave_allocation = (params) => {
     delete values.annual_allocation
 
     lite.session.set_session("clone_doc", values)
-    lite.utils.redirect("hr","leave_allocation","new-form","Leave Allocation")
+    lite.utils.redirect("hr","leave_allocation","new","Leave Allocation")
 }
 
 export const create_employee_files = (params) => {
@@ -1157,7 +1157,7 @@ export const create_employee_files = (params) => {
     delete values.deductions
    
     lite.session.set_session("clone_doc", values)
-    lite.utils.redirect("hr","employee_files","new-form","Employee Files")
+    lite.utils.redirect("hr","employee_files","new","Employee Files")
 }
 
 
@@ -1186,7 +1186,7 @@ export const create_training_event = (params) => {
     // Store the new Training Event document in the session
     lite.session.set_session("clone_doc", values);
     // Redirect to create a new form for the Training Event
-    lite.utils.redirect("hr", "training_event", "new-form", "Training Event");
+    lite.utils.redirect("hr", "training_event", "new", "Training Event");
 };
 
 
@@ -1412,7 +1412,7 @@ export const create_appointment_letter = (params) => {
     values.name = values.name
     const data = {name:values.name, }
     lite.session.set_session("clone_doc", data)
-    lite.utils.redirect("hr","appointment_letter","new-form","appointment letter")
+    lite.utils.redirect("hr","appointment_letter","new","appointment letter")
 }
 
 function leave_amount (days, working_days, basic_pay) {
@@ -1758,7 +1758,7 @@ export const get_tasks = async ({controller, value}) => {
     }
 }
 export const interview_rating_by_staff = async ({controller, value}) => {    
-    if(lite?.utils?.get_url_parameters("page") =="new-form"){        
+    if(lite?.utils?.get_url_parameters("page") =="new-form" || lite?.utils?.get_url_parameters("page") =="new"){        
         const loader_id = lite.alerts.loading_toast({title: `Processing Interview Rate`, message:"Please wait while Your submit your rating."})
         // const res = await lite.connect.x_post ("interview_rating", {emp: value})
         const interview =await lite?.connect?.get_doc("Interview", value)
@@ -1829,7 +1829,7 @@ export const company_skill_levy = async (params) => {
     const employees = await lite.connect.x_post('company_skill_levy', params.values); 
 
     if (employees.status == lite.status_codes.ok) {
-        if (page === "new-form") {
+        if (page === "new-form" || page === 'new') {
             const employee_data = employees.data?.data;
             console.log(employee_data);        
             controller.populate_child_table("skill_levy_entitled", employee_data || []);
@@ -1963,7 +1963,7 @@ export const schedule_interview = (params) => {
         applicant_email: values.applicant_email,
     }
     lite.session.set_session("clone_doc", data)
-    lite.utils.redirect("hr", "interview_schedule", "new-form", "interview_schedule")
+    lite.utils.redirect("hr", "interview_schedule", "new", "interview_schedule")
 }
 // export const get_designation_description = async (params) =>{
 //     const controller = params.form_controller
@@ -2219,7 +2219,7 @@ export const pull_exit_interview_questions = async (params) => {
     const fetch_exit_interview_questions = await lite?.connect?.get_doc("Exit_Interview_Question", lite?.user?.default_company || lite?.user?.company?.name)
     if(fetch_exit_interview_questions.status == lite.status_codes.ok){
         const exit_interview_questions =fetch_exit_interview_questions.data
-        if(lite?.utils?.get_url_parameters("page") =="new-form"){
+        if(lite?.utils?.get_url_parameters("page") =="new-form" || lite?.utils?.get_url_parameters("page") =="new"){
             controller?.populate_child_table("open_ended_questions", exit_interview_questions?.open_ended_questions || []);
             controller?.populate_child_table("closed_ended_questions", exit_interview_questions?.closed_ended_questions || []);
         }

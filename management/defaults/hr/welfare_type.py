@@ -1,8 +1,9 @@
 
-welfare_type ={ 
+welfare_type ={
+    # "model":"Welfare_Type",
     "data":[
         {
-            "name": "Medical Scheme",
+            "name": "Private Pension Scheme",
             "limit_unit": "Months",
             "limit_qty": 8,
             "company_percentage": 50,

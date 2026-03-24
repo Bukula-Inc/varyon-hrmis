@@ -27,7 +27,7 @@ def before_job_offer_submit(dbms, object):
     application = object.body
     link_to_appointment_letter =None
     mailing = Mailing(dbms=dbms,object=object)
-    tenant_url =dbms.host+f"web/job_offer/?module=web&app=web&page=info&content_type=job_offer_confirmation&doc={application.id}"
+    tenant_url =dbms.host+f"web/job_offer/?module=web&loc=web&type=info&document=job_offer_confirmation&doc={application.id}"
     tenant_data =dbms.validation
 
     download_controller =Print_Controller(request=tenant_data, model="Job_Offer", print_format="ECZ Job Offer Letter", doc=application.id)

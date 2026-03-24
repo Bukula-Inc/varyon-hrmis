@@ -24,8 +24,8 @@ export default class Listview_Controller {
         this.session = config.session
         this.lite_picker = config.lite_picker
         this.page_info = null
-        this.content_type = null
-        this.prev_content_type = null
+        this.document = null
+        this.prev_document = null
         this.listview = null
         this.list_height = null
         this.listview_columns = null
@@ -93,8 +93,8 @@ export default class Listview_Controller {
             $(".form-fields").empty()
             $(".audit-trail-wrapper, .preview-wrapper")?.remove()
             this.listview = {...listview}
-            this.page_info = this.session.get_page_session()
-            this.content_type = this.page_info?.content_type?.toLowerCase()
+            this.page_info = this.session.get_type_session()
+            this.document = this.page_info?.document?.toLowerCase()
             this.list_height = this?.listview?.setup.list_height || 400
             this.filters = {}
             this.default_filters = lite.utils.copy_object(this.listview?.default_filters) || null
@@ -138,7 +138,7 @@ export default class Listview_Controller {
                             this.$active_content_group = this.$content_groups?.find('.multi-content-group:not(.hidden)')
                     }
                     if (lite.utils.is_empty_array(this.$active_content_group)) {
-                        console.error(`LISTVIEW GENERATION ERROR: The config for ${this.content_type} is not properly setup!`)
+                        console.error(`LISTVIEW GENERATION ERROR: The config for ${this.document} is not properly setup!`)
                     }
                     else {
                         this.#map_default_functions()
@@ -147,7 +147,7 @@ export default class Listview_Controller {
                         this.#init_scroll_manager()
                     }
                 }
-                else { console.error(`LISTVIEW GENERATION ERROR: The config for ${this.content_type} is not properly setup!`) }
+                else { console.error(`LISTVIEW GENERATION ERROR: The config for ${this.document} is not properly setup!`) }
             }
             else { console.error("Page List View Configuration faild!") }
         }
@@ -197,7 +197,7 @@ export default class Listview_Controller {
 
     }
     #handle_filters_change(data, cls) {
-        if (lite.utils.lower_case(lite.utils.get_url_parameters("page")) == "list") {
+        if (lite.utils.lower_case(lite.utils.get_url_parameters("type")) == "list") {
             cls.old_filters = cls.filters
             let filts = {}
             filts[data.fieldname] = data.value
@@ -527,7 +527,7 @@ export default class Listview_Controller {
             const url_filters = lite.utils.get_url_parameters()
             if(lite.utils.object_has_data(url_filters)){
                 $.each(lite.utils.get_object_keys(url_filters),(_, k)=>{
-                    if(!["page", "list","content_type","doc","app"].includes(k) && url_filters[k]){
+                    if(!["type", "list","document","doc","loc"].includes(k) && url_filters[k]){
                         filters[k] = url_filters[k]
                     }
                 })

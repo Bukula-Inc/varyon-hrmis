@@ -7,11 +7,11 @@ controller = {
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "tenant_dashboard",
+                    "loc": "tenant_dashboard",
                     "title": "Dashboard",
                     "icon": "bar_chart_4_bars",
-                    "page_type": "dashboard",
-                    "content_type": "Dashboard",
+                    "type": "dashboard",
+                    "document": "Dashboard",
                     "child_items": []
                 }
             ]
@@ -22,61 +22,61 @@ controller = {
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "domain_controller",
+                    "loc": "domain_controller",
                     "title": "Domain Controller",
                     "icon": "brunch_dining",
-                    "page_type": "list",
-                    "content_type": "Domain Controller",
+                    "type": "list",
+                    "document": "Domain Controller",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "billing_config",
+                    "loc": "billing_config",
                     "title": "Billing Config",
                     "icon": "brunch_dining",
-                    "page_type": "list",
-                    "content_type": "Billing Config",
+                    "type": "list",
+                    "document": "Billing Config",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "module_group",
+                    "loc": "module_group",
                     "title": "Module Group",
                     "icon": "brunch_dining",
-                    "page_type": "list",
-                    "content_type": "Module Group",
+                    "type": "list",
+                    "document": "Module Group",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "module_pricing",
+                    "loc": "module_pricing",
                     "title": "Module Pricing",
                     "icon": "brunch_dining",
-                    "page_type": "list",
-                    "content_type": "Module Pricing",
+                    "type": "list",
+                    "document": "Module Pricing",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "license",
+                    "loc": "license",
                     "title": "License",
                     "icon": "brunch_dining",
-                    "page_type": "list",
-                    "content_type": "License",
+                    "type": "list",
+                    "document": "License",
                     "child_items": []
                 },
                 {
                     
                     "module": "controller",
-                    "app": "module",
+                    "loc": "module",
                     "title": "Modules",
                     "icon": "view_module",
-                    "page_type": "list",
-                    "content_type": "module",
+                    "type": "list",
+                    "document": "module",
                     "child_items": []
                 },
 
@@ -88,31 +88,31 @@ controller = {
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "tenant",
+                    "loc": "tenant",
                     "title": "Tenants",
                     "icon": "brunch_dining",
-                    "page_type": "list",
-                    "content_type": "Tenant",
+                    "type": "list",
+                    "document": "Tenant",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "subscription",
+                    "loc": "subscription",
                     "title": "Subscriptions",
                     "icon": "database",
-                    "page_type": "list",
-                    "content_type": "Subscription",
+                    "type": "list",
+                    "document": "Subscription",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "storage",
+                    "loc": "storage",
                     "title": "Storage",
                     "icon": "storage",
-                    "page_type": "list",
-                    "content_type": "Storage",
+                    "type": "list",
+                    "document": "Storage",
                     "child_items": []
                 },
             ]
@@ -123,21 +123,21 @@ controller = {
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "background_job",
+                    "loc": "background_job",
                     "title": "Background Job",
                     "icon": "brunch_dining",
-                    "page_type": "list",
-                    "content_type": "Background Job",
+                    "type": "list",
+                    "document": "Background Job",
                     "child_items": []
                 },
                 {
                     "display":1,
                     "module": "controller",
-                    "app": "background_job_results",
+                    "loc": "background_job_results",
                     "title": "Background Job Results",
                     "icon": "brunch_dining",
-                    "page_type": "list",
-                    "content_type": "Background Job Results",
+                    "type": "list",
+                    "document": "Background Job Results",
                     "child_items": []
                 }
             ]

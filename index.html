@@ -1,72 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-    <style>
-        .container {
-            width: 800px;
-            height: 600px;
-            border: 1px solid black;
-            padding: 10px;
-        }
-        .draggable {
-            width: 100px;
-            height: 100px;
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #d3d3d3;
-            border-radius: 10px;
-            background-color: #f0f0f0;
-            cursor: move;
-            float: left;
-            margin: 10px;
-        }
-        .droppable {
-            width: 200px;
-            height: 200px;
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #d3d3d3;
-            border-radius: 10px;
-            background-color: #cff;
-            float: left;
-            margin: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Onboarding Video Modal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <div id="draggable-1" class="draggable">Drag 1</div>
-        <div id="draggable-2" class="draggable">Drag 2</div>
-        <div id="draggable-3" class="draggable">Drag 3</div>
-        <div id="droppable-1" class="droppable">Drop 1</div>
-        <div id="droppable-2" class="droppable">Drop 2</div>
+
+<body class="bg-gray-200 min-h-screen flex items-center justify-center">
+
+<div class="relative w-full max-w-6xl h-[600px]">
+
+  <!-- LEFT PANEL -->
+  <div class="absolute left-0 top-0 bottom-0 w-[40%] bg-indigo-950 text-white rounded-3xl p-10 flex flex-col justify-between">
+
+    <div>
+      <h2 class="text-lg mb-10">Ξ3cket</h2>
+
+      <h1 class="text-4xl font-bold mb-6 leading-tight">
+        Let’s get <br> you started!
+      </h1>
+
+      <p class="text-gray-300 text-sm mb-8 max-w-sm">
+        Please fill in a few details so we can get back to you.
+      </p>
+
+      <!-- Tooltip Button -->
+      <div class="relative">
+        <div class="flex items-center gap-3 bg-indigo-900 px-5 py-3 rounded-xl w-max shadow-lg">
+          <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">▶</div>
+          <span class="text-sm">What happens when you send in these details?</span>
+        </div>
+
+        <!-- Arrow line -->
+        <div class="absolute left-1/2 top-full mt-6 w-20 h-20 border-l border-b border-gray-400 rounded-bl-full opacity-40"></div>
+      </div>
     </div>
 
-    <script>
-        $(function() {
-            console.log($.fn.draggable)
-            // Make elements draggable
-            $(".draggable").draggable({
-                revert: false
-            });
+    <div class="text-sm text-gray-400 space-y-2">
+      <p>Already have an account? <span class="text-white underline">Sign in</span></p>
+      <p class="text-indigo-300">Need help?</p>
+    </div>
+  </div>
 
-            // Make elements droppable
-            $(".droppable").droppable({
-                drop: function(event, ui) {
-                    var draggableId = ui.draggable.attr('id');
-                    var droppableId = $(this).attr('id');
-                    console.log(`Dropped ${draggableId} onto ${droppableId}`);
-                    $(ui.draggable).css({top: "", left: "", position: ""}).appendTo(this);
-                }
-            });
-        });
-    </script>
+
+  <!-- VIDEO MODAL -->
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[75%]">
+
+    <div class="bg-white rounded-3xl shadow-2xl p-4">
+
+      <!-- Video Container -->
+      <div class="relative rounded-2xl overflow-hidden">
+
+        <!-- Close Button -->
+        <button class="absolute top-4 right-4 text-white/80 hover:text-white text-xl z-10">
+          ✕
+        </button>
+
+        <!-- Video -->
+        <img 
+          src="https://images.unsplash.com/photo-1607746882042-944635dfe10e"
+          class="w-full h-[400px] object-cover"
+        />
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/10"></div>
+
+        <!-- Bottom Info -->
+        <div class="absolute bottom-4 left-4 text-white text-sm">
+          <p class="font-semibold">Jennifer Smith</p>
+          <p class="text-xs opacity-80">Head of Sales</p>
+        </div>
+
+        <!-- Subtitle -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-sm opacity-90">
+          We appreciate your interest in knowing more about 3cket
+        </div>
+
+        <!-- Play/Pause -->
+        <button class="absolute bottom-4 right-4 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center">
+          ❚❚
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
 </body>
 </html>
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora officiis eius culpa, laudantium dicta consequatur vitae repudiandae, optio magni hic accusantium voluptatum, numquam necessitatibus sapiente tempore? Adipisci laboriosam quas eligendi.

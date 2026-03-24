@@ -17,7 +17,7 @@ export default class Web{
         this.$mobile_menus_btn = $("#mobile-menus-btn")
         this.html_generator = new HTML_Builder()
         this.generator = new Web_HTML_Generator()
-        this.page = lite.utils.get_current_app()
+        this.type = lite.utils.get_current_loc()
         this.init_page()
         this.careers = new Careers ()
         this.integrations = new Integrations()
@@ -38,7 +38,7 @@ export default class Web{
             this.license = this.web_content.license
             this.currency = this.config.linked_fields?.billing_currency
         }   
-        switch (this.page) {
+        switch (this.type) {
             case "onboarding":
                 this.onboarding.init(this.web_content)
                 break;
@@ -62,12 +62,12 @@ export default class Web{
 
 
     init_nav_controller(){
-        let app = lite.utils.get_current_app()
+        let loc = lite.utils.get_current_loc()
         this.$active_menu_items?.addClass("hidden")
         // activate nav item
-        if(!app) app = "home"
-        $(`.nav-item-wrapper[item=${lite.utils.lower_case(app)}`).find(".active-menu-item").removeClass("hidden")
-        if(app !== "home"){
+        if(!loc) loc = "home"
+        $(`.nav-item-wrapper[item=${lite.utils.lower_case(loc)}`).find(".active-menu-item").removeClass("hidden")
+        if(loc !== "home"){
             $("nav").addClass("bg-default")
         }
         else{

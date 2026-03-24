@@ -11,7 +11,7 @@ export default class Budgeting_Dashboard_HTML_Generator{
         return `
             <div class="flex items-start justify-start overflow-hidden intro-y">
                 <span class="material-symbols-outlined text-17 mr-2 text-default"> trending_up </span>
-                <a href="/app/budgeting/budget_item?app=budget_item&page=info&content_type=budget%20item&doc=${data?.id}" class="hover:text-default overflow-ellipsis truncate">${data.name}</a>
+                <a href="/app/budgeting/budget_item?loc=budget_item&type=info&document=budget%20item&doc=${data?.id}" class="hover:text-default overflow-ellipsis truncate">${data.name}</a>
             </div>
         `
     }
@@ -19,7 +19,7 @@ export default class Budgeting_Dashboard_HTML_Generator{
         return `
             <div class="flex items-start justify-start overflow-hidden intro-y">
                 <span class="material-symbols-outlined text-17 mr-2 text-default"> trending_down </span>
-                <a href="/app/budgeting/budget_item?app=budget_item&page=info&content_type=budget%20item&doc=${data?.id}" class="hover:text-default overflow-ellipsis truncate">${data.name}</a>
+                <a href="/app/budgeting/budget_item?loc=budget_item&type=info&document=budget%20item&doc=${data?.id}" class="hover:text-default overflow-ellipsis truncate">${data.name}</a>
             </div>
         `
     }

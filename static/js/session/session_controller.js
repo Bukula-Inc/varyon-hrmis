@@ -24,12 +24,20 @@ class Session_Controller {
         return d
     }
 
+    get_type_session() {
+        return this.get_session("type")
+    }
+
     get_page_session() {
-        return this.get_session("page")
+        return this.get_type_session()
+    }
+
+    get_document_session() {
+        return this.get_session("type")?.document || null
     }
 
     get_page_content_type() {
-        return this.get_session("page")?.content_type || null
+        return this.get_document_session()
     }
 
     get_auth_session() {

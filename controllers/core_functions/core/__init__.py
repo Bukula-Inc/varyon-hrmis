@@ -126,7 +126,7 @@ class Core:
             if not main_role:
                 if usr.get("name") != tenant_admin.get("name"):
                     throw("Use does not have role assigned!")
-                return utils.respond(utils.ok, {"dashboard":"Staff", "url":"/app/staff/staff_dashboard?app=staff_dashboard&module=staff&page=dashboard&content_type=Dashboard"})
+                return utils.respond(utils.ok, {"dashboard":"Staff", "url":"/app/staff/staff_dashboard?loc=staff_dashboard&module=staff&type=dashboard&document=Dashboard"})
             role_data = self.dbms.get_doc("Role", main_role, privilege=True, fetch_linked_fields=True)
             role_data.get("status") == utils.ok or throw(f"Failed to get user role: {role_data.get('error_message')}")
             role = utils.from_dict_to_object(role_data.get("data"))
