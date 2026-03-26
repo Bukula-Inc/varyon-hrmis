@@ -71,13 +71,12 @@ class Data_Controller:
     def create_admin_user(self):
         tnt = utils.from_dict_to_object({
             "email": "admin1@varyon-hrmis.com",
-            "first_name":"Administrator",
             "password": "@skytech3varyon@2026",
             "doctype":"Lite_User",
             "name":"admin1@varyon-hrmis.com",
             "first_name":"Administrator",
-            "middle_name":"",
-            "last_name":"",
+            "middle_name":"Of",
+            "last_name":"Varyon",
             "contact_no":"",
             "gender":"",
             "is_superuser":True,
@@ -86,7 +85,7 @@ class Data_Controller:
             "user_permissions":"",
             "user_roles":"",
             "groups":"",
-            "main_role":"Super Admin"
+            "main_role":"HR Manager"
         })
         tnt.email = f"admin{self.tenant.id}@varyon-hrmis.com"
         tnt.name = tnt.email

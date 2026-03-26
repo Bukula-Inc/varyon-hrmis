@@ -4,7 +4,6 @@ tenant_admin = {
 	"password": "@skytech3varyon@2026",
 	"doctype":"Lite_User",
 	"name":"admin1@varyon.com",
-	"first_name":"Administrator",
 	"middle_name":"Of",
 	"last_name":"Varyon",
 	"contact_no":"",
