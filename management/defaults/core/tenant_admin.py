@@ -1,7 +1,7 @@
 tenant_admin = {
     "email": "admin1@varyon.com",
 	"first_name":"Administrator",
-	"password": "erpteam@varyon.com.",
+	"password": "@skytech3varyon@2026",
 	"doctype":"Lite_User",
 	"name":"admin1@varyon.com",
 	"first_name":"Administrator",

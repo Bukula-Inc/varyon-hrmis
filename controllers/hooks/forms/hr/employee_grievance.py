@@ -44,29 +44,6 @@ def on_submit_of_grievance (dbms, object):
         dsf['violation_date'] =grievance.grievance_date
 
 
-        # emp_displine =utils.from_dict_to_object({
-        #     # "company_id": null,
-        #     "issue_raiser_name": "Nor aa Ron",
-        #     "issue_raiser_reports_to": "euio esrdytfugui - 0014",
-        #     "subject_name": "euio wertyu esrdytfugui",
-        #     "subject_reports_to": "",
-        #     "date_of_warning": "2025-01-21",
-        #     "violation_date": "2025-01-21",
-        #     "violation_location": "office",
-        #     "description_of_violation": "<p>wetryiu</p>",
-        #     "subject_statement": "<p>awetryuiuiop</p>",
-        #     "owner": "admin1@startappsolutions.com",
-        #     "modified_by": null,
-        #     "status": "Draft",
-        #     "issue": "EMP-GRV-Nor aa Ron-0001",
-        #     "issue_raiser": "Nor Ron - 0026",
-        #     "issue_raiser_department": "Development",
-        #     "subject": "euio esrdytfugui - 0014",
-        #     "subject_department": "Development",
-        #     "violation_type": "Unfair treatment by supervisors or managers",
-        # })
-
-
 
         created = dbms.create ("Employee_Disciplinary", utils.from_dict_to_object(dsf), user_id=object.user)
         if created.status == utils.ok: 

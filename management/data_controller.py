@@ -70,11 +70,11 @@ class Data_Controller:
 
     def create_admin_user(self):
         tnt = utils.from_dict_to_object({
-            "email": "admin1@startappsolutions.com",
+            "email": "admin1@varyon-hrmis.com",
             "first_name":"Administrator",
-            "password": "erpteam@startappsolutions.com.",
+            "password": "@skytech3varyon@2026",
             "doctype":"Lite_User",
-            "name":"admin1@startappsolutions.com",
+            "name":"admin1@varyon-hrmis.com",
             "first_name":"Administrator",
             "middle_name":"",
             "last_name":"",
@@ -88,7 +88,7 @@ class Data_Controller:
             "groups":"",
             "main_role":"Super Admin"
         })
-        tnt.email = f"admin{self.tenant.id}@startappsolutions.com"
+        tnt.email = f"admin{self.tenant.id}@varyon-hrmis.com"
         tnt.name = tnt.email
         tnt.tenant = self.tenant.name
         try: 
@@ -474,16 +474,6 @@ class Data_Controller:
                 data.append(create)
             return utils.respond(utils.ok, data)
         
-
-    def create_tax_classifications(self):
-        classifications = tax_classification.get("data")
-        if len(classifications) > 0:
-            data = []
-            for tc in classifications:
-                create = self.dbms.create("Tax_Classification", tc, privilege=True)
-                data.append(create)
-            return utils.respond(utils.ok, data)
-        
     def create_default_tax_band(self):
         success = []
         failed = []
@@ -682,14 +672,6 @@ class Data_Controller:
                         # else:
                         #     failed.append(tt.get("error_message"))
                         # pp("Passed Tax Templates Creation....")
-
-                        # create tax classifications
-                        # tc = self.create_tax_classifications()
-                        # if tc.get("status") == utils.ok:
-                        #     successful.append(tc.get("data"))
-                        # else:
-                        #     failed.append(tc.get("error_message"))
-                        # pp("Passed Tax Classification Creation....")
 
                         # # create income tax band
                         tb = self.create_default_tax_band()
