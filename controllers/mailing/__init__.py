@@ -26,11 +26,10 @@ class Mailing:
         # ============================== to be updated later ===================
         # self.server_name = "mail.exams-council.org.zm"
         self.email_address = "info@varyon-hrmis.com"
-        self.server_name = "mail.varyon-hrmis.com"
+        self.server_name = "mail.privateemail.com"
         self.email_password = "Dev.25-erphrims"
         self.port_no = 587
 
-        
     def __get_email_config(self):
         email_config = self.dbms.get_doc("Email_Config", "Email Config", privilege=True)
         if email_config.status != utils.ok:
