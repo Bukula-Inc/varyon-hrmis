@@ -259,7 +259,7 @@ core =  {
                 {
                     "display":1,
                     "module": "core",
-                    "loc": "auth_trail/",
+                    "loc": "auth_trail",
                     "title": "Authentication Trail",
                     "icon": "trail_length",
                     "type": "report",

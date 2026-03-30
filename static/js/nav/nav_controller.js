@@ -6,6 +6,11 @@ export default class NavigationController {
             sublink: 'varyon_sublink'
         }
 
+        this.events = {
+            namespace: '.navigationController',
+            outsideNamespace: '.navigationControllerOutside'
+        }
+
         this.cache()
         this.restore()
     }
@@ -15,128 +20,204 @@ export default class NavigationController {
         this.$sidebar = $('[data-sidebar]')
         this.$collapse = $('[data-collapse-toggle]')
         this.$modules = $('[data-modules]')
-        this.$SearchWrapper = $('[data-search-wrapper]')
-        this.$searchPinnal = $('[data-search]')
+        this.$searchWrapper = $('[data-search-wrapper]')
+        this.$searchPanel = $('[data-search]')
+    }
+
+    refresh() {
+        this.cache()
+    }
+
+    getActiveClasses() {
+        return {
+            group: 'bg-default rounded-2xl shadow-[0_10px_30px_rgba(37,99,235,0.18)]',
+            toggle: 'font-semibold text-white',
+            sublink: 'font-semibold text-white translate-x-[-5px] bg-white/10 border-l-2 border-white'
+        }
     }
 
     restore() {
-        // Sidebar collapse
+        this.refresh()
+        this.restoreSidebar()
+        this.restoreAccordion()
+        this.restoreSublink()
+    }
+
+    restoreSidebar() {
         const collapsed = localStorage.getItem(this.keys.sidebar) === 'true'
         this.$sidebar.toggleClass('collapsed', collapsed)
+        this.$collapse.attr('aria-expanded', String(!collapsed))
+    }
 
-        // Restore accordion
+    restoreAccordion() {
         const accordion = localStorage.getItem(this.keys.accordion)
-        if (accordion) {
-            const $toggle = $(`[data-accordion-toggle][data-accordion="${accordion}"]`)
-            const $content = $toggle.next('.nav-sub')
-            $content.show()
-            $toggle.find('.chevron').addClass('rotate-180')
-            $toggle.closest('.nav-group').addClass('bg-default/10 rounded-md')
+        if (!accordion) {
+            return
         }
 
-        // Restore active sublink
-        const sublink = localStorage.getItem(this.keys.sublink)
-        if (sublink) {
-            const $link = $(`.sub-link[data-subroute="${sublink}"]`)
-            if ($link.length) {
-                $link.addClass('font-semibold text-default translate-x-[-5px]')
-                const $group = $link.closest('.nav-group')
-                $group.find('.nav-sub').show()
-                $group.find('.chevron').addClass('rotate-180')
-                $group.addClass('bg-default/10 rounded-md')
-            }
+        const $toggle = $(`[data-accordion-toggle][data-accordion="${accordion}"]`)
+        if (!$toggle.length) {
+            return
         }
+
+        this.openAccordion($toggle, false)
+    }
+
+    restoreSublink() {
+        const sublink = localStorage.getItem(this.keys.sublink)
+        if (!sublink) {
+            return
+        }
+
+        const $link = $(`.sub-link[data-subroute="${sublink}"]`)
+        if (!$link.length) {
+            return
+        }
+
+        this.activateSublink($link)
     }
 
     bind() {
-        // Sidebar collapse
-        this.$collapse.on('click', () => {
-            this.$sidebar.toggleClass('collapsed')
-            localStorage.setItem(this.keys.sidebar, this.$sidebar.hasClass('collapsed'))
+        this.refresh()
+
+        const ns = this.events.namespace
+        const outsideNs = this.events.outsideNamespace
+
+        this.$collapse.off(`click${ns}`).on(`click${ns}`, () => {
+            this.toggleSidebar()
         })
 
-        // Accordion toggle (delegated)
-        this.$doc.on('click', '[data-accordion-toggle]', e => {
-            e.preventDefault()
-            e.stopPropagation()
+        this.$doc.off(`click${ns}`, '[data-accordion-toggle]')
+            .on(`click${ns}`, '[data-accordion-toggle]', e => {
+                e.preventDefault()
+                e.stopPropagation()
 
-            const $toggle = $(e.currentTarget)
-            const $content = $toggle.next('.nav-sub')
-            const key = $toggle.data('accordion')
-            const isOpen = $content.is(':visible')
+                const $toggle = $(e.currentTarget)
+                this.toggleAccordion($toggle)
+            })
 
-            // Close all accordions
-            $('.nav-sub').slideUp(200)
-            $('.chevron').removeClass('rotate-180')
-            $('.nav-group').removeClass('bg-default/10 rounded-md')
-            localStorage.removeItem(this.keys.accordion)
+        this.$doc.off(`click${ns}`, '.sub-link')
+            .on(`click${ns}`, '.sub-link', e => {
+                const $link = $(e.currentTarget)
+                this.activateSublink($link)
+            })
 
-            // Open current if it was closed
-            if (!isOpen) {
-                $content.slideDown(200)
-                $toggle.find('.chevron').addClass('rotate-180')
-                $toggle.closest('.nav-group').addClass('bg-default/10 rounded-md')
-                localStorage.setItem(this.keys.accordion, key)
-            }
-        })
+        this.$doc.off(`click${ns}`, '[data-modules-toggle]')
+            .on(`click${ns}`, '[data-modules-toggle]', e => {
+                e.stopPropagation()
+                this.toggleModules()
+            })
 
-        // Sublink click (delegated)
-        this.$doc.on('click', '.sub-link', e => {
-            const $link = $(e.currentTarget)
+        this.$doc.off(`click${ns}`, '[data-search-btn]')
+            .on(`click${ns}`, '[data-search-btn]', e => {
+                e.stopPropagation()
+                this.toggleSearch()
+            })
 
-            // Remove all previous active
-            $('.sub-link').removeClass('font-semibold text-default translate-x-[-5px]')
+        this.$doc.off(`click${outsideNs}`)
+            .on(`click${outsideNs}`, e => {
+                const target = $(e.target)
 
-            // Set active
-            $link.addClass('font-semibold text-default translate-x-[-5px]')
+                if (this.shouldCloseModules(target)) {
+                    this.closeModules()
+                }
 
-            // Ensure parent accordion stays open
-            const $group = $link.closest('.nav-group')
-            $group.find('.nav-sub').show()
-            $group.find('.chevron').addClass('rotate-180')
-            $group.addClass('bg-default/10 rounded-md')
-
-            // Persist sublink and accordion
-            localStorage.setItem(this.keys.sublink, $link.data('subroute'))
-            const key = $group.find('[data-accordion-toggle]').data('accordion')
-            if (key) localStorage.setItem(this.keys.accordion, key)
-        })
-
-        // Modules toggle (delegated)
-        this.$doc.on('click', '[data-modules-toggle]', e => {
-            e.stopPropagation()
-            this.toggleModules()
-        })
-
-        // Search toggle (delegated)
-        this.$doc.on('click', '[data-search-btn]', e => {
-            e.stopPropagation()
-            this.toggleSearch()
-        })
-
-        // Close modules/search on outside click
-        this.$doc.on('click', e => {
-            const t = e.target
-
-            // Modules
-            if (this.$modules.length && !this.$modules.is(t) && !this.$modules.has(t).length &&
-                !$(t).is('[data-modules-toggle]')) {
-                this.closeModules()
-            }
-
-            // Search
-            if (this.$SearchWrapper.length && !this.$SearchWrapper.is(t) && !this.$SearchWrapper.has(t).length &&
-                !$(t).is('[data-search-btn]')) {
-                this.closeSearch()
-            }
-        })
+                if (this.shouldCloseSearch(target)) {
+                    this.closeSearch()
+                }
+            })
     }
 
-    // -------------------------
-    // Modules / Search
-    // -------------------------
+    toggleSidebar() {
+        this.$sidebar.toggleClass('collapsed')
+        const collapsed = this.$sidebar.hasClass('collapsed')
+        localStorage.setItem(this.keys.sidebar, collapsed)
+        this.$collapse.attr('aria-expanded', String(!collapsed))
+    }
+
+    toggleAccordion($toggle) {
+        const $content = $toggle.next('.nav-sub')
+        const key = $toggle.data('accordion')
+        const isOpen = $content.is(':visible')
+
+        this.closeAllAccordions()
+
+        if (!isOpen) {
+            this.openAccordion($toggle, true)
+            if (key) {
+                localStorage.setItem(this.keys.accordion, key)
+            }
+        } else {
+            localStorage.removeItem(this.keys.accordion)
+        }
+    }
+
+    closeAllAccordions() {
+        const activeClasses = this.getActiveClasses()
+        $('.nav-sub').stop(true, true).slideUp(180)
+        $('.chevron').removeClass('rotate-180')
+        $('.nav-group').removeClass(activeClasses.group)
+        $('.nav-toggle').removeClass(activeClasses.toggle)
+    }
+
+    openAccordion($toggle, animate = true) {
+        const activeClasses = this.getActiveClasses()
+        const $group = $toggle.closest('.nav-group')
+        const $content = $toggle.next('.nav-sub')
+
+        $group.addClass(activeClasses.group)
+        $toggle.addClass(activeClasses.toggle)
+        $toggle.find('.chevron').addClass('rotate-180')
+
+        if (animate) {
+            $content.stop(true, true).slideDown(180)
+        } else {
+            $content.show()
+        }
+    }
+
+    activateSublink($link) {
+        const activeClasses = this.getActiveClasses()
+        $('.sub-link').removeClass(activeClasses.sublink)
+
+        $link.addClass(activeClasses.sublink)
+
+        const $group = $link.closest('.nav-group')
+        const $toggle = $group.find('[data-accordion-toggle]').first()
+        const key = $toggle.data('accordion')
+
+        this.closeAllAccordions()
+        this.openAccordion($toggle, false)
+
+        localStorage.setItem(this.keys.sublink, $link.data('subroute'))
+        if (key) {
+            localStorage.setItem(this.keys.accordion, key)
+        }
+    }
+
+    shouldCloseModules($target) {
+        if (!this.$modules.length) {
+            return false
+        }
+
+        return !$target.closest('[data-modules], [data-modules-toggle]').length
+    }
+
+    shouldCloseSearch($target) {
+        if (!this.$searchWrapper.length && !this.$searchPanel.length) {
+            return false
+        }
+
+        return !$target.closest('[data-search-wrapper], [data-search], [data-search-btn]').length
+    }
+
     toggleModules() {
+        const willOpen = this.$modules.hasClass('hidden')
         this.$modules.toggleClass('hidden')
+
+        if (willOpen) {
+            this.closeSearch()
+        }
     }
 
     closeModules() {
@@ -144,10 +225,15 @@ export default class NavigationController {
     }
 
     toggleSearch() {
-        this.$searchPinnal.toggleClass('hidden')
+        const willOpen = this.$searchPanel.hasClass('hidden')
+        this.$searchPanel.toggleClass('hidden')
+
+        if (willOpen) {
+            this.closeModules()
+        }
     }
 
     closeSearch() {
-        this.$searchPinnal.addClass('hidden')
+        this.$searchPanel.addClass('hidden')
     }
 }

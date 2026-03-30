@@ -11,7 +11,7 @@ export default class Role{
     }
 
     async on_page_type_change(data,cls){
-        if(data.type === "new-form" || data.type === 'new'){
+        if(data.type === 'new'){
             cls.init_permissions(null)
         }
         if(data.type === "info"){

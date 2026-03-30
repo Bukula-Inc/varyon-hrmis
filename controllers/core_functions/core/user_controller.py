@@ -76,7 +76,7 @@ class User_Controller:
                     if menu_cards.status == utils.ok:
                         mcs = utils.array_to_dict(utils.extract_dict_fields_from_list(menu_cards.data.rows,["id","idx","name","module"]),"name")
                         if menu_card_items_data.status == utils.ok:
-                            mcs_items = utils.group(utils.extract_dict_fields_from_list(menu_card_items_data.data.rows,["id","idx","name","module","child_items","content_type","icon","page_type","title","app", "parent"]),"parent")
+                            mcs_items = utils.group(utils.extract_dict_fields_from_list(menu_card_items_data.data.rows,["id","idx","name","module","child_items","document","icon","type","title","loc", "parent"]),"parent")
                             for label, value in mcs.items():
                                 mcs[label].card_items = mcs_items.get(label,[])
                             role_content[self.module].menu_cards = mcs

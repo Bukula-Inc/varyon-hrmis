@@ -32,11 +32,20 @@ class Nav_Manager {
         return this.color_codes[Math.floor(Math.random() * this.color_codes.length)]
     }
 
+    get_nav_active_classes() {
+        return {
+            group: "bg-default rounded-2xl shadow-[0_10px_30px_rgba(37,99,235,0.18)]",
+            toggle: "font-semibold text-white",
+            sublink: "font-semibold text-white translate-x-[-5px] bg-white/10 border-l-2 border-white"
+        }
+    }
+
     // get the current module for the system
     get_current_module() {
         const url = window.location.pathname
         if (url) {
-            this.current_module = url?.split('/')[1]?.toLowerCase()
+            const cleaned = url?.split('/').filter(x => x !== '' && x !== undefined);
+            this.current_module = cleaned[1]?.toLowerCase()
         }
     }
     // remove all navigation content from the nav menu
@@ -71,6 +80,16 @@ class Nav_Manager {
         let $mdl = $('#mdl-lst')
         $mdl.empty ()
 
+        if (!lite?.utils?.array_has_data(lst)) {
+            $mdl.append(`
+                <div class="w-full min-h-[180px] rounded-xl border border-slate-200 bg-slate-50 p-6 flex flex-col items-center justify-center text-center text-slate-500">
+                    <span class="material-symbols-outlined text-[56px] leading-none text-slate-400">folder_off</span>
+                    <p class="mt-3 text-sm font-semibold text-slate-700">No modules linked to the user</p>
+                </div>
+            `)
+            return
+        }
+
         lst.forEach(mdl => {
             const icon = icons[mdl] ?? 'apps'
             const id = this.utils.unique()
@@ -94,19 +113,34 @@ class Nav_Manager {
 
     async populate_nav_menu() {
         const cls = this
-        let html = ''
         cls.clear_nav_menu_content()
         const allowed_content = await this.utils.delay_until(()=>{
-            if(lite.allowed_content){
+            if(lite?.allowed_content){
                 return lite.allowed_content
             }
         }, 50000)
-        
-        cls.load_module (lite.utils.get_object_keys (allowed_content))
-        const module_menus = lite?.allowed_content[lite?.utils?.get_current_module()]
-        if(!lite.utils.is_empty_object(module_menus)){
-            cls.load_anchors (module_menus)
+
+        const module_keys = Object.keys(allowed_content || {})
+
+        if (!module_keys.length) {
+            cls.load_module([])
+            $("#menu-cards-links").empty()
+            this.$spotlight.empty()
+            return
         }
+
+        cls.load_module(module_keys)
+        const current_module = this.utils.get_current_module()
+        const matched_module_key = module_keys.find(key => key?.toLowerCase() === current_module)
+        const active_module_key = matched_module_key || module_keys[0]
+        const module_menus = active_module_key ? allowed_content?.[active_module_key] : null
+
+        if (!this.utils.object_has_data(module_menus)) {
+            $("#menu-cards-links").empty()
+            this.$spotlight.empty()
+            return
+        }
+        cls.load_anchors(module_menus)
     }
 
     add_spotlight_url_component (item) {
@@ -171,23 +205,25 @@ class Nav_Manager {
                     const sub_links = this.add_nav_menu_url_component (card?.card_items || [])
                     const add_spotlight = this.add_spotlight_url_component (card?.card_items || [])
                     const color = this.generate_color ()
+                    const accordion_key = `${mdl_links?.module || 'core'}-${card?.name || idx}`
                     $mdl_cards += `
-                        <div class="nav-group w-full transition-all text-[${color.inner}] bg-[${color.base}]">
+                        <div class="nav-group w-full transition-all border border-transparent">
                             <button
-                                class="nav-toggle w-full flex items-center justify-between p-2 transition-all"
+                                class="nav-toggle w-full flex items-center justify-between rounded-2xl p-3 transition-all duration-200"
                                 data-accordion-toggle
+                                data-accordion="${accordion_key}"
                             >
                                 <div class="flex items-center gap-3 w-[90%]">
-                                    <span class="material-icons-outlined p-1 rounded-md">${card?.icon || 'folder'}</span>
-                                    <span class="label">${card?.name}</span>
+                                    <span class="material-icons-outlined p-2 rounded-xl bg-slate-100 text-slate-600">${card?.icon || 'folder'}</span>
+                                    <span class="label font-semibold">${card?.name}</span>
                                 </div>
 
-                                <span class="material-icons-outlined chevron transition-transform duration-300">
+                                <span class="material-icons-outlined chevron transition-transform duration-300 text-slate-400">
                                     expand_more
                                 </span>
                             </button>
 
-                            <div class="nav-sub hidden space-y-1 pl-4 mt-1">
+                            <div class="nav-sub hidden space-y-2 pl-3 mt-2">
                                 ${sub_links}
                             </div>
                         </div>
@@ -220,29 +256,30 @@ class Nav_Manager {
     }
     set_active_nav() {
         const currentUrl = window.location.pathname + window.location.search
+        const activeClasses = this.get_nav_active_classes()
+        let activeAccordionKey = null
+        let activeSubroute = null
 
-        $(".nav-group").removeClass("bg-default/10 rounded-md")
-        $(".nav-toggle").removeClass("font-semibold text-default")
+        $(".nav-group").removeClass(activeClasses.group)
+        $(".nav-toggle").removeClass(activeClasses.toggle)
         $(".nav-sub").addClass("hidden")
         $(".chevron").removeClass("rotate-180")
-        $(".sub-link").removeClass(
-            "font-semibold text-default translate-x-[-5px]"
-        )
+        $(".sub-link").removeClass(activeClasses.sublink)
 
         $(".sub-link").each(function () {
             const href = $(this).attr("href")
             if (!href) return
 
             if (currentUrl.includes(href)) {
-                $(this).addClass(
-                    "font-semibold text-default translate-x-[-5px]"
-                )
+                $(this).addClass(activeClasses.sublink)
+                activeSubroute = $(this).data("subroute") || href
 
                 const $group = $(this).closest(".nav-group")
 
-                $group.addClass("bg-default/10 rounded-md")
+                $group.addClass(activeClasses.group)
                 $group.find(".nav-toggle")
-                    .addClass("font-semibold text-default")
+                    .addClass(activeClasses.toggle)
+                activeAccordionKey = $group.find("[data-accordion-toggle]").data("accordion")
 
                 $group.find(".nav-sub")
                     .removeClass("hidden")
@@ -251,23 +288,30 @@ class Nav_Manager {
                     .addClass("rotate-180")
             }
         })
+
+        if (activeAccordionKey) {
+            localStorage.setItem(this.navController.keys.accordion, activeAccordionKey)
+        }
+
+        if (activeSubroute) {
+            localStorage.setItem(this.navController.keys.sublink, activeSubroute)
+        }
     }
 
     bind_nav_events() {
         const cls = this
+        const activeClasses = this.get_nav_active_classes()
 
         $(document).off("click", ".sub-link").on("click", ".sub-link", function () {
             cls.reset_nav_state()
 
-            $(this).addClass(
-                "font-semibold text-default translate-x-[-5px]"
-            )
+            $(this).addClass(activeClasses.sublink)
 
             const $group = $(this).closest(".nav-group")
 
-            $group.addClass("bg-default/10 rounded-md")
+            $group.addClass(activeClasses.group)
             $group.find(".nav-toggle")
-                .addClass("font-semibold text-default")
+                .addClass(activeClasses.toggle)
 
             $group.find(".nav-sub")
                 .removeClass("hidden")
@@ -279,33 +323,40 @@ class Nav_Manager {
         $(document).off("click", "[data-accordion-toggle]")
             .on("click", "[data-accordion-toggle]", function () {
                 const $group = $(this).closest(".nav-group")
+                const accordionKey = $(this).data("accordion")
+                const isOpening = $group.find(".nav-sub").hasClass("hidden")
 
                 $(".nav-group").not($group).each(function () {
                     $(this)
-                        .removeClass("bg-default/10 rounded-md")
+                        .removeClass(activeClasses.group)
                         .find(".nav-sub").addClass("hidden")
                         .end().find(".chevron").removeClass("rotate-180")
                         .end().find(".nav-toggle")
-                        .removeClass("font-semibold text-default")
+                        .removeClass(activeClasses.toggle)
                 })
 
-                $group.toggleClass("bg-default/10 rounded-md")
+                $group.toggleClass(activeClasses.group)
                 $group.find(".nav-sub").toggleClass("hidden")
                 $group.find(".chevron").toggleClass("rotate-180")
                 $group.find(".nav-toggle")
-                    .toggleClass("font-semibold text-default")
+                    .toggleClass(activeClasses.toggle)
+
+                if (isOpening && accordionKey) {
+                    localStorage.setItem(cls.navController.keys.accordion, accordionKey)
+                } else {
+                    localStorage.removeItem(cls.navController.keys.accordion)
+                }
             })
         this.navController.bind ()
     }
 
     reset_nav_state() {
-        $(".nav-group").removeClass("bg-default/10 rounded-md")
-        $(".nav-toggle").removeClass("font-semibold text-default")
+        const activeClasses = this.get_nav_active_classes()
+        $(".nav-group").removeClass(activeClasses.group)
+        $(".nav-toggle").removeClass(activeClasses.toggle)
         $(".nav-sub").addClass("hidden")
         $(".chevron").removeClass("rotate-180")
-        $(".sub-link").removeClass(
-            "font-semibold text-default translate-x-[-5px]"
-        )
+        $(".sub-link").removeClass(activeClasses.sublink)
     }
 
     getSortedHrList (data) {
@@ -330,7 +381,8 @@ class Nav_Manager {
 
                 links += `
                     <a id="${id}" href="/app${url?.trim()}"
-                        class="sub-link block text-13 transition duration-100 hover:translate-x-[-5px]">
+                        data-subroute="/app${url?.trim()}"
+                        class="sub-link block rounded-xl px-3 py-2 text-13 text-slate-white transition duration-150 hover:bg-white hover:text-slate-900 hover:translate-x-[-5px]">
                         ${itm.title}
                     </a>
                 `
@@ -479,9 +531,6 @@ class Nav_Manager {
 
     get_spotlight () {
         this.models = lite.utils.get_object_keys (lite?.allowed_content)
-        console.log(this.get_current_module (),'====================================');
-        // console.log(this.getSortedHrList (lite?.allowed_content[this.get_current_module ()]));
-        console.log('====================================');
     }
 
     goto_help(){

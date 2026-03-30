@@ -16,12 +16,12 @@ export default class Searcher{
 
     async init_searcher(){
         const allowed_content = await this.utils.delay_until(()=> {
-            if(!this.utils.array_has_data(lite))
+            if(lite?.allowed_content)
                 return lite.allowed_content
         },9000)
         this.$search_trigger?.attr("placeholder", `Search ${lite?.user?.company?.name} (Ctrl + K)`)
         const current_module = lite.utils.get_current_module()
-        const content = allowed_content[current_module]
+        const content = allowed_content?.[current_module]
         if(lite.utils.object_has_data(content)){
             this.$search_module_filters.empty()
             this.$search_results.empty()
@@ -59,4 +59,3 @@ export default class Searcher{
     }
 
 }
-
